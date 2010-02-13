@@ -3,4 +3,3 @@
 source $HOME/.rvm/scripts/rvm
 
 rvm 1.9.1-p378%rvm-site
-rvm gems load rvm-site.gems

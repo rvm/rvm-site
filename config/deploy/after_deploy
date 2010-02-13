@@ -1,5 +1,9 @@
 #!/usr/bin/env bash
 
+source $HOME/.rvm/scripts/rvm
+
 cd $HOME/current/
+
+rvm gems load rvm-site.gems
 
 nanoc3 co --verbose
