@@ -1,0 +1,62 @@
+!!!
+%html
+  %head
+    %title
+      rvm: Ruby Version Manager -
+      = @item[:title]
+    %link{ :href => "/css/screen.css", :rel => "stylesheet", :type => "text/css", :media => "screen" }
+    %meta{ :content => "text/html; charset=UTF-8", "http-equiv" => "Content-Type" }
+
+  %body
+    %a{ :href => "http://github.com/wayneeseguin/rvm" }
+      %img{ :src => "http://s3.amazonaws.com/github/ribbons/forkme_right_red_aa0000.png", :alt => "Fork me on GitHub", :style => "position: absolute; top: 0; right: 0; border: 0;" }
+
+    #header
+      %a{ :name => "header" }
+      .title
+        %a{ :href => "/" }
+          rvm
+      .tagline
+        Ruby Version Manager
+
+    %table.header
+      %thead
+        %tr
+          %th Donate
+          %th Recommend
+          %th IRC
+          %th Sponsors
+      %tbody
+        %tr
+          %td
+            %p
+              %a{ :href => "http://www.pledgie.com/campaigns/7067" }
+                %img{ :src => "http://www.pledgie.com/campaigns/7067.png?skin_name=chrome", :border => "0", :alt => "Click here to lend your support to: rvm and make a donation at www.pledgie.com !" }
+              Love rvm?
+              A donation would help justify to my family why I spend so much time working on Open Source projects like rvm ;)
+          %td
+            %p
+              If you like my work with rvm, please recommend me on *with a comment as to why you recommend me* on
+              %a{ :href => "http://www.workingwithrails.com/recommendation/for/person/7192-wayne-e-seguin" }
+                Working With Rails
+              Thank You!!!
+          %td
+            %p
+              I hang out on
+              %a{ :href => "http://webchat.freenode.net/?channels=rvm" }
+                irc.freenode.net#rvm
+              My nick is 'wayneeseguin'.
+              If I do not respond right away, leave a message I respond when I get back on.
+          %td
+            %p
+              %a{:href => "http://www.blueboxgrp.com/"}
+                %img{:src => "/images/bbg_logo.png", :alt => "Blue Box Group, LLC"}
+
+    #content
+      %a{ :name => "top" }
+      = yield
+      %a{ :name => "bottom" }
+
+    #footer
+      .center
+        Copyright &copy; >= 2009 Wayne E. Seguin

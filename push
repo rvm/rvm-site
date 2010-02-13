@@ -1,0 +1,8 @@
+#!/bin/bash
+
+#sass content/assets/css/bp.sass > output/bp.css
+#sass content/assets/css/style.sass > output/style.css
+
+#nanoc3 co --verbose && rsync -avgz output/ bre@beginrescueend.com:rvm/public/
+nanoc3 co --verbose && rsync -avgz output/ rvm@db0-bbg:current/public/
+

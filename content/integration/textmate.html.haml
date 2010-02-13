@@ -1,0 +1,60 @@
+%h2 TextMate
+
+%p First be sure your textmate is latest version
+
+%p
+  Next run the following script to make sure that your textmate bundles are up to date
+  %pre
+    :preserve
+      #!/usr/bin/env bash
+
+      mkdir -p /Library/Application\ Support/TextMate/
+
+      sudo chown -R $(whoami) /Library/Application\ Support/TextMate
+
+      cd /Library/Application\ Support/TextMate/
+
+      if [[ -d Bundles/.svn ]] ; then
+        cd Bundles && svn up
+      else
+        if [[ -d Bundles ]] ; then
+          mv Bundles Bundles.old
+        fi
+        svn co http://svn.textmate.org/trunk/Bundles
+      fi
+
+      exit 0
+
+%p
+  Then in your shell, select an rvm ruby as a textmate ruby
+  %pre
+    :preserve
+      ∴ rvm 1.9.1 --symlink textmate
+
+%p
+  Following that, set TM_RUBY to /Users/wayne/.rvm/bin/textmate_ruby in:
+
+  %pre
+    :preserve
+      Textmate | Preferences | Advanced | Shell Variables
+
+  section as per this skitch:
+  %a{:href => "http://skitch.com/wayneeseguin/nw34t/rvm-textmate-ruby"}
+    http://skitch.com/wayneeseguin/nw34t/rvm-textmate-ruby
+
+%p
+  Now quit textmate and re-open it for bundles and TM_RUBY settings to take effect.
+
+%p
+  You can now test if it is working by following these steps
+  %ol
+    %li Open a new document
+    %li
+      Put this code in the new document
+      %pre
+        :preserve
+          puts RUBY_DESCRIPTION
+
+    %li Save the file as 'ruby_test.rb'
+    %li Press Command + R to run the ruby
+  If you see something like this "ruby 1.9.1p378 (2010-01-10 revision 26273) [i386-darwin10.2.0]" most importantly the 'ruby 1.9.1' part then it is working as expected.

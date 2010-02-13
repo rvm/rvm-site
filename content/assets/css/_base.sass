@@ -1,0 +1,103 @@
+@media screen["\n  code\n    color: orangered\n\n    & :link,\n      & code\n        & :visited\n          color: inherit\n"]
+
+
+pre
+  margin-left: 2em
+  white-space: pre-wrap
+
+
+h2
+  margin: 3em 0 1em 0
+
+
+h3
+  margin: 2.5em 0 1em 0
+
+
+h4
+  margin: 2.5em 0 0.75em 0
+
+
+h5, h6
+  margin: 2.5em 0 1em
+
+
+h1 + h2
+  margin: 0.75em 0 0.75em
+
+  + h2
+    margin: 0.75em 0 0.75em
+
+
+h2 + h3, h3 + h4, h4 + h5, h5 + h6
+  margin-top: 0.5em
+
+
+p
+  margin: 1em 0
+
+
+hr:not(.top)
+  display: block
+  background: none
+  border: none
+  padding: 0
+  margin: 2em 0
+  height: auto
+
+
+dl, dd
+  margin-top: 0
+  margin-bottom: 0
+
+
+dt
+  margin-top: 0.75em
+  margin-bottom: 0.25em
+  clear: left
+
+  + dt
+    margin-top: 0
+
+
+dd
+  dt
+    margin-top: 0.25em
+    margin-bottom: 0
+
+  p
+    margin-top: 0
+
+  dl + p, table + p
+    margin-top: 1em
+
+
+p + * > li, dd li
+  margin: 1em 0
+
+
+dt, dfn
+  font-weight: bold
+  font-style: normal
+
+
+dt dfn
+  font-style: italic
+
+
+pre, code
+  font-size: inherit
+  font-family: monospace
+  font-variant: normal
+
+
+pre
+  strong
+    color: black
+    font: inherit
+    font-weight: bold
+    background: yellow
+
+  em
+    font-weight: bolder
+    font-style: normal

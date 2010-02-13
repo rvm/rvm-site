@@ -1,0 +1,58 @@
+%h1
+  Installing Rubies
+
+%p
+  Official ruby interpreter releases that are supported by rvm can be installed using any of the below methods.
+
+%h2 Patch Levels
+%p
+  Installing specific ruby
+  %a{ :href => "/patchlevels/" }
+    patchlevels
+
+%h2
+  Repository Revisions (MRI)
+%p
+  Installing specific ruby repository
+  %a{ :href => "/revisions/" }
+    revisions
+
+%h2 Tags (MRI)
+%p
+  Installing specific ruby
+  %a{ :href => "/tags/" }
+    tags
+
+%h2 Custom Patches (MRI)
+%p
+  Installing specific rubies with custom
+  %a{ :href => "/patches/" }
+    patches
+
+%h2 Getting Head
+%p
+  Getting the head/trunk version of rubies is very simple.
+  For any interpreter which has head support simply prefix -head after the interpreter.
+%pre.code
+  :preserve
+    ∴ rvm install ree-head
+    ∴ rvm use ree-head
+%p
+  Note that as of this writing 1.9.2 has no repository branch and thus "1.9.1-head" IS "1.9.2-head".
+
+%h1 Install on Use
+%p
+  If you would like rvm to automatically install a ruby when you use it simply add the flag to your rvmrc file:
+%pre.code
+  :preserve
+    ∴ cat $HOME/.rvmrc
+    rvm_install_on_use_flag=1
+
+%h1 Compile Flags
+%p
+  If you need to pass compile flags for the compile process you can simply set the corresponding environment variables.
+  For example with ruby 1.9.1 to enable gdb:
+%pre.code
+  :preserve
+    ∴ optflags="-O0 -ggdb" rvm install 1.9.1
+
