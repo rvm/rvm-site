@@ -1,4 +1,16 @@
-%h2 Bundler
+.breadcrumbs
+  %a{ :href => "/" }
+    Documentation
+  &nbsp;>&nbsp;
+  %a{ :href => "/integration/" }
+    Integration
+  &nbsp;>&nbsp;
+  %a{ :href => "/jruby/" }
+    JRuby
+  %hr
+
+%h2
+  Bundler
 
 %p
-  Use bundler version >= 0.9.4, bundle your gems to the system environment and let rvm handle the GEM_* settings for you.
+  rvm 0.1.14+ supports bundler 0.9.6+. Earlier versions of either may cause unpredictable behavior when used together.
