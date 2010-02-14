@@ -7,3 +7,7 @@ cd $HOME/current/
 rvm gems load rvm-site.gems
 
 nanoc3 co --verbose
+
+rsync -avgz content/assets/images/ public/images/
+rsync -avgz content/assets/pdf/ public/pdf/
+
