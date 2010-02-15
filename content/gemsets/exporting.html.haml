@@ -1,0 +1,43 @@
+.breadcrumbs
+  %a{ :href => "/" }
+    Documentation
+  &nbsp;>&nbsp;
+  %a{ :href => "/gemsets/" }
+    Gemsets
+  &nbsp;>&nbsp;
+  %a{ :href => "/gemsets/export/" }
+    Exporting Gemsets
+  %hr
+
+%h2
+  Managing gem sets
+%p
+  We can not only use completely separate gem sets per application/project/etc... we can also export and load them easily.
+
+%p
+  To export a gem set easily, assuming a project called 'albinochipmunk' running on Ruby 1.9.1:
+%pre.code
+  :preserve
+    ∴ rvm 1.9.1%albinochipmunk export
+%p
+  will create an 'albinochipmunk.gems' file.
+
+%p
+  Alternatively, if you already have a ruby selected
+%pre.code
+  :preserve
+    rvm gems export
+%p
+  will create a 'default.gems' file.
+
+%p
+  You can specify the gemset filename prefix also
+%pre.code
+  :preserve
+    rvm gems export albinochipmunk.gems
+
+%p
+  A subtle difference with the above command is to leave off the '.gems' which will export the gems for the gemset named 'mygemsetname'
+%pre.code
+  :preserve
+    rvm gems export albinochipmunk

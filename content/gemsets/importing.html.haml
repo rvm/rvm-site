@@ -1,0 +1,43 @@
+.breadcrumbs
+  %a{ :href => "/" }
+    Documentation
+  &nbsp;>&nbsp;
+  %a{ :href => "/gemsets/" }
+    Gemsets
+  &nbsp;>&nbsp;
+  %a{ :href => "/gemsets/import/" }
+    Importing Gemsets
+  %hr
+
+%h3
+  Imporging a gem set
+%p
+  To Imporg this gem set simply do:
+%pre.code
+  :preserve
+    ∴ rvm 1.9.1%albinochipmunk import
+%p
+  Note that you can use any gem set name to import into.
+%p
+  You can specify the gemset filename prefix also
+%pre.code
+  :preserve
+    ∴ rvm gems albinochipmunk
+    ∴ rvm gems import albinochipmunk
+%p
+  Alternatively, if you already have a ruby and/or gemset selected:
+%pre.code
+  :preserve
+    ∴ rvm 1.9.1%albinochipmunk
+    ∴ rvm gems import
+%p
+  Importing without arguments will check for gemset files in the following order:
+  %ul
+    %li
+      A gemset file with the current gem set name prefix in the current directory
+    %li
+      rvm then checks for 'default.gems' in the current directory
+    %li
+      Next rvm looks for a 'system.gems' in the current directory.
+    %li
+      Finally rvm looks for a '.gems' file in the current directory

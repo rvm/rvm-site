@@ -1,0 +1,23 @@
+.breadcrumbs
+  %a{ :href => "/" }
+    Documentation
+  &nbsp;>&nbsp;
+  %a{ :href => "/gemsets/" }
+    Gemsets
+  &nbsp;>&nbsp;
+  %a{ :href => "/gemsets/emptying/" }
+    Emptying Gemsets
+  %hr
+
+%p
+  You can empty a gem set, this will prompt you if you are sure you wish to empty the gemset.
+  This removes all gems installed to the gemset.
+%pre.code
+  :preserve
+    ∴ rvm gems albinochipmunk ; rvm gems empty albinochipmunk
+
+%p
+  If you wish to not be prompted, pass --force:
+%pre.code
+  :preserve
+    ∴ rvm gems albinochipmunk ; rvm --force gems empty albinochipmunk"

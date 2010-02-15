@@ -1,0 +1,20 @@
+.breadcrumbs
+  %a{ :href => "/" }
+    Documentation
+  &nbsp;>&nbsp;
+  %a{ :href => "/gemsets/" }
+    Gemsets
+  &nbsp;>&nbsp;
+  %a{ :href => "/gemsets/global/" }
+    Global
+  %hr
+
+%a{ :name => "global" }
+%h2
+  Interpreter global gem sets
+%p
+  rvm provides (>= 0.1.8) a %global gem set per interpreter.
+%p
+  Gems that are installed to the per-interpreter %global gemset are available to all other gemsets for that interpreter.
+%p
+  This is a good way to allow all of your projects to share the same installed gem for a specific ruby interpreter installation.

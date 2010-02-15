@@ -5,8 +5,8 @@
   %a{ :href => "/rubies/" }
     Rubies
   &nbsp;>&nbsp;
-  %a{ :href => "/about/" }
-    About
+  %a{ :href => "/rubies/install/" }
+    Installing
   %hr
 
 %h1
@@ -44,10 +44,11 @@
 %p
   Getting the head/trunk version of rubies is very simple.
   For any interpreter which has head support simply prefix -head after the interpreter.
+  To get the latest development trunk for ruby:
 %pre.code
   :preserve
-    ∴ rvm install ree-head
-    ∴ rvm use ree-head
+    ∴ rvm install ruby-head
+    ∴ rvm use ruby-head
 %p
   Note that as of this writing 1.9.2 has no repository branch and thus "1.9.1-head" IS "1.9.2-head".
 
@@ -59,11 +60,19 @@
     ∴ cat $HOME/.rvmrc
     rvm_install_on_use_flag=1
 
+%h1 Configure flags
+%p
+  Configure script flags can be passed by a comma separated list with no spaces after -C like so:
+%pre.code
+  :preserve
+    ∴ rvm install 1.9.1 -C --enable-shared,--with-readline-dir=$HOME/.rvm/usr
+
 %h1 Compile Flags
 %p
   If you need to pass compile flags for the compile process you can simply set the corresponding environment variables.
-  For example with ruby 1.9.1 to enable gdb:
+%p
+  As an example, to enable gdb for ruby 1.9.1:
 %pre.code
   :preserve
-    ∴ optflags="-O0 -ggdb" rvm install 1.9.1
+    ∴ export optflags="-O0 -ggdb" rvm install 1.9.1
 

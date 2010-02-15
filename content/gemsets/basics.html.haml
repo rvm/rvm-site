@@ -1,0 +1,81 @@
+.breadcrumbs
+  %a{ :href => "/" }
+    Documentation
+  &nbsp;>&nbsp;
+  %a{ :href => "/gemsets/" }
+    Gemsets
+  &nbsp;>&nbsp;
+  %a{ :href => "/gemsets/basics/" }
+    Basics
+  %hr
+
+%h1
+  Named Gem Sets
+%p
+  rvm gives you compartmentalized independent ruby setups.
+  This means that ruby, gems, irb are all separate and self contained from system and from each other.
+%p
+  You may even have separate named gem sets.
+%p
+  Let's say, for example, that you are testing two versions of a gem with ruby 1.9.1.
+  you can install one to the default 1.9.1 and you can create a named gem set for the other version and switch between them easily.
+%h3
+  Example: testing gems
+%pre.code
+  :preserve
+    rvm 1.9.1%testing
+%p
+  will use a '1.9.1%testing' gems dir, whereas:
+%pre.code
+  :preserve
+    rvm 1.9.1
+%p
+  use the normal 1.9.1 gems dir :)
+%h3
+  Example: Rails versions & upgrading apps
+%p
+  To illustrate the point let's talk about a common use case. Let us assume that we are testing out a rails application in order to upgrade it to the latest Rails from a previous version.  rvm makes such testing very easy as it lets you quickly switch between multiple rails versions. First let us set up the environments.
+%pre.code
+  :preserve
+    rvm 1.9.1
+    gem install rails # 2.3.3
+
+    rvm 1.9.1%rails222
+    gem install rails -v 2.2.2
+
+    rvm 1.8.7%rails126
+    gem install rails -v 1.2.6
+
+    rvm 1.8.7
+    gem install rails -v 1.2.3
+%p
+  Note that above on each ruby installs you can have a completely separate versions!
+  Now that our environments are setup switching between rails versions and ruby versions is quite simple:
+%pre.code
+  :preserve
+    ∴ rvm 1.8.7%rails126 ; rails --version
+
+    Rails 1.2.6
+
+    ∴ rvm 1.8.7 ; rails --version
+
+    Rails 1.2.3
+
+    ∴ rvm 1.9.1%rails220 ; rails --version
+
+    Rails 2.2.0
+
+    ∴ rvm 1.9.1 ; rails --version
+
+    Rails 2.3.3
+%h2
+  Warning!!!
+%p
+  * rvm gives you a separate gem directory for each and every ruby version and gem set.*
+  What this means is that gems will have to explicitly installed for each revision and gem set.
+  rvm provides you with a simple way to manage this process, see the
+  'rvm gem'
+  page.
+%p
+  Although I recommend against using it, if you are sure you can use 'rvm gemdup default' and 'rvm gemdup system' to clone user default gems and system gems respectively.
+  Unless of course I decide to remove this feature as I am not convinced it is worthwile :)

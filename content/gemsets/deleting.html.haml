@@ -1,0 +1,22 @@
+.breadcrumbs
+  %a{ :href => "/" }
+    Documentation
+  &nbsp;>&nbsp;
+  %a{ :href => "/gemsets/" }
+    Gemsets
+  &nbsp;>&nbsp;
+  %a{ :href => "/gemsets/deleting/" }
+    Deleting Gemsets
+  %hr
+
+%p
+  You can delete a gem set, this will prompt you if you are sure you wish to delete the gemset.
+%pre.code
+  :preserve
+    ∴ rvm gems albinochipmunk ; rvm gems delete albinochipmunk
+
+%p
+  If you wish to not be prompted, pass --force:
+%pre.code
+  :preserve
+    ∴ rvm gems albinochipmunk ; rvm --force gems delete albinochipmunk"
