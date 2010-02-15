@@ -14,11 +14,13 @@
   There are 3 types of rvmrc files, system user and project.
   They are discussed in detail below.
 
+%a{:name => "#system"}
 %h2 System /etc/rvmrc
 %p
   The system rvmrc file is loaded before rvm initializes and before the user's ~/.rvmrc.
   \/etc/rvmrc settings are applied to all users on the system.
 
+%a{:name => "#user"}
 %h2 User $HOME/.rvmrc
 %p
   The users rvmrc file overwrites settings in /etc/rvmrc and is loaded before rvm initializes.
@@ -56,6 +58,7 @@
 %p
   More examples may be found in ~/.rvm/examples/rvmrc.
 
+%a{:name => "#project"}
 %h2 Project .rvmrc
 %p
   The project .rvmrc file is different than the system & user. System & user rvmrc files are meant for altering the settings and behavior of rvm.
