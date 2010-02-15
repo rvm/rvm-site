@@ -5,8 +5,29 @@
   %a{ :href => "/interpreters/" }
     Interpreters
   &nbsp;>&nbsp;
-  %a{ :href => "/ironruby/" }
+  %a{ :href => "/interpreters/ironruby/" }
     IronRuby
   %hr
 
 
+%h1
+  IronRuby
+%p
+  IronRuby is a ruby interpreter built on top of the .NET CLR.
+  It also runs on top of the Mono framework (open source CLR).
+
+%h3
+  Website
+%p
+  %a{:href => "http://www.ironruby.net/"}
+    http://www.ironruby.net/
+
+%h3
+  Installing
+
+%pre.code
+  :preserve
+    ∴ rvm install ironruby
+
+%p
+  Please note that this requires Mono framework to be installed properly.
