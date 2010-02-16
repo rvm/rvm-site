@@ -1,0 +1,35 @@
+.breadcrumbs
+  %a{ :href => "/" }
+    Documentation
+  &nbsp;>&nbsp;
+  %a{ :href => "/rvm/" }
+    rvm
+  &nbsp;>&nbsp;
+  %a{ :href => "/rvm/prerequisites/" }
+    Prerequisites
+  %hr
+
+%h1 RVM Prerequisites
+
+%p
+  RVM uses the following standard *nix tools, some are builtin to bash:
+%ul
+  %li bash (>= 3.2)
+  %li awk
+  %li sed
+  %li grep
+  %li which
+  %li ls
+  %li cp
+  %li tar
+  %li curl
+  %li gunzip
+  %li bunzip2
+%p
+  Additionally the following libraries are required.
+%ul
+  %li git (for updating rvm itself, and for installing '-head' versions of rubies)
+  %li subversion (for installing '-head' rubies)
+
+%p
+  If you intend on using rvm in Zsh, be sure to have zsh >= 4.3.5 in addition to the above requirements.
