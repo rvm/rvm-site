@@ -1,0 +1,32 @@
+%a{ :name => "specs" }
+.breadcrumbs
+  %a{ :href => "/" }
+    Documentation
+  &nbsp;>&nbsp;
+  %a{ :href => "/set/" }
+    Set
+  &nbsp;>&nbsp;
+  %a{ :href => "/set/tests/" }
+    Tests
+  %hr
+
+%h1
+  Testing with RVM
+%p
+  rvm allows you to run tests across multiple ruby versions:
+%pre
+  %pre.code
+    :preserve
+      \~/projects/ruby/coulda [git:master] ∴ rvm 1.8.6,1.9.1 rake test
+%h3
+  JSON Summary
+%p
+  Along with 'rvm
+  %selectors
+    rake X' you can add the --json flag prior to the word 'tests' and a JSON summary will be printed out at the end of the run.
+%h3
+  YAML Summary
+%p
+  Along with 'rvm
+  %selectors
+    rake X' you can add the --yaml flag prior to the word 'tests' and a YAML summary will be printed out at the end of the run.

@@ -5,8 +5,8 @@
   %a{ :href => "/rvm/" }
     rvm
   &nbsp;>&nbsp;
-  %a{ :href => "/rvm/install/" }
-    Installation
+  %a{ :href => "/rvm/user_install/" }
+    User Installation
   %hr
 
 %a{ :name => "install" }
@@ -26,9 +26,6 @@
 %pre.code
   :preserve
     mkdir -p ~/.rvm/src/ && cd ~/.rvm/src && rm -rf ./rvm/ && git clone http://github.com/wayneeseguin/rvm.git && cd rvm && ./install
-%h3
-  Installation Video (removed due to stupidity on my part).
-- # '<object width="425" height="344"><param name="movie" value="http://www.youtube.com/v/CbOVinkiK9E&hl=en&fs=1"></param><param name="allowFullScreen" value="true"></param><param name="allowscriptaccess" value="always"></param><embed src="http://www.youtube.com/v/CbOVinkiK9E&hl=en&fs=1" type="application/x-shockwave-flash" allowscriptaccess="always" allowfullscreen="true" width="425" height="344"></embed></object>'
 
 %h2
   2. Installing from a source tarball

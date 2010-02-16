@@ -1,3 +1,4 @@
+%a{ :name => "specs" }
 .breadcrumbs
   %a{ :href => "/" }
     Documentation
@@ -5,18 +6,18 @@
   %a{ :href => "/set/" }
     Set
   &nbsp;>&nbsp;
-  %a{ :href => "/set/rake/" }
-    Rake
+  %a{ :href => "/set/specs/" }
+    Specs
   %hr
 
 %h1
-  Raking with RVM
+  Spec'ing with RVM
 %p
   rvm allows you to run rake tasks across multiple ruby versions:
 %pre
   %pre.code
     :preserve
-      \~/projects/ruby/extlib [git:master] ∴ rvm 1.8.6,1.9.1 rake spec
+      \~/projects/ruby/extlib [git:master] ∴ rvm 1.8.6,1.9.1 specs
 
       ruby-1.8.6-p383: ruby 1.8.6 (2009-08-04 patchlevel 383) [i686-darwin10.0.0]
       (in /Users/wayne/projects/ruby/extlib)
@@ -49,10 +50,10 @@
 %p
   Along with 'rvm
   %selectors
-    rake X' you can add the --json flag prior to the word 'rake' and a JSON summary will be printed out at the end of the run.
+    rake X' you can add the --json flag prior to the word 'specs' and a JSON summary will be printed out at the end of the run.
 %h3
   YAML Summary
 %p
   Along with 'rvm
   %selectors
-    rake X' you can add the --yaml flag prior to the word 'rake' and a YAML summary will be printed out at the end of the run.
+    rake X' you can add the --yaml flag prior to the word 'specs' and a YAML summary will be printed out at the end of the run.
