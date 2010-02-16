@@ -15,7 +15,7 @@
 
 %p
   Next run the following script to make sure that your textmate bundles are up to date
-  %pre
+  %pre.code
     :preserve
       #!/usr/bin/env bash
 
@@ -38,17 +38,18 @@
 
 %p
   Then in your shell, select an rvm ruby as a textmate ruby
-  %pre
+  %pre.code
     :preserve
       ∴ rvm 1.9.1 --symlink textmate
 
 %p
   Following that, set TM_RUBY to /Users/wayne/.rvm/bin/textmate_ruby in:
 
-  %pre
+  %pre.code
     :preserve
       Textmate | Preferences | Advanced | Shell Variables
 
+%p
   section as per this skitch:
   %a{:href => "http://skitch.com/wayneeseguin/nw34t/rvm-textmate-ruby"}
     http://skitch.com/wayneeseguin/nw34t/rvm-textmate-ruby
@@ -62,10 +63,17 @@
     %li Open a new document
     %li
       Put this code in the new document
-      %pre
+      %pre.code
         :preserve
           puts RUBY_DESCRIPTION
 
     %li Save the file as 'ruby_test.rb'
     %li Press Command + R to run the ruby
   If you see something like this "ruby 1.9.1p378 (2010-01-10 revision 26273) [i386-darwin10.2.0]" most importantly the 'ruby 1.9.1' part then it is working as expected.
+
+%p
+  When you wish to switch out ruby versions simply rerun the symlink command with the proper version:
+  %pre.code
+    :preserve
+      ∴ rvm rbx --symlink textmate
+

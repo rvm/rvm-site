@@ -19,10 +19,9 @@
   for more details on using sets of gems.
 %h1
   %strong
-    DO NOT use sudo
-  to...
+    DO NOT use sudo...
 %p
-  work with rvm gems.
+  to work with rvm gems.
   When you do sudo you are running commands as root, another user in another shell and hence all of the setup that rvm has done for you is ignored while the command runs under sudo (such things as GEM_HOME, etc...).
   So to reiterate, as soon as you 'sudo' you are running as the root system user which will clear out your environment as well as any files it creates are not able to be modified by your user and will result in strange things happening.
   (You will start to think that someone has a vodoo doll of your application...)
