@@ -1,0 +1,31 @@
+.breadcrumbs
+  %a{ :href => "/" }
+    Documentation
+  &nbsp;>&nbsp;
+  %a{ :href => "/workflow/" }
+    Workflow
+  &nbsp;>&nbsp;
+  %a{ :href => "/workflow/rvmrc/" }
+    proxy
+  %hr
+
+%h1
+  RVM behind a proxy
+%p
+  There are a few ways to use rvm from behind a proxy.
+
+%h2
+  \--proxy
+%p
+  You can pass the proxy sever to use directly to rvm:
+%pre.code
+  :preserve
+    rvm install X --proxy $domain_or_ip:$port
+%h2
+  Using CURL
+%p
+  Set the proxy inside your ~/.curlrc:
+%pre.code
+  :preserve
+    proxy = example.proxy_name.com:80
+
