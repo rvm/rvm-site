@@ -9,7 +9,23 @@
 body
   background: #FFFFFF url(/images/bottom-gradient.gif) repeat-x fixed center bottom
   margin: 1em
-
+  line-height: 1.4em
+  
+  .shadow
+    -webkit-box-shadow: 2px 2px 2px rgba(0,0,0,0.2)
+    -moz-box-shadow: 2px 2px 2px rgba(0,0,0,0.2)
+  .roundcorners
+    -moz-border-radius: 10px
+    -webkit-border-radius: 10px  
+  .clear
+    clear: both
+  .center
+    margin-left: auto 
+    margin-right: auto
+  .box
+    margin-top: 1em
+    padding: 0.8em
+  /* Not used */
   .container
     margin: 4em auto
     width: auto
@@ -20,14 +36,14 @@ body
     /* 871E05
     color: maroon
     &:hover
-      text-decoration: underline
+      text-decoration: none
       color: blue
     img
       border: none
 
-  #header
-    background: url("/images/ruby.png") no-repeat 10px 10px
-    height: 120px
+  #background
+    background: #fff url("/images/ruby.png") no-repeat 10px 10px
+    width: 80%
     padding-bottom: 0.5em
     clear: both
     div
@@ -38,51 +54,80 @@ body
         color: #871E05
         font-weight: bold
         font-size: 600%
-
       &.tagline
-        margin-left: 150px
+        margin-left: 133px
         font-size: 120%
         line-height: 1em
+    
+    table.header
+      background: #eee
+      margin-top: 2em
+      width: 100%
+      font-size: small
+      thead
+        tr
+          th
+            text-shadow: 1px 1px 1px #fff
+            text-transform: uppercase
+            letter-spacing: 0em
+            width: 20%
+            color: maroon
+            padding: 0
+      tbody
+        tr
+          td
+            width: 25%
+            vertical-align: top
+            text-align: justify
+            padding-right: 1em
+            padding-left: 0.8em
+            p
+              font-size: 0.9em
+              color: #555
+              line-height: 1.5em
+              padding: 0em
+              a
+                img
+                  float: right
+                  padding: 0
+                  padding-bottom: 0.5em
+                  padding-left: 1em    
+        
+    #content
+      color: #555
+      margin-left: 2em
+      clear: both
+      padding: 1em
+      p
+        padding: 5px
+      pre.code
+        border: 1px solid maroon
+        padding: 0.75em
+        overflow: auto
 
-
-  table.header
-    width: 95%
-    border: none
-    border-collapse: collapse
-    border-top: 1px solid maroon
-    border-bottom: 1px dotted maroon
-    font-size: small
-    thead
-      tr
-        border-bottom: 1px solid maroon
-        th
-          width: 20%
-          color: maroon
-    tbody
-      tr
-        td
-          width: 20%
-          vertical-align: top
-          text-align: justify
-          p
-            padding: 0.5em
-            a
-              img
-                float: right
-                padding: 0
-                padding-bottom: 1em
-                padding-left: 1em
-  #content
-    clear: both
-    padding: 1em
-    p
-      padding: 5px
-    pre.code
-      border: 1px solid maroon
-      padding: 0.75em
-      overflow: auto
-
-  #footer
-    clear: both
-
-
+    #index
+      background-color: #eee
+      color: #555
+      height: 450px
+      .headline
+        font-size: small
+        font-weight: bold
+        text-shadow: 1px 1px 1px #fff
+        color: maroon
+      .column
+        width: 22%
+        float: left
+        margin-right: 1em
+      ul
+        font-size: 0.7em
+        list-style-type: none
+        margin: 0
+        a
+          color: gray
+      li
+        margin-left: 0.5em
+        margin-top: -0.3em
+  
+    #footer
+      margin-top: 1em
+      text-align: center
