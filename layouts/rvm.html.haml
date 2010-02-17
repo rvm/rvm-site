@@ -8,17 +8,17 @@
     %meta{ :content => "text/html; charset=UTF-8", "http-equiv" => "Content-Type" }
 
   %body
-    %a{ :href => "http://github.com/wayneeseguin/rvm" }
-      %img{ :src => "http://s3.amazonaws.com/github/ribbons/forkme_right_red_aa0000.png", :alt => "Fork me on GitHub", :style => "position: absolute; top: 0; right: 0; border: 0;" }
-    
-    #background.shadow.box.center.roundcorners                
+
+    #background.shadow.box.center.roundcorners.relative
+      %a{ :href => "http://github.com/wayneeseguin/rvm" }
+        %img{ :src => "http://s3.amazonaws.com/github/ribbons/forkme_right_red_aa0000.png", :alt => "Fork me on GitHub", :style => "position: absolute; top: 0; right: 0; border: 0;" }
       %a{ :name => "header" }
       .title
         %a{ :href => "/" }
           rvm
       .tagline
         Ruby Version Manager
-      
+
       %table.header.center.roundcorners
         %thead
           %tr
@@ -42,7 +42,7 @@
                 Thank You!!!
             %td
               %p
-                I hang out on 
+                I hang out on
                 %a{ :href => "http://webchat.freenode.net/?channels=rvm" }
                   irc.freenode.net#rvm
                 My nick is 'wayneeseguin'.
@@ -51,16 +51,16 @@
               %p
                 %a{:href => "http://www.blueboxgrp.com/"}
                   %img{:src => "/images/bbg_logo.png", :alt => "Blue Box Group, LLC"}
-              
+
       #content.center.roundcorners.box
         %a{ :name => "top" }
         = yield
         %a{ :name => "bottom" }
-        
+
       #index.center.roundcorners.box
         .headline
           Documentation Index
-        .column 
+        .column
           %a{:href => "/rvm/"} rvm
           %ul
             %li
@@ -122,8 +122,6 @@
               %a{:href => "/gemsets/importing/"} Importing (loading)
             %li
               %a{:href => "/gemsets/global/"} Global
-            %li
-              %a{:href => "/integration/passenger/"} Passenger
         .column
           %a{:href => "/set/"} Set Actions
           %ul
@@ -171,7 +169,7 @@
             %li
               %a{:href => "/integration/netbeans/"} Netbeans
 
-        .column  
+        .column
           %a{:href => "/support/"} Help & Support
           %ul
             %li
@@ -200,8 +198,7 @@
               %a{:href => "/credits/contributions/"} Contributions
             %li
               %a{:href => "/credits/donations/"} Donations
-            
-              
-              
+
+
       #footer
         Copyright &copy; >= 2009 Wayne E. Seguin
