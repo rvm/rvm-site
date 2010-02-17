@@ -53,7 +53,9 @@
                   %img{:src => "/images/bbg_logo.png", :alt => "Blue Box Group, LLC"}
               
       #content.center.roundcorners.box
-        =yield
+        %a{ :name => "top" }
+        = yield
+        %a{ :name => "bottom" }
         
       #index.center.roundcorners.box
         .headline
@@ -192,7 +194,6 @@
             %li
               %a{:href => "/development/debugging/"} Debugging
 
-<<<<<<< HEAD
           %a{:href => "/credits/"} Credits
           %ul
             %li
@@ -204,57 +205,3 @@
               
       #footer
         Copyright &copy; >= 2009 Wayne E. Seguin
-    
-=======
-    %table.header
-      %thead
-        %tr
-          %th Donate
-          %th Recommend
-          %th IRC
-          %th Sponsors
-      %tbody
-        %tr
-          %td
-            %p
-              %a{ :href => "http://www.pledgie.com/campaigns/7067" }
-                %img{ :src => "http://www.pledgie.com/campaigns/7067.png?skin_name=chrome", :border => "0", :alt => "Click here to lend your support to: rvm and make a donation at www.pledgie.com !" }
-              Love rvm?
-              A donation would help justify to my family why I spend so much time working on Open Source projects like rvm ;)
-          %td
-            %p
-              If you like my work with rvm, please recommend me on *with a comment as to why you recommend me* on
-              %a{ :href => "http://www.workingwithrails.com/recommendation/for/person/7192-wayne-e-seguin" }
-                Working With Rails
-              Thank You!!!
-          %td
-            %p
-              I hang out on
-              %a{ :href => "http://webchat.freenode.net/?channels=rvm" }
-                irc.freenode.net#rvm
-              My nick is 'wayneeseguin'.
-              If I do not respond right away, leave a message I respond when I get back on.
-          %td
-            %p
-              %a{:href => "http://www.blueboxgrp.com/"}
-                %img{:src => "/images/bbg_logo.png", :alt => "Blue Box Group, LLC"}
-
-    #content
-      %a{ :name => "top" }
-      = yield
-      %a{ :name => "bottom" }
-
-    #footer
-      .text-center
-        Copyright &copy; >= 2009 Wayne E. Seguin
-        %br
-        %br
-        Hosting donated by
-        %br
-        %br
-        %a{:href => "http://www.blueboxgrp.com/"}
-          %img{:src => "/images/bbg_logo.png", :alt => "Blue Box Group, LLC"}
-        %br
-        .font-small
-          (Did you notice how insanely fast the site loads compared to others??? w00t!!!)
->>>>>>> 74429865948396a361716070d1dd2b7909bdb0a3
