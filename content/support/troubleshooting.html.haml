@@ -26,6 +26,22 @@
     %li
       Be sure to be using either bash or zsh, rvm (latest versions preferred) is untested at best in other shells.
 
+%a{:href => "#", :name => "segfault"}
+%h2
+  Segfaults
+%p
+  If you see segfaults in 1.8.7 and 1.9.1, perhaps 'spec_fetcher.rb' or some other library this is a known bug for both ruby versions.
+  Please see the ruby-lang.org issue for details:
+  %a{:href => "http://redmine.ruby-lang.org/issues/show/2597"}
+    http://redmine.ruby-lang.org/issues/show/2597
+  If you downgrade to 'rvm install 1.8.7-p174' for now the issue had not been introduced at that point.
+  You can set '1.8.7-p174' as the default patchlevel for now in ~/.rvm/config/user which overrides rvm's defaults.
+
+  Simply set:
+  %pre.code
+    :preserve
+      ruby_1.8.7_patch_level=174
+
 %a{:href => "#", :name => "mysql"}
 %h2
   MySQL
