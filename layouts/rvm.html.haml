@@ -10,53 +10,197 @@
   %body
     %a{ :href => "http://github.com/wayneeseguin/rvm" }
       %img{ :src => "http://s3.amazonaws.com/github/ribbons/forkme_right_red_aa0000.png", :alt => "Fork me on GitHub", :style => "position: absolute; top: 0; right: 0; border: 0;" }
-
-    #header
+    
+    #background.shadow.box.center.roundcorners                
       %a{ :name => "header" }
       .title
         %a{ :href => "/" }
           rvm
       .tagline
         Ruby Version Manager
+      
+      %table.header.center.roundcorners
+        %thead
+          %tr
+            %th Donate
+            %th Recommend
+            %th IRC
+            %th Sponsors
+        %tbody
+          %tr
+            %td
+              %p
+                %a{ :href => "http://www.pledgie.com/campaigns/7067" }
+                  %img{ :src => "http://www.pledgie.com/campaigns/7067.png?skin_name=chrome", :border => "0", :alt => "Click here to lend your support to: rvm and make a donation at www.pledgie.com !" }
+                Love rvm?
+                A donation would help justify to my family why I spend so much time working on Open Source projects like rvm ;)
+            %td
+              %p
+                If you like my work with rvm, please recommend me on *with a comment as to why you recommend me* on
+                %a{ :href => "http://www.workingwithrails.com/recommendation/for/person/7192-wayne-e-seguin" }
+                  Working With Rails
+                Thank You!!!
+            %td
+              %p
+                I hang out on 
+                %a{ :href => "http://webchat.freenode.net/?channels=rvm" }
+                  irc.freenode.net#rvm
+                My nick is 'wayneeseguin'.
+                If I do not respond right away, leave a message I respond when I get back on.
+            %td
+              %p
+                %a{:href => "http://www.blueboxgrp.com/"}
+                  %img{:src => "/images/bbg_logo.png", :alt => "Blue Box Group, LLC"}
+              
+      #content.center.roundcorners.box
+        =yield
+        
+      #index.center.roundcorners.box
+        .headline
+          Documentation Index
+        .column 
+          %a{:href => "/rvm/"} rvm
+          %ul
+            %li
+              %a{:href => "/rvm/basics/"} Basics
+            %li
+              %a{:href => "/rvm/prerequisites/"} Prerequisites
+            %li
+              %a{:href => "/rvm/install/"} Installation
+            %li
+              %a{:href => "/rvm/upgrading/"} Upgrading
+            %li
+              %a{:href => "/rvm/cli/"} CLI
+            %li
+              %a{:href => "/rvm/about/"} About
 
-    %table.header
-      %thead
-        %tr
-          %th Donate
-          %th Recommend
-          %th IRC
-          %th Sponsors
-      %tbody
-        %tr
-          %td
-            %p
-              %a{ :href => "http://www.pledgie.com/campaigns/7067" }
-                %img{ :src => "http://www.pledgie.com/campaigns/7067.png?skin_name=chrome", :border => "0", :alt => "Click here to lend your support to: rvm and make a donation at www.pledgie.com !" }
-              Love rvm?
-              A donation would help justify to my family why I spend so much time working on Open Source projects like rvm ;)
-          %td
-            %p
-              If you like my work with rvm, please recommend me on *with a comment as to why you recommend me* on
-              %a{ :href => "http://www.workingwithrails.com/recommendation/for/person/7192-wayne-e-seguin" }
-                Working With Rails
-              Thank You!!!
-          %td
-            %p
-              I hang out on
-              %a{ :href => "http://webchat.freenode.net/?channels=rvm" }
-                irc.freenode.net#rvm
-              My nick is 'wayneeseguin'.
-              If I do not respond right away, leave a message I respond when I get back on.
-          %td
-            %p
-              %a{:href => "http://www.blueboxgrp.com/"}
-                %img{:src => "/images/bbg_logo.png", :alt => "Blue Box Group, LLC"}
+          %a{:href => "/interpreters/"} Interpreters
+          %ul
+            %li
+              %a{:href => "/interpreters/ruby/"} MRI/YARV (ruby)
+            %li
+              %a{:href => "/interpreters/rbx/"} Rubinius (rbx)
+            %li
+              %a{:href => "/interpreters/jruby/"} JRuby (jruby)
+            %li
+              %a{:href => "/interpreters/ree/"} Ruby Enterprise Edition (ree)
+            %li
+              %a{:href => "/interpreters/maglev/"} MagLev (maglev)
+            %li
+              %a{:href => "/interpreters/ironruby/"} IronRuby (ironruby)
+            %li
+              %a{:href => "/interpreters/macruby/"} MacRuby (macruby)
+            %li
+              %a{:href => "/interpreters/mput/"} URABE Shyouhei´s Ruby (mput)
+        .column
+          %a{:href => "/rubies/"} Rubies
+          %ul
+            %li
+              %a{:href => "/rubies/installing/"} Installing Rubies
+            %li
+              %a{:href => "/rubies/default/"} Setting Default interpreter
+            %li
+              %a{:href => "/rubies/rubygems/"} RubyGems
 
-    #content
-      %a{ :name => "top" }
-      = yield
-      %a{ :name => "bottom" }
+          %a{:href => "/gemsets/"} gemsets
+          %ul
+            %li
+              %a{:href => "/gemsets/basics/"} Basics
+            %li
+              %a{:href => "/gemsets/using/"} Using
+            %li
+              %a{:href => "/gemsets/listing/"} Listing
+            %li
+              %a{:href => "/gemsets/deleting/"} Deleting
+            %li
+              %a{:href => "/gemsets/emptying/"} Emptying
+            %li
+              %a{:href => "/gemsets/exporting/"} Exporting (dumping)
+            %li
+              %a{:href => "/gemsets/importing/"} Importing (loading)
+            %li
+              %a{:href => "/gemsets/global/"} Global
+            %li
+              %a{:href => "/integration/passenger/"} Passenger
+        .column
+          %a{:href => "/set/"} Set Actions
+          %ul
+            %li
+              %a{:href => "/set/ruby/"} ruby
+            %li
+              %a{:href => "/set/rake/"} rake
+            %li
+              %a{:href => "/set/gem/"} gem
+            %li
+              %a{:href => "/set/monitor/"} monitor
+            %li
+              %a{:href => "/set/tests/"} tests
+            %li
+              %a{:href => "/set/specs/"} specs
+            %li
+              %a{:href => "/set/benchmark/"} benchmark
 
-    #footer
-      .center
+          %a{:href => "/workflow/"} Workflow
+          %ul
+            %li
+              %a{:href => "/workflow/rvmrc/"} rvmrc
+            %li
+              %a{:href => "/workflow/prompt/"} Prompt
+            %li
+              %a{:href => "/workflow/hooks/"} Hooks
+            %li
+              %a{:href => "/workflow/subshells/"} Subshells
+            %li
+              %a{:href => "/workflow/examples/"} Examples
+
+
+          %a{:href => "/integration/"} Integration
+          %ul
+            %li
+              %a{:href => "/integration/databases/"} Databases
+            %li
+              %a{:href => "/integration/zsh/"} Zsh
+            %li
+              %a{:href => "/integration/bundler/"} Bundler
+            %li
+              %a{:href => "/integration/passenger/"} Passenger
+            %li
+              %a{:href => "/integration/textmate/"} Textmate
+            %li
+              %a{:href => "/integration/netbeans/"} Netbeans
+
+        .column  
+          %a{:href => "/support/"} Help & Support
+          %ul
+            %li
+              %a{:href => "/support/faq/"} FAQ & Notes
+            %li
+              %a{:href => "/support/troubleshooting/"} Troubleshooting
+            %li
+              %a{:href => "/support/irc/"} IRC
+
+          %a{:href => "/development/"} Development
+          %ul
+            %li
+              %a{:href => "/development/list"} Mailing List
+            %li
+              %a{:href => "/development/github/"} Git (GitHub)
+            %li
+              %a{:href => "/development/tracker/"} Pivotal Tracker Project
+            %li
+              %a{:href => "/development/contributing/"} Contributing
+            %li
+              %a{:href => "/development/debugging/"} Debugging
+
+          %a{:href => "/credits/"} Credits
+          %ul
+            %li
+              %a{:href => "/credits/contributions/"} Contributions
+            %li
+              %a{:href => "/credits/donations/"} Donations
+            
+              
+              
+      #footer
         Copyright &copy; >= 2009 Wayne E. Seguin
+    
