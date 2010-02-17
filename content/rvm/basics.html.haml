@@ -3,7 +3,7 @@
     Documentation
   &nbsp;>&nbsp;
   %a{ :href => "/rvm/" }
-    rvm
+    RVM
   &nbsp;>&nbsp;
   %a{ :href => "/rvm/basics/" }
     Basics
@@ -12,30 +12,21 @@
 %p
   Use
   %em
-    %a{ :href => "/" }
-      rvm
+    %a{ :href => "/rvm/" }
+      RVM
   \.
   Easy installation and switching between available Ruby versions and runtimes, without messing up your current Ruby install!
-  rvm also allows you to use multiple versions of ruby in separate terminals concurrently!
+  RVM also allows you to use multiple versions of ruby in separate terminals concurrently!
   %p
     %h3
       Getting started
 
     %p
+      First
       %a{:href => "/rvm/install"} Install rvm
-    %pre.code
-      :preserve
-        mkdir -p ~/.rvm/src/ && cd ~/.rvm/src && rm -rf ./rvm/ && git clone git://github.com/wayneeseguin/rvm.git && cd rvm && ./install
-
 
     %p
-      Alternatively you can call it manually:
-    %pre.code
-      :preserve
-        ∴ ~/.gem/ruby/1.8/bin/rvm-install
-        (rvm installs :) )
-    %p
-      Open a new shell and rvm!
+      Then open a new shell and start using RVM!
     %pre.code
       :preserve
         ∴ rvm install 1.9.1 ; rvm 1.9.1
@@ -46,12 +37,14 @@
 
         ∴ which ruby
 
-        \/home/wayne/.rvm/ruby-1.9.1-p243/bin/ruby
+        /home/wayne/.rvm/ruby-1.9.1-p243/bin/ruby
+
     %h3
       Reverting to system default is simple as well!
+
     %pre.code
       :preserve
-        ∴ rvm default
+        ∴ rvm system
 
         ∴ ruby -v
 
@@ -62,7 +55,11 @@
         /usr/bin/ruby
     %p
       \&larr; See more details on the rest of the site, especially checkout the
-      %a{ :href => "/examples/" }
+      %a{ :href => "/workflow/examples/" }
         Examples
       \.
 
+  %p
+    Remember this is on a per-shell basis unless you
+    %a{:href => "/rubies/default/"}
+      set a default
