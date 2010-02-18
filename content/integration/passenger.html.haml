@@ -32,7 +32,7 @@
     gem install passenger
     rvmsudo passenger-install-nginx-module
 %p
-  Or if you prefer the tomahawk,
+  Or if you are forced to use the tomahawk,
 %pre.code
   :preserve
     rvmsudo passenger-install-apache2-module
@@ -40,7 +40,7 @@
 %h3
   Configure the Web Server
 %p
-  For Nginx users,
+  For Nginx users
 
 %pre.code
   :preserve
@@ -50,7 +50,10 @@
 
 %pre.code
   :preserve
-    PassengerRuby /home/wayne/.rvm/bin/passenger_ruby;
+    PassengerRuby /home/wayne/.rvm/bin/passenger_ruby
+
+%pre.note
+  Note: Be sure to change '/home/wayne' to your own $HOME directory,
 %p
   The '.rvm/bin/passenger_ruby' is actually what is known as a 'wrapper script' which sets up the environment for the passenger so that it can find it's gems, etc... and then exec's the actual ruby bnary.
 
