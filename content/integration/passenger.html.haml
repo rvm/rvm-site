@@ -15,44 +15,62 @@
 %p
   rvm will allow you to use any of it's MRI/YARV rubies with passenger very easily.
 
-%h3
-  The easy way
+%h1
+  Passenger with RVM
 %pre.code
   :preserve
-    rvm 1.9.1 --passenger
+    rvm ree --passenger
 %p
   Then simply point your passenger ruby to:
 %pre.code
   :preserve
-    ~/.rvm/bin/passenger_ruby
 %p
   which will point to the correct 1.9.1 wrapper script, w00t! :)
-
 %h3
-  The Manual Way
-%p
-  Let us say that we have used a custom rvm installed ruby-1.9.1-p243.
-  To use this ruby under Passenger with Nginx simply substitute '/home/wayne/' with your own ~/ and 'ruby-1.9.1-p243' with your particular ruby string.
+  Install Passenger
 %pre.code
   :preserve
-    passenger_ruby /home/wayne/.rvm/bin/ruby-1.9.1-p243;
+    rvm ree
+    gem install passenger
+    rvmsudo passenger-install-nginx-module
+%p
+  Or if you prefer the tomahawk:
+  :preserve
+    rvmsudo passenger-install-apache2-module
+
+%h3
+  Configure Web Server
+%p
+  For Nginx users,
+
+%pre.code
+  :preserve
+    passenger_ruby /home/wayne/.rvm/bin/passenger_ruby;
+%p
+  For tomahawk chuckers,
+%pre.code
+  :preserve
+    PassengerRuby /home/wayne/.rvm/bin/passenger_ruby;
+%p
+  The '.rvm/bin/passenger_ruby' is actually what is known as a 'wrapper script' which sets up the environment for the passenger so that it can find it's gems, etc... and then exec's the actual ruby bnary.
+
+%h2
+  Troubleshooting
+%ul
+  %li
+    The most common issue is forgetting the /bin/ part of the path to get the proper wrapper script:
+
+%pre.code
+  :preserve
+    passenger_ruby /home/wayne/.rvm/bin/passenger)ruby;
     * NOTICE THE '.rvm/bin' DIR  ^ ^ ^
     * do NOT use the actual ruby binary in .rvm/ruby-1.9.1-p243/bin/ruby
     * do not listen to passenger's output for passenger_ruby as passenger is not aware of rvm.
-%p
-  And for Passenger running under Apache set:
-%pre.code
-  :preserve
-    PassengerRuby /home/wayne/.rvm/bin/ruby-1.9.1-p243;
-    * NOTICE THE '.rvm/bin' DIR  ^ ^ ^
-    * do NOT use the actual ruby binary in .rvm/ruby-1.9.1-p243/bin/ruby
-    * do not listen to passenger's output for PassengerRuby as passenger is not aware of rvm.
-%p
-  The '.rvm/bin/ruby-1.9.1-p243' is actually what is known as a 'wrapper script' which sets up the proper environment for the ruby so that passenger can find it's gems, etc... and then exec's the '.rvm/ruby-1.9.1-p243/bin/ruby'.
 %h2
   How do I use custom gem sets under passenger?
 %p
-  Simply select the GEM_HOME for the gemset at the top of your config.ru file:
+  Select the GEM_HOME for the gemset at the top of your config.ru file:
 %pre.code
   :preserve
     ENV["GEM_HOME"]=%x{"source ~/.bash_profile ; rvm 1.9.1%pancake ; rvm gemdir"}.strip
+
