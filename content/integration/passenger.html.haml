@@ -62,6 +62,13 @@
 %ul
   %li The most common issue is forgetting the /bin/ part of the path to get the proper wrapper script:
 
+%pre.code
+  :preserve
+    passenger_ruby /home/wayne/.rvm/bin/passenger_ruby;
+    * NOTICE THE '.rvm/bin' DIR  ^ ^ ^
+    * do NOT use the actual ruby binary in .rvm/rubies/{passenger_ruby}/bin/ruby
+    * do not listen to passenger's output for passenger_ruby as passenger is not aware of rvm.
+
 %h2
   FAQ
 %ul
@@ -71,18 +78,12 @@
     %p
       A: Not at this time. Passenger currently only supports running it's projects under *one* ruby.
       You can get this behavior using a proxy pass.
-
-%pre.code
-  :preserve
-    passenger_ruby /home/wayne/.rvm/bin/passenger_ruby;
-    * NOTICE THE '.rvm/bin' DIR  ^ ^ ^
-    * do NOT use the actual ruby binary in .rvm/rubies/{passenger_ruby}/bin/ruby
-    * do not listen to passenger's output for passenger_ruby as passenger is not aware of rvm.
-%h2
-  How do I use custom gem sets under passenger?
-%p
-  Select the GEM_HOME for the gemset at the top of your config.ru file:
-%pre.code
-  :preserve
-    ENV["GEM_HOME"]=%x{"source ~/.bash_profile ; rvm ree%pancake ; rvm gemdir"}.strip
+  %li
+    %p
+      Q: How do I use custom gem sets under passenger?
+    %p
+      A: Select the GEM_HOME for the gemset at the top of your config.ru file:
+    %pre.code
+      :preserve
+        ENV["GEM_HOME"]=%x{"source ~/.bash_profile ; rvm ree%pancake ; rvm gemdir"}.strip
 
