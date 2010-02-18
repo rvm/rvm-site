@@ -32,7 +32,8 @@
     gem install passenger
     rvmsudo passenger-install-nginx-module
 %p
-  Or if you prefer the tomahawk:
+  Or if you prefer the tomahawk,
+%pre.code
   :preserve
     rvmsudo passenger-install-apache2-module
 
@@ -46,6 +47,7 @@
     passenger_ruby /home/wayne/.rvm/bin/passenger_ruby;
 %p
   For tomahawk chuckers,
+
 %pre.code
   :preserve
     PassengerRuby /home/wayne/.rvm/bin/passenger_ruby;
