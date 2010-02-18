@@ -64,7 +64,7 @@
   :preserve
     passenger_ruby /home/wayne/.rvm/bin/passenger)ruby;
     * NOTICE THE '.rvm/bin' DIR  ^ ^ ^
-    * do NOT use the actual ruby binary in .rvm/ruby-1.9.1-p243/bin/ruby
+    * do NOT use the actual ruby binary in .rvm/rubies/{passenger_ruby}/bin/ruby
     * do not listen to passenger's output for passenger_ruby as passenger is not aware of rvm.
 %h2
   How do I use custom gem sets under passenger?
@@ -72,5 +72,5 @@
   Select the GEM_HOME for the gemset at the top of your config.ru file:
 %pre.code
   :preserve
-    ENV["GEM_HOME"]=%x{"source ~/.bash_profile ; rvm 1.9.1%pancake ; rvm gemdir"}.strip
+    ENV["GEM_HOME"]=%x{"source ~/.bash_profile ; rvm ree%pancake ; rvm gemdir"}.strip
 
