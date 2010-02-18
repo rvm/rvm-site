@@ -60,8 +60,17 @@
 %h2
   Troubleshooting
 %ul
+  %li The most common issue is forgetting the /bin/ part of the path to get the proper wrapper script:
+
+%h2
+  FAQ
+%ul
   %li
-    The most common issue is forgetting the /bin/ part of the path to get the proper wrapper script:
+    %p
+      Q: Can I run multiple projects under passenger with each project on a different ruby version?
+    %p
+      A: Not at this time. Passenger currently only supports running it's projects under *one* ruby.
+      You can get this behavior using a proxy pass.
 
 %pre.code
   :preserve
