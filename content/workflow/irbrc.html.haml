@@ -1,0 +1,22 @@
+.breadcrumbs
+  %a{ :href => "/" }
+    Documentation
+  &nbsp;>&nbsp;
+  %a{ :href => "/workflow/" }
+    Workflow
+  &nbsp;>&nbsp;
+  %a{ :href => "/workflow/irbrc/" }
+    IRBRC
+  %hr
+
+%h1
+  IRBRC
+
+%p
+  RVM customizes the irb prompt to display the current ruby.
+  You can extend and/or override the prompt setting (see IRB's documentation) in your ~/.irbrc.
+%p
+  For example, to switch back to all  Ruby's default behavior add the following line to your ~/.irbrc file:
+%pre.code
+  :preserve
+    IRB.conf[:PROMPT_MODE] = :DEFAULT
