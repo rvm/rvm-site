@@ -1,4 +1,5 @@
-#  rvm-site.gems generated gem dump file. Note that any env variable settings will be missing. Append these after using a ';' field separator
+# rvm-site.gems generated gem export file. Note that any env variable settings will be missing. Append these after using a ';' field separator
 compass -v0.8.17
-haml -v2.2.19
+haml -v2.2.20
 nanoc3 -v3.0.7
+rack -v1.1.0
