@@ -134,3 +134,10 @@
   :preserve
     PATH=/Users/wayne/.dbm/postgresql-8.4.0/bin:$PATH gem install pg --no-rdoc --no-ri
 
+%h2
+  ruby-debug19 on -head for 1.9.X
+%pre.code
+  :preserve
+    # point ruby-debug-19 at the source files
+    gem install ruby-debug19 -- --with-ruby-include=$rvm_src_path/$rvm_ruby_string
+
