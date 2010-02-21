@@ -25,10 +25,22 @@
     rvm list rubies
 
 %p
+  To list the default ruby
+%pre.code
+  :preserve
+    rvm list default
+
+%p
+  To list the default ruby string only
+%pre.code
+  :preserve
+    rvm list default string
+
+%p
   To list all installed rubies, in their ruby string representation only
 %pre.code
   :preserve
-    rvm list rubies
+    rvm list strings
 
 %p
   To list all *known* RVM installable Rubies
