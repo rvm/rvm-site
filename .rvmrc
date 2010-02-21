@@ -2,7 +2,9 @@
 
 source $HOME/.rvm/scripts/rvm
 
-rvm ruby-head%rvm-site
+#rvm ruby-head%rvm-site
+ruby-1.9.1-p378%rvm-site
+
 if [[ -s .rvmrc ]] ; then
   rvm gems load rvm-site.gems
 fi
