@@ -5,18 +5,24 @@
   %a{ :href => "/integration/" }
     Integration
   &nbsp;>&nbsp;
-  %a{ :href => "/jruby/" }
-    JRuby
+  %a{ :href => "/integration/bundler/" }
+    Bundler
   %hr
 
 %h2
   Bundler
 
 %p
-  rvm 0.1.14+ supports bundler 0.9.6+. Earlier versions of either may cause unpredictable behavior when used together.
+  Previous versions of Bundler < 0.9.7 had issues playing nicely in an RVM environment.  
+  Updating bundler to >= 0.9.7 of bundler with the latest version of 
+  RVM >= 0.1.17 should rectify these problems as both are now aware of each other
+  (RVM now sets BUNDLE_PATH and bundler actually listens to it).
 
 %h1
   Community Resources
 %ul
   %li
+    You can read bundler's README on 
+    %a{:href => "http://github.com/carlhuda/bundler"}
+      GitHub
 
