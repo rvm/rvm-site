@@ -10,12 +10,17 @@
   %hr
 
 %p
+  Before you can use a gemset you must first create it.
+%pre.code
+  :preserve
+    ∴ rvm 1.9.1
+    ∴ rvm gems create albinochipmunk
+
+%p
   To use a gem set
 %pre.code
   :preserve
     ∴ rvm gems albinochipmunk
-%p
-  This will create the gemset if it does not exist.
 
 %p
   Alternatively we can switch to a gemset when we use a ruby by appending %gemsetname to the end of the ruby selector string:
@@ -28,7 +33,6 @@
 %pre.code
   :preserve
     rvm 1.9.1%albinochipmunk,ree%albinochipmunk,jruby%albinochipmunk rake test
-
 
 %p
   If you are aware of where you are at and wish to fix the gemset you can do:
