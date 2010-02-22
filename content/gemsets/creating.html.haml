@@ -1,0 +1,31 @@
+.breadcrumbs
+  %a{ :href => "/" }
+    Documentation
+  &nbsp;>&nbsp;
+  %a{ :href => "/gemsets/" }
+    Gemsets
+  &nbsp;>&nbsp;
+  %a{ :href => "/gemsets/creating/" }
+    Creating
+  %hr
+
+%h1
+  Creating gemsets
+%p
+  Gemsets must be created before being used.
+  Creating new gemsets can be done as follows:
+
+%pre.code
+  :preserve
+    ∴ rvm 1.9.1
+    ∴ rvm gems create albinochipmunk
+    Gemset 'albinochipmunk' created.
+%p
+  Multiple gemsets may be created in the same command.
+
+%pre.code
+  :preserve
+    ∴ rvm 1.9.1
+    ∴ rvm gems create albinochipmunk redsquirrel
+    Gemset 'albinochipmunk' created.
+    Gemset 'redsquirrel' created.
