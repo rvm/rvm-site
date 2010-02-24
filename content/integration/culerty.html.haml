@@ -10,13 +10,74 @@
   %hr
 
 %h2
-  Culerty
+  Setting up Capybara w/ Clerity using rvm
 
 %p
-  In order to get Capybara (w/ @culerity support) running with rvm rubies see the following gist by mchung: http://gist.github.com/268216
+  The following steps will setup ruby 1.8.7-p174 as well as the gems required for Capybara and Culerity support. It will also install Celerity using macports-managed JRuby. Note: sudo is not used.
+
+%pre.code
+  :preserve
+    $ rvm install 1.8.7-p174
+    $ rvm 1.8.7-p174
+    $ gem install rails cucumber capybara webrat rspec cucumber-rails email_spec database_cleaner rspec-rails factory_girl clearance formtastic sqlite3-ruby pg thin mongrel paperclip will_paginate ZenTest autotest-rails culerity
+    $ rvm jruby-1.4.0
+    $ gem install celerity
+    $ rvm 1.8.7-p174
+    $ cd /path/to/your/rails/app
+%p
+  Add hooks.rb to your features/support/ directory. Make sure to update the paths. Now, when using Capybara, @culerity tagged scenarios will run correctly.
+
+%p
+  When you run rake features, ruby-1.8.7-p174 will launch your test suite. When cucumber sees a @culerity tagged scenario, it will shell out to jruby. hooks.rb is responsible for adjusting the various RubyGems environment variables so that jruby is found.
+
+%p
+  Initially, I used the JRuby from MacPorts, but since I was using an rvm managed Ruby, JRuby picked up on the RubyGems environment variables. This had the unpleasant side effect of causing JRuby to install gems into the gemdir managed by ruby-1.8.7-p174!
+
+%p
+  "Did I mention this was a nasty hack?" - mchung
+
+%h3 hooks.rb
+%pre.code
+  :preserve
+    Before("@culerity") do |scenario|
+      #################################
+      @rvm_jruby_string = "jruby-1.4.0"
+      #################################
+      @rvm_jruby_home = "#{ENV["rvm_path"]}/#{@rvm_jruby_string}"
+      @rvm_jruby_gem_path = "#{ENV["rvm_gem_path"]}/#{@rvm_jruby_string}"
+      @rvm_jruby_os_path = "#{@rvm_jruby_home}/bin:#{@rvm_jruby_gem_path}/bin"
+     
+      @rvm_ruby_string = ENV["rvm_ruby_string"]
+      @rvm_ruby_home = "#{ENV["rvm_path"]}/#{@rvm_ruby_string}"
+      @rvm_ruby_gem_path = "#{ENV["rvm_gem_path"]}/#{@rvm_ruby_string}"
+      @os_path = ENV["PATH"]
+        
+      ENV["GEM_HOME"] = @rvm_jruby_gem_path
+      ENV["GEM_PATH"] = @rvm_jruby_gem_path
+      ENV["MY_RUBY_HOME"] = @rvm_jruby_home
+      ENV["PATH"] = "#{@rvm_jruby_os_path}:#{ENV['PATH']}"
+    end
+     
+    After("@culerity") do |scenario|
+      ENV["GEM_HOME"] = @rvm_ruby_gem_path
+      ENV["GEM_PATH"] = @rvm_ruby_gem_path
+      ENV["MY_RUBY_HOME"] = @rvm_ruby_home
+      ENV["PATH"] = @os_path
+    end
+
+%p
+  Careful of the shebang line,
+%pre.code
+  :preserve
+    tonkatsu:~ mchung$ rvm jruby ; rvm --shebang inspect jruby
+ 
+    /Users/mchung/.rvm/jruby-1.4.0/bin/jruby:
+ 
+    #!/usr/bin/env bash
 
 %h1
   Community Resources
 %ul
   %li
+    Original Gist by mchung: http://gist.github.com/268216
 
