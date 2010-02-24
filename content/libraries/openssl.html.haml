@@ -1,0 +1,31 @@
+.breadcrumbs
+  %a{ :href => "/" }
+    Documentation
+  &nbsp;>&nbsp;
+  %a{ :href => "/libraries/" }
+    Libraries
+  &nbsp;>&nbsp;
+  %a{ :href => "/libraries/openssl/" }
+    OpenSSL
+  %hr
+
+%h2
+  OpenSSL
+
+%h2
+  require "openssl" # => false ?!
+%p
+  If you have issues with openssl not being available in ruby / irb please try the following configure option:
+%pre.code
+  :preserve
+    rvm install openssl ; rvm remove 1.9.1 ; rvm install 1.9.1 -C --with-iconv-dir=$rvm_path/usr
+%p
+  Where you replace '/usr/local' with the prefix where your openssl libraries are.
+%p
+  If you simply cannot seem to get this to work you can have rvm install a copy of readline into ~/.rvm/usr like so:
+  %br
+  %pre.code
+    :preserve
+      rvm install openssl
+      rvm remove 1.9.1 ; rvm install 1.9.1
+

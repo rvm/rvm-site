@@ -1,0 +1,30 @@
+.breadcrumbs
+  %a{ :href => "/" }
+    Documentation
+  &nbsp;>&nbsp;
+  %a{ :href => "/libraries/" }
+    Libraries
+  &nbsp;>&nbsp;
+  %a{ :href => "/libraries/iconv/" }
+    Iconv
+  %hr
+
+%h2
+  Iconv
+
+%h2
+  require "iconv" # => false ?!
+%p
+  If you have issues with iconv not being available in ruby / irb please try the following configure option:
+%pre.code
+  :preserve
+    rvm install iconv ; rvm remove 1.9.1 ; rvm install 1.9.1 -C --with-iconv-dir=$rvm_path/usr
+%p
+  Where you replace '/usr/local' with the prefix where your iconv libraries are. (Thanks to Justin Chen for bringing this doosey to our attention!)
+%p
+  If you simply cannot seem to get this to work you can have rvm install a copy of readline into ~/.rvm/usr like so:
+  %br
+  %pre.code
+    :preserve
+      rvm install iconv
+      rvm remove 1.9.1 ; rvm install 1.9.1

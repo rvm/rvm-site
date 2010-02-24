@@ -1,0 +1,32 @@
+.breadcrumbs
+  %a{ :href => "/" }
+    Documentation
+  &nbsp;>&nbsp;
+  %a{ :href => "/libraries/" }
+    Libraries
+  &nbsp;>&nbsp;
+  %a{ :href => "/libraries/zlib/" }
+    Zlib
+  %hr
+
+%h2
+  Zlib
+
+%h2
+  require "zlib" # => false ?!
+%p
+  If you have issues with zlib not being available in ruby / irb please try the following configure option:
+%pre.code
+  :preserve
+    rvm install zlib ; rvm remove 1.9.1 ; rvm install 1.9.1 -C --with-iconv-dir=$rvm_path/usr
+%p
+  Where you replace '/usr/local' with the prefix where your zlib libraries are. 
+%p
+  If you simply cannot seem to get this to work you can have rvm install a copy of readline into ~/.rvm/usr like so:
+  %br
+  %pre.code
+    :preserve
+      rvm install zlib
+      rvm remove 1.9.1 ; rvm install 1.9.1
+
+
