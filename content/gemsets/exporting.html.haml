@@ -26,7 +26,7 @@
   Alternatively, if you already have a ruby selected
 %pre.code
   :preserve
-    rvm gems export
+    rvm gemset export
 %p
   will create a 'default.gems' file.
 
@@ -34,10 +34,10 @@
   You can specify the gemset filename prefix also
 %pre.code
   :preserve
-    rvm gems export albinochipmunk.gems
+    rvm gemset export albinochipmunk.gems
 
 %p
   A subtle difference with the above command is to leave off the '.gems' which will export the gems for the gemset named 'mygemsetname'
 %pre.code
   :preserve
-    rvm gems export albinochipmunk
+    rvm gemset export albinochipmunk

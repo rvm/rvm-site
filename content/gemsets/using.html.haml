@@ -14,13 +14,13 @@
 %pre.code
   :preserve
     ∴ rvm 1.9.1
-    ∴ rvm gems create albinochipmunk
+    ∴ rvm gemset create albinochipmunk
 
 %p
   To use a gem set
 %pre.code
   :preserve
-    ∴ rvm gems albinochipmunk
+    ∴ rvm gemset albinochipmunk
 
 %p
   Alternatively we can switch to a gemset when we use a ruby by appending %gemsetname to the end of the ruby selector string:
@@ -38,6 +38,6 @@
   If you are aware of where you are at and wish to fix the gemset you can do:
 %pre.code
   :preserve
-    rvm gems albinochipmunk
+    rvm gemset albinochipmunk
     rvm 1.9.1,ree,jrubyrake --sticky test
 
