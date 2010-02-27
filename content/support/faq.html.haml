@@ -61,17 +61,19 @@
 %h2
   What are the defaults.
 %p
-  The default interpreter is 'ruby'.  The default versions for each ruby interpreter are set in ~/.rvm/config/db and can be overridden by the user in ~/.rvm/config/user.
+  The default interpreter is 'ruby'.  
+  The default versions for each ruby interpreter are set in ~/.rvm/config/db and can be overridden by the user in ~/.rvm/config/user.
 %h2
   Where are Ruby Gems kept?
 %ul
   %li
     Ruby Gems for all installed ruby interpreters and versions are stored completely separate.
-    Gems are located in ~/.rvm/gems/$interpreter/$version.
+    Gems are located in ~/.rvm/gems/$ruby_string. 
     Gems can be additionally separated using
     %a{ :href => "/gemsets" }
       Gem Sets
     \.
+    A gem directory using gemsets is of the form:  ~/.rvm/gems/$ruby_string%gemset_name
 
 %h2
   Where is everything installed to ?
