@@ -2,21 +2,23 @@
   %a{ :href => "/" }
     Documentation
   &nbsp;>&nbsp;
-  %a{ :href => "/libraries/" }
+  %a{ :href => "/packages/" }
     Libraries
   &nbsp;>&nbsp;
-  %a{ :href => "/libraries/readline/" }
-    ReadLine
+  %a{ :href => "/packages/readline/" }
+    Readline
   %hr
 
 %h2
-  ReadLine
+  Readline
 %p
   If you have an error when compiling pertaining to readline, you may need to attempt installing with the following configure option:
   %br
   %pre.code
     :preserve
-    rvm install readline ; rvm remove 1.9.1 ; rvm install 1.9.1 -C --with-readline-dir=$rvm_path/usr
+      ∴ rvm package install readline
+      ∴ rvm remove 1.9.1
+      ∴ rvm install 1.9.1 -C --with-readline-dir=$rvm_path/usr
 %p
   Note that this error occurs most often when having a macports installed readline along your path.
   Next most often is when the readline development headers are not available in your path.
@@ -25,5 +27,6 @@
   %br
   %pre.code
     :preserve
-      rvm install readline
-      rvm remove 1.9.1 ; rvm install 1.9.1
+      ∴ rvm package install readline
+      ∴ rvm remove 1.9.1
+      ∴ rvm install 1.9.1
