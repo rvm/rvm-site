@@ -17,13 +17,13 @@
 
 %pre.code
   :preserve
-    $ rvm install 1.8.7-p174
-    $ rvm 1.8.7-p174
-    $ gem install rails cucumber capybara webrat rspec cucumber-rails email_spec database_cleaner rspec-rails factory_girl clearance formtastic sqlite3-ruby pg thin mongrel paperclip will_paginate ZenTest autotest-rails culerity
-    $ rvm jruby-1.4.0
-    $ gem install celerity
-    $ rvm 1.8.7-p174
-    $ cd /path/to/your/rails/app
+    ∴ rvm install 1.8.7-p174
+    ∴ rvm 1.8.7-p174
+    ∴ gem install rails cucumber capybara webrat rspec cucumber-rails email_spec database_cleaner rspec-rails factory_girl clearance formtastic sqlite3-ruby pg thin mongrel paperclip will_paginate ZenTest autotest-rails culerity
+    ∴ rvm jruby-1.4.0
+    ∴ gem install celerity
+    ∴ rvm 1.8.7-p174
+    ∴ cd /path/to/your/rails/app
 %p
   Add hooks.rb to your features/support/ directory. Make sure to update the paths. Now, when using Capybara, @culerity tagged scenarios will run correctly.
 
@@ -69,7 +69,8 @@
   Careful of the shebang line,
 %pre.code
   :preserve
-    tonkatsu:~ mchung$ rvm jruby ; rvm --shebang inspect jruby
+    ∴ rvm jruby
+    ∴ rvm --shebang inspect jruby
  
     /Users/mchung/.rvm/jruby-1.4.0/bin/jruby:
  
