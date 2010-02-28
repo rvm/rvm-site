@@ -17,13 +17,13 @@
 %a{:name => "#system"}
 %h2 System /etc/rvmrc
 %p
-  The system rvmrc file is loaded before rvm initializes and before the user's ~/.rvmrc.
+  The system rvmrc file is loaded before RVM initializes and before the user's ~/.rvmrc.
   \/etc/rvmrc settings are applied to all users on the system.
 
 %a{:name => "#user"}
 %h2 User $HOME/.rvmrc
 %p
-  The users rvmrc file overwrites settings in /etc/rvmrc and is loaded before rvm initializes.
+  The users rvmrc file overwrites settings in /etc/rvmrc and is loaded before RVM initializes.
   $HOME/.rvmrc settings are applied only for the user belonging to $HOME.
 
 %h2 System / User rvmrc examples
@@ -33,19 +33,19 @@
   :preserve
     rvm_install_on_use_flag=1
 %p
-  Have rvm compile using say, 3, compile threads.
+  Have RVM compile using say, 3, compile threads.
 %pre.code
   :preserve
     rvm_make_flags="-j 3"
 
 %p
-  Have rvm install to a different location (notice that it ends with /rvm).
+  Have RVM install to a different location (notice that it ends with /rvm).
 %pre.code
   :preserve
     rvm_path=/opt/rvm
 
 %p
-  Have rvm compile rubies and libraries as x86_64 on *Mac OS X*.
+  Have RVM compile rubies and libraries as x86_64 on *Mac OS X*.
 %pre.code
   :preserve
     rvm_archflags="-arch x86_64"
@@ -61,11 +61,11 @@
 %a{:name => "#project"}
 %h2 Project .rvmrc
 %p
-  The project .rvmrc file is different than the system & user. System & user rvmrc files are meant for altering the settings and behavior of rvm.
+  The project .rvmrc file is different than the system & user. System & user rvmrc files are meant for altering the settings and behavior of RVM.
   The project rvmrc files are intended to be used to setup your project's ruby environment when you switch to the project root directory.
 
 %p
-  If you are using the latest version of rvm (rvm update --head) then you can take advantage of a few new features, namely hooks and the new project specific ‘.rvmrc’ file. (Available in rvm 0.0.85+)
+  If you are using the latest version of RVM (rvm update --head) then you can take advantage of a few new features, namely hooks and the new project specific ‘.rvmrc’ file. (Available in rvm 0.0.85+)
 %p
   Let’s say I have my project directory as ~/projects/ and in this directory I have three projects 'projecta', 'projectb', and 'projectc'. Project a runs on jruby, project b runs on ree 1.8.7, and project c runs on 1.9.1. The setup:
 
@@ -146,7 +146,7 @@
 %p
   Do NOT use shell commands in the System and User rvmrc files.
   For example do not put 'rvm ree' or any other such commands in these two rvmrc files.
-  They are for setting environment variables only to modify rvm's behavior and settings.
+  They are for setting environment variables only to modify RVM's behavior and settings.
 
 
 %h1

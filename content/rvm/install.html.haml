@@ -39,11 +39,11 @@
   First install the gem. After the gem has installed run the rvm-install script.
 %pre.code
   :preserve
-    ∴ gem install rvm            # Install the rvm gem
-    ∴ rvm-install                # Install rvm, adds hooks for bash & zsh
+    ∴ gem install rvm            # Install the RVM gem
+    ∴ rvm-install                # Install RVM, adds hooks for bash & zsh
     # Only necessary the first time:
     ∴ for profile in .bash_profile .bashrc ; do echo 'if [[ -s "$HOME/.rvm/scripts/rvm" ]]  ; then source "$HOME/.rvm/scripts/rvm" ; fi' >> ~/.$profile fi
-    ∴ source ~/.rvm/scripts/rvm  # load the new code into your current shell and start using rvm ! w00t!
+    ∴ source ~/.rvm/scripts/rvm  # load the new code into your current shell and start using RVM ! w00t!
 %p
   If rvm-install is not found it is likely because your users gem home is not in your path. You can add it to your path by putting this in your ~/.bashrc &amp; ~/.bash_profile
   For example my system ruby installs gems to ~/.gem/ruby/1.8 so I would do:
@@ -87,7 +87,7 @@
     curl -O http://kernel.org/pub/software/scm/git/$package-$version.tar.gz
     cd $package-$version && ./configure --prefix=/usr/local && make && sudo make install
 
-    # Install rvm
+    # Install RVM
     cd $HOME/.rvm/src && git clone --depth 1 git://github.com/wayneeseguin/rvm.git && cd rvm && ./install
 
     # Install common rubies
@@ -96,6 +96,6 @@
 
 %h1 Notes & Warnings
 %ul
-  %li Do NOT 'return' from inside the .bashrc file or else rvm will be prevented from working properly.
+  %li Do NOT 'return' from inside the .bashrc file or else RVM will be prevented from working properly.
   %li Be sure that scripts/rvm is sourced at the end of your profiles, after any PATH or other environmental settings.
 

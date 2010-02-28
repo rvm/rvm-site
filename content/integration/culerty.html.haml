@@ -10,7 +10,7 @@
   %hr
 
 %h2
-  Setting up Capybara w/ Clerity using rvm
+  Setting up Capybara w/ Clerity using RVM
 
 %p
   The following steps will setup ruby 1.8.7-p174 as well as the gems required for Capybara and Culerity support. It will also install Celerity using macports-managed JRuby. Note: sudo is not used.
@@ -31,7 +31,7 @@
   When you run rake features, ruby-1.8.7-p174 will launch your test suite. When cucumber sees a @culerity tagged scenario, it will shell out to jruby. hooks.rb is responsible for adjusting the various RubyGems environment variables so that jruby is found.
 
 %p
-  Initially, I used the JRuby from MacPorts, but since I was using an rvm managed Ruby, JRuby picked up on the RubyGems environment variables. This had the unpleasant side effect of causing JRuby to install gems into the gemdir managed by ruby-1.8.7-p174!
+  Initially, I used the JRuby from MacPorts, but since I was using an RVM managed Ruby, JRuby picked up on the RubyGems environment variables. This had the unpleasant side effect of causing JRuby to install gems into the gemdir managed by ruby-1.8.7-p174!
 
 %p
   "Did I mention this was a nasty hack?" - mchung

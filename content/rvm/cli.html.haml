@@ -12,9 +12,9 @@
 %h1
   RVM CLI Usage
 %p
-  rvm comes with many options however it has lots of defaults that are intended on making the command line API much more 'natural'.
+  RVM comes with many options however it has lots of defaults that are intended on making the command line API much more 'natural'.
 %h3
-  rvm general usage API
+  RVM general usage API
 %pre.code
   :preserve
     rvm Action [interpreter] [flags] [options]
@@ -27,9 +27,9 @@
     use       - setup current shell to use a specific ruby version
     info      - show information for current ruby
     list      - show currently installed versions
-    reload    - reload rvm source itself (useful after changing rvm source)
+    reload    - reload RVM source itself (useful after changing RVM source)
     implode   - removes all ruby installations it manages, everything in ~/.rvm
-    update    - upgrades rvm to the latest version.
+    update    - upgrades RVM to the latest version.
     reset     - remove default and current settings, exit the shell.
     (If you experience odd behavior try this first)
     debug     - emit environment &amp; configuration information for *current* ruby
@@ -55,14 +55,14 @@
     jruby     - JRuby
     rbx       - rubinius
     ree       - ruby Enterprise Edition
-    system    - use the system ruby (eg. pre-rvm state)
-    default   - use rvm set default ruby and system if it hasn't been set.
+    system    - use the system ruby (eg. pre-RVM state)
+    default   - use RVM set default ruby and system if it hasn't been set.
 %a{ :name => "cli-flags" }
 %h3
   And Where [flags] are one of
 %pre.code
   :preserve
-    --self        - with update, updates rvm itself
+    --self        - with update, updates RVM itself
     --rubygems    - with update, updates rubygems for selected ruby
     --default     - when used with ruby selection, sets a default ruby for new shells.
     --debug       - Toggle debug mode on for very verbose output.
@@ -77,13 +77,13 @@
   And Where [options] are one of
 %pre.code
   :preserve
-    -v|--version    - Emit rvm version loaded for current shell
+    -v|--version    - Emit RVM version loaded for current shell
     -h|--help       - Emit this output and exit
     -l|--level      - patch level to use with rvm use / install
     --tag        - subversion tag to use
     --rev        - repository revision # to use or 'head' for
 
-    --prefix     - path for all rvm files (~/.rvm/), with trailing slash!
+    --prefix     - path for all RVM files (~/.rvm/), with trailing slash!
     --bin        - path for binaries to be placed (~/.rvm/bin/)
     --source     - src directory to use (~/.rvm/src/)
     --archives   - directory for downladed files (~/.rvm/archives/)

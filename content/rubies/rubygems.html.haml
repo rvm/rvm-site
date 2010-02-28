@@ -10,9 +10,9 @@
   %hr
 
 %h1
-  rvm and RubyGems
+  RVM and RubyGems
 %p
-  rvm creates a new completely separate gem directory for each version of ruby.
+  RVM creates a new completely separate gem directory for each version of ruby.
   In addition you can separate this further and have a set of gems per project/application/gerbil color... see the
   %a{ :href => "/gemsets/" }
     gemsets
@@ -21,8 +21,8 @@
   %strong
     DO NOT use sudo...
 %p
-  to work with rvm gems.
-  When you do sudo you are running commands as root, another user in another shell and hence all of the setup that rvm has done for you is ignored while the command runs under sudo (such things as GEM_HOME, etc...).
+  to work with RVM gems.
+  When you do sudo you are running commands as root, another user in another shell and hence all of the setup that RVM has done for you is ignored while the command runs under sudo (such things as GEM_HOME, etc...).
   So to reiterate, as soon as you 'sudo' you are running as the root system user which will clear out your environment as well as any files it creates are not able to be modified by your user and will result in strange things happening.
   (You will start to think that someone has a vodoo doll of your application...)
 %p
@@ -51,7 +51,7 @@
     # Thanks for the awesome idea batasrki
     function gemdir {
       if [[ -z "$1" ]] ; then
-        echo "gemdir expects a parameter, which should be a valid rvm Ruby selector"
+        echo "gemdir expects a parameter, which should be a valid RVM Ruby selector"
       else
         rvm "$1"
         cd $(rvm gemdir)
