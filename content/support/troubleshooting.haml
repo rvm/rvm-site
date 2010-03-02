@@ -51,6 +51,21 @@
   :preserve
     export CFLAGS='-m32' ; export CXXFLAGS='-m32' ; export LDFLAGS='-m32' ; rvm install X
 
+%a{:href => "#", :name => "segfault"}
+%h2
+  Bus Error / Segfault
+%p
+  When a command you try to run produces a segfault, possibly like the one below:
+%pre.code
+  :preserve
+    [BUG] cross-thread violation on rb_gc()
+
+%p
+  In every case of this I have seen thus far it has always ended up being that a ruby gem/library
+  with C extensions was compiled against a different ruby and/or architecture than the one that
+  is trying to load it. Try uninstalling &amp; reinstalling gems with C extensions that your
+  application uses to hunt this buggar down.
+
 %a{:href => "#", :name => "mysql"}
 %h2
   MySQL
