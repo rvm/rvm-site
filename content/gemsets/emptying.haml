@@ -14,10 +14,12 @@
   This removes all gems installed to the gemset.
 %pre.code
   :preserve
-    ∴ rvm gemset use albinochipmunk ; rvm gems empty albinochipmunk
+    ∴ rvm gemset use albinochipmunk
+    ∴ rvm gemset empty albinochipmunk
 
 %p
   If you wish to not be prompted, pass --force:
 %pre.code
   :preserve
-    ∴ rvm gemset use albinochipmunk ; rvm --force gems empty albinochipmunk"
+    ∴ rvm gemset use albinochipmunk
+    ∴ rvm --force gemset empty albinochipmunk"

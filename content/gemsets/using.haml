@@ -41,3 +41,8 @@
     rvm gemset albinochipmunk
     rvm 1.9.1,ree,jrubyrake --sticky test
 
+%p
+  If you would like gemsets to be automatically created when used you can export a flag in your ~/.rvmrc file:
+%pre.code
+  :preserve
+    rvm gemset_create_on_use_flag=1

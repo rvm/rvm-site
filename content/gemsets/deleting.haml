@@ -13,10 +13,12 @@
   You can delete a gem set, this will prompt you if you are sure you wish to delete the gemset.
 %pre.code
   :preserve
-    ∴ rvm gemset albinochipmunk ; rvm gems delete albinochipmunk
+    ∴ rvm gemset albinochipmunk
+    ∴ rvm gemset delete albinochipmunk
 
 %p
   If you wish to not be prompted, pass --force:
 %pre.code
   :preserve
-    ∴ rvm gemset albinochipmunk ; rvm --force gems delete albinochipmunk"
+    ∴ rvm gemset albinochipmunk
+    ∴ rvm --force gemset delete albinochipmunk"
