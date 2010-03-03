@@ -14,10 +14,25 @@
   RVM contribution
 %ul
   %li
-    Join us in IRC. #rvm
-    </li.>
+    Join us in #rvm on irc.freenode.net
+    You can use a 
+    %a{ :href => "http://webchat.freenode.net/?channels=rvm" }
+      web based client.
+    If you find that you can not talk in the channel, be sure to first 
+    %a{:href => "http://www.wikihow.com/Register-a-User-Name-on-Freenode"}
+      register your irc nick.
+    
   %li
-    If you have a problem, please run "rvm debug" as well as "rvm ((command you tried to run)) --debug" and pastie/gist the url to the channel.
+    If you have a problem, please run "
+    %pre.code
+      %preserve
+        ∴ rvm debug
+        ∴ rvm --trace ((command you tried to run))
+        
+    %p 
+      pastie/gist the output of those commands as a url to the channel 
+      %a{ :href => "http://webchat.freenode.net/?channels=rvm" }
+        \#rvm on irc.freenode.net
   %li
     Follow
     %a{ :href => "http://twitter.com/wayneeseguin" }
