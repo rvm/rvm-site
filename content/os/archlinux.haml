@@ -1,0 +1,37 @@
+.breadcrumbs
+  %a{ :href => "/" }
+    Documentation
+  &nbsp;>&nbsp;
+  %a{ :href => "/os/" }
+    Interpreters
+  &nbsp;>&nbsp;
+  %a{ :href => "/os/archlinux/" }
+    Arch Linux
+  %hr
+
+%h1
+  Arch Linux
+
+%p
+  If you are running on a 
+  %a{:href => "http://www.archlinux.org/"}
+    Arch Linux based system
+  Then the dependencies you should install are:
+
+%p
+  For JRuby (if you wish to use it) you will need:
+%pre.code
+  :preserve
+    pacman -Sy jdk jre curl
+
+%p
+  For MRI & ree (if you wish to use it) you will need:
+%pre.code
+  :preserve
+    pacman -Sy curl bison zlib openssl readline libxml2 git
+
+%p 
+  For IronRuby (if you wish to use it) you will need:
+%pre.code
+  :preserve
+    pacman -Sy mono

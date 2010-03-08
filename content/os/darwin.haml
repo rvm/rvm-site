@@ -1,0 +1,38 @@
+.breadcrumbs
+  %a{ :href => "/" }
+    Documentation
+  &nbsp;>&nbsp;
+  %a{ :href => "/os/" }
+    Interpreters
+  &nbsp;>&nbsp;
+  %a{ :href => "/os/darwin/" }
+    Darwin / OSX
+  %hr
+
+%h1
+  Darwin 
+
+%p
+  If you are running on a 
+  %a{:href => "http://www.gnu-darwin.org/"}
+    Debian Based System
+  Then the dependencies you should install are:
+
+%p
+  For all rubies you should download and install the *latest* 
+  %a{:href => "http://developer.apple.com/"}
+    XCode tools from Apple
+  Be sure that you have XCode Tools Version 3.2.1 (1613) or later
+  (This is necessary since the dvd install for Snow Leopard has bugs).
+%p
+  For JRuby (if you wish to use it) you will need to install the JDK.
+
+%p
+  For MRI & ree (if you wish to use it) you will need XCode tools.
+
+%p 
+  For IronRuby (if you wish to use it) you will need to install the latest version of
+  the open source Mono .NET framework (greater than 2.6).
+
+%p
+  For MacRuby (if you wish to use it) you will need to install LLVM first.

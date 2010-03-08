@@ -1,0 +1,37 @@
+.breadcrumbs
+  %a{ :href => "/" }
+    Documentation
+  &nbsp;>&nbsp;
+  %a{ :href => "/os/" }
+    Interpreters
+  &nbsp;>&nbsp;
+  %a{ :href => "/os/centos/" }
+    CentOS / RedHat
+  %hr
+
+%h1
+  CentOS / RedHat
+
+%p
+  If you are running on a 
+  %a{:href => "http://centos.org/"}
+    CentOS / RedHat based Systems
+  Then the dependencies you should install are:
+
+%p
+  For JRuby (if you wish to use it) you will need:
+
+%pre.code
+  :preserve
+   yum install -y java
+
+%p
+  For MRI & ree (if you wish to use it) you will need:
+%pre.code
+  :preserve
+    yum install -y gcc-c++ autoconf patch readline readline-devel iconv-devel
+%p
+  Be sure that the autoconf version is >= 2.60
+
+%p 
+  For IronRuby (if you wish to use it) you will need to install the Mono .NET framework.

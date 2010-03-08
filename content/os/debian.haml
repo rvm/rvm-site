@@ -1,0 +1,39 @@
+.breadcrumbs
+  %a{ :href => "/" }
+    Documentation
+  &nbsp;>&nbsp;
+  %a{ :href => "/os/" }
+    Interpreters
+  &nbsp;>&nbsp;
+  %a{ :href => "/os/debian/" }
+    Debian
+  %hr
+
+%h1
+  Debian
+
+%p
+  If you are running on a 
+  %a{:href => "http://www.debian.org/misc/children-distros"}
+    Debian Based System
+  Then the dependencies you should install are:
+  
+%p
+  For JRuby (if you wish to use it) you will need:
+
+%pre.code
+  :preserve
+    apt-get install curl sun-java6-bin sun-java6-jre sun-java6-jdk
+
+%p
+  For MRI & ree (if you wish to use it) you will need:
+%pre.code
+  :preserve
+    apt-get install curl bison build-essential zlib1g-dev libssl-dev libreadline5-dev libxml2-dev git-core
+
+%p 
+  For IronRuby (if you wish to use it) you will need:
+%pre.code
+  :preserve
+    apt-get install curl mono-2.0-devel
+
