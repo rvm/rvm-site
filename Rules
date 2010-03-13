@@ -30,4 +30,3 @@ route '*' do
 end
 
 layout '*', :haml
-

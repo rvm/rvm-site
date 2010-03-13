@@ -5,3 +5,4 @@ oldcontent/
 .DS_Store
 public/
 tags
+*.tmproj
