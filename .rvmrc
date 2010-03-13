@@ -1,9 +1,7 @@
 #!/usr/bin/env bash
 
-source $HOME/.rvm/scripts/rvm
-
 rvm --create 1.9.1%rvm-site
 
-if [[ -s .rvmrc ]] ; then
+if [[ -s rvm-site.gems ]] ; then
   rvm gemset import rvm-site.gems
 fi
