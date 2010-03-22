@@ -73,9 +73,9 @@
   :preserve
     mkdir -p ~/projects/projecta ~/projects/projectb ~/projects/projectc
 
-    echo "rvm jruby%projecta" > ~/projects/projecta/.rvmrc
-    echo "rvm ree%projectb" > ~/projects/projectb/.rvmrc
-    echo "rvm 1.9.1%projectc" > ~/projects/projectc/.rvmrc
+    echo "rvm jruby@projecta" > ~/projects/projecta/.rvmrc
+    echo "rvm ree@projectb" > ~/projects/projectb/.rvmrc
+    echo "rvm 1.9.1@projectc" > ~/projects/projectc/.rvmrc
 
 %p
   Then if I type this:
@@ -90,7 +90,7 @@
 
     [jruby-1.4.0] ∴ gem env gemdir
 
-      /Users/wayne/.rvm/gems/jruby/1.4.0%projecta
+      /Users/wayne/.rvm/gems/jruby/1.4.0@projecta
 
 %p
   I will then be running jruby with 'projecta' gem set and we see that the prompt is now prefixed with '[jruby-1.4.0]'.
@@ -123,7 +123,7 @@
 
     [ruby-1.9.1-p243] (0) ∴ ruby -v
 
-      /Users/wayne/.rvm/gems/ruby/1.9.1%projectc
+      /Users/wayne/.rvm/gems/ruby/1.9.1@projectc
 %p
   We see that we are now running ree with a 'projectb' gem set and we see that the prompt is now prefixed with '[ruby-1.9.1-p243]'.
 
