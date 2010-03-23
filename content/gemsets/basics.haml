@@ -23,9 +23,9 @@
   Example: testing gems
 %pre.code
   :preserve
-    ∴ rvm 1.9.1%testing
+    ∴ rvm 1.9.1@testing
 %p
-  will use a '1.9.1%testing' GEM_HOME (be sure to create it first), whereas:
+  will use a '1.9.1@testing' GEM_HOME (be sure to create it first), whereas:
 %pre.code
   :preserve
     ∴ rvm 1.9.1
@@ -45,10 +45,10 @@
     Gemset 'rails222' created.
     Gemset 'rails126' created.
 
-    ∴ rvm 1.9.1%rails222
+    ∴ rvm 1.9.1@rails222
     ∴ gem install rails -v 2.2.2
 
-    ∴ rvm 1.9.1%rails126
+    ∴ rvm 1.9.1@rails126
     ∴ gem install rails -v 1.2.6
 
     ∴ rvm 1.8.7
@@ -58,7 +58,7 @@
   Now that our environments are set up, switching between Rails versions and Ruby versions is quite simple:
 %pre.code
   :preserve
-    ∴ rvm 1.9.1%rails126 ; rails --version
+    ∴ rvm 1.9.1@rails126 ; rails --version
 
     Rails 1.2.6
 
@@ -66,7 +66,7 @@
 
     Rails 1.2.3
 
-    ∴ rvm 1.9.1%rails220 ; rails --version
+    ∴ rvm 1.9.1@rails220 ; rails --version
 
     Rails 2.2.0
 
