@@ -52,10 +52,15 @@
   :preserve
     PassengerRuby /home/wayne/.rvm/bin/passenger_ruby
 
-%pre.note
-  Note: Be sure to change '/home/wayne' to your own $HOME directory,
-%p
-  The '.rvm/bin/passenger_ruby' is actually what is known as a 'wrapper script' which sets up the environment for the passenger so that it can find it's gems, etc... and then exec's the actual ruby bnary.
+%h2 Notes
+%ul
+  %li
+    Do no not forget to configure the production environment and/or to set the rails_env/RailsEnv variable to development into nginx.conf/httpd.conf for the virtual server config block.
+    The RAILS_ENV defaults to 'production'.
+  %li
+    Be sure to change '/home/wayne' to your own $HOME directory,
+  %li
+    The '.rvm/bin/passenger_ruby' is actually what is known as a 'wrapper script' which sets up the environment for the passenger so that it can find it's gems, etc... and then exec's the actual ruby bnary.nf"
 
 %h2
   Troubleshooting
