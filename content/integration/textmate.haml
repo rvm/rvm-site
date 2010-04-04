@@ -55,6 +55,12 @@
     http://skitch.com/wayneeseguin/nw34t/rvm-textmate-ruby
 
 %p
+  Since textmate will use it's own builder, by removing it, we can use TM_RUBY as specified above (Thanks KinkyKamikaze!):
+%pre.code
+  :preserve
+    cd /Applications/TextMate.app/Contents/SharedSupport/Support/lib/ ; mv Builder.rb Builder.rb.backup
+
+%p
   Now quit textmate and re-open it for bundles and TM_RUBY settings to take effect.
 
 %p
@@ -77,6 +83,9 @@
     :preserve
       ∴ rvm rbx --symlink textmate
 
+%h2
+  Notes
+        
 %h2
   Community Resources
 %p
