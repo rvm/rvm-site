@@ -13,24 +13,48 @@
   MemProf
 %p
   MemProf should *just work* with MRI/REE 1.8.X Rubies (only those for now).
+%pre.code
+  :preserve
+    ∴ rvm 1.8.7@projecta
+    ∴ gem install memprof
+%p
+  Next in the application be sure to require memprof/signal:
+
+%pre.code
+  :preserve
+    require `gem which memprof/signal`
+%p
+  Be sure the require happens *before* anything else in your applications code.
+  
+%p
+  Now Profile your application from the command line.
+
+  ∴ memprof --pid [pid] --name [name] --key [api_key]
+%p
+  Where 
+  %ul
+    %li [api_key] is your memprof.com api key.
+    %li [pid]  Is the running pid of your application.
+    %li [name] Is the name you wish to assign to the memprof dump.
 %br  
 %br  
 %br  
 %br  
+
 %h1
   Sadism at it's finest...
 %p
-  If you're name is Joe D. or Aman G. and are insane enough to actually play around in the Ruby VM itself...
+  If you are named Joe D. or Aman G. and are insane enough to actually play around in the Ruby VM itself...
 %p
   If you'd like to play around in Ruby's guts using C or Assembler... First remove an existing MRI install:
 %pre.code
   :preserve
-    rvm remove 1.8.7
+    ∴ rvm remove 1.8.7
 %p
   Next install the ruby with debug symbols support.
 %pre.code
   :preserve
-    rvm install 1.8.7 -C -ggdb3,-O0
+    ∴ rvm install 1.8.7 -C -ggdb3,-O0
 
 %p
   By installing your rubies this way you can extract the maximum amount of *useful* information.
