@@ -15,6 +15,13 @@ route "/assets/css/_*/" do
   nil # don't output partials, so return nil
 end
 
+route "/assets/images/*/" do
+  nil # don't output partials, so return nil
+end
+
+compile '/assets/images/*/' do
+  nil
+end
 route "/assets/css/*/" do
   # don't generate a directory like we do for HTML files
   item.identifier.sub(%r{^/assets}, '').chop + ".css"

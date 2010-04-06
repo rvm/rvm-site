@@ -1,0 +1,32 @@
+.breadcrumbs
+  %a{ :href => "/" }
+    Documentation
+  &nbsp;>&nbsp;
+  %a{ :href => "/integration/" }
+    Integration
+  &nbsp;>&nbsp;
+  %a{ :href => "/integration/capistrano/" }
+    Capistrano
+  %hr
+
+%a{ :name => "capistrano" }
+%h1
+  Using RVM rubies with Capistrano
+%p
+  You have two options:
+
+%p
+  1. Enable .ssh environment variables using the PermitUserEnvironment option in your ssh condfiguration file
+  2. Use the capistrano :default_environment setting
+  For the second option, simply add the following line in your deploy.rb file
+%pre.code
+  :preserve
+    set :default_environment, { 
+      'PATH' => "/path/to/.rvm/ree-1.8.7-2009.10/bin:/path/to/.rvm/gems/ree/1.8.7/bin:/path/to/.rvm/bin:$PATH",
+      'RUBY_VERSION' => 'ruby 1.8.7',
+      'GEM_HOME' => '/path/to/.rvm/gems/ree/1.8.7',
+      'GEM_PATH' => '/path/to/.rvm/gems/ree/1.8.7' 
+    }
+%p
+  To get the accurate locations have a look at cat ~/.rvm/default
+
