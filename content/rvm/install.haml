@@ -20,21 +20,31 @@
 %h2
   Github Repository (recommended)
 %p
-  To install from the github repository (recommended):
+  To install / update from the github repository (recommended):
+%pre.code
+  :preserve
+    bash < <(curl http://rvm.beginrescueend.com/releases/rvm-install-head)
+%p
+  What this script essentially does is the following, with some extra checks and tweaks:
 %pre.code
   :preserve
     mkdir -p ~/.rvm/src/ && cd ~/.rvm/src && rm -rf ./rvm/ && git clone --depth 1 git://github.com/wayneeseguin/rvm.git && cd rvm && ./install
 %p
-  Or if you are behind a firewall (slower, but it should work):
+  Note that if you are behind a firewall (slower, but it should work), change the git:// to http:// like this:
 %pre.code
   :preserve
     mkdir -p ~/.rvm/src/ && cd ~/.rvm/src && rm -rf ./rvm/ && git clone --depth 1 http://github.com/wayneeseguin/rvm.git && cd rvm && ./install
 
 %h2
-  2. Installing from a source tarball
+  2. Installing / updating the latest rvm from the latest source tarball
 %pre.code
   :preserve
-    version=$(curl http://rvm.beginrescueend.com/releases/stable-version.txt) ;
+    bash < <(curl http://rvm.beginrescueend.com/releases/rvm-install-latest)
+%p
+  What this script essentially does is the following, with some extra checks and tweaks:
+%pre.code
+  :preserve
+    version=$(curl http://rvm.beginrescueend.com/releases/stable-version.txt);
     mkdir -p ~/.rvm/src/ && curl -O http://rvm.beginrescueend.com/releases/rvm-${version}.tar.gz | tar zxf - && cd rvm-${version} && ./install
 
 %h2
