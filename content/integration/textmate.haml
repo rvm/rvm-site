@@ -83,6 +83,15 @@
     :preserve
       ∴ rvm rbx --symlink textmate
 
+%p
+  If you need to update osx-plist for Ruby 1.9.X compatibility, this might be of some use:
+%pre.code
+  :preserve
+    git clone git://github.com/kballard/osx-plist.git
+    cd osx-plist/ext/plist
+    ruby extconf.rb && make
+    cp plist.bundle /Applications/TextMate.app/Contents/SharedSupport/Support/lib/osx/
+
 %h2
   Notes
         
