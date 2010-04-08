@@ -61,12 +61,22 @@
     Be sure to change '/home/wayne' to your own $HOME directory,
   %li
     The '.rvm/bin/passenger_ruby' is actually what is known as a 'wrapper script' which sets up the environment for the passenger so that it can find it's gems, etc... and then exec's the actual ruby bnary.nf"
+  %li
+    passenger_root/PassengerRoot Should be something similar to the following, which 
+    is for Passenger 2.2.11 installed under ree-1.8.7-2010.01.
+    %pre.code
+      :preserve
+         passenger_root /home/millisami/.rvm/gems/ree-1.8.7-2010.01/gems/passenger-2.2.11
 
 %h2
   Troubleshooting
 %ul
-  %li The most common issue is forgetting the /bin/ part of the path to get the proper wrapper script:
-
+  %li 
+    The most common issue is forgetting the /bin/ part of the path to get the proper wrapper script:
+  %li 
+    The next most common issue is listening to the output of the passenger installation script with
+    respect to where passenger_ruby/PassengerRuby are located. Be sure to use the wrapper script location
+    as specified above. To be more clear, see the example below for Nginx config:
 %pre.code
   :preserve
     passenger_ruby /home/wayne/.rvm/bin/passenger_ruby;
