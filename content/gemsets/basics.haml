@@ -17,20 +17,20 @@
 %p
   You may even have separate named gem sets.
 %p
-  Let's say, for example, that you are testing two versions of a gem with ruby 1.9.1.
-  You can install one to the default 1.9.1 and create a named gem set for the other version and switch between them easily.
+  Let's say, for example, that you are testing two versions of a gem with ruby 1.9.2-head.
+  You can install one to the default 1.9.2-head and create a named gem set for the other version and switch between them easily.
 %h3
   Example: testing gems
 %pre.code
   :preserve
-    ∴ rvm 1.9.1@testing
+    ∴ rvm 1.9.2-head@testing
 %p
-  will use a '1.9.1@testing' GEM_HOME (be sure to create it first), whereas:
+  will use a '1.9.2-head@testing' GEM_HOME (be sure to create it first), whereas:
 %pre.code
   :preserve
-    ∴ rvm 1.9.1
+    ∴ rvm 1.9.2-head
 %p
-  will use the default 1.9.1 GEM_HOME :)
+  will use the default 1.9.2-head GEM_HOME :)
 %h3
   Example: Rails versions & upgrading apps
 %p
@@ -38,17 +38,17 @@
 %pre.code
   :preserve
 
-    ∴ rvm 1.9.1
+    ∴ rvm 1.9.2-head
     ∴ gem install rails -v 2.3.3
 
     ∴ rvm gemset create rails222 rails126
     Gemset 'rails222' created.
     Gemset 'rails126' created.
 
-    ∴ rvm 1.9.1@rails222
+    ∴ rvm 1.9.2-head@rails222
     ∴ gem install rails -v 2.2.2
 
-    ∴ rvm 1.9.1@rails126
+    ∴ rvm 1.9.2-head@rails126
     ∴ gem install rails -v 1.2.6
 
     ∴ rvm 1.8.7
@@ -58,7 +58,7 @@
   Now that our environments are set up, switching between Rails versions and Ruby versions is quite simple:
 %pre.code
   :preserve
-    ∴ rvm 1.9.1@rails126 ; rails --version
+    ∴ rvm 1.9.2-head@rails126 ; rails --version
 
     Rails 1.2.6
 
@@ -66,11 +66,11 @@
 
     Rails 1.2.3
 
-    ∴ rvm 1.9.1@rails220 ; rails --version
+    ∴ rvm 1.9.2-head@rails220 ; rails --version
 
     Rails 2.2.0
 
-    ∴ rvm 1.9.1 ; rails --version
+    ∴ rvm 1.9.2-head ; rails --version
 
     Rails 2.3.3
 %h2

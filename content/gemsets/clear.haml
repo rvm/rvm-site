@@ -1,0 +1,34 @@
+.breadcrumbs
+  %a{ :href => "/" }
+    Documentation
+  &nbsp;>&nbsp;
+  %a{ :href => "/gemsets/" }
+    Gemsets
+  &nbsp;>&nbsp;
+  %a{ :href => "/gemsets/clear/" }
+    Clearing Gemsets
+  %hr
+
+%p
+  Let us assume that we are already using the albinochipmunk gemset.
+%pre.code
+  :preserve
+    ∴ rvm gemset use albinochipmunk
+    Now using gemset 'albinochipmunk'
+%p
+  And that we now wish to switch back to using the default gems directory for the currently selected ruby.
+%p
+  We can accomplish this using gemset clear:
+%pre.code
+  :preserve
+    ∴ rvm gemdir
+    /Users/wayne/.rvm/gems/1.9.2-head@albinochipmunk
+    ∴ rvm gemset clear
+    gemset cleared.
+    ∴ rvm gemdir
+    /Users/wayne/.rvm/gems/1.9.2-head
+
+%h1
+  Community Resources
+%ul
+  %li
