@@ -36,37 +36,41 @@
 %p
   "Did I mention this was a nasty hack?" - mchung
 
-%h3 hooks.rb
+%h3 
+  culerity-hooks.rb
+%p
+  Thanks to agibralter for this *awesome* usage of rvm info as it was intended to be used!
 %pre.code
   :preserve
-    Before("@culerity") do |scenario|
-      #################################
-      @rvm_jruby_string = "jruby-1.4.0"
-      #################################
-      @rvm_jruby_home = "#{ENV["rvm_path"]}/rubies/#{@rvm_jruby_string}"
-      @rvm_jruby_gem_path = "#{ENV["rvm_gem_path"]}/#{@rvm_jruby_string}"
-      @rvm_jruby_os_path = "#{@rvm_jruby_home}/bin:#{@rvm_jruby_gem_path}/bin"
-     
-      @rvm_ruby_string = ENV["rvm_ruby_string"]
-      @rvm_ruby_home = "#{ENV["rvm_path"]}/#{@rvm_ruby_string}"
-      @rvm_ruby_gem_path = "#{ENV["rvm_gem_path"]}/#{@rvm_ruby_string}"
-      @os_path = ENV["PATH"]
-        
-      ENV["GEM_HOME"] = @rvm_jruby_gem_path
-      ENV["GEM_PATH"] = @rvm_jruby_gem_path
-      ENV["MY_RUBY_HOME"] = @rvm_jruby_home
-      ENV["PATH"] = "#{@rvm_jruby_os_path}:#{ENV['PATH']}"
+    # culerity-hooks.rb
+    Before("@culerity,@celerity,@javascript") do |scenario|
+      unless @env_rvm_jruby
+        @env_rvm_jruby = {}
+        require 'yaml'
+        rvm_info = YAML::load(`bash -l -c 'source ~/.rvm/scripts/rvm; rvm jruby ; rvm info'`)
+        rvm_info['environment'].each do |k, v|
+          @env_rvm_jruby[k] = v
+        end
+        @env_jruby_path = rvm_info['binaries']['ruby'].gsub(%r{^(.*)/ruby$}, '\1')
+      end
+      @env_defaults = {}
+      @env_rvm_jruby.each do |k, v|
+        @env_defaults[k] = ENV[k]
+        ENV[k] = v
+      end
+      @env_path = ENV['PATH']
+      ENV['PATH'] = ENV['PATH'] + ":#{@env_jruby_path}"
     end
-     
-    After("@culerity") do |scenario|
-      ENV["GEM_HOME"] = @rvm_ruby_gem_path
-      ENV["GEM_PATH"] = @rvm_ruby_gem_path
-      ENV["MY_RUBY_HOME"] = @rvm_ruby_home
-      ENV["PATH"] = @os_path
+    
+    After("@culerity,@celerity,@javascript") do |scenario|
+      @env_defaults.each do |k, v|
+        ENV[k] = v
+      end
+      ENV["PATH"] = @env_path
     end
 
 %p
-  Careful of the shebang line,
+  Careful of the shebang line, should be bash:
 %pre.code
   :preserve
     ∴ rvm jruby
@@ -80,9 +84,9 @@
   Community Resources
 %ul
   %li
-    Original 
-    %a{:href => "http://gist.github.com/268216"} gist by mchung
-  %li
     These 
     %a{:href => "http://gist.github.com/353514"} awesome hooks
-    exhibit proper scripting usage of RVM info as intended, awesomely done agibralter.
+    from above exhibit proper scripting usage of RVM info as intended, awesomely done agibralter.
+  %li
+    Original 
+    %a{:href => "http://gist.github.com/268216"} gist by mchung
