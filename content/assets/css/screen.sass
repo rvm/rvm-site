@@ -6,24 +6,13 @@
   margin: 0
   padding: 0
   font-family: Georgia, Palatino, Times, "Times New Roman", sans-serif
-  
+
+
 body
-  background: #8c1313
-  margin: 1em
-  line-height: 1.5em
-  
+  background: #8b1417 url(/images/bottom-gradient.gif) repeat-x fixed center bottom
+  line-height: 1.4em
   .relative
     position: relative
-  .shadow
-    -webkit-box-shadow: 0px 2px 5px rgba(0,0,0,0.2)
-    -moz-box-shadow: 0px 2px 5px rgba(0,0,0,0.2)
-    -khtml-box-shadow: 0px 2px 5px rgba(0,0,0,0.2)
-    box-shadow: 0px 2px 5px rgba(0,0,0,0.2)
-  .roundcorners
-    -moz-border-radius: 10px
-    -webkit-border-radius: 10px
-    -khtml-border-radius: 10px
-    border-radius: 10px
   .clear
     clear: both
   .center
@@ -32,24 +21,12 @@ body
   .box
     margin-top: 1em
     padding: 0.8em
-    
   /* Not used */
   .container
     margin: 4em auto
     width: auto
     clear: both
-  a
-    text-decoration: none
-    font-weight: bold
-    /* 871E05
-    color: maroon
-    &:visited
-      color: #710000
-    &:hover
-      text-decoration: none
-      color: blue
-    img
-      border: none
+
   h2
     font-weight: normal
     padding:
@@ -63,28 +40,23 @@ body
       bottom:
         width: 1px
         color: #CCCCCC
-         
-  #background
-    background: #fff url("/images/ruby.png") no-repeat 10px 10px
-    width: 80%
-    padding-bottom: 0.5em
-    clear: both
-    div
-      font-size: medium
-      &.title
-        margin-left: 130px
-        line-height: 1em
-        color: #871E05
-        font-weight: bold
-        font-size: 600%
-      &.tagline
-        margin-left: 133px
-        font-size: 120%
-        line-height: 1em
+
+  a
+    text-decoration: none
+    font-weight: bold
+    /* 871E05
+    color: maroon
+    &:visited
+      color: #710000
+    &:hover
+      text-decoration: none
+      color: blue
+    img
+      border: none
 
     table.header
       background: #eee
-      margin-top: 2em
+      margin-top: 1em
       width: 100%
       font-size: small
       thead
@@ -116,52 +88,197 @@ body
                   padding-bottom: 0.5em
                   padding-left: 1em
 
-    #content
-      color: #555
-      margin-left: 2em
-      clear: both
-      padding: 1em
-      p
-        padding: 5px
-      pre.code
-        border: 1px solid maroon
-        padding: 0.75em
-        overflow: auto
-        background-color: #FAFAFA
-      font-size: 14px
 
-    #index
-      background-color: #eee
-      color: #555
-      height: 600px
-      .headline
-        font-size: small
-        font-weight: bold
-        text-shadow: 1px 1px 1px #fff
-        color: maroon
-      .column
-        width: 22%
-        float: left
-        margin-right: 1em
-      ul
-        font-size: 0.7em
-        list-style-type: none
-        margin: 0
-        a
-          padding: 2px
-          color: gray
-          &:visited
-            color: #4a4a4a
-          &:hover
-            text-decoration: none
-            color: blue
-          &:active
-            color: #009bdb
-            
-      li
-        margin-left: 0.5em
-        margin-top: -0.3em
 
-    #footer
-      margin-top: 1em
-      text-align: center
+
+/************* New Design ***********/
+
+center
+  margin: 0
+
+.clear
+  clear: both
+
+h5
+  font-size: 0.8em
+  color: black
+  font-weight: normal
+  margin-bottom: 0.5em
+  margin-top: 0.5em
+
+h6
+  font-size: 0.7em
+  font-weight: normal
+  text-transform: uppercase
+  color: #a1a1a1
+  letter-spacing: 0.3em
+  text-align: center
+  margin: 0.3em 0 0 0
+
+
+// content width
+!width = 840px
+
+// height of support box on the very top
+!height = 190px
+
+=backgroundtex
+  background: #fafaf2 url('/images/bgtex.jpg') repeat
+
+=roundcorners
+  -moz-border-radius: 10px
+  -webkit-border-radius: 10px
+  -khtml-border-radius: 10px
+  border-radius: 10px
+
+=topcorners
+  -moz-border-radius-topleft: 10px
+  -webkit-border-top-left-radius: 10px
+  -khtml-border-radius-topleft: 10px
+  -o-border-radius-topleft: 10px
+  border-top-left-radius: 10px
+  -moz-border-radius-topright: 10px
+  -webkit-border-top-right-radius: 10px
+  -khtml-border-radius-topright: 10px
+  -o-border-radius-topright: 10px
+  border-top-right-radius: 10px
+
+
+=centered(!width)
+  margin-left: auto
+  margin-right: auto
+  width = !width
+
+=shadow
+  -webkit-box-shadow: 0px 2px 5px rgba(0,0,0,0.2)
+  -moz-box-shadow: 0px 2px 5px rgba(0,0,0,0.2)
+  -khtml-box-shadow: 0px 2px 5px rgba(0,0,0,0.2)
+  box-shadow: 0px 2px 5px rgba(0,0,0,0.2)
+
+
+#heaven_grid
+  height = 200px
+  width: 100%
+  +backgroundtex
+  margin: 0
+  +shadow
+  #heaven
+    +centered
+    .supportbox_left
+      padding-right: 10px
+      padding-left: 10px
+      width: 190px
+      height = !height
+      margin: 10px 0 0 0
+      float: left
+      border-right: 1px solid #c9c9c9
+      text-align: justify
+    .supportbox_right
+      height = !height
+      padding-left: 10px
+      width: 190px
+      margin: 10px 0 0 0
+      float: right
+      text-align: justify
+
+.logo
+  margin: 1em
+
+#content
+  +centered
+  +roundcorners
+  +shadow
+  +backgroundtex
+  padding: 1em
+  width = !width
+  clear: both
+  font-size: 0.9em
+  div
+    font-size: medium
+    &.title
+      margin-left: 130px
+      line-height: 1em
+      color: #871E05
+      font-weight: bold
+      font-size: 600%
+    &.tagline
+      margin-left: 133px
+      font-size: 120%
+      line-height: 1em
+
+  p
+    padding: 5px
+  pre.code
+    margin-bottom: 0.5em
+    background: #fff
+    border: 1px solid maroon
+    padding: 0.75em
+    overflow: auto
+  
+  
+
+#docindex
+  +centered
+  +shadow
+  +backgroundtex
+  +topcorners
+  margin-top: 1em
+  padding: 1em
+  width = !width
+  color: #555
+  height: 600px
+  .headline
+    font-size: small
+    font-weight: bold
+    text-shadow: 1px 1px 1px #fff
+    color: maroon
+  .column
+    width: 22%
+    float: left
+    margin-top: 1em
+    margin-left: 1em
+  ul
+    font-size: 0.7em
+    list-style-type: none
+    margin: 0
+    a
+      padding: 2px
+      color: #555658
+      &:visited
+        color: #303030
+      &:hover
+        text-decoration: none
+        color: blue
+      &:active
+        color: #009bdb
+        
+  li
+    margin-left: 0.5em
+    margin-top: -0.3em
+
+#footer
+  +backgroundtex
+  padding-top: 0.2em
+  margin-top: 1em
+  height: 25px
+  width: 100%
+  text-align: center
+  font-size: 0.8em
+  text-transform: uppercase
+  letter-spacing: 0.4em
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
+

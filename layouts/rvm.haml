@@ -8,62 +8,75 @@
     %meta{ :content => "text/html; charset=UTF-8", "http-equiv" => "Content-Type" }
 
   %body
+    %a{ :href => "http://github.com/wayneeseguin/rvm" }
+      %img{ :src => "http://s3.amazonaws.com/github/ribbons/forkme_right_red_aa0000.png", :alt => "Fork me on GitHub", :style => "position: absolute; top: 0; right: 0; border: 0;" }
 
-    #background.shadow.box.center.roundcorners.relative
-      %a{ :href => "http://github.com/wayneeseguin/rvm" }
-        %img{ :src => "http://s3.amazonaws.com/github/ribbons/forkme_right_red_aa0000.png", :alt => "Fork me on GitHub", :style => "position: absolute; top: 0; right: 0; border: 0;" }
+
+
+    #heaven_grid
       %a{ :name => "header" }
-      .title
-        %a{ :href => "/" }
-          RVM
-      .tagline
-        Ruby Version Manager
+      #heaven
+        .supportbox_left
+          %h6
+            Donation
+          %h5
+            Love RVM?
+            A donation would help justify to my family why I spend so much time working on Open Source projects like RVM ;)
+          %center
+            %a{ :href => "http://www.pledgie.com/campaigns/9822" }
+              %img{ :src => "http://www.pledgie.com/campaigns/9822.png?skin_name=chrome", :border => "0", :alt => "Click here to lend your support to: RVM and make a donation at www.pledgie.com !" }
 
-      %table.header.center.roundcorners
-        %thead
-          %tr
-            %th Donate
-            %th Recommend
-            %th IRC
-            %th Sponsors
-        %tbody
-          %tr
-            %td
-              %p
-                %a{ :href => "http://www.pledgie.com/campaigns/9822" }
-                  %img{ :src => "http://www.pledgie.com/campaigns/9822.png?skin_name=chrome", :border => "0", :alt => "Click here to lend your support to: RVM and make a donation at www.pledgie.com !" }
-                Love RVM?
-                A donation would help justify to my family why I spend so much time working on Open Source projects like RVM ;)
-            %td
-              %p
-                If you like my work with RVM, please recommend me *with a comment as to why you recommend me* on
-                %a{ :href => "http://www.workingwithrails.com/recommendation/for/person/7192-wayne-e-seguin" }
-                  Working With Rails
-                Thank You!!!
-            %td
-              %p
-                I hang out on
-                %a{ :href => "http://webchat.freenode.net/?channels=rvm" }
-                  irc.freenode.net#rvm
-                My nick is 'wayneeseguin'.
-                If I do not respond right away, leave a message and I'll respond when I get back.
-            %td
-              %p
-                %a{:href => "http://www.blueboxgrp.com/"}
-                  %img{:src => "/images/bbg_logo.png", :alt => "Blue Box Group, LLC"}
+        .supportbox_left
+          %h6
+            Recommend
+          %h5
+            If you like my work with RVM, please recommend me *with a comment as to why you recommend me* on
+            %a{ :href => "http://www.workingwithrails.com/recommendation/for/person/7192-wayne-e-seguin" }
+              Working With Rails
+            –
+            Thank You!
 
-      %p
+        .supportbox_left
+          %h6
+            IRC
+          %h5
+            I hang out on
+            %br/
+            %a{ :href => "http://webchat.freenode.net/?channels=rvm" }
+              irc.freenode.net#rvm
+            %br/
+            My nick is 'wayneeseguin'.
+            If I do not respond right away, leave a message and I'll respond when I get back.
+
+        .supportbox_right
+          %h6 
+            Sponsors
+          %br/
+          %a{:href => "http://www.blueboxgrp.com/"}
+            %img{:src => "/images/bbg_logo.png", :alt => "Blue Box Group, LLC"}
+
+        .clear
+
+
+
+        .logo
+          %center
+            %a{ :href => "/" }
+              %img{ :src => "/images/logo.png", :width => "230px", :height => "220px", :alt => "RVM Logo"}
+
+        .clear
+
+      #content
         %center
           %a{ :href => "#docindex"}
             ∴ rvm help # Documentation
 
-      #content.center.roundcorners.box
         %a{ :name => "top" }
-        = yield
+        =yield
         %a{ :name => "bottom" }
 
 
-      #index.center.roundcorners.box
+      #docindex
         %a{:name => "docindex"}
         .headline
           RVM Documentation
@@ -260,6 +273,8 @@
             %li
               %a{:href => "/credits/donations/"} Donations
 
+    
+      .clear
 
       #footer
         Copyright &copy; >= 2009 Wayne E. Seguin
