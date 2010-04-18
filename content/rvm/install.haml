@@ -45,7 +45,7 @@
 %pre.code
   :preserve
     version=$(curl http://rvm.beginrescueend.com/releases/stable-version.txt);
-    mkdir -p ~/.rvm/src/ && curl -O http://rvm.beginrescueend.com/releases/rvm-${version}.tar.gz | tar zxf - && cd rvm-${version} && ./install
+    mkdir -p ~/.rvm/src/ && cd ~/.rvm/src/ && curl -O http://rvm.beginrescueend.com/releases/rvm-${version}.tar.gz | tar zxf - && cd rvm-${version} && ./install
 
 %h2
   3. Installing from a gem
