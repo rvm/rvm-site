@@ -117,7 +117,7 @@ h6
 
 
 // content width
-!width = 840px
+!width = 80%
 
 // height of support box on the very top
 !height = 190px
@@ -157,13 +157,13 @@ h6
 
 
 #heaven_grid
-  height = 200px
+  height: 200px
   width: 100%
   +backgroundtex
   margin: 0
   +shadow
   #heaven
-    +centered
+    +centered(800px)
     .supportbox_left
       padding-right: 10px
       padding-left: 10px
@@ -175,11 +175,12 @@ h6
       text-align: justify
     .supportbox_right
       height = !height
-      padding-left: 10px
-      width: 190px
-      margin: 10px 0 0 0
+      width: 140px
+      margin: 10px 0 0 10px
       float: right
       text-align: justify
+      h6
+        margin-left: -2em
 
 .logo
   margin: 1em
@@ -223,7 +224,7 @@ h6
   +backgroundtex
   +topcorners
   margin-top: 1em
-  padding: 1em
+  padding: 0.9em
   width = !width
   color: #555
   height: 600px
