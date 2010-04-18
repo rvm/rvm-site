@@ -19,10 +19,17 @@
 %pre.code
   :preserve
     ∴ rvm package install autoconf
-    
+
 %p
-  Once autoconf has been installed, you can then (re) install your ruby cleanly
+  Note that autoconf will be installed to ~/.rvm/bin so be sure it is in your path.
+%p
+  If it is not in your path you can add it like this
 %pre.code
   :preserve
-    ∴ rvm remove 1.9.2-head
-    ∴ rvm install 1.9.2-head -C --with-autoconf-dir=$rvm_path/usr
+    ∴ export PATH=$HOME/.rvm/bin:$PATH
+
+%p
+  Once autoconf has been installed, you can then (re) install your ruby
+%pre.code
+  :preserve
+    ∴ rvm install 1.9.2-head
