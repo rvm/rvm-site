@@ -27,6 +27,16 @@
     %li
       Be sure to be using either bash or zsh, RVM (latest versions preferred) is untested at best in other shells.
 
+%a{:href => "#", :name => "ruby-debug"}
+%h2
+  ruby-debug
+%p
+  If you have trouble installing ruby-debug19 try the following:
+%pre.code
+  :preserve
+    ∴ gem install ruby-debug19 -- --with-ruby-include=$rvm_path/src/ruby-1.9.2-head/
+
+
 %a{:href => "#", :name => "segfault"}
 %h2
   Segfaults
