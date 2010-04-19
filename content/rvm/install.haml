@@ -48,7 +48,7 @@
     mkdir -p ~/.rvm/src/ && cd ~/.rvm/src/ && curl -O http://rvm.beginrescueend.com/releases/rvm-${version}.tar.gz | tar zxf - && cd rvm-${version} && ./install
 
 %h2
-  3. Installing from a gem
+  3. Installing from a gem (not recommended)
 %p
   First install the gem. After the gem has installed run the rvm-install script.
 %pre.code
@@ -56,7 +56,7 @@
     ∴ gem install rvm            # Install the RVM gem
     ∴ rvm-install                # Install RVM, adds hooks for bash & zsh
     # Only necessary the first time:
-    ∴ for profile in .bash_profile .bashrc ; do echo 'if [[ -s "$HOME/.rvm/scripts/rvm" ]]  ; then source "$HOME/.rvm/scripts/rvm" ; fi' >> ~/.$profile fi
+    ∴ for profile in .bash_profile .bashrc ; do echo 'if [[ -s "$HOME/.rvm/scripts/rvm" ]]  ; then source "$HOME/.rvm/scripts/rvm" ; fi' >> ~/$profile fi
     ∴ source ~/.rvm/scripts/rvm  # load the new code into your current shell and start using RVM ! w00t!
 %p
   If rvm-install is not found it is likely because your users gem home is not in your path. You can add it to your path by putting this in your ~/.bashrc &amp; ~/.bash_profile
