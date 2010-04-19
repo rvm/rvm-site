@@ -1,0 +1,63 @@
+.breadcrumbs
+  %a{ :href => "/" }
+    Documentation
+  &nbsp;>&nbsp;
+  %a{ :href => "/workflow/" }
+    Workflow
+  &nbsp;>&nbsp;
+  %a{ :href => "/workflow/completion/" }
+    Bash Completion
+  %hr
+
+%h1 Bash Completion
+%p
+  To use RVM bash completion, you can simply source the file:
+%pre.code
+  :preserve
+    [ -r $rvm_path/scripts/completion ] && source $rvm_path/scripts/completion
+
+%h3 Usage
+%p
+  commands and rubies
+
+%pre.code
+  :preserve
+    ∴ rvm <tab><tab>
+    debug            gemdir           install          monitor          reload           ruby-1.8.7-p248  ruby-1.9.1-p378  tests            version
+    default          gemset           jruby-1.3.1      notes            remove           ruby-1.8.7-p249  specs            uninstall        
+    fetch            impload          jruby-1.4.0      package          reset            ruby-1.9.1-p243  srcdir           update           
+    gem              info             list             rake             ruby             ruby-1.9.1-p376
+    system           use       
+
+%p
+  rvm use
+
+%pre.code
+  :preserve
+    ∴ rvm use <tab><tab>
+    jruby-1.3.1      jruby-1.4.0      ruby-1.8.7-p248  ruby-1.8.7-p249  ruby-1.9.1-p243  ruby-1.9.1-p376  ruby-1.9.1-p378
+
+%p
+  rvm gemset use
+    
+%pre.code
+  :preserve
+    ∴ rvm gemset use <tab><tab>
+    global        rails3      projecta      project-b
+
+%h3 To do
+%ul
+  %li
+    flag completion
+  %li
+    'rvm install' completion
+  %li
+    'rvm gemset' completion
+  %li
+    'rvm package' completion
+
+%h1
+  Community Resources
+%ul
+  %li
+
