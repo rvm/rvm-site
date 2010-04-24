@@ -1,6 +1,6 @@
 #!/usr/bin/env bash
 
-rvm --create ruby-head@rvm-site
+rvm --create 1.9.1@rvm-site
 
 if [[ -s rvm-site.gems ]] ; then
   rvm gemset import rvm-site.gems
