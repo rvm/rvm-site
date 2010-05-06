@@ -16,11 +16,11 @@
   You have two options:
 %ol
   %li
-    Enable .ssh environment variables using the PermitUserEnvironment option in your ssh condfiguration file
+    Enable .ssh environment variables using the PermitUserEnvironment option in your ssh configuration file
   %li
     Use the capistrano :default_environment setting
 %p
-  For the second option, simply add the following line in your deploy.rb file
+  For the second option add the following line in your deploy.rb file, adjusting to your particular rvm ruby of course,
 %pre.code
   :preserve
     set :default_environment, {
