@@ -17,21 +17,21 @@
   users of fish need a wrapper around RVM to make it work properly with that shell.
   Since RVM just manipulates environment variables, we just need a way to preserve
   those changes.
- 
+
 %h2 Install
 %p
   Install RVM [as you would for use with bash](http://rvm.beginrescueend.com/rvm/install/).
   When running the `rvm-install` command, feel free to ignore the advice under the
   "You must now finish the install manually" section.
- 
+
 %h2 Setup
-%p 
+%p
   Download the fish functions from GitHub, the first a utility function to capture the
 changes to environment variables, the second a wrapper around RVM for fish.
 %pre.code
   :preserve
      set -l GITHUB http://github.com/eventualbuddha/fish-nuggets/raw/master/functions
-     curl -o ~/.config/fish/functions/__bash_env_to_fish.fish $GITHUB/__bash_env_to_fish.fish
+     curl --create-dirs -o ~/.config/fish/functions/__bash_env_to_fish.fish $GITHUB/__bash_env_to_fish.fish
      curl -o ~/.config/fish/functions/rvm.fish $GITHUB/rvm.fish
      curl -o ~/.config/fish/functions/cd.fish $GITHUB/cd.fish
 
