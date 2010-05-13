@@ -49,15 +49,18 @@
   First install the gem. After the gem has installed run the rvm-install script.
 %pre.code
   :preserve
-    ∴ gem install rvm            # Install the RVM gem
-    ∴ rvm-install                # Install RVM, adds hooks for bash & zsh
+    ∴ gem install rvm                 # Install the RVM gem
+    # Adjust the path below for whever your system gem bin directory is located
+    ∴ ~/.gem/ruby/1.8/bin/rvm-install # Install RVM, adds hooks for bash & zsh
+
 %p
-  If rvm-install is not found it is likely because your users gem home is not in your path. You can add it to your path by putting this in your ~/.bashrc &amp; ~/.bash_profile
-  For example my system ruby installs gems to ~/.gem/ruby/1.8 (you can see this via the 'gem env gemdir' command) so I would do:
-%pre.code
-  :preserve
-    ∴ cat ~/.bash_profile | grep PATH
-    PATH=$PATH:~/.gem/ruby/1.8/bin ; export $PATH
+  If rvm-install is not found at the path listed it is likely because your users gem home is not in your path.
+  You can find out the path to use by running
+  %pre.code
+    :preserve
+      ∴ gem env gemdir
+
+  This will show something like /Users/wayne/.gem/ruby/1.8
 
 %h1
   Post Install
@@ -77,11 +80,6 @@
 %pre.code
   :preserve
     ∴ rvm notes
-
-%pre.code
-  :preserve
-    export PATH="$PATH:~/.gem/ruby/1.8/bin"
-    rvm-install
 %p
   Now add the sourcing line to your profiles:
 %pre.code
