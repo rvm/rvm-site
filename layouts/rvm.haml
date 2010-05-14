@@ -15,12 +15,16 @@
       %a{ :name => "header" }
       #heaven
         .supportbox_left
+          .logo
+            %a{ :href => "/" }
+              %img{ :src => "/images/logo.png", :width => "100%",  :alt => "RVM Logo"}
+              -# %img{ :src => "/images/logo.png", :width => "230px", :height => "220px", :alt => "RVM Logo"}
+        .supportbox_left
           %h6
             Donation
           %h5
             Love RVM?
-            A donation would help justify to my family why I spend so much time working on Open Source projects like RVM ;)
-          %center
+            A donation would help justify to my family why I spend so much time working on Open Source projects like RVM
             %a{ :href => "http://www.pledgie.com/campaigns/9822" }
               %img{ :src => "http://www.pledgie.com/campaigns/9822.png?skin_name=chrome", :border => "0", :alt => "Click here to lend your support to: RVM and make a donation at www.pledgie.com !" }
 
@@ -38,29 +42,21 @@
           %h6
             IRC
           %h5
-            I hang out on
-            %br/
+            I am 'wayneeseguin' in
             %a{ :href => "http://webchat.freenode.net/?channels=rvm" }
-              irc.freenode.net#rvm
-            %br/
-            My nick is 'wayneeseguin'.
-            If I do not respond right away, leave a message and I'll respond when I get back.
+              \#rvm on irc.freenode.net
+            If I do not respond right away, leave a message and I'll respond or leave you a memo when I am around.
 
         .supportbox_right
-          %h6 
+          %h6
             Sponsors
           %br/
           %a{:href => "http://www.blueboxgrp.com/"}
             %img{:src => "/images/bbg_logo.png", :alt => "Blue Box Group, LLC"}
 
         .clear
-        
-        .logo
-          %center
-            %a{ :href => "/" }
-              %img{ :src => "/images/logo.png", :width => "230px", :height => "220px", :alt => "RVM Logo"}
-
-        .clear
+      %br
+      .clear
 
       #content
         %center
@@ -278,8 +274,17 @@
             %li
               %a{:href => "/credits/donations/"} Donations
 
-    
       .clear
 
       #footer
         Copyright &copy; >= 2009 Wayne E. Seguin
+
+:preserve
+  <script src="http://www.google.com/jsapi?key=ABQIAAAAlfGITCLCzrcO4cy2viT78RSZcRLSY2B0NYnmYEy-3gaXzTHyQxRduJj7nQ6rEtYNpUjIQpEEosF5XA" type="text/javascript"></script>
+  <script language="Javascript" type="text/javascript">
+  //<![CDATA[
+  google.load("jquery", "1.4.2");
+  google.load("jqueryui", "1.8.1");
+  //]]>
+  </script>
+

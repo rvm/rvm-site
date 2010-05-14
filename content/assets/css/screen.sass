@@ -7,7 +7,6 @@
   padding: 0
   font-family: Georgia, Palatino, Times, "Times New Roman", sans-serif
 
-
 body
   background: #8b1417 url(/images/bottom-gradient.gif) repeat-x fixed center bottom
   line-height: 1.4em
@@ -164,10 +163,11 @@ h6
   +shadow
   #heaven
     +centered(800px)
+    width = !width
     .supportbox_left
       padding-right: 10px
       padding-left: 10px
-      width: 190px
+      width: 220px
       height = !height
       margin: 10px 0 0 0
       float: left
@@ -177,6 +177,7 @@ h6
       height = !height
       width: 140px
       margin: 10px 0 0 10px
+      margin-right: 40px
       float: right
       text-align: justify
       h6
@@ -215,8 +216,6 @@ h6
     border: 1px solid maroon
     padding: 0.75em
     overflow: auto
-  
-  
 
 #docindex
   +centered
@@ -227,7 +226,7 @@ h6
   padding: 0.9em
   width = !width
   color: #555
-  height: 600px
+  height: 800px
   .headline
     font-size: small
     font-weight: bold
@@ -252,7 +251,7 @@ h6
         color: blue
       &:active
         color: #009bdb
-        
+
   li
     margin-left: 0.5em
     margin-top: -0.3em
@@ -267,19 +266,4 @@ h6
   font-size: 0.8em
   text-transform: uppercase
   letter-spacing: 0.4em
-
-  
-
-
-
-
-
-
-
-
-
-
-
-
-
 
