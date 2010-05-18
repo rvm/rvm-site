@@ -13,17 +13,24 @@
   Debian
 
 %p
-  If you are running on a 
+  If you are running on a
   %a{:href => "http://www.debian.org/misc/children-distros"}
     Debian Based System
   Then the dependencies you should install are:
-  
+
 %p
   For JRuby (if you wish to use it) you will need:
 
 %pre.code
   :preserve
     apt-get install curl sun-java6-bin sun-java6-jre sun-java6-jdk
+%P
+  Note that you have to add the partner repository has to be enabled
+  as a software source because that's the new location of the Sun Java packages.
+  %pre.code
+    :preserve
+      System -> Administration -> Software Sources -> Other Software
+  (If anyone can tell me how this is done by editing files in the OS I'd appreciate it)
 
 %p
   For MRI & ree (if you wish to use it) you will need:
@@ -31,7 +38,7 @@
   :preserve
     apt-get install curl bison build-essential zlib1g-dev libssl-dev libreadline5-dev libxml2-dev git-core
 
-%p 
+%p
   For IronRuby (if you wish to use it) you will need:
 %pre.code
   :preserve
