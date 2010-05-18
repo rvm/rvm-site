@@ -47,7 +47,7 @@
       unless @env_rvm_jruby
         @env_rvm_jruby = {}
         require 'yaml'
-        rvm_info = YAML::load(`bash -l -c 'source ~/.rvm/scripts/rvm; rvm jruby ; rvm info'`)
+        rvm_info = YAML::load(`rvm info jruby`)
         rvm_info['environment'].each do |k, v|
           @env_rvm_jruby[k] = v
         end
