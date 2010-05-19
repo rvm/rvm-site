@@ -1,0 +1,45 @@
+.breadcrumbs
+  %a{ :href => "/" }
+    Documentation
+  &nbsp;>&nbsp;
+  %a{ :href => "/os/" }
+    Interpreters
+  &nbsp;>&nbsp;
+  %a{ :href => "/os/ubuntu/" }
+    Ubuntu
+  %hr
+
+%h1
+  Ubuntu
+
+%p
+  If you are running on a version of Ubuntu,
+  then the dependencies you should install are:
+
+%p
+  For MRI & ree (if you wish to use it) you will need:
+%pre.code
+  :preserve
+    apt-get install curl bison build-essential zlib1g-dev libssl-dev libreadline5-dev libxml2-dev git-core
+
+%p
+  For JRuby (if you wish to use it) you will need:
+
+%pre.code
+  :preserve
+    apt-get install curl sun-java6-bin sun-java6-jre sun-java6-jdk
+%P
+  Note that if you wish to use the sun-java-* packages on Ubuntu 10.4 or later,
+  you have to add the partner repository has to be enabled before doing the above step.
+  %pre.code
+    :preserve
+      ∴ sudo add-apt-repository "deb http://archive.canonical.com/ lucid partner"
+      ∴ sudo apt-get update
+      ∴ sudo apt-get install -y curl sun-java6-bin sun-java6-jre sun-java6-jdk
+
+%p
+  For IronRuby (if you wish to use it) you will need:
+%pre.code
+  :preserve
+    apt-get install curl mono-2.0-devel
+
