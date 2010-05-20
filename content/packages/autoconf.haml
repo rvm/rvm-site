@@ -1,0 +1,35 @@
+.breadcrumbs
+  %a{ :href => "/" }
+    Documentation
+  &nbsp;>&nbsp;
+  %a{ :href => "/packages/" }
+    Libraries
+  &nbsp;>&nbsp;
+  %a{ :href => "/packages/autoconf/" }
+    Autoconf
+  %hr
+
+%h2
+  Autoconf
+
+%p
+  If your ruby (usually 1.9.2-head / trunk) fails to compile and the make error log shows
+  that you do not have a current enough version of autoconf ::cough:: CentOS ::cough:: then
+  you can install it into your RVM.
+%pre.code
+  :preserve
+    ∴ rvm package install autoconf
+
+%p
+  Note that autoconf will be installed to ~/.rvm/bin so be sure it is in your path.
+%p
+  If it is not in your path you can add it like this
+%pre.code
+  :preserve
+    ∴ export PATH=$HOME/.rvm/bin:$PATH
+
+%p
+  Once autoconf has been installed, you can then (re) install your ruby
+%pre.code
+  :preserve
+    ∴ rvm install 1.9.2-head

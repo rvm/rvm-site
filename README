@@ -4,43 +4,52 @@ You can see the documentation live online at http://rvm.beginrescueend.com/.
 
 == Get the Site Running Locally
 
-If you're going to help you'll first need to get the site running locally on your machine. Start by forking the repository and cloning the fork to your machine.
+If you're going to help you'll first need to get the site running locally. 
+Start by forking the repository and cloning the fork.
 
 == Requirements
 
-The site requires that you have ruby 1.9.1 running in your environment. You can do this with RVM by typing the following at the command line:
+The site requires that you have ruby 1.9.1 running in your environment. 
+(Although you can manually use something else, this is what is setup in the .rvmrc file currently.)
 
-rvm install 1.9.1-p378
+You can do this with RVM by typing the following at the command line:
 
-RVM also requires the following Gems:
+rvm install 1.9.1
 
-Compass
-http://compass-style.org/
+rvm-site requires a few gems that can be found in rvm-site.gems, including:
 
-HAML (SASS is bundled with this Gem)
-http://haml-lang.com/
-http://sass-lang.com/
-
-Nanoc3
-http://nanoc.stoneship.org/
-
-Rack
-http://guides.rubyonrails.org/rails_on_rack.html
-
-Mime-type
-http://rubyforge.org/projects/mime-types/
-
+  Compass
+  http://compass-style.org/
+  
+  HAML (SASS is bundled with this Gem)
+  http://haml-lang.com/
+  http://sass-lang.com/
+  
+  Nanoc3
+  http://nanoc.stoneship.org/
+  
+  Rack
+  http://guides.rubyonrails.org/rails_on_rack.html
+  
+  Mime-type
+  http://rubyforge.org/projects/mime-types/
+  
 The cloned site will detect if you have these installed (except Mime-type) in your current ruby and if not it will install them in RVM for you.
 
 == Getting it Running
 
-To get the HAML to compile and run locally you'll need to type the following in the command line:
+If you are in RVM and have 1.9.1 already running, 
+simply clone this repository and cd to the directory.
+The project .rvmrc will be loaded and you can open in your editor and start hacking away.
+
+If you would like to view the changes locally as you hack, 
+You can use Nanoc's AutoCompile feature:
 
 	nanoc3 aco
 	
 == Update Submission
 
-Once you've updated the documentation push it back to github and initiate a pull request.
+Once you are satisfied with your changes to the documentation push it back to your github fork and initiate a pull request.
 
 == Thanks
 

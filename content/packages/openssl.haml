@@ -11,24 +11,31 @@
 
 %h2
   OpenSSL
-
-%h2
-  require "openssl" # => false ?!
+%p
+  Common issues that point to an issue with an MRI Ruby compiling openssl are:
+%ul
+  %li
+    require "openssl" # => false ?!
+  %li
+    Error compiling openssl due to openssl version 1.0.0* installed on the system.
 %p
   If you have issues with openssl not being available in ruby / irb please try the following configure option:
 %pre.code
   :preserve
-    ∴ rvm package install openssl
-    ∴ rvm remove 1.9.1
-    ∴ rvm install 1.9.1 -C --with-openssl-dir=$rvm_path/usr
+    ∴ rvm remove 1.9.1 # This ensures that you will not have any leftovers from the last run
+    ∴ rvm install 1.9.1 -C --with-openssl-dir=/usr/local
 %p
   Where you replace '/usr/local' with the prefix where your openssl packages are.
 %p
-  If you simply cannot seem to get this to work you can have RVM install a copy of readline into ~/.rvm/usr like so:
+  If you simply cannot seem to get this to work you can have RVM install a copy of openssl into ~/.rvm/usr like so:
   %br
   %pre.code
     :preserve
       ∴ rvm package install openssl
       ∴ rvm remove 1.9.1
-      ∴ rvm install 1.9.1
-
+      ∴ rvm install 1.9.1 -C --with-openssl-dir=$HOME/.rvm/usr
+%p
+  If you see readline errors in the make.error.log
+  %a{ :href => "/packages/readline/" }
+    visit the readline page
+  also.

@@ -36,7 +36,7 @@
 %p
   "Did I mention this was a nasty hack?" - mchung
 
-%h3 
+%h3
   culerity-hooks.rb
 %p
   Thanks to agibralter for this *awesome* usage of rvm info as it was intended to be used!
@@ -47,7 +47,7 @@
       unless @env_rvm_jruby
         @env_rvm_jruby = {}
         require 'yaml'
-        rvm_info = YAML::load(`bash -l -c 'source ~/.rvm/scripts/rvm; rvm jruby ; rvm info'`)
+        rvm_info = YAML::load(`rvm info jruby`)
         rvm_info['environment'].each do |k, v|
           @env_rvm_jruby[k] = v
         end
@@ -59,9 +59,11 @@
         ENV[k] = v
       end
       @env_path = ENV['PATH']
-      ENV['PATH'] = ENV['PATH'] + ":#{@env_jruby_path}"
+      # NOTE: This has changed as @env_jruby_path was not being used
+      # ENV['PATH'] = ENV['PATH'] + ":"
+      ENV['PATH'] = @env_jruby_path + ":" + ENV['PATH']
     end
-    
+
     After("@culerity,@celerity,@javascript") do |scenario|
       @env_defaults.each do |k, v|
         ENV[k] = v
@@ -69,24 +71,28 @@
       ENV["PATH"] = @env_path
     end
 
+
 %p
   Careful of the shebang line, should be bash:
 %pre.code
   :preserve
     ∴ rvm jruby
     ∴ rvm --shebang inspect jruby
- 
+
     /Users/mchung/.rvm/jruby-1.4.0/bin/jruby:
- 
+
     #!/usr/bin/env bash
 
 %h1
   Community Resources
 %ul
   %li
-    These 
+    These
     %a{:href => "http://gist.github.com/353514"} awesome hooks
     from above exhibit proper scripting usage of RVM info as intended, awesomely done agibralter.
+    %a{:href => "http://gist.github.com/404870"}
+      correction by ashleymoran
+
   %li
-    Original 
+    Original
     %a{:href => "http://gist.github.com/268216"} gist by mchung

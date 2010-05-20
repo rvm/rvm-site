@@ -114,9 +114,21 @@
       rvm remove 1.9.1 ; rvm install 1.9.1
 %p
   Be sure you are on either RVM git head or release 0.0.78+ as it has some essential bug fixes for this to work properly.
-%p
-  Then
 
+%p 
+  If you see this error when trying to run IRB:
+  %br
+  %pre.code
+    :preserve
+      `require': no such file to load -- readline (LoadError)
+
+%p
+  Then try running readline extconf.rb to further debug the issue:
+  %br
+  %pre.code
+    :preserve
+      ruby $rvm_ruby_src_path/ext/readline/extconf.rb
+  
 %a{:href => "#", :name => "iconv"}
 %h2
   require "iconv" # => false ?!

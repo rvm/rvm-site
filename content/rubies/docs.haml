@@ -1,0 +1,35 @@
+.breadcrumbs
+  %a{ :href => "/" }
+    Documentation
+  &nbsp;>&nbsp;
+  %a{ :href => "/rubies/" }
+    Rubies
+  &nbsp;>&nbsp;
+  %a{ :href => "/rubies/docs/" }
+    Docs (RDoc / YARDoc)
+  %hr
+
+%h1
+  Docs RDoc
+
+%p
+  RVM can help you work with rdoc and yarddoc (NIY) for the core ruby libraries.
+
+%p 
+  First select a RVM ruby.
+%pre.code
+  :preserve
+    ∴ rvm use 1.8.7
+
+%p 
+  Next generate the core ruby documentation.
+%pre.code
+  :preserve
+    ∴ rvm docs generate
+
+%p 
+  And finally open the core ruby documentation in your local web browser.
+  Note that for this to work either `open` or `xdg-open` must be found in your system.
+%pre.code
+  :preserve
+    ∴ rvm docs open

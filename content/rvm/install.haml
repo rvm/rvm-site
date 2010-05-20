@@ -1,6 +1,6 @@
 %h1 Installing RVM
 %p
-  There are two very different ways to install/use RVM.
+  There are two very different ways to use RVM.
 %ul
   %li
     As a User
@@ -11,10 +11,6 @@
     Don't forget to set your
     %a{:href => "/rubies/default/"} default ruby
     after you install so that your command line opens with ruby enabled.
-
-%a{ :name => "install" }
-%h1
-  1. Installing from GitHub
 %p
   There are at least 3 ways to install RVM.
 %h2
@@ -23,7 +19,7 @@
   To install / update from the github repository (recommended):
 %pre.code
   :preserve
-    bash < <(curl http://rvm.beginrescueend.com/releases/rvm-install-head)
+    bash < <( curl http://rvm.beginrescueend.com/releases/rvm-install-head )
 %p
   What this script essentially does is the following, with some extra checks and tweaks:
 %pre.code
@@ -39,33 +35,51 @@
   2. Installing / updating the latest rvm from the latest source tarball
 %pre.code
   :preserve
-    bash < <(curl http://rvm.beginrescueend.com/releases/rvm-install-latest)
+    bash < <( curl http://rvm.beginrescueend.com/releases/rvm-install-latest )
 %p
   What this script essentially does is the following, with some extra checks and tweaks:
 %pre.code
   :preserve
     version=$(curl http://rvm.beginrescueend.com/releases/stable-version.txt);
-    mkdir -p ~/.rvm/src/ && curl -O http://rvm.beginrescueend.com/releases/rvm-${version}.tar.gz | tar zxf - && cd rvm-${version} && ./install
+    mkdir -p ~/.rvm/src/ && cd ~/.rvm/src/ && curl -O http://rvm.beginrescueend.com/releases/rvm-${version}.tar.gz | tar zxf - && cd rvm-${version} && ./install
 
 %h2
-  3. Installing from a gem
+  3. Installing from a gem (not recommended)
 %p
   First install the gem. After the gem has installed run the rvm-install script.
 %pre.code
   :preserve
-    ∴ gem install rvm            # Install the RVM gem
-    ∴ rvm-install                # Install RVM, adds hooks for bash & zsh
-    # Only necessary the first time:
-    ∴ for profile in .bash_profile .bashrc ; do echo 'if [[ -s "$HOME/.rvm/scripts/rvm" ]]  ; then source "$HOME/.rvm/scripts/rvm" ; fi' >> ~/.$profile fi
-    ∴ source ~/.rvm/scripts/rvm  # load the new code into your current shell and start using RVM ! w00t!
-%p
-  If rvm-install is not found it is likely because your users gem home is not in your path. You can add it to your path by putting this in your ~/.bashrc &amp; ~/.bash_profile
-  For example my system ruby installs gems to ~/.gem/ruby/1.8 so I would do:
+    ∴ gem install rvm                 # Install the RVM gem
+    # Adjust the path below for whever your system gem bin directory is located
+    ∴ ~/.gem/ruby/1.8/bin/rvm-install # Install RVM, adds hooks for bash & zsh
 
+%p
+  If rvm-install is not found at the path listed it is likely because your users gem home is not in your path.
+  You can find out the path to use by running
+  %pre.code
+    :preserve
+      ∴ gem env gemdir
+
+  This will show something like /Users/wayne/.gem/ruby/1.8
+
+%h1
+  Post Install
+%p
+  Only necessary the first time, put the following line into your profile at the very end, after all path loads etc...
 %pre.code
   :preserve
-    export PATH="$PATH:~/.gem/ruby/1.8/bin"
-    rvm-install
+    if [[ -s "$HOME/.rvm/scripts/rvm" ]]  ; then source "$HOME/.rvm/scripts/rvm" ; fi
+%p
+  Then load the new code into your current shell and start using RVM ! w00t!
+%pre.code
+  :preserve
+    ∴ source ~/.rvm/scripts/rvm
+
+%p
+  Be sure to install any dependencies for your operating system.
+%pre.code
+  :preserve
+    ∴ rvm notes
 %p
   Now add the sourcing line to your profiles:
 %pre.code
@@ -74,12 +88,6 @@
 
 %h3
   NOTE
-%p
-  If rvm-install is not found it is likely because your users gem home is not in your path. You can add it to your path by putting this in your ~/.bashrc &amp; ~/.bash_profile
-%pre.code
-  :preserve
-    ∴ cat ~/.bash_profile | grep PATH
-    PATH=$PATH:~/.gem/ruby/1.8/bin ; export $PATH
 %p
   Alternatively you can call it manually:
 %pre.code
@@ -102,11 +110,11 @@
     cd $package-$version && ./configure --prefix=/usr/local && make && sudo make install
 
     # Install RVM
-    cd $HOME/.rvm/src && git clone --depth 1 git://github.com/wayneeseguin/rvm.git && cd rvm && ./install
+    bash < <( curl http://rvm.beginrescueend.com/releases/rvm-install-head )
 
-    # Install common rubies
+    # Install some rubies
     source $HOME/.rvm/scripts/rvm
-    rvm install 1.8.6,1.8.7,ree,1.9.1,jruby,rbx
+    rvm install ree,1.9.2-head,jruby
 
 %h1 Notes & Warnings
 %ul

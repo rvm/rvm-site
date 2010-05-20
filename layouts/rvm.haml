@@ -11,18 +11,20 @@
     %a{ :href => "http://github.com/wayneeseguin/rvm" }
       %img{ :src => "http://s3.amazonaws.com/github/ribbons/forkme_right_red_aa0000.png", :alt => "Fork me on GitHub", :style => "position: absolute; top: 0; right: 0; border: 0;" }
 
-
-
     #heaven_grid
       %a{ :name => "header" }
       #heaven
+        .supportbox_left
+          .logo
+            %a{ :href => "/" }
+              %img{ :src => "/images/logo.png", :width => "100%",  :alt => "RVM Logo"}
+              -# %img{ :src => "/images/logo.png", :width => "230px", :height => "220px", :alt => "RVM Logo"}
         .supportbox_left
           %h6
             Donation
           %h5
             Love RVM?
-            A donation would help justify to my family why I spend so much time working on Open Source projects like RVM ;)
-          %center
+            A donation would help justify to my family why I spend so much time working on Open Source projects like RVM
             %a{ :href => "http://www.pledgie.com/campaigns/9822" }
               %img{ :src => "http://www.pledgie.com/campaigns/9822.png?skin_name=chrome", :border => "0", :alt => "Click here to lend your support to: RVM and make a donation at www.pledgie.com !" }
 
@@ -40,31 +42,21 @@
           %h6
             IRC
           %h5
-            I hang out on
-            %br/
+            I am 'wayneeseguin' in
             %a{ :href => "http://webchat.freenode.net/?channels=rvm" }
-              irc.freenode.net#rvm
-            %br/
-            My nick is 'wayneeseguin'.
-            If I do not respond right away, leave a message and I'll respond when I get back.
+              \#rvm on irc.freenode.net
+            If I do not respond right away, leave a message and I'll respond or leave you a memo when I am around.
 
         .supportbox_right
-          %h6 
+          %h6
             Sponsors
           %br/
           %a{:href => "http://www.blueboxgrp.com/"}
             %img{:src => "/images/bbg_logo.png", :alt => "Blue Box Group, LLC"}
 
         .clear
-
-
-
-        .logo
-          %center
-            %a{ :href => "/" }
-              %img{ :src => "/images/logo.png", :width => "230px", :height => "220px", :alt => "RVM Logo"}
-
-        .clear
+      %br
+      .clear
 
       #content
         %center
@@ -74,7 +66,6 @@
         %a{ :name => "top" }
         =yield
         %a{ :name => "bottom" }
-
 
       #docindex
         %a{:name => "docindex"}
@@ -93,6 +84,8 @@
               %a{:href => "/rvm/upgrading/"} Upgrading
             %li
               %a{:href => "/rvm/cli/"} CLI
+            %li
+              %a{:href => "/rvm/info/"} Info
             %li
               %a{:href => "/rvm/about/"} About
 
@@ -128,6 +121,10 @@
               %a{:href => "/rubies/list/"} List
             %li
               %a{:href => "/rubies/strings/"} Strings
+            %li
+              %a{:href => "/rubies/docs/"} Docs
+            %li
+              %a{:href => "/rubies/alias/"} Alias
 
         .column
           %a{:href => "/gemsets/"} gemsets
@@ -182,6 +179,8 @@
             %li
               %a{:href => "/workflow/hooks/"} Hooks
             %li
+              %a{:href => "/workflow/completion/"} Completion
+            %li
               %a{:href => "/workflow/subshells/"} Subshells
             %li
               %a{:href => "/workflow/examples/"} Examples
@@ -207,6 +206,8 @@
             %li
               %a{:href => "/integration/textmate/"} Textmate
             %li
+              %a{:href => "/integration/emacs/"} Emacs
+            %li
               %a{:href => "/integration/netbeans/"} Netbeans
             %li
               %a{:href => "/integration/culerty/"} Capybara / Culerity
@@ -222,11 +223,14 @@
             %li
               %a{:href => "/os/darwin/"} Darwin
             %li
-              %a{:href => "/os/debian/"} Debian / Ubuntu
+              %a{:href => "/os/debian/"} Debian
+            %li
+              %a{:href => "/os/ubuntu/"} Ubuntu
             %li
               %a{:href => "/os/gentoo/"} Gentoo
             %li
               %a{:href => "/os/other/"} Other
+
         .column
           %a{:href => "/packages/"} Packages
           %ul
@@ -238,6 +242,8 @@
               %a{:href => "/packages/zlib/"} Zlib
             %li
               %a{:href => "/packages/openssl/"} OpenSSL
+            %li
+              %a{:href => "/packages/autoconf/"} Autoconf
 
           %a{:href => "/presentations/"} Presentations
           %ul
@@ -273,8 +279,17 @@
             %li
               %a{:href => "/credits/donations/"} Donations
 
-    
       .clear
 
       #footer
         Copyright &copy; >= 2009 Wayne E. Seguin
+
+:preserve
+  <script src="http://www.google.com/jsapi?key=ABQIAAAAlfGITCLCzrcO4cy2viT78RSZcRLSY2B0NYnmYEy-3gaXzTHyQxRduJj7nQ6rEtYNpUjIQpEEosF5XA" type="text/javascript"></script>
+  <script language="Javascript" type="text/javascript">
+  //<![CDATA[
+  google.load("jquery", "1.4.2");
+  google.load("jqueryui", "1.8.1");
+  //]]>
+  </script>
+
