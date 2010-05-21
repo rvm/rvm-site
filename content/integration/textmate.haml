@@ -40,7 +40,14 @@
   Then in your shell, select an RVM ruby as a textmate ruby
   %pre.code
     :preserve
-      ∴ rvm 1.9.1 --symlink textmate
+      ∴ rvm wrapper 1.9.2-head textmate
+
+%p
+  Please note that using this technique, you can also lock textmate to
+  a specific gemset:
+  %pre.code
+    :preserve
+      ∴ rvm wrapper 1.9.2-head@rails3 textmate
 
 %p
   Following that, set TM_RUBY to /Users/wayne/.rvm/bin/textmate_ruby in:
@@ -78,10 +85,10 @@
   If you see something like this "ruby 1.9.1p378 (2010-01-10 revision 26273) [i386-darwin10.2.0]" most importantly the 'ruby 1.9.1' part then it is working as expected.
 
 %p
-  When you wish to switch out ruby versions simply rerun the symlink command with the proper version:
+  When you wish to switch out ruby versions simply rerun the wrapper command with the proper version:
   %pre.code
     :preserve
-      ∴ rvm rbx --symlink textmate
+      ∴ rvm wrapper rbx textmate
 
 %p
   If you need to update osx-plist for Ruby 1.9.X compatibility, this might be of some use:
