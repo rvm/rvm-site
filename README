@@ -9,12 +9,12 @@ Start by forking the repository and cloning the fork.
 
 == Requirements
 
-The site requires that you have ruby 1.9.1 running in your environment. 
+The site requires that you have ruby 1.9.2-head running in your environment.
 (Although you can manually use something else, this is what is setup in the .rvmrc file currently.)
 
 You can do this with RVM by typing the following at the command line:
 
-rvm install 1.9.1
+rvm install 1.9.2-head
 
 rvm-site requires a few gems that can be found in rvm-site.gems, including:
 
@@ -38,7 +38,7 @@ The cloned site will detect if you have these installed (except Mime-type) in yo
 
 == Getting it Running
 
-If you are in RVM and have 1.9.1 already running, 
+If you are in RVM and have 1.9.2-head already running,
 simply clone this repository and cd to the directory.
 The project .rvmrc will be loaded and you can open in your editor and start hacking away.
 
