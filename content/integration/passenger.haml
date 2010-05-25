@@ -97,10 +97,16 @@
     %p
       Q: How do I use custom gem sets under passenger?
     %p
-      A: Select the GEM_HOME for the gemset at the top of your config.ru file:
+      A: Without bundler: Select the GEM_HOME for the gemset at the top of your config.ru file:
     %pre.code
       :preserve
         ENV["GEM_HOME"]=%x{"source ~/.bash_profile ; rvm ree%pancake ; rvm gemdir"}.strip
+    %p
+      A: With bundler: Install bundler outside any gemset, switch back to the gemset you wish to use and run
+      %tt bundle install
+      and restart the application (by touching tmp/restart.txt). This works becase bundler stores absolute paths inside
+      %tt .bundle/environment.rb
+      which will be loaded by bundler directly.
 
 %h1
   Community Resources
