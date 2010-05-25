@@ -47,7 +47,9 @@
       unless @env_rvm_jruby
         @env_rvm_jruby = {}
         require 'yaml'
-        rvm_info = YAML::load(`rvm info jruby`)
+        # NOTE: updated due to change in `rvm info` structure
+        # assumes JRuby 1.5, but no error checking if it's missing
+        rvm_info = YAML::load(`rvm info jruby`)['jruby-1.5.0']
         rvm_info['environment'].each do |k, v|
           @env_rvm_jruby[k] = v
         end
@@ -70,7 +72,6 @@
       end
       ENV["PATH"] = @env_path
     end
-
 
 %p
   Careful of the shebang line, should be bash:
