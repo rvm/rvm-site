@@ -29,6 +29,13 @@
     ∴ rvm use 1.9.2-head@albinochipmunk
 
 %p
+  Note that you can also specify a default gemset for the interpreter by doing:
+%pre.code
+  :preserve
+    ∴ rvm use 1.9.2-head@albinochipmunk --default
+
+
+%p
   To use a named gem set with an RVM 'do' action, append it to the ruby selector string using a '@'
 %pre.code
   :preserve
