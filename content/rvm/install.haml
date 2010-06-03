@@ -81,10 +81,10 @@
   :preserve
     ∴ rvm notes
 %p
-  Now add the sourcing line to your profiles:
+  Now add the sourcing line at the end of your profiles (~/.bashrc or ~/.bash_profile for bash, ~/.zshenv for zsh):
 %pre.code
   :preserve
-    for profile in .bash_profile .bashrc ; do echo 'if [[ -s "$HOME/.rvm/scripts/rvm" ]]  ; then source "$HOME/.rvm/scripts/rvm" ; fi' >> $HOME/$profile done
+    [[ -s "$HOME/.rvm/scripts/rvm" ]] && source "$HOME/.rvm/scripts/rvm"
 
 %h3
   NOTE
