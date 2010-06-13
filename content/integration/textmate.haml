@@ -101,7 +101,24 @@
 
 %h2
   Notes
-        
+
+%p
+  If you have issues with Ruby 1.9+, namely:
+
+%pre.code
+  :preserve
+      ruby:0:in `require': /Users/someuserhere/Library/Application Support/TextMate/Bundles/Ruby.tmbundle/Support/RubyMate/catch_exception.rb:13: invalid multibyte char (US-ASCII) (SyntaxError)
+
+%p
+  You either need to check for updated versions of your bundles or manually edit the file in question, adding the following at the top of the file:
+
+%pre.code
+  :preserve
+    # encoding: utf-8
+
+%p
+  Which forces Ruby to read the file with the correct text encoding, allowing multibyte characters.
+
 %h2
   Community Resources
 %p
@@ -113,5 +130,5 @@
     "rvm + gemsets + TextMate == yay!"
   , and
   %a{:href => "http://underpantsgnome.com/2010/2/19/rvm-gemsets-textmate-yay-2"}
-    "RVM + gemsets + TextMate == yay! * 2""
+    "RVM + gemsets + TextMate == yay! * 2"
 
