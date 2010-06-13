@@ -16,56 +16,50 @@
 %pre.code
   :preserve
     PS1="\$(~/.rvm/bin/rvm-prompt) $PS1"
-%p
-  This ends up looking like this during usage:
-%pre.code
-  :preserve
-    ∴ rvm 1.9.1
-
-    [ruby-1.9.1-p243] ∴
-
-    [ruby-1.9.1-p243] ∴ rvm 1.8.6
-
-    [ruby-1.8.6-p383] ∴ rvm jruby
-
-    [jruby-1.4.0] ∴
 
 %p
-  By default rvm-prompt outputs the fully qualified ruby string necessary to select the particular ruby currently selected and nothing when system ruby is selected.
-  You can change this default behavior and control the verbosity of rvm-prompt in any combination you wish for (i)nterpreter / (v)ersion / (p)atchlevel.
+  By default rvm-prompt outputs the fully qualified ruby string necessary to select the particular ruby currently selected and nothing when system ruby is selected. You can change this default behavior and control the verbosity of rvm-prompt by combining the following parameters:
+
 %pre.code
   :preserve
-    ∴ rvm 1.9.1
+    (i)nterpreter  - interpreter abreviation    (default)
+    (v)ersion      - version                    (default)
+    (p)atchlevel   - patch level                (default)
+    (g)emset       - current gemset             (default)
+    (r)evision     - revison
+    (a)rchitecture - architecture
+    (u)nicode      - single unicode character representation of interpreter
+    (s)ystem       - echo "system" when using system ruby
 
-    [ruby-1.9.1-p243] ∴ ~/.rvm/bin/rvm-prompt i v p # default
+%p
+  Below are some examples of running rvm-prompt with various arguments on different rubies.
+  
+%pre.code
+  :preserve
+    ∴ rvm 1.9.1 ; rvm-prompt i v p g # default
+      
+      ruby-1.9.1-p243
+      
+    ∴ rvm 1.9.1@rails ; rvm-prompt i v p g # default
 
-      [ruby-1.9.1-p243]
+      ruby-1.9.1-p243@rails
+      
+    ∴ rvm ree-1.8.7 ; rvm-prompt i v
 
-    [ruby-1.9.1-p243] ∴ ~/.rvm/bin/rvm-prompt i v
+      ree-1.8.7
 
-      [ruby-1.9.1]
+    ∴ rvm jruby ; rvm-prompt v i
 
-    [ruby-1.9.1-p243] ∴ ~/.rvm/bin/rvm-prompt v i
+      1.5.1-jruby
+      
+    ∴ rvm jruby ; rvm-prompt u
 
-      [1.9.1-ruby]
-
-    [ruby-1.9.1-p243] ∴ ~/.rvm/bin/rvm-prompt p i
-
-      [p243-ruby]
-
-    [ruby-1.9.1-p243] ∴ ~/.rvm/bin/rvm-prompt i v
-
-      [ruby-1.9.1]
-
-    [ruby-1.9.1-p243] ∴ ~/.rvm/bin/rvm-prompt i p
-
-      [ruby-p243]
-
-    [ruby-1.9.1-p243] ∴ ~/.rvm/bin/rvm-prompt v p
-
-      [1.9.1-p243]
-%h1
-  Community Resources
-%ul
-  %li
-
+      ☯
+    
+    ∴ rvm system ; rvm-prompt
+    
+      
+      
+    ∴ rvm system ; rvm-prompt s i v p
+      
+      system
