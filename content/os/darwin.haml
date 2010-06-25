@@ -36,3 +36,13 @@
 
 %p
   For MacRuby (if you wish to use it) you will need to install LLVM first.
+
+%h2 (Snow Leopard) Forcing specific architecture builds
+
+%p
+  If you want to specifically build an i386 version of ruby, you need to use environment variables
+  and a patch. Snow Leopard defaults to building x86_64; there's currently no support for fat binaries.
+
+  %pre.code
+    :preserve
+      ∴ CFLAGS="-arch i386" LDFLAGS="-arch i386" rvm install 1.8.7 --patch osx-arch-fix
