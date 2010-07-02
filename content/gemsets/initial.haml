@@ -1,0 +1,48 @@
+.breadcrumbs
+  %a{ :href => "/" }
+    Documentation
+  &nbsp;>&nbsp;
+  %a{ :href => "/gemsets/" }
+    Gemsets
+  &nbsp;>&nbsp;
+  %a{ :href => "/gemsets/initial/" }
+    Gemset Initialization in Ruby Installs
+  %hr
+
+%a{:name => "initialization"}
+%h1 Initializing Gemsets during Ruby Installs
+
+%p
+  When installing a new ruby, RVM not only creates two gemsets (the default, empty gemset
+  and the global gemset), it also uses a set of user-editable files to determine which
+  gems to install.
+
+%p
+  Working in ~/.rvm/gemsets, rvm searchs for global.gems and default.gems using a tree-hierachy
+  based on the ruby string being installed. Using the example of ree-1.8.7-p2010.02, rvm will
+  check (and import from) the following files:
+
+%ul
+  %li ~/.rvm/gemsets/ree/1.8.7/p2010.02/global.gems
+  %li ~/.rvm/gemsets/ree/1.8.7/p2010.02/default.gems
+  %li ~/.rvm/gemsets/ree/1.8.7/global.gems
+  %li ~/.rvm/gemsets/ree/1.8.7/default.gems
+  %li ~/.rvm/gemsets/ree/global.gems
+  %li ~/.rvm/gemsets/ree/default.gems
+  %li ~/.rvm/gemsets/global.gems
+  %li ~/.rvm/gemsets/default.gems
+
+%p
+  As an example of an intended use case, you may edit ~/.rvm/gemsets/global.gems to add two lines:
+
+%pre.code
+  :preserve
+    bundler
+    awesome_print
+
+%p
+  Ensuring that every time you install a new ruby, these two gems will be installed in the global gemset.
+
+%p
+  By default, rvm uses these gemsets to install common libraries such as rake and rdoc and in the case
+  of jruby, jruby-openssl.
