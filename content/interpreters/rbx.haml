@@ -29,7 +29,18 @@
   :preserve
     ∴ rvm install rbx
 
-%h1
-  Community Resources
-%ul
-  %li
+%p
+  If you're installing rubinius on Ubuntu and you have issues with makeinfo
+  missing, you can solve it by first installing the texi2html package by:
+
+%pre.code
+  :preserve
+     ∴ sudo apt-get install texi2html
+
+%p
+  And then symlinking it to the makeinfo executable by running:
+
+%pre.code
+  :preserve
+    ∴ sudo ln -s /usr/bin/texi2html /usr/bin/makeinfo
+
