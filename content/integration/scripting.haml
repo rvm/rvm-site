@@ -1,0 +1,62 @@
+.breadcrumbs
+  %a{ :href => "/" }
+    Documentation
+  &nbsp;>&nbsp;
+  %a{ :href => "/integration/" }
+    Integration
+  &nbsp;>&nbsp;
+  %a{ :href => "/integration/scripting/" }
+    Scripting
+  %hr
+
+%a{ :name => "scripting" }
+%h1 Scripting with RVM
+
+%p
+  Due to the way it's written, rvm not only works from the command line but is also suitable
+  for scripting. When writing a script that relies on using the rvm command line
+  interface to switch rubies and / or gemsets, you need to keep in mind that there
+  is one important distinction from normal use.
+
+%h2 Binary Mode vs Function Mode
+
+%p
+  RVM can be run in two different modes - by default, if the rvm binary is available
+  in your path / is used with an absolute path, RVM will run as a binary. This means
+  that rvm can do the vast majority of most operations (e.g. installing rubies, invoking
+  set operations) but certain things (like switching the current ruby) will fail as it
+  cannot change the environment it operates in.
+
+%p
+  When RVM is used as a shell function (by sourcing the scripts/rvm file, either in your
+  shell profile files or, in the case of scripting, directly in your script, it gains
+  the power to manipulate the environment it is run in - namely, rvm use and rvm gemset
+  use operate as expected, switching the GEM_HOME, PATH and other assorted environment
+  variables used for normal operation.
+
+%h2 Debugging Common Issues
+
+%p
+  If you're writing a script and you come across a case where the ruby isn't being correctly
+  switched inside of the script, you have two options. You can either continue to run it as
+  a binary, using rvm exec or you can add a source line, similar to in your shell profile,
+  before the first use of rvm. Either solution has advantages and disadvantages but for most
+  general cases, adding the source line will give the expected functionality.
+
+%p
+  If you wish to debug how rvm is running inside a script, you can simply add the line:
+
+%pre.code
+  :preserve
+    type rvm | head -n1
+
+%p
+  When running as a function, this will show "rvm is a function" but when running as
+  a binary it will return something different (usually "rvm is hashed" or "rvm is /some/path/here").
+
+
+%h2
+  More Resources
+%p
+  For more information, see
+  %a{:href => "http://gist.github.com/343545"} this gist
