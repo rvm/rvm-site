@@ -12,7 +12,8 @@
 %h1
   Ruby Enterprise Edition (REE)
 %p
-  REE builds on top of MRI Rubies versions 1.8.X in order to deliver an enhanced interpreter with many performance and memory optimizations.
+  REE builds on top of MRI Rubies versions 1.8.X in order to deliver an enhanced interpreter with many performance and memory optimizations,
+  including common patch sets such as MBARI.
 
 %h2
   Installing
@@ -20,6 +21,33 @@
 %pre.code
   :preserve
     ∴ rvm install ree
+
+%p
+  If you wish to install a previous version of Ruby Enterprise Edition, you'll need to do a couple of things before continuing.
+  Firstly, you'll need to edit ~/.rvm/config/user to update the download url base for the ruby you wish to install. As an example,
+  for ree-1.8.7-p2010.01, you would add:
+
+%pre.code
+  :preserve
+    ree_1.8.7_url=http://rubyforge.org/frs/download.php/68719
+
+%p
+  But for ree-1.8.7-p20090928 you would need to add:
+
+%pre.code
+  :preserve
+    ree_1.8.7_url=http://rubyforge.org/frs/download.php/64475
+
+%p
+  When using 20090928 on OSX, you also need to pass a few extra options. As an example,
+  you would need to run:
+
+%pre.code
+  :preserve
+    ∴ rvm install ree-1.8.7-p20090928 --ree-options --no-tcmalloc
+
+%p
+  Lastly, ensure you remove the lines from ~/.rvm/config/user after you've installed the version you want.
 
 %h1
   Community Resources
