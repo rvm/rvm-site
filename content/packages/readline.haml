@@ -13,20 +13,14 @@
   Readline
 %p
   If you have an error when compiling pertaining to readline, you may need to attempt installing with the following configure option:
-  %br
-  %pre.code
-    :preserve
-      ∴ rvm package install readline
-      ∴ rvm remove 1.9.1
-      ∴ rvm install 1.9.1 -C --with-readline-dir=$HOME/.rvm/usr
+
+%pre.code
+  :preserve
+    ∴ rvm package install readline
+    ∴ rvm remove 1.9.1
+    ∴ rvm install 1.9.1 -C --with-readline-dir=$HOME/.rvm/usr
 %p
-  Note that this error occurs most often when having a macports installed readline along your path.
-  Next most often is when the readline development headers are not available in your path.
-%p
-  If you simply cannot seem to get this to work you can have RVM install a copy of readline into ~/.rvm/usr like so:
-  %br
-  %pre.code
-    :preserve
-      ∴ rvm package install readline
-      ∴ rvm remove 1.9.1
-      ∴ rvm install 1.9.1
+  Note that this error occurs most often when having a macports installed readline on your system.
+  The next most often is when the readline development headers are not available at all. The above
+  commands solve this by having rvm compile a local version inside ~/.rvm/usr and then telling the ruby
+  install to use it.
