@@ -1,0 +1,43 @@
+.breadcrumbs
+  %a{:href => "/"} Documentation
+  &nbsp;>&nbsp;
+  %a{:href => "/deployment/"} Deployment
+  &nbsp;>&nbsp;
+  %a{:href => "/deployment/best-practices/"} Best Practices
+
+%a{:name => "best-practices"}
+%h1 Deployment Best Practices
+
+%p
+  When deploying with rvm, there are a few things to keep in mind. Please note that
+  all of these are our suggested practices and are typically best setup on a new machine:
+
+%h2 The Best Practice List
+
+%ul
+  %li
+    Use a
+    %a{:href => "/deployment/system-wide/"} system wide install
+    \- this makes it easier to setup and manage multiple applications,
+    each with their own user.
+  %li
+    Use a gemset per-project
+  %li
+    Add a .rvmrc for deployment purposes (specifying the gemset) to each
+    project.
+  %li
+    When using
+    %a{:href => "/integration/passenger/"} Phusion Passenger,
+    ensure all projects use the same ruby.
+  %li
+    Use wrapper scripts for managing things like god, unicorns and the like.
+  %li
+    If using Capistrano or the like, use the
+    %a{:href => "/integration/capistrano/"} integration guide
+    to make life easier.
+
+%p
+  All in all, this approach makes it easier for you deploy multiple applications
+  on the same server with discrete gemsets.
+
+
