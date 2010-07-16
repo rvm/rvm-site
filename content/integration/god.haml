@@ -1,0 +1,56 @@
+.breadcrumbs
+  %a{:href => "/"} Documentation
+  &nbsp;>&nbsp;
+  %a{:href => "/integration/"} Integration
+  &nbsp;>&nbsp;
+  %a{:href => "/integration/god/"} God
+
+%a{:name => "sketchup"}
+%h1 Using RVM with God
+
+%p
+  To use god (or any other application that needs to be started in init.d) with
+  rvm, you need to generate a wrapper script - namely, you need to set it up
+  so that there is an alternative executable that loads the correct gemset.
+
+%p
+  As an example, if you'd installed god under ruby enterprise edition and in the
+  management gemset (aka. "ree@management"), you'd do the following:
+
+%pre.code
+  :preserve
+    rvm wrapper ree@management bootup god
+
+%p
+  Running this command will generate the executable bootup_god in ~/.rvm/bin or,
+  if you've installed rvm as root / using a system wide install, in /usr/local/bin.
+
+%p
+  Thus, when setting up your init files, instead of using the direct path to god, you'd
+  instead use the path to bootup_god. e.g., as an example, you could add the following
+  to /etc/rc.local (although we suggest using the init.d system of choice for your
+  operating system):
+
+%pre.code
+  :preserve
+    /home/your-long/.rvm/bin/bootup_god -c /path/to/config.god --log /var/log/god.log --no-syslog --log-level warn
+
+%p
+  Also please note that any gems you reference in your god configurations that are
+  under other gemsets / rubies (e.g. thin or the like), you'll need to also generate
+  wrapper scripts (and hence, use the path for them) via:
+
+%pre.code
+  :preserve
+    rvm wrapper ruby@gemset [scope] [binary-name]
+
+%p
+  Where [scope] is the prefix for the executable (e.g. god before)
+  and binary-name is the binary to generate a wrapper for -
+  hence, creating
+  %tt $rvm_bin_path/[scope]_[binary-name]
+  \- e.g. ~/.rvm/bin/myapp_thin
+
+%p
+  Lastly, you'd replace all calls to 'thin' / the path to thin in your god
+  configs with the path to the wrapper instead.
