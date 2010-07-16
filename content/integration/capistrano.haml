@@ -13,12 +13,46 @@
 %h1
   Using RVM rubies with Capistrano
 %p
-  You have two options:
+  You currently have three options:
 %ol
+  %li
+    If your rvm version on the server and locally are recent enough, use the new built in integration.
   %li
     Enable .ssh environment variables using the PermitUserEnvironment option in your ssh configuration file
   %li
     Use the capistrano :default_environment setting
+
+%h2 Integration via the rvm capistrano plugin
+
+%p
+  If your rvm installs on both sides are recent enough (&gt;= 0.1.42), rvm has a new plugin available that
+  takes advantage of a simpler approach. In the new option, you can do (adjusting as needed):
+
+%pre.code
+  :preserve
+    require 'rvm/capistrano' # Adjust for load path
+    set :rvm_ruby_string, 'ree@rails3' # Or whatever env you want it to run in.
+
+%p
+  This option is preferred as it simplifies configuration and doesn't have hardcoded paths. Please
+  note that rvm
+  %strong will not
+  be automatically loaded as a shell function but it will be available as a binary in PATH
+  (for differences between the two versions, please see
+  %a{:href => "/integration/scripting/"} our scripting page
+  for further clarification).
+
+%p
+  Please note that this defaults to using a system wide / root install,
+  if you wish to instead set it to use an rvm install in the deploying users home directory,
+  simply add the following to your Capfile / deploy.rb:
+
+%pre.code
+  :preserve
+    set :rvm_type, :user
+
+%h2 Integration via :default_environment
+
 %p
   For the second option add the following line in your deploy.rb file, adjusting to your particular rvm ruby of course,
 %pre.code
