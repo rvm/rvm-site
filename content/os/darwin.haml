@@ -15,20 +15,20 @@
 %p
   If you are running on a 
   %a{:href => "http://www.gnu-darwin.org/"}
-    Debian Based System
+    Darwin Based System (e.g. OSX)
   Then the dependencies you should install are:
 
 %p
   For all rubies you should download and install the *latest* 
   %a{:href => "http://developer.apple.com/"}
-    XCode tools from Apple
-  Be sure that you have XCode Tools Version 3.2.1 (1613) or later
+    Xcode tools from Apple
+  Be sure that you have Xcode Tools Version 3.2.1 (1613) or later
   (This is necessary since the dvd install for Snow Leopard has bugs).
 %p
   For JRuby (if you wish to use it) you will need to install the JDK.
 
 %p
-  For MRI & ree (if you wish to use it) you will need XCode tools.
+  For MRI & ree (if you wish to use it) you will need Xcode tools.
 
 %p 
   For IronRuby (if you wish to use it) you will need to install the latest version of
@@ -37,12 +37,24 @@
 %p
   For MacRuby (if you wish to use it) you will need to install LLVM first.
 
-%h2 (Snow Leopard) Forcing specific architecture builds
+%h2 Snow Leopard: Forcing specific architecture builds
 
 %p
   If you want to specifically build an i386 version of ruby, you need to use environment variables
-  and a patch. Snow Leopard defaults to building x86_64; there's currently no support for fat binaries.
+  and a patch. Snow Leopard defaults to building x86_64 when the system determines it). 
 
-  %pre.code
-    :preserve
-      ∴ CFLAGS="-arch i386" LDFLAGS="-arch i386" rvm install 1.8.7 --patch osx-arch-fix
+%pre.code
+  :preserve
+    ∴ rvm_archflags="-arch i386" CFLAGS="-arch i386" LDFLAGS="-arch i386" rvm install 1.8.7 --patch osx-arch-fix
+
+%p
+  To set the default architecture, see
+  %a{:href => "/workflow/rvmrc/"} the rvmrc page
+  which explains the available variables.
+
+%p
+  If you with to build a fat binary (with support for i386 and x86_64), simply pass the --with-arch flag as follows:
+
+%pre.code
+  :preserve
+    ∴ rvm install ruby-1.9.2-head -C --with-arch=x86_64,i386
