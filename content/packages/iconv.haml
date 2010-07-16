@@ -15,19 +15,13 @@
 %h2
   require "iconv" # => false ?!
 %p
-  If you have issues with iconv not being available in ruby / irb please try the following configure option:
+  If you have issues with iconv not being available in ruby / irb please try install the ruby you want with the following configure option:
 %pre.code
   :preserve
     ∴ rvm package install iconv
     ∴ rvm remove 1.9.1
     ∴ rvm install 1.9.1 -C --with-iconv-dir=$HOME/.rvm/usr
+
 %p
-  Where you replace '/usr/local' with the prefix where your iconv packages are. (Thanks to Justin Chen for bringing this doozy to our attention!)
-%p
-  If you simply cannot seem to get this to work you can have RVM install a copy of readline into ~/.rvm/usr like so:
-  %br
-  %pre.code
-    :preserve
-      ∴ rvm package install iconv
-      ∴ rvm remove 1.9.1
-      ∴ rvm install 1.9.1
+  This effectively installs a fresh copy of iconv, sandboxed to the ~/.rvm/usr directory, and tells
+  ruby to use it during the compile.

@@ -22,10 +22,19 @@
   Select a Passenger Ruby and Generate Wrapper Scripts
 %p
   Run RVM using your desired Ruby interpreter, and pass the '--passenger' option.  This will generate wrapper scripts in RVM's bin directory (see Notes below).
+  These wrapper scripts ensure environment variables such as GEM_HOME and GEM_PATH are set correctly for
+  applications run by passenger. E.g:
 
 %pre.code
   :preserve
     rvm ree --passenger
+
+%p
+  Alternatively, you can use the rvm wrappers command directly:
+
+%pre.code
+  :preserve
+    rvm wrappers ree@ninjas passenger
 
 %h3
   Install Passenger
@@ -43,13 +52,13 @@
 %h3
   Configure the Web Server
 %p
-  For Nginx users
+  For Nginx users, replace the passenger_ruby line with:
 
 %pre.code
   :preserve
     passenger_ruby /home/wayne/.rvm/bin/passenger_ruby;
 %p
-  For tomahawk chuckers,
+  For apache users, use:
 
 %pre.code
   :preserve
@@ -61,16 +70,15 @@
     Do no not forget to configure the production environment and/or to set the rails_env/RailsEnv variable to development into nginx.conf/httpd.conf for the virtual server config block.
     The RAILS_ENV defaults to 'production'.
   %li
-    Be sure to change '/home/wayne' to your own $HOME directory,
+    Be sure to change '/home/wayne' in the above examples to your own $HOME directory,
   %li
-    The '.rvm/bin/passenger_ruby' is actually what is known as a 'wrapper script' which sets up the environment for the passenger so that it can find it's gems, etc... and then exec's the actual ruby bnary.nf"
+    The '.rvm/bin/passenger_ruby' is actually what is known as a 'wrapper script' which sets up the environment for the passenger so that it can find it's gems, etc... and then exec's the actual ruby binary."
   %li
     passenger_root/PassengerRoot Should be something similar to the following, which 
     is for Passenger 2.2.11 installed under ree-1.8.7-2010.01.
     %pre.code
       :preserve
          passenger_root /home/millisami/.rvm/gems/ree-1.8.7-2010.01/gems/passenger-2.2.11
-
 %h2
   Troubleshooting
 %ul
@@ -92,27 +100,30 @@
 %ul
   %li
     %p
-      Q: Can I run multiple projects under passenger with each project on a different ruby version?
+      %strong Q: Can I run multiple projects under passenger with each project on a different ruby version?
     %p
       A: Not at this time. Passenger currently only supports running it's projects under *one* ruby.
       You can get this behavior using a proxy pass.
   %li
     %p
-      Q: How do I use custom gem sets under passenger?
+      %strong Q: How do I use custom gem sets under passenger?
     %p
-      A: Without bundler: Select the GEM_HOME for the gemset at the top of your config.ru file:
+      A: Without bundler you can either set environment variables yourself in your config.ru like:
     %pre.code
       :preserve
-        ENV["GEM_HOME"]=%x{"source ~/.bash_profile ; rvm ree%pancake ; rvm gemdir"}.strip
+        ENV["GEM_HOME"]=%x{"source ~/.bash_profile ; rvm ree@pancake ; rvm gemdir"}.strip
+    %p
+      Or, if you are already using rvmrc's, you can use the rvm ruby api and config/setup_load_paths.rb
+      in recent passenger versions by following the guide
+      %a{:href => "http://blog.ninjahideout.com/posts/the-path-to-better-rvm-and-passenger-integration"} located here.
     %p
       A: With bundler: Install bundler outside any gemset, switch back to the gemset you wish to use and run
       %tt bundle install
       and restart the application (by touching tmp/restart.txt). This works becase bundler stores absolute paths inside
       %tt .bundle/environment.rb
       which will be loaded by bundler directly.
-
-%h1
-  Community Resources
-%ul
-  %li
+      If this doesn't work as expected, try running bundle install like so:
+    %pre.code
+      :preserve
+        bundle install $BUNDLE_PATH
 
