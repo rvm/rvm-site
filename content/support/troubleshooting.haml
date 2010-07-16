@@ -90,6 +90,19 @@
   %a{:href => "/integration/databases/"}
     MySQL page.
 
+%a{:name => "profiles-on-osx"}
+%h2 .bashrc not being loaded on OSX
+
+%p
+  If your .bashrc file isn't being correctly loaded on OSX, you need to do one of
+  two things:
+
+%ul
+  %li Add "source ~/.bashrc" to ~/.bash_profile or ~/.profile
+  %li
+    In your terminal preferences, change the shell from the default
+    of /usr/bin/login to /bin/bash.
+
 %a{:href => "#", :name => "passenger"}
 %h2
   Passenger
