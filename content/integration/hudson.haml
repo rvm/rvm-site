@@ -1,0 +1,193 @@
+.breadcrumbs
+  %a{:href => "/"} Documentation
+  &nbsp;>&nbsp;
+  %a{:href => "/integration/"} Integration
+  &nbsp;>&nbsp;
+  %a{:href => "/integration/hudson/"} Hudson
+
+%a{:name => "hudson"}
+%h1 Continious Integration with Hudson
+
+%p
+  Integrating rvm with
+  %a{:href => "http://hudson-ci.org/"} hudson
+  not only allows you to test multiple projects
+  with different gemsets yet it also lets you test varying codebases against
+  multiple rubies at the same time. The follow guide is aimed based primarily
+  on a Ubuntu install but the instructions should be compatible with
+  any platform. Please note these instructions were based off of Nick Quaranto's
+  %a{:href => "http://robots.thoughtbot.com/post/712609699/sailing-down-the-hudson-with-rvm"} excellent blog post
+  on the thoughbot blog and adapted for more general purpose use.
+
+%h2 General Overview
+
+%p
+  In general, you need to:
+
+%ul
+  %li Have hudson setup on a special user
+  %li Setup rvm (optionally with rvm settings to automatically install rubies)
+  %li Use rvmrc's where possible / bundle install in shell tasks with the -x passed to the shebang.
+  %li Source rvm manually if it's not available.
+
+%p
+  For a more detailed guide, see below:
+
+%h2 Step 1. Getting and Installing Hudson 
+
+%p
+  The first step is to install hudson on your system of choice. Currently,
+  you have several ways of getting it:
+
+%ol
+  %li Installing via os-level packages (in our case, the debian package)
+  %li Downloading and setting it up manually
+  %li
+    Using
+    %a{:href => "http://github.com/cowboyd/hudson.rb"} hudson.rb
+    (which bundles common plugins etc)
+
+%p
+  If you choose method two or three, you'll need to first create a new user
+  for hudson (typically called 'hudson'). In our case, we'll use the first option
+  by following
+  %a{:href => "http://wiki.hudson-ci.org/display/HUDSON/Installing+Hudson+on+Ubuntu"} the instructions
+  on the official hudson website. This approach takes care of automatically setting
+  up init.d for us and also automatically creates the hudson user.
+
+%p
+  If setting it up manually, I would suggest installing hudson via hudson.rb for
+  the niceties it offers.
+
+%h2 Step 2. Setting up RVM
+
+%p
+  The next step is arguably the most important - you need to actually setup rvm for the
+  hudson user added in the last step. First things first, we need to install all the dependencies.
+  In this case, we'll follow the
+  %a{:href => '/os/ubuntu/'} ubuntu page
+  and rvm notes by installing the items required to build each ruby.
+
+%pre.code
+  :preserve
+    sudo apt-get install curl bison build-essential zlib1g-dev libssl-dev libreadline5-dev libxml2-dev git-core
+
+%p
+  Note that if you wish to also run ci against jruby, you'll need to install more packages
+  including the jdk - see the ubuntu page linked above for more information.
+
+%p
+  Next, you'll need to login as the ubuntu user, in this case - hudson.
+
+%pre.code
+  :preserve
+    sudo -Hiu hudson
+
+%p
+  This should put you at a shall with bash loaded. So, now you can run the instructions
+  on the
+  %a{:href => "/rvm/install/"} rvm installation
+  page - We strongly suggest using the rvm-install-head method
+  setting it up only for the hudson user.
+
+%p
+  Next, we need to add rvm to our shell profile - in this case, we'll add the following
+  to the end of our ~/.bashrc:
+
+%pre.code
+  :preserve
+    [[ -s "$HOME/.rvm/scripts/rvm" ]] && source "$HOME/.rvm/scripts/rvm"
+
+%p
+  Also, with ubuntu the default .bashrc has a line containing "&& return" - If the
+  same is true for your system, please ensure your replace it with an if as instructed
+  but the rvm install.
+
+%p
+  Lastly, if we exit and relogin as hudson, rvm should now be loaded. You
+  can confirm this by typing:
+
+%pre.code
+  :preserve
+    type rvm | head -n1
+
+%p
+  Which should result in 'rvm is a function'.
+
+%p
+  Lastly, we'll add the following lines to ~/.rvmrc as the hudson user
+  to make the actual process easier in general:
+
+%pre.code
+  :preserve
+    rvm_install_on_use_flag=1
+    rvm_project_rvmrc=1
+    rvm_gemset_create_on_use_flag=1
+
+%p
+  For an explanation of what each means, please see the
+  %a{:href => "/workflow/rvmrc/"} rvmrc page
+  which goes into detail about each one / the appropriate
+  sections of this documentation - the general idea with this
+  approach is when we first use a ruby / gemset, rvm will automatically
+  install the ruby and create a gemset.
+
+%h2 Step 3. Configuring Hudson / Adding projects
+
+%p
+  For the actual hard work, we'll simply be using the ability to run
+  a shell script with hudson. 
+%p
+  Our suggested setup is to use scripts like follows with the hudson
+  option to "Execute Shell Script":
+
+%pre.code
+  :preserve
+    #!/bin/bash -x
+    # Use the correct ruby
+    rvm use "ruby@gemset"
+    # Do any setup
+    # e.g. possibly do 'rake db:migrate db:test:prepare' here
+    bundle install
+    # Finally, run your tests
+    rake
+
+%p
+  The -x option causes bash to exit if any commands exit with
+  an error. This is key to making the script work as expected.
+  
+%p
+  Note that in some setups the environment may not be loaded correctly.
+  In these situations, you should add the following below the shebang:
+
+%pre.code
+  :preserve
+    source "$HOME/.rvm/scripts/rvm"
+
+%p
+  If you wish to use matrix builds, this approach means you can simply define
+  an environment variable e.g. build_ruby and set the matrix fields to be
+  each ruby you wish to use, replacing the rvm use line with:
+
+%pre.code
+  :preserve
+    rvm use "$build_ruby@gemset-to-use"
+
+%p
+  Lastly, if you wish to use rubies from an rvmrc automatically / handle
+  setup that way, you may want to add:
+
+%pre.code
+  :preserve
+    [[ -s ".rvmrc" ]] && source .rvmrc
+
+%p
+  In place of the rvm use command / associated setup.
+
+%h1 Community Resources
+
+%ul
+  %li
+    Nick Quaranto's
+    %a{:href => "http://robots.thoughtbot.com/post/712609699/sailing-down-the-hudson-with-rvm"} excellent blog post
+    on using rvm with hudson on the thoughtbot blog.
