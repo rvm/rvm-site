@@ -1,19 +1,27 @@
 %h1 Installing RVM
 %p
-  There are two very different ways to use RVM.
+  There are three very different ways to use RVM.
 %ul
   %li
     As a User
   %li
     As Root
-    ( be *very* sure you know what you are doing... )
+    (be *very* sure you know what you are doing... - like user, but into /usr/local/rvm)
+  %li System Wide (Multiple Users, Installed via Root).
+
+%p
+  If you wish to install rvm system wide, please read our
+  %a{:href => "/deployment/system-wide/"} system-wide installation guide
+  which takes a slightly different approach to the method
+  highlighted below.
+
 %p
   Don't forget to set your
   %a{:href => "/rubies/default/"} default ruby
   after you install so that your command line opens with ruby enabled.
 %p
   There are at least 3 ways to install RVM.
-%h2 1. Github Repository (recommended)
+%h2 1. GitHub Repository (recommended)
 %p
   To install / update from the github repository (recommended):
 %pre.code

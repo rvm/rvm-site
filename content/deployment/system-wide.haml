@@ -13,7 +13,47 @@
 %h1 Installing RVM System Wide
 
 %p
-  System Wide installs let you have a single rvm install for multiple users.
-  For current reference, please refer to
+  For your convienience, we provide a script you can run on most linux systems (tested on Ubuntu 10.04)
+  that you can by performing:
+
+%pre.code
+  :preserve
+    bash &lt; &lt;( curl -L http://bit.ly/rvm-install-system-wide )
+
+%h3 Explanation
+
+%p
+  System Wide installs differ from typical rvm installs since they are not constraint to
+  a single user - primarily, system wide installs are designed for the express purpose of
+  one install in production environments.
+
+%p
+  The process to install system wide currently requires you start from git and roughly involves:
+
+%ul
+  %li Ensuring the user is root.
+  %li Loading existing configs.
+  %li Setting rvm to install into /usr/local/rvm
+  %li Cloning and installing RVM
+  %li Creating a group for RVM and adding root as a member.
+  %li Changing /usr/local/rvm, /usr/local/bin, /etc/rvmrc and associated files to be owned by the previously created group.
+  %li Making sure the aforementioned files and directories are group writeable.
+  %li Setting rvm_path, rvm_prefix, rvm_bin_path and rvm_man_path in /etc/rvmrc.
+
+%p
+  By taking advantage of group file / directory permissions and /etc/rvmrc, we make it possible for multiple
+  users to use the same gemsets and rubies.
+
+%p
+  Please note than in the current incarnation, setting a default / creating aliases and the like are
+  shared between all users.
+
+%h2 Community Resources
+
+%p
+  For more information, see
   %a{:href => "http://blog.ninjahideout.com/posts/rvm-system-wide-installs-and-capistrano-integration"} this blog post
-  which details the install process / reasoning.
+  by Darcy Laycock
+  and
+  %a{:href => "http://blog.injekt.net/9/rvm-plays-nice-on-production"} this blog post
+  by Lee Jarvis.
