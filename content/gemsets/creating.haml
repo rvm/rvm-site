@@ -13,7 +13,7 @@
   Creating gemsets
 %p
   Gemsets must be created before being used.
-  Creating new gemsets can be done as follows:
+  Creating new gemsets for the current ruby can be done as follows:
 
 %pre.code
   :preserve
@@ -29,3 +29,10 @@
     ∴ rvm gemset create albinochipmunk redsquirrel
     Gemset 'albinochipmunk' created.
     Gemset 'redsquirrel' created.
+
+%p
+  Alternatively, if you prefer the short hand syntax
+  offered by rvm use, you can use the --create option
+  like so:
+
+= sh_cmd "rvm use 1.9.2-head@albinochipmunk --create"
