@@ -31,12 +31,12 @@
   What this script essentially does is the following, with some extra checks and tweaks:
 %pre.code
   :preserve
-    mkdir -p ~/.rvm/src/ && cd ~/.rvm/src && rm -rf ./rvm/ && git clone --depth 1 git://github.com/wayneeseguin/rvm.git && cd rvm && ./install
+    mkdir -p ~/.rvm/src/ &amp;&amp; cd ~/.rvm/src &amp;&amp; rm -rf ./rvm/ &amp;&amp; git clone --depth 1 git://github.com/wayneeseguin/rvm.git &amp;&amp; cd rvm &amp;&amp; ./install
 %p
   Note that if you are behind a firewall (slower, but it should work), change the git:// to http:// like this:
 %pre.code
   :preserve
-    mkdir -p ~/.rvm/src/ && cd ~/.rvm/src && rm -rf ./rvm/ && git clone --depth 1 http://github.com/wayneeseguin/rvm.git && cd rvm && ./install
+    mkdir -p ~/.rvm/src/ &amp;&amp; cd ~/.rvm/src &amp;&amp; rm -rf ./rvm/ &amp;&amp; git clone --depth 1 http://github.com/wayneeseguin/rvm.git &amp;&amp; cd rvm &amp;&amp; ./install
 
 %h2 2. Installing / updating the latest rvm from the latest source tarball
 %pre.code
@@ -47,11 +47,27 @@
 %pre.code
   :preserve
     version=$(curl http://rvm.beginrescueend.com/releases/stable-version.txt);
-    mkdir -p ~/.rvm/src/ && cd ~/.rvm/src/ && curl -O http://rvm.beginrescueend.com/releases/rvm-${version}.tar.gz | tar zxf - && cd rvm-${version} && ./install
+    mkdir -p ~/.rvm/src/ &amp;&amp; cd ~/.rvm/src/ &amp;&amp; curl -O http://rvm.beginrescueend.com/releases/rvm-${version}.tar.gz | tar zxf - &amp;&amp; cd rvm-${version} &amp;&amp; ./install
 
 %h2 3. Installing from a gem (not recommended)
+
 %p
-  First install the gem. After the gem has installed run the rvm-install script.
+  Although we suggest installing the rvm gem for the ruby api part of rvm, we discourage the use of
+  it for actually installing rvm itself - this primarily being since rvm updates are typically done
+  via:
+
+= sh_cmd "rvm update"
+
+%p
+  Versus the gem alternative of:
+
+= sh_cmd "gem update rvm && rvm-install"
+
+%p
+  Meaning the gem version and the rvm version may both differ greatly. Also, installing as a gem requires
+  you use an existing ruby. For the few cases where you must use a gem, you can simply do "gem install rvm"
+  followed by running the rvm-install binary:
+
 %pre.code
   :preserve
     ∴ gem install rvm                 # Install the RVM gem
@@ -73,7 +89,7 @@
   The first time you install RVM, you must put the following line into your profile at the very end, after all path loads etc:
 %pre.code
   :preserve
-    [[ -s "$HOME/.rvm/scripts/rvm" ]] && source "$HOME/.rvm/scripts/rvm"
+    [[ -s "$HOME/.rvm/scripts/rvm" ]] &amp;&amp; source "$HOME/.rvm/scripts/rvm"
 %p
   Doing so ensures rvm as loaded as a function (versus as a binary), ensuring commands such as rvm use work as expected. Please note that
   you can confirm this worked correctly by opening a new shell and running:
@@ -109,9 +125,9 @@
     #!/usr/bin/env bash
 
     # Install git
-    mkdir -p $HOME/.rvm/src && cd $HOME/.rvm/src && version=1.6.5.3
+    mkdir -p $HOME/.rvm/src &amp;&amp; cd $HOME/.rvm/src &amp;&amp; version=1.6.5.3
     curl -O http://kernel.org/pub/software/scm/git/git-$version.tar.gz
-    cd git-$version && ./configure --prefix=/usr/local && make && sudo make install
+    cd git-$version &amp;&amp; ./configure --prefix=/usr/local &amp;&amp; make &amp;&amp; sudo make install
 
     # Install RVM
     bash &lt; &lt;( curl http://rvm.beginrescueend.com/releases/rvm-install-head )
