@@ -9,61 +9,69 @@
     Basics
   %hr
 
+%h1 The Basics of RVM
+
 %p
-  Use
-  %em
-    %a{ :href => "/rvm/" }
-      RVM
+  Wondering why you should
+  %a{:href => "/rvm/"} use RVM?
+  For a start, not only does RVM make installing multiple ruby interpreters / runtimes easy and consistent, it provides features
+  such as gemsets that aren't typically supported out of the box on most ruby installs.
+%p
+  RVM also lets you use different rubies in a manner that wont mess with your existing ruby install (unless you tell it to) as well
+  as letting you run multiple different rubies in seperate terminals concurrently!
+
+%h3 Getting started
+
+%p
+  First, you must ensure that you
+  %a{:href => "/rvm/install/"} install RVM
   \.
-  Easy installation and switching between available Ruby versions and runtimes, without messing up your current Ruby install!
-  RVM also allows you to use multiple versions of ruby in separate terminals concurrently!
-  %p
-    %h3
-      Getting started
 
-    %p
-      First
-      %a{:href => "/rvm/install/"} Install RVM
 
-    %p
-      Set your default
-      %a{:href => "/rubies/default/"} ruby.
+%p
+  Once that is done, you can open a new shell and start playing with rvm. To ensure rvm is loaded correctly, run:
 
-    %p
-      Then open a new shell and start using RVM!
-    %pre.code
-      :preserve
-        ∴ rvm install 1.9.1 ; rvm 1.9.1
+= sh_cmd "type rvm | head -n1"
 
-        ∴ ruby -v
+%p
+  Assuming this shows "rvm is a function", you're good to go. As an example, to install and use Ruby 1.9.1 you may do:
+%pre.code
+  :preserve
+    ∴ rvm install 1.9.1 ; rvm 1.9.1
 
-        ruby 1.9.1p243 (2009-07-16 revision 24175) [x86_64-linux]
+    ∴ ruby -v
 
-        ∴ which ruby
+    ruby 1.9.1p243 (2009-07-16 revision 24175) [x86_64-linux]
 
-        /home/wayne/.rvm/ruby-1.9.1-p243/bin/ruby
+    ∴ which ruby
 
-    %h3
-      Reverting to system default is simple as well!
+    /home/wayne/.rvm/ruby-1.9.1-p243/bin/ruby
 
-    %pre.code
-      :preserve
-        ∴ rvm system
+%p
+  Using any rubies not managed rvm is easy as well - rvm refers to these as "system". That is to say, you can do:
 
-        ∴ ruby -v
+%pre.code
+  :preserve
+    ∴ rvm system
 
-        ruby 1.8.7 (2008-08-11 patchlevel 72) [universal-darwin10.0]
+    ∴ ruby -v
 
-        ∴ which ruby
+    ruby 1.8.7 (2008-08-11 patchlevel 72) [universal-darwin10.0]
 
-        /usr/bin/ruby
-    %p
-      \&larr; See more details on the rest of the site, especially checkout the
-      %a{ :href => "/workflow/examples/" }
-        Examples
-      \.
+    ∴ which ruby
 
-  %p
-    Remember this is on a per-shell basis unless you
-    %a{:href => "/rubies/default/"}
-      set a default
+    /usr/bin/ruby
+
+%p
+  Which tells the current shell to act as if you haven't run any "rvm use" commands yet.
+
+%p
+  For further explanation, look around the rest of the site. In particular, make sure you check out
+  the workflow
+  %a{ :href => "/workflow/examples/" } examples.
+
+%p
+  Remember that switching rubies is on a per-shell basis. If you want to set which ruby is available
+  when you open a new shell, you'll need to
+  %a{:href => "/rubies/default/"} set a default ruby interpreter.
+
