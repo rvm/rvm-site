@@ -1,0 +1,105 @@
+= breadcrumbs "Integration", "Culerity"
+
+%h2= @item[:title]
+
+%p
+  If you wish to use an rvm-based ruby and jruby with Culerity, please follow the steps below. Please note that the first set of instructions
+  but currently rely on you using recent versions which make this task a lot simpler.
+
+%h2 Setting up jruby
+
+%p
+  Before you can start, you need to install jruby and celerity. In a nutshell, you need to:
+
+%ol
+  %li
+    Install jruby -
+    = sh_cmd "rvm install jruby"
+  %li
+    Create a celerity gemset and use it -
+    = sh_cmd "rvm use jruby@celerity --create"
+  %li
+    Install the celerity gem in this gemset -
+    = sh_cmd "gem install celerity"
+
+%p
+  Which this done, you should be able to confirm that you have celerity by doing:
+
+= sh_cmd "gem list | grep celerity"
+
+%p
+  With this done, the next key step is to set up a wrapper for it. To do this, we run:
+
+= sh_cmd "rvm wrapper jruby@celerity celerity jruby"
+
+%p
+  Which should create the file ~/.rvm/bin/celerity_jruby, pointing to the correct ruby. You
+  can verify this by doing:
+
+= sh_cmd "celerity_jruby -S gem list | grep celerity"
+
+%p
+  Assuming this is correct, you can move on to the next step.
+
+%h2 Configuring Culerity to use your jruby Celerity
+
+%p
+  Once you've generated the wrapper, your next task is to tell Culerity which jruby to use.
+  If you're on a recent version, you should be able to simply add the following to your features/support/env.rb file:
+
+%pre.code
+  :preserve
+    Culerity.jruby_invocation = File.expand_path("~/.rvm/bin/celerity_jruby")
+
+%p
+  Replacing ~/.rvm/bin with whatever "echo $rvm_bin_path" shows on your terminal
+  if it fails (Thanks to Matt Patterson for simplifying this on Culerity's side).
+
+%p
+  On older versions of Culerity, you need to manually specify hooks to toggle the env.
+  In order to do this, you need to first get the location of the jruby wrappers dir. To find
+  this, run the following in your Terminal and note the output:
+
+= sh_cmd 'dirname "$(readlink "$(which celerity_jruby)")"'
+
+%p
+  Which should return something similar to "/Users/sutto/.rvm/wrappers/jruby-1.5.1@celerity"
+  as an example. Next, you need to create features/support/culerity-hooks.rb containing
+  the following code (with thanks to agibralter, mchung and ashleymoran):
+
+%pre.code
+  :preserve
+    # culerity-hooks.rb
+    Before("@culerity,@celerity,@javascript") do |scenario|
+      unless @original_path && @rvm_jruby_path
+        @original_path  = ENV['PATH']
+        @rvm_jruby_path = "/Users/sutto/.rvm/wrappers/jruby-1.5.1@celerity:#{@original_path}"
+      end
+      ENV['PATH'] = @rvm_jruby_path
+    end
+
+    After("@culerity,@celerity,@javascript") do |scenario|
+      ENV["PATH"] = @original_path
+    end
+
+%p
+  Ensuring you replace "/Users/sutto/.rvm/wrappers/jruby-1.5.1@celerity" with the value you noted
+  earlier.
+
+%h1
+  Community Resources
+%ul
+  %li
+    This
+    %a{:href => "http://groups.google.com/group/culerity-dev/browse_thread/thread/45b37079b6b6e143"} handy google groups post
+    by Matt Patterson announcing his patches with simplified support.
+  %li
+    These
+    %a{:href => "http://gist.github.com/353514"} awesome hooks
+    from above exhibit proper scripting usage of RVM info as intended, awesomely done agibralter.
+    %a{:href => "http://gist.github.com/404870"}
+      correction by ashleymoran
+    \-  Originally the preferred solution
+  %li
+    Original
+    %a{:href => "http://gist.github.com/268216"} gist by mchung
