@@ -29,3 +29,14 @@
 %pre.code
   :preserve
     emerge dev-lang/mono
+
+%p
+  If you're having issues such as "no such file to load -- auto_gem (LoadError)" with gentoo,
+  run the following to see if it corrects your issues:
+
+= sh_cmd "unset RUBYOPT; sudo env-update"
+
+%p
+  For further information on this specific issue, please see
+  %a{:href => "http://gist.github.com/raw/356344/b7f98657cf7002035de2d56bd6e680842d1cd77d/rvm-irc.log"} this gist
+  containing more details.
