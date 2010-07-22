@@ -1,0 +1,78 @@
+= breadcrumbs "Workflow", "Projects"
+
+%h1= @item[:title]
+
+%p
+  Thanks to rvmrc support in rvm, it's fairly simple to make a project-specific workflow.
+  The following examples tie into how we typically work with rvm along with the advantages
+  of such approahces.
+
+%h2 A simple example
+
+%p
+  The most basic workflow is typically project-specific rvmrc's. For each project you
+  work on, you create a new gemset (on the ruby interpreter of choice) and simply let
+  your rvmrc take care of switching. As an example:
+
+= sh_cmd "rvm use ree@tedxperth"
+
+%p
+  Would use the tedxperth gemset on ruby enterprise edition. To make this easier, we simply
+  choose to run:
+
+= sh_cmd "rvm ree@tedxperth --create > .rvmrc"
+
+%p
+  Inside the root of your project. This tells rvm that everytime we change in to the directly,
+  it should use ree with the tedxperth gemset, creating the gemset if it doesn't exist.
+
+%p
+  This basic approach not only ensures we have gems seperate from the rest of the system but
+  also means that out of the box, running 'bundle install' will use the project defined gemset
+  to also store the gems.
+
+%p
+  We specify a relatively loose requirement on the ruby but still require the developers have
+  a consistent choice in what they use. In this approach, it is important to note we also recommend
+  adding the rvmrc to the git repository and, if possible,
+  %a{:href => "/deployment/best-practices/"} deploy via rvm
+  ensuring a consistent choice across all stage.
+
+%h2 A more complex example 
+
+%p
+  To look at the other extreme, it is possible to use a combined set of features to automate
+  many levels of setup and to make live easier when working with projects in general.
+
+%p
+  This approach, as seen in
+  %a{:href => "http://github.com/wayneeseguin/rvm-site/"} the source for this site
+  and
+  %a{:href => "http://github.com/YouthTree/TEDxPerth/"} the open-source TEDxPerth web app
+  not only has an rvmrc that specifies gemset and ruby interpreter, but also goes a few
+  steps further to automatically:
+
+%ul
+  %li
+    Install the minimum required gems (e.g. for TEDxPerth where bundler is used, install bundler.
+    In the rvm-site, import a gemset with all of the gems required).
+  %li
+    In the TEDxPerth example, automatically install the ruby if not already installed and
+    use the --create option to ensure the gemset is automatically created.
+  %li
+    We avoid calling bundle install directly in the .rvmrc (to avoid the speed cost when changing
+    in to the directory) but if you wish, you can also make it automatically bundle all of the
+    gems as needed.
+
+%p
+  Overall, this approach not only ensures you have a consistent environment everywhere you
+  develop and deploy the project, but it also makes things such as continious integration simpler.
+  For further reference, see:
+
+%ul
+  %li
+    %a{:href => "/integration/hudson/"} Our guide for CI with Hudson
+  %li
+    %a{:href => "/integration/passenger/"} Our guide for Passenger, Including details on automatic gemset detection
+  %li
+    %a{:href => "/workflow/rvmrc/"} Our page on using per-project rvmrc's
