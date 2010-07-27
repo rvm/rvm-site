@@ -4,12 +4,28 @@
 %h1 Installing RVM System Wide
 
 %p
-  For your convienience, we provide a script you can run on most linux systems (tested on Ubuntu 10.04)
+  For your convenience, we provide a script you can run on most linux systems (tested on Ubuntu 10.04)
   that you can by performing:
 
-%pre.code
-  :preserve
-    ∴ bash &lt; &lt;( curl -L http://bit.ly/rvm-install-system-wide )
+= sh_cmd "bash < <( curl -L http://bit.ly/rvm-install-system-wide )"
+
+%p
+  Once that is run, you need to remember a few rules whenever giving someone access to the system wide
+  ruby install. Namely:
+
+%ul
+  %li
+    You still need to edit the profile files like in a
+    %a{:href => "/rvm/install/"} normal installation
+    but instead of pointing to $HOME/.rvm/scripts/rvm you instead point it towards /usr/local/lib/rvm
+  %li
+    You need to add the user to the rvm group before doing anything.
+    Otherwise, there will be permission errors.
+
+%p
+  Like wise, if you intend to have a user specific install, even if the user isn't in the rvm group,
+  you need to edit ~/.rvmrc to manually override the path values set in /etc/rvmrc
+
 
 %h3 Explanation
 
