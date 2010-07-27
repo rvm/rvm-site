@@ -1,12 +1,11 @@
 %h1 Installing RVM
+
 %p
   There are three very different ways to use RVM.
+
 %ul
-  %li
-    As a User
-  %li
-    As Root
-    (be *very* sure you know what you are doing... - like user, but into /usr/local/rvm)
+  %li As a User
+  %li As Root (be *very* sure you know what you are doing... - like user, but into /usr/local/rvm)
   %li System Wide (Multiple Users, Installed via Root).
 
 %p
@@ -19,14 +18,23 @@
   Don't forget to set your
   %a{:href => "/rubies/default/"} default ruby
   after you install so that your command line opens with ruby enabled.
+  
+%p
+  %strong Install not working?
+  Please ensure you've read the troubleshooting notes at the bottom of this page.
+  Namely, you need to
+  %em ensure
+  returns in your shell profiles are converted to ifs.
+  
 %p
   There are at least 3 ways to install RVM.
-%h2 1. GitHub Repository (recommended)
+  
+%h3 1. GitHub Repository (recommended)
+
 %p
   To install / update from the github repository (recommended):
-%pre.code
-  :preserve
-    bash &lt; &lt;( curl http://rvm.beginrescueend.com/releases/rvm-install-head )
+  
+= sh_cmd "bash < <( curl http://rvm.beginrescueend.com/releases/rvm-install-head )"
 %p
   What this script essentially does is the following, with some extra checks and tweaks:
 %pre.code
@@ -38,10 +46,10 @@
   :preserve
     mkdir -p ~/.rvm/src/ &amp;&amp; cd ~/.rvm/src &amp;&amp; rm -rf ./rvm/ &amp;&amp; git clone --depth 1 http://github.com/wayneeseguin/rvm.git &amp;&amp; cd rvm &amp;&amp; ./install
 
-%h2 2. Installing / updating the latest rvm from the latest source tarball
-%pre.code
-  :preserve
-    bash &lt; &lt;( curl http://rvm.beginrescueend.com/releases/rvm-install-latest )
+%h3 2. Installing / updating the latest rvm from the latest source tarball
+
+= sh_cmd "bash < <( curl http://rvm.beginrescueend.com/releases/rvm-install-latest )"
+
 %p
   What this script essentially does is the following, with some extra checks and tweaks:
 %pre.code
@@ -49,7 +57,7 @@
     version=$(curl http://rvm.beginrescueend.com/releases/stable-version.txt);
     mkdir -p ~/.rvm/src/ &amp;&amp; cd ~/.rvm/src/ &amp;&amp; curl -O http://rvm.beginrescueend.com/releases/rvm-${version}.tar.gz | tar zxf - &amp;&amp; cd rvm-${version} &amp;&amp; ./install
 
-%h2 3. Installing from a gem (not recommended)
+%h3 3. Installing from a gem (not recommended)
 
 %p
   Although we suggest installing the rvm gem for the ruby api part of rvm, we discourage the use of
@@ -77,14 +85,14 @@
 %p
   If rvm-install is not found at the path listed it is likely because your users gem home is not in your path.
   You can find out the path to use by running
-  %pre.code
-    :preserve
-      ∴ gem env gemdir
+  
+= sh_cmd "gem env gemdir"
 
+%p
   This will show something like /Users/wayne/.gem/ruby/1.8
 
-%h1
-  Post Install
+%h2 Post Install
+
 %p
   The first time you install RVM, you must put the following line into your profile at the very end, after all path loads etc:
 %pre.code
@@ -94,9 +102,7 @@
   Doing so ensures rvm as loaded as a function (versus as a binary), ensuring commands such as rvm use work as expected. Please note that
   you can confirm this worked correctly by opening a new shell and running:
 
-%pre.code
-  :preserve
-    ∴ type rvm | head -n1
+= sh_cmd "type rvm | head -n1"
 
 %p If this was performed correctly, you should see:
 
@@ -106,15 +112,13 @@
 
 %p
   Next, you can manually load the new code into your current shell and start using RVM ! w00t!
-%pre.code
-  :preserve
-    ∴ source ~/.rvm/scripts/rvm
+
+= sh_cmd "source ~/.rvm/scripts/rvm"
 
 %p
   Be sure to install any dependencies for your operating system by running:
-%pre.code
-  :preserve
-    ∴ rvm notes
+
+= sh_cmd "rvm notes"
 
 %p
   The following script will boostrap git + RVM assuming that you have curl &amp; sudo installed.
@@ -125,8 +129,8 @@
     #!/usr/bin/env bash
 
     # Install git
-    mkdir -p $HOME/.rvm/src &amp;&amp; cd $HOME/.rvm/src &amp;&amp; version=1.6.5.3
-    curl -O http://kernel.org/pub/software/scm/git/git-$version.tar.gz
+    mkdir -p $HOME/.rvm/src &amp;&amp; cd $HOME/.rvm/src &amp;&amp; version=1.7.1.1
+    curl -O http://kernel.org/pub/software/scm/git/git-$version.tar.gz; tar xzf git-$version.tar.gz
     cd git-$version &amp;&amp; ./configure --prefix=/usr/local &amp;&amp; make &amp;&amp; sudo make install
 
     # Install RVM
@@ -136,8 +140,45 @@
     source "$HOME/.rvm/scripts/rvm"
     rvm install ree,1.9.2-head,jruby
 
-%h1 Notes &amp; Warnings
+%h2 Troubleshooting your Install
 %ul
-  %li Do NOT 'return' from inside the .bashrc file or else RVM will be prevented from working properly.
-  %li Be sure that scripts/rvm is sourced at the end of your profiles, after any PATH or other environmental settings.
-
+  %li
+    %p If you open a new shell and running:
+    = sh_cmd "type rvm | head -n1"
+    %p does not show "rvm is a function", rvm isn't being sourced correctly.
+  %li
+    %p
+      Do NOT 'return' from inside the .bashrc file or else RVM will be prevented from working properly -
+      That is to say, if your .bashrc contains "&& return", e.g, ubuntu in particular has
+    %pre.code
+      :preserve
+        [ -z "$PS1" ] && return
+    %p you'll need to convert it into an if statement - e.g, in this case we change the given line into
+    %pre.code
+      :preserve
+        if [[ -n "$PS1" ]]; then
+    %p
+      indent everything below it one level and then add a trailing "fi" on a new line. Once that is done,
+      we add the source line as noted above
+      %em after
+      the fi you added. E.g, this:
+    %pre.code
+      :preserve
+        [ -z "$PS1" ] && return
+        # Some code here... e.g.
+        export HISTCONTROL=ignoreboth
+    %p would become:
+    %pre.code
+      :preserve
+        if [[ -n "$PS1" ]]; then
+          # Some code here... e.g.
+          export HISTCONTROL=ignoreboth
+        fi
+        [[ -s "$HOME/.rvm/scripts/rvm" ]] && source "$HOME/.rvm/scripts/rvm"
+        
+  %li
+    %p
+      Ensure that rvm is the last thing sourced in all of your shell profiles - e.g. it is sourced in the
+      user specific profile after any environment variables,
+      %em especially PATH
+      are set. Otherwise, the values you set be trampled when you switch rubies.

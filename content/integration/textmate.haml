@@ -109,6 +109,19 @@
 
 %p
   Which forces Ruby to read the file with the correct text encoding, allowing multibyte characters.
+  The alternative solution is to for ruby 1.9 to always be run in UTF-8 mode when called via textmate_ruby.
+  To do this, simply edit the textmate_ruby file and replace the line containing:
+
+%pre.code
+  :preserve
+    exec ruby "$@"
+
+%p
+  With a new line containing:
+
+%pre.code
+  :preserve
+    exec ruby -wKU "$@"
 
 %h2
   Community Resources
