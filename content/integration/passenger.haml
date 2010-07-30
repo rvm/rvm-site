@@ -21,11 +21,11 @@
     rvm ree --passenger
 
 %p
-  Alternatively, you can use the rvm wrappers command directly:
+  Alternatively, you can use the rvm wrapper command directly:
 
 %pre.code
   :preserve
-    rvm wrappers ree@ninjas passenger
+    rvm wrapper ree@ninjas passenger
 
 %h3
   Install Passenger
@@ -70,7 +70,7 @@
   %li
     The '.rvm/bin/passenger_ruby' is actually what is known as a 'wrapper script' which sets up the environment for the passenger so that it can find it's gems, etc... and then exec's the actual ruby binary."
   %li
-    passenger_root/PassengerRoot Should be something similar to the following, which 
+    passenger_root/PassengerRoot Should be something similar to the following, which
     is for Passenger 2.2.11 installed under ree-1.8.7-2010.01.
     %pre.code
       :preserve
@@ -78,9 +78,9 @@
 %h2
   Troubleshooting
 %ul
-  %li 
+  %li
     The most common issue is forgetting the /bin/ part of the path to get the proper wrapper script:
-  %li 
+  %li
     The next most common issue is listening to the output of the passenger installation script with
     respect to where passenger_ruby/PassengerRuby are located. Be sure to use the wrapper script location
     as specified above. To be more clear, see the example below for Nginx config:
