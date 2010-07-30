@@ -84,12 +84,17 @@
     The next most common issue is listening to the output of the passenger installation script with
     respect to where passenger_ruby/PassengerRuby are located. Be sure to use the wrapper script location
     as specified above. To be more clear, see the example below for Nginx config:
-%pre.code
-  :preserve
-    passenger_ruby /home/wayne/.rvm/bin/passenger_ruby;
-    * NOTICE THE '.rvm/bin' DIR  ^ ^ ^
-    * do NOT use the actual ruby binary in .rvm/rubies/{passenger_ruby}/bin/ruby
-    * do not listen to passenger's output for passenger_ruby as passenger is not aware of rvm.
+    %pre.code
+      :preserve
+        passenger_ruby /home/wayne/.rvm/bin/passenger_ruby;
+        * NOTICE THE '.rvm/bin' DIR  ^ ^ ^
+        * do NOT use the actual ruby binary in .rvm/rubies/{passenger_ruby}/bin/ruby
+        * do not listen to passenger's output for passenger_ruby as passenger is not aware of rvm.
+
+    For system wide (root) installs the bin directory is /usr/local/bin instead:
+    %pre.code
+      :preserve
+        passenger_ruby /usr/local/bin/passenger_ruby;
 
 %h2
   FAQ
