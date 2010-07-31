@@ -21,8 +21,9 @@
 
 %pre.code
   :preserve
-    require 'rvm/capistrano' # Adjust for load path
-    set :rvm_ruby_string, 'ree@rails3' # Or whatever env you want it to run in.
+    $:.unshift("#{`printf "$rvm_path"`}/lib") # Add RVM's lib directory to the load path.
+    require "rvm/capistrano"                  # Load RVM's capistrano plugin.
+    set :rvm_ruby_string, 'ree@rails3'        # Or whatever env you want it to run in.
 
 %p
   This option is preferred as it simplifies configuration and doesn't have hardcoded paths. Please
