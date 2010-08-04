@@ -16,19 +16,12 @@
   If you are running on a 
   %a{:href => "http://www.gentoo.org/"}
     Gentoo Based System
-  Then the dependencies you should install are:
+  you can run:
+
+= sh_cmd "rvm notes"
 
 %p
-  For JRuby (if you wish to use it) you will need:
-%pre.code
-  :preserve
-    emerge dev-java/sun-jdk dev-java/sun-jre-bin
-
-%p
-  For IronRuby (if you wish to use it) you will need:
-%pre.code
-  :preserve
-    emerge dev-lang/mono
+  To find out the various dependencies for each ruby.
 
 %p
   If you're having issues such as "no such file to load -- auto_gem (LoadError)" with gentoo,

@@ -8,20 +8,32 @@
 
 %h2
   %a{:href => "/os/"} Operating Systems
+  
 %p
-  %ul
-    %li
-      %a{:href => "/os/archlinux/"} Arch Linux
-    %li
-      %a{:href => "/os/centos/"} CentOS / RedHat
-    %li
-      %a{:href => "/os/darwin/"} Darwin
-    %li
-      %a{:href => "/os/debian/"} Debian
-    %li
-      %a{:href => "/os/ubuntu/"} Ubuntu
-    %li
-      %a{:href => "/os/gentoo/"} Gentoo
-    %li
-      %a{:href => "/os/other/"} Other
+  Please note that the first thing you should do is check the rvm
+  notes for you operating system as this covers most common items.
+  To do this, run:
+  
+= sh_cmd "rvm notes"
+
+%p
+  Along the same lines, you should only need to install curl and git
+  to install rvm itself - then, you'll need the tools specific to your
+  os to build actual rubies.
+  
+%ul
+  %li
+    %a{:href => "/os/archlinux/"} Arch Linux
+  %li
+    %a{:href => "/os/centos/"} CentOS / RedHat
+  %li
+    %a{:href => "/os/darwin/"} Darwin
+  %li
+    %a{:href => "/os/debian/"} Debian
+  %li
+    %a{:href => "/os/ubuntu/"} Ubuntu
+  %li
+    %a{:href => "/os/gentoo/"} Gentoo
+  %li
+    %a{:href => "/os/other/"} Other
 
