@@ -33,8 +33,21 @@
 
 %p
   To install / update from the github repository (recommended):
+
+= sh_cmd "bash <(curl http://rvm.beginrescueend.com/releases/rvm-install-head)"
+
+%p
+  Or, alternatively, if you want to inspect the script during the process:
   
-= sh_cmd "bash < <( curl http://rvm.beginrescueend.com/releases/rvm-install-head )"
+= sh_cmd "curl -O http://rvm.beginrescueend.com/releases/rvm-install-head && bash ./rvm-install-head"
+
+
+%p
+  Please note that if you want to let rvm attempt to automatically add the shell command, you'd instead
+  pass the --auto flag as such:
+  
+= sh_cmd "bash <(curl http://rvm.beginrescueend.com/releases/rvm-install-head) --auto"
+
 %p
   What this script essentially does is the following, with some extra checks and tweaks:
 %pre.code
@@ -48,8 +61,16 @@
 
 %h3 2. Installing / updating the latest rvm from the latest source tarball
 
-= sh_cmd "bash < <( curl http://rvm.beginrescueend.com/releases/rvm-install-latest )"
+%p
+  To instead install the latest fixed release, you can run:
 
+= sh_cmd "bash <(curl http://rvm.beginrescueend.com/releases/rvm-install-latest)"
+
+%p
+  Or, if you wish to let rvm attempt to automatically set up your profiles for you,
+  
+= sh_cmd "bash <(curl http://rvm.beginrescueend.com/releases/rvm-install-latest) --auto"
+  
 %p
   What this script essentially does is the following, with some extra checks and tweaks:
 %pre.code
@@ -81,6 +102,12 @@
     ∴ gem install rvm                 # Install the RVM gem
     # Adjust the path below for whever your system gem bin directory is located
     ∴ ~/.gem/ruby/1.8/bin/rvm-install # Install RVM, adds hooks for bash & zsh
+    
+%p
+  If you wish to let rvm attempt to automatically setup your profile, pass the
+  \--auto flag to you rvm-install, like so:
+  
+= sh_cmd "~/.gems/ruby/1.8/bin/rvm-install --auto"
 
 %p
   If rvm-install is not found at the path listed it is likely because your users gem home is not in your path.
