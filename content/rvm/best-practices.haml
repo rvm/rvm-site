@@ -1,0 +1,69 @@
+= breadcrumbs "RVM", "Best Practices"
+
+%h1= @item[:title]
+
+%p
+  Want to use RVM the way Wayne E. Seguin intended? the following are a collection of tips / best
+  practices that have proven to be effective in simplifying development whilst using rvm.
+  
+%h2 The List
+
+%h3 No. 1 - Use project rvmrc files.
+
+%p
+  A
+  %a{:href => "/workflow/rvmrc/"} project-specific rvmrc
+  makes it easy to automate your general workflow. Not only does it let you
+  automatically switch rubies when you work on your ruby but it also makes it easy to
+  automatically bootstrap environments.
+
+%h3 No. 2 - Check your rvmrc into source control.
+
+%p
+  By checking the aforementioned rvmrc into source control along side your app,
+  you're ensuring all users have a consistent environment when they're using rvm.
+  
+%p
+  By also automating gemset installs and the like (e.g. check out the rvmrc in the
+  %a{:href => "http://github.com/wayneeseguin/rvm-site"} rvm-site
+  repository or the
+  %a{:href => "http://github.com/YouthTree/TEDxPerth"} TEDxPerth
+  repostory's rvmrc) you also make getting started as simple as changing directory.
+
+%p
+  On top of this, you can also automatically make your deployments setup your
+  application specific environment
+  %a{:href => "/integration/passenger/"} even if you're using passenger.
+
+%h3 No. 3 - Use per-project gemsets.
+
+%p
+  Per-project gemsets means each application has own distinct gem environment, helping
+  you can avoid issues that come about from conflicting versions. In most cases,
+  this is as simple as using something like "ree@your-app" instead of "ree" when selecting
+  a ruby (e.g. in your rvmrc).
+
+%p
+  Even better, tying it into one and two mean that you and any other users automatically
+  have correctly versioned gemsets. If you're using bundler, rvm will even set BUNDLE_PATH
+  for you so your gem directory is the same place as bundler places its gems.
+
+%h3 No. 4 - Deploy with rvm when possible.
+
+%p
+  Not only is developing with rvm a good idea, when possible it is also a good idea to deploy
+  your application using rvm. This brings about the usual advantages of an
+  application-specific environment but also makes it easier to track down version-specific
+  bugs that occur in production later on in development, primarily since it ensures a reasonably
+  consistent environment between the two.
+  
+%p
+  Even better, when it comes time to upgrade your ruby, rvm will make it as simple as possible.
+
+%h3 No. 5 - Integrate rvm into your tools of choice.
+
+%p
+  Lastly, make sure you read our
+  %a{:href => "/integration/"} integration pages
+  to find out how best to integrate rvm into your development and deployment ecosystem.
+
