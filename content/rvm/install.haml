@@ -18,22 +18,22 @@
   Don't forget to set your
   %a{:href => "/rubies/default/"} default ruby
   after you install so that your command line opens with ruby enabled.
-  
+
 %p
   %strong Install not working?
   Please ensure you've read the troubleshooting notes at the bottom of this page.
   Namely, you need to
   %em ensure
   returns in your shell profiles are converted to ifs.
-  
+
 %p
   There are at least 3 ways to install RVM.
-  
+
 %h3 1. GitHub Repository (recommended)
 
 %p
   To install / update from the github repository (recommended):
-  
+
 = sh_cmd "bash < <( curl http://rvm.beginrescueend.com/releases/rvm-install-head )"
 %p
   What this script essentially does is the following, with some extra checks and tweaks:
@@ -85,7 +85,7 @@
 %p
   If rvm-install is not found at the path listed it is likely because your users gem home is not in your path.
   You can find out the path to use by running
-  
+
 = sh_cmd "gem env gemdir"
 
 %p
@@ -97,7 +97,7 @@
   The first time you install RVM, you must put the following line into your profile at the very end, after all path loads etc:
 %pre.code
   :preserve
-    [[ -s "$HOME/.rvm/scripts/rvm" ]] &amp;&amp; source "$HOME/.rvm/scripts/rvm"
+    [[ -s "$HOME/.rvm/scripts/rvm" ]] && . "$HOME/.rvm/scripts/rvm"  # This loads RVM into a shell session.
 %p
   Doing so ensures rvm as loaded as a function (versus as a binary), ensuring commands such as rvm use work as expected. Please note that
   you can confirm this worked correctly by opening a new shell and running:
@@ -174,8 +174,8 @@
           # Some code here... e.g.
           export HISTCONTROL=ignoreboth
         fi
-        [[ -s "$HOME/.rvm/scripts/rvm" ]] && source "$HOME/.rvm/scripts/rvm"
-        
+        [[ -s "$HOME/.rvm/scripts/rvm" ]] && . "$HOME/.rvm/scripts/rvm"  # This loads RVM into a shell session.
+
   %li
     %p
       Ensure that rvm is the last thing sourced in all of your shell profiles - e.g. it is sourced in the
