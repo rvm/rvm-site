@@ -2,10 +2,14 @@
 
 %h2 TextMate
 
-%p First be sure your textmate is latest version
+%p
+  First, make sure that your RVM is update to date (seamless Textmate compatibility was added in 0.1.45)
+  %pre.code
+    :preserve
+      ∴ rvm update
 
 %p
-  Next run the following script to make sure that your textmate bundles are up to date
+  Next, make your textmate is latest version and run the following script to update all your the bundles
   %pre.code
     :preserve
       #!/usr/bin/env bash
@@ -28,29 +32,18 @@
       exit 0
 
 %p
-  Then in your shell, select an RVM ruby as a textmate ruby
-  %pre.code
-    :preserve
-      ∴ rvm wrapper 1.9.2-head textmate
-
-%p
-  Please note that using this technique, you can also lock textmate to
-  a specific gemset:
-  %pre.code
-    :preserve
-      ∴ rvm wrapper 1.9.2-head@rails3 textmate
-
-%p
-  Following that, set TM_RUBY to /Users/wayne/.rvm/bin/textmate_ruby in:
+  Following that, in Textmate open up the Shell Variables editor
 
   %pre.code
     :preserve
       Textmate | Preferences | Advanced | Shell Variables
 
+  And set TM_RUBY to <pre>/Users/wayne/.rvm/bin/textmate_ruby</pre> replacing /Users/wayne with your own home directory.
+
 %p
-  section as per this skitch:
-  %a{:href => "http://skitch.com/wayneeseguin/nw34t/rvm-textmate-ruby"}
-    http://skitch.com/wayneeseguin/nw34t/rvm-textmate-ruby
+  section as per this:
+  %a{:href => "http://cl.ly/23Yl"}
+    http://cl.ly/23Yl
 
 %p
   Since textmate will use it's own builder, by removing it, we can use TM_RUBY as specified above (Thanks KinkyKamikaze!):
@@ -76,10 +69,13 @@
   If you see something like this "ruby 1.9.1p378 (2010-01-10 revision 26273) [i386-darwin10.2.0]" most importantly the 'ruby 1.9.1' part then it is working as expected.
 
 %p
-  When you wish to switch out ruby versions simply rerun the wrapper command with the proper version:
+  When you wish to switch out the ruby version that textmate uses by default, you can simple change your default RVM ruby version
   %pre.code
     :preserve
-      ∴ rvm wrapper rbx textmate
+      ∴ rvm use rbx@rails3 --default
+
+  RVM will also switch out the ruby version and gemset based on each project's .rvmrc file
+
 
 %p
   If you need to update osx-plist for Ruby 1.9.X compatibility, this might be of some use:
@@ -122,17 +118,3 @@
 %pre.code
   :preserve
     exec ruby -wKU "$@"
-
-%h2
-  Community Resources
-%p
-  A few posts by UnderpantsGnome: 
-  %a{:href => "http://underpantsgnome.com/2010/2/19/rvm-gemsets-textmate-yay"}
-    "using Textmate + RVM + Cucumber"
-  ,
-  %a{:href => "http://underpantsgnome.com/2010/2/20/rvm-friendly-textmate-bundles"}
-    "rvm + gemsets + TextMate == yay!"
-  , and
-  %a{:href => "http://underpantsgnome.com/2010/2/19/rvm-gemsets-textmate-yay-2"}
-    "RVM + gemsets + TextMate == yay! * 2"
-
