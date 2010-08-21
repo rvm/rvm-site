@@ -6,7 +6,7 @@
     Workflow
   &nbsp;>&nbsp;
   %a{ :href => "/workflow/completion/" }
-    Bash Completion
+    Shell Completion
   %hr
 
 %h1 Bash Completion
@@ -57,6 +57,79 @@
     'rvm gemset' completion
   %li
     'rvm package' completion
+
+%h1 ZSH Completion
+%p
+  To use ZSH completion for RVM, you can follow these steps:
+%pre.code
+  :preserve
+    mkdir -p $HOME/.zsh/Completion
+    cp $rvm/scripts/zsh/Completion/_rvm $HOME/.zsh/Completion
+    echo 'fpath=(~/.zsh/Completion $fpath)' >> $HOME/.zshrc
+
+%h3 Usage
+
+%p
+  commands and rubies
+%pre.code
+  :preserve
+    ∴ rvm [tab]
+    cleanup             -- Lets you remove stale source folders / archives and other miscellaneous
+    debug               -- show info plus additional information for common issues
+    fetch               -- Performs an archive / src fetch only of the selected ruby.
+    gem                 -- runs a gem command using selected ruby's 'gem'
+    gemdir              -- display the path to the current gem directory (GEM_HOME).
+    gemset              -- gemsets: http://rvm.beginrescueend.com/gemsets/
+    implode             -- (seppuku) removes the rvm installation completely.
+    info                -- show the *current* environment information for current ruby
+    install             -- install one or many ruby versions
+    list                -- show currently installed rubies, interactive output.
+    migrate             -- Let's you migrate all gemsets from one ruby to another.
+    monitor             -- Monitor cwd for testing, run `rake {spec,test}` on changes.
+    notes               -- Display notes, with operating system specifics.
+    package             -- Install a dependency package {readline,iconv,zlib,openssl}
+    rake                -- runs a rake task against specified and/or all rubies
+    reload              -- reload rvm source itself (useful after changing rvm source)
+    remove              -- uninstall one or many ruby versions and remove their sources
+    reset               -- remove current and stored default & system settings.
+    ruby                -- runs a named ruby file against specified and/or all rubies
+    snapshot            -- Let's your backup / restore an rvm installation in a lightweight manner.
+    specs               -- runs 'rake spec' across selected ruby versions
+    srcdir              -- display the path to rvm source directory (may be yanked)
+    tests               -- runs 'rake test' across selected ruby versions
+    uninstall           -- uninstall one or many ruby versions, leaves their sources
+    update              -- upgrades rvm to the latest version.
+    usage               -- show this usage information
+    use                 -- setup current shell to use a specific ruby version
+    version             -- show the rvm version installed in rvm_path
+    wrapper             -- generates a set of wrapper executables for a given ruby with the
+    default        jruby-1.3.1      jruby-1.4.0      ruby-1.8.7-p248  ruby-1.8.7-p249  ruby-1.9.2-p0
+
+%p
+  rvm gemset use
+%pre.code
+  :preserve
+    ∴ rvm gemset use [tab]
+    global        rails3      projecta      project-b
+
+%p
+  rvm package install
+%pre.code
+  :preserve
+    ∴ rvm package install [tab]
+    autoconf   curl       gettext    glib       iconv      libxml2    llvm       mono       ncurses    openssl    pkgconfig  readline   zlib
+
+%p
+  rvm install
+%pre.code
+  :preserve
+    ∴ rvm install [tab]
+    ironruby-0.9.3       jruby-1.5.1          mput-head            ree-1.8.7-head       ruby-1.9.1-p243      ruby-1.9.2-preview3
+    ironruby-1.0-rc2     jruby-head           rbx-1.0.1            ruby-1.8.6-head      ruby-1.9.1-p376      ruby-1.9.2-rc1
+    ironruby-head        macruby-head         rbx-head             ruby-1.8.6-p399      ruby-1.9.1-p429      ruby-1.9.2-rc2
+    jruby-1.2.0          macruby-nightly      ree-1.8.6            ruby-1.8.7-head      ruby-1.9.2-head      ruby-head
+    jruby-1.3.1          maglev-24067         ree-1.8.6-head       ruby-1.8.7-p302      ruby-1.9.2-p0
+    jruby-1.4.0          maglev-head          ree-1.8.7            ruby-1.9.1-head      ruby-1.9.2-preview1
 
 %h1
   Community Resources
