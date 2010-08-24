@@ -46,4 +46,21 @@
   :preserve
     unsetopt auto_name_dirs
 
+%p
+  If you are using oh-my-zsh and you see something like this error:
+%pre.code
+  :preserve
+    pwd:4: too many arguments
+%p
+  This is caused by an alias and due to the sh style sourcing of a script using the '.' operator instead of 'source'. The alias looks like this:
+%pre.code
+  :preserve
+    # .oh-my-zsh/lib/aliases.zsh
+    alias .='pwd'
+%p
+  To avoid this either remove/comment the alias and/or escape the '.' to bypass the alias like so:
+%pre.code
+  :preserve
+    \. /file/being/sourced
+
 
