@@ -3,7 +3,7 @@
 %h1= @item[:title]
 
 %p
-  Want to use RVM the way Wayne E. Seguin intended? the following are a collection of tips / best
+  Want to use RVM the way Wayne E. Seguin intended? The following is a collection of tips / best
   practices that have proven to be effective in simplifying development whilst using rvm.
   
 %h2 The List
@@ -14,7 +14,7 @@
   A
   %a{:href => "/workflow/rvmrc/"} project-specific rvmrc
   makes it easy to automate your general workflow. Not only does it let you
-  automatically switch rubies when you work on your ruby but it also makes it easy to
+  automatically switch rubies when you work on your app but it also makes it easy to
   automatically bootstrap environments.
 
 %h3 No. 2 - Check your rvmrc into source control.
@@ -38,8 +38,8 @@
 %h3 No. 3 - Use per-project gemsets.
 
 %p
-  Per-project gemsets means each application has own distinct gem environment, helping
-  you can avoid issues that come about from conflicting versions. In most cases,
+  Per-project gemsets means each application has its own distinct gem environment, helping
+  you to avoid issues that come about from conflicting versions. In most cases,
   this is as simple as using something like "ree@your-app" instead of "ree" when selecting
   a ruby (e.g. in your rvmrc).
 

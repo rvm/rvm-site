@@ -17,7 +17,7 @@
 %p
   Don't forget to set your
   %a{:href => "/rubies/default/"} default ruby
-  after you install so that your command line opens with ruby enabled.
+  after the installation so that your command line opens with ruby enabled.
 
 %p
   %strong Install not working?
@@ -99,7 +99,7 @@
   :preserve
     [[ -s "$HOME/.rvm/scripts/rvm" ]] && . "$HOME/.rvm/scripts/rvm"  # This loads RVM into a shell session.
 %p
-  Doing so ensures rvm as loaded as a function (versus as a binary), ensuring commands such as rvm use work as expected. Please note that
+  Doing so ensures rvm is loaded as a function (versus as a binary), ensuring commands such as rvm use work as expected. Please note that
   you can confirm this worked correctly by opening a new shell and running:
 
 = sh_cmd "type rvm | head -n1"
