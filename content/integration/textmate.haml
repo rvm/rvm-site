@@ -6,7 +6,16 @@
   First, make sure that your RVM is update to date (seamless Textmate compatibility was added in 0.1.45)
   %pre.code
     :preserve
-      ∴ rvm update
+      ∴ rvm update --head
+
+%p
+  First create the initial textmate wrapper script for ruby[@gemset] that you require.
+  For example if you want to use a 'rails3' gemset and Rubinius (rbx):
+  %pre.code
+    :preserve
+      ∴ rvm wrapper rbx@rails3 textmate
+%p
+  This will create the ~/.rvm/bin/textmate_ruby wrapper script.
 
 %p
   Next, make your textmate is latest version and run the following script to update all your the bundles
