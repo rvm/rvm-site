@@ -2,7 +2,9 @@
 
 
 require "compass"
-Compass.configuration.parse('compass_config.rb')
+
+Compass.add_project_configuration('compass_config.rb')
+
 # For compass v0.10 should be:
 # Compass.add_configuration "#{File.dirname(__FILE__)}/compass_config.rb"
 
