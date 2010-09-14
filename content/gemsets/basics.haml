@@ -73,6 +73,15 @@
     ∴ rvm 1.9.2-head ; rails --version
 
     Rails 2.3.3
+%p
+  If you are deploying to a server or you do not want to wait around for rdoc and ri to install for each gem then you can disable these for gem installs and updates.  Place these two lines in your ~/.gemrc or /etc/gemrc:
+%pre.code
+  :preserve
+    install: --no-rdoc --no-ri
+    update: --no-rdoc --no-ri
+%p
+  Note: You likely do not want to run this for *every* gem command as these args would break some 'gem X' commands.
+  Which is why I did not simply use 'gem: --no-rdoc --no-ri'
 %h2
   Warning!!!
 %p

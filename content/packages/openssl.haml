@@ -1,4 +1,4 @@
-.breadcrumbs
+breadcrumbs
   %a{ :href => "/" }
     Documentation
   &nbsp;>&nbsp;
@@ -22,8 +22,8 @@
   If you have issues with openssl not being available in ruby / irb please try the following configure option:
 %pre.code
   :preserve
-    ∴ rvm remove 1.9.1 # This ensures that you will not have any leftovers from the last run
-    ∴ rvm install 1.9.1 -C --with-openssl-dir=/usr/local
+    ∴ rvm remove 1.9.2 # This ensures that you will not have any leftovers from the last run
+    ∴ rvm install 1.9.2 -C --with-openssl-dir=/usr/local
 %p
   Where you replace '/usr/local' with the prefix where your openssl packages are.
 %p
@@ -32,8 +32,8 @@
   %pre.code
     :preserve
       ∴ rvm package install openssl
-      ∴ rvm remove 1.9.1
-      ∴ rvm install 1.9.1 -C --with-openssl-dir=$HOME/.rvm/usr
+      ∴ rvm remove 1.9.2
+      ∴ rvm install 1.9.2 -C --with-openssl-dir=$HOME/.rvm/usr
 %p
   If you see readline errors in the make.error.log
   %a{ :href => "/packages/readline/" }
