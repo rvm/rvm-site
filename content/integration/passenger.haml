@@ -128,3 +128,16 @@
       :preserve
         bundle install $BUNDLE_PATH
 
+%h1
+  Passenger 3
+
+%h2
+  Installing Nginx/Apache with Passenger
+%p
+  First of all there's passenger-install-apache2-module and passenger-install-nginx-module. At the end of the installation it outputs a PassengerRuby configuration snippet for the web server. Its value is set to the RVM Ruby wrapper script that corresponds with the RVM Ruby and RVM gemset that was used to run the installer.
+
+%h2
+  Starting passenger
+%p
+  Then there's Passenger Standalone, i.e. 'passenger start'. Passenger Standalone uses Nginx internally, and it writes a passenger_ruby directive to the Nginx configuration file. This directive points to the RVM Ruby wrapper script that corresponds with the RVM Ruby and RVM gemset that was used to run the 'passenger start' command.
+
