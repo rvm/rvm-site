@@ -7,7 +7,7 @@
   RVM will allow you to use any of it's MRI/YARV rubies with passenger very easily.
 
 %h1
-  Passenger with RVM
+  Passenger *2* with RVM
 
 %h3
   Select a Passenger Ruby and Generate Wrapper Scripts
@@ -129,12 +129,14 @@
         bundle install $BUNDLE_PATH
 
 %h1
-  Passenger 3
+  Passenger *3*
 
 %h2
   Installing Nginx/Apache with Passenger
 %p
-  First of all there's passenger-install-apache2-module and passenger-install-nginx-module. At the end of the installation it outputs a PassengerRuby configuration snippet for the web server. Its value is set to the RVM Ruby wrapper script that corresponds with the RVM Ruby and RVM gemset that was used to run the installer.
+  First of all there's passenger-install-apache2-module and passenger-install-nginx-module. At the end of the installation it outputs a PassengerRuby configuration snippet for the web server. Its value is set to the RVM Ruby wrapper script that corresponds with the RVM Ruby and RVM gemset that was used to run the installer. This should be all you need for configuration of Passenger 3!
+%p
+  Please note that for Passenger 3 you now use the ruby wrapper script directly with no need to use the passenger_ruby wrapper.
 
 %h2
   Starting passenger
