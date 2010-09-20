@@ -7,6 +7,14 @@
   RVM will allow you to use any of it's MRI/YARV rubies with passenger very easily.
 
 %h1
+  Passenger
+%p
+  Passenger is essentially 'mod_ruby' for both Nginx and Apache.
+  You may select *exactly one* Ruby to run all of your Passenger Ruby applications with.
+  If you need to run more than one Ruby interpreter then you should choose the most common one as Passenger Ruby.
+  You then use proxy pass to external application servers such as Unicorn in order to accomplish running different applications under different rubies.
+
+%h1
   Passenger *3*
 
 %h2
