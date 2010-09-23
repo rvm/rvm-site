@@ -27,7 +27,7 @@
   returns in your shell profiles are converted to ifs.
 
 %p
-  There are at least 3 ways to install RVM.
+  There are at least 2 recommended ways to install RVM.
 
 %h3 1. GitHub Repository (recommended)
 
@@ -56,40 +56,6 @@
   :preserve
     version=$(curl http://rvm.beginrescueend.com/releases/stable-version.txt);
     mkdir -p ~/.rvm/src/ &amp;&amp; cd ~/.rvm/src/ &amp;&amp; curl -O http://rvm.beginrescueend.com/releases/rvm-${version}.tar.gz | tar zxf - &amp;&amp; cd rvm-${version} &amp;&amp; ./install
-
-%h3 3. Installing from a gem (not recommended)
-
-%p
-  Although we suggest installing the rvm gem for the ruby api part of rvm, we discourage the use of
-  it for actually installing rvm itself - this primarily being since rvm updates are typically done
-  via:
-
-= sh_cmd "rvm update"
-
-%p
-  Versus the gem alternative of:
-
-= sh_cmd "gem update rvm && rvm-install"
-
-%p
-  Meaning the gem version and the rvm version may both differ greatly. Also, installing as a gem requires
-  you use an existing ruby. For the few cases where you must use a gem, you can simply do "gem install rvm"
-  followed by running the rvm-install binary:
-
-%pre.code
-  :preserve
-    ∴ gem install rvm                 # Install the RVM gem
-    # Adjust the path below for whever your system gem bin directory is located
-    ∴ ~/.gem/ruby/1.8/bin/rvm-install # Install RVM, adds hooks for bash & zsh
-
-%p
-  If rvm-install is not found at the path listed it is likely because your users gem home is not in your path.
-  You can find out the path to use by running
-
-= sh_cmd "gem env gemdir"
-
-%p
-  This will show something like /Users/wayne/.gem/ruby/1.8
 
 %h2 Post Install
 
