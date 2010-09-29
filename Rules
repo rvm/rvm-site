@@ -24,6 +24,10 @@ compile '/assets/images/*/' do
   nil
 end
 
+compile '/assets/favicon*' do
+  nil
+end
+
 route "/assets/javascripts/*/" do
   # don't generate a directory like we do for HTML files
   item.identifier.sub(%r{^/assets}, '').chop + ".js"
