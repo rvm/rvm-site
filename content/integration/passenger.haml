@@ -84,7 +84,7 @@
 %p
   Please note that if you installed rvm as root / are using a system wide ruby, instead of using
   \/home/wayne/.rvm/bin/passenger_ruby as in the above examples, you'll instead need to use
-  \/usr/local/bin/passenger_ruby.
+  \/usr/local/rvm/bin/passenger_ruby.
 
 %h2 Notes
 %ul
@@ -117,10 +117,10 @@
         * do NOT use the actual ruby binary in .rvm/rubies/{passenger_ruby}/bin/ruby
         * do not listen to passenger's output for passenger_ruby as passenger is not aware of rvm.
 
-    For system wide (root) installs the bin directory is /usr/local/bin instead:
+    For system wide (root) installs the bin directory is /usr/local/rvm/bin instead:
     %pre.code
       :preserve
-        passenger_ruby /usr/local/bin/passenger_ruby;
+        passenger_ruby /usr/local/rvm/bin/passenger_ruby;
 
 %h2
   FAQ
