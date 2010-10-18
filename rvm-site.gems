@@ -1,6 +1,7 @@
 # rvm-site.gems generated gem export file. Note that any env variable settings will be missing. Append these after using a ';' field separator
-haml -v2.2.22
-compass -v0.8.17
+compass -v0.10.5
 cri -v1.0.1
-nanoc3 -v3.1.1
-rack -v1.1.0
+haml -v3.0.18
+mime-types -v1.16
+nanoc3 -v3.1.5
+rack -v1.2.1
