@@ -20,7 +20,7 @@
     = sh_cmd "rvm use jruby@celerity --create"
   %li
     Install the celerity gem in this gemset -
-    = sh_cmd "gem install celerity"
+    = sh_cmd "gem install celerity culerity"
 
 %p
   Which this done, you should be able to confirm that you have celerity by doing:
@@ -31,6 +31,11 @@
   With this done, the next key step is to set up a wrapper for it. To do this, we run:
 
 = sh_cmd "rvm wrapper jruby@celerity celerity jruby"
+
+%p
+  You can set the path for culerity can now be set via environment variable in your .bash_profile or such:
+
+= sh_cmd 'export JRUBY_INVOCATION="$(readlink "$(which celerity_jruby)")"'
 
 %p
   Which should create the file ~/.rvm/bin/celerity_jruby, pointing to the correct ruby. You
