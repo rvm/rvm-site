@@ -1,0 +1,18 @@
+= breadcrumbs "Integration", "MacPorts"
+
+%a{:name => "macports"}
+%h1 Using MacPorts with RVM
+
+%pre.code
+  :preserve
+    # Using MacPort libs for all RVM rubie installs.
+
+    export CC="/usr/bin/gcc-4.2"
+    export CFLAGS="-O2 -arch x86_64"
+    export LDFLAGS="-L/opt/local/lib"
+    export CPPFLAGS="-I/opt/local/include"
+
+    rvm install <ruby string> --with-opt-dir=/opt/local
+
+%p
+  Thanks to metaskills for doing the leg work on this :)
