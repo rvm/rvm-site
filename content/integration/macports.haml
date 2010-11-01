@@ -3,16 +3,29 @@
 %a{:name => "macports"}
 %h1 Using MacPorts with RVM
 
+%p
+  In order to use MacPorts GCC
 %pre.code
   :preserve
-    # Using MacPort libs for all RVM rubie installs.
 
     export CC="/usr/bin/gcc-4.2"
+
+%p
+  In order to use MacPorts libraries when installing RVM Rubies
+  set the following variables in your .bashrc / .bash_profile / shell:
+%pre.code
+  :preserve
     export CFLAGS="-O2 -arch x86_64"
     export LDFLAGS="-L/opt/local/lib"
     export CPPFLAGS="-I/opt/local/include"
 
-    rvm install <ruby string> --with-opt-dir=/opt/local
+%p
+  So for example say we want to complile 1.9.2 using MacPorts libraries and
+  gcc, assuming we have the above variables set in our current shell:
+
+%pre.code
+  :preserve
+    rvm install 1.9.2 --with-opt-dir=/opt/local
 
 %p
   Thanks to metaskills for doing the leg work on this :)
