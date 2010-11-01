@@ -29,11 +29,11 @@
 
   %pre.code
     :preserve
-      ∴ rvm  install ruby-1.8.7-p160
+      $ rvm  install ruby-1.8.7-p160
 
       Installing Ruby from source to: ...
 
-      ∴ ruby -v
+      $ ruby -v
 
       ruby 1.8.7 (2009-04-08 patchlevel 160) [i686-darwin9.8.0]
   %p
@@ -41,27 +41,27 @@
     Switching between patchlevels is very easy:
   %pre.code
     :preserve
-      ∴ rvm  ruby-1.8.7-p160
+      $ rvm  ruby-1.8.7-p160
 
       Switching to ruby 1.8.7 160 ...
 
-      ∴ ruby -v
+      $ ruby -v
 
       ruby 1.8.7 (2009-04-08 patchlevel 160) [i686-darwin9.8.0]
 
-      ∴ rvm  ruby-1.8.7-p174
+      $ rvm  ruby-1.8.7-p174
 
       Switching to ruby 1.8.7 174 ...
 
-      ∴ ruby -v
+      $ ruby -v
 
       ruby 1.8.7 (2009-06-12 patchlevel 174) [i686-darwin9.8.0]
   %p
     Don't forget about the shorthand due to defaults. The above is equivalent to
   %pre.code
     :preserve
-      ∴ rvm 1.8.7-p160    # same as: rvm ruby-1.8.7-p160
-      ∴ rvm 1.8.7-p174    # same as: rvm ruby-1.8.7-p174
+      $ rvm 1.8.7-p160    # same as: rvm ruby-1.8.7-p160
+      $ rvm 1.8.7-p174    # same as: rvm ruby-1.8.7-p174
 
 %h2
   Repository Revisions (MRI)
@@ -74,13 +74,13 @@
     Moving beyond official patch levels and tags we can also use any arbitrary revision for 1.8.X and 1.9.X
   %pre.code
     :preserve
-      ∴ rvm install 1.8.6-r24700 ;  rvm 1.8.6-r24700
+      $ rvm install 1.8.6-r24700 ;  rvm 1.8.6-r24700
 
-      ∴ ruby -v
+      $ ruby -v
 
       ruby 1.8.6 (2009-08-26 patchlevel 387) [i686-darwin10.0.0]
 
-      ∴ which ruby
+      $ which ruby
 
       /Users/wayne/.rvm/ruby-1.8.6-24700/bin/ruby
 
@@ -94,9 +94,9 @@
     To install a specific tagged version of ruby from the repository we specify -t(tag name).
   %pre.code
     :preserve
-      ∴ rvm install 1.8.6-tv1_8_6_111 ; rvm 1.8.6-tv1_8_6_111
+      $ rvm install 1.8.6-tv1_8_6_111 ; rvm 1.8.6-tv1_8_6_111
 
-      ∴ which ruby
+      $ which ruby
 
       /Users/wayne/.rvm/ruby-1.8.6-v1_8_6_111/bin/ruby
 
@@ -108,12 +108,12 @@
   Installing specific rubies with custom ruby source patches
   %pre.code
     :preserve
-      ∴ rvm install 1.8.6 --patch /path/to/awesome.patch
+      $ rvm install 1.8.6 --patch /path/to/awesome.patch
   %p
     Alternatively you can specify more than one patch, they are applied in the order given.
   %pre.code
     :preserve
-      ∴ rvm install 1.8.6 --patch /path/to/awesome.patch,/path/to/another.patch
+      $ rvm install 1.8.6 --patch /path/to/awesome.patch,/path/to/another.patch
 
 %h2 Getting Head
 %p
@@ -122,8 +122,8 @@
   To get the latest development trunk for ruby:
 %pre.code
   :preserve
-    ∴ rvm install ruby-head
-    ∴ rvm use ruby-head
+    $ rvm install ruby-head
+    $ rvm use ruby-head
 %p
   Note that as of this writing 1.9.2 has no repository branch and thus "1.9.1-head" IS "1.9.2-head".
 
@@ -132,7 +132,7 @@
   If you would like RVM to automatically install a ruby when you use it simply add the flag to your rvmrc file:
 %pre.code
   :preserve
-    ∴ cat $HOME/.rvmrc
+    $ cat $HOME/.rvmrc
     rvm_install_on_use_flag=1
 
 %h1 Configure flags
@@ -140,7 +140,7 @@
   Configure script flags can be passed by a comma separated list with no spaces after -C like so:
 %pre.code
   :preserve
-    ∴ rvm install 1.9.1 -C --enable-shared,--with-readline-dir=$HOME/.rvm/usr
+    $ rvm install 1.9.1 -C --enable-shared,--with-readline-dir=$HOME/.rvm/usr
 
 %h1 Compile Flags
 %p
@@ -149,5 +149,5 @@
   As an example, to enable gdb for ruby 1.9.1:
 %pre.code
   :preserve
-    ∴ export optflags="-O0 -ggdb" rvm install 1.9.1
+    $ export optflags="-O0 -ggdb" rvm install 1.9.1
 

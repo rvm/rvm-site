@@ -39,7 +39,7 @@
   As a simple example say we want to print out the ruby string every time we switch rubies.
 %pre.code
   :preserve
-    ∴ cat ~/.rvm/hooks/after_use
+    $ cat ~/.rvm/hooks/after_use
 
       echo "Now using $rvm_ruby_string"
 
@@ -47,11 +47,11 @@
   Will produce the following.
 %pre.code
   :preserve
-    ∴ rvm 1.9.1
+    $ rvm 1.9.1
 
       Now using ruby-1.9.1-p243
 
-    ∴ rvm 1.8.7
+    $ rvm 1.8.7
 
       Now using ruby-1.8.7-p174
 %h1

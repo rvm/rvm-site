@@ -18,9 +18,9 @@
   If you have issues with zlib not being available in ruby / irb please try the following configure option:
 %pre.code
   :preserve
-    ∴ rvm package install zlib
-    ∴ rvm remove 1.9.2
-    ∴ rvm install 1.9.2 --with-zlib-dir=$rvm_path/usr
+    $ rvm package install zlib
+    $ rvm remove 1.9.2
+    $ rvm install 1.9.2 --with-zlib-dir=$rvm_path/usr
 %p
   Where you replace '/usr/local' with the prefix where your zlib packages are.
 %p
@@ -28,8 +28,8 @@
   %br
   %pre.code
     :preserve
-      ∴ rvm package install zlib
-      ∴ rvm remove 1.9.2
-      ∴ rvm install 1.9.2
+      $ rvm package install zlib
+      $ rvm remove 1.9.2
+      $ rvm install 1.9.2
 
 

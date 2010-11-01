@@ -26,8 +26,8 @@
 
 %pre.code
   :preserve
-    ∴ rvm remove 1.9.2 # This ensures that you will not have any leftovers from the last run
-    ∴ rvm install 1.9.2 --with-openssl-dir=/usr/local
+    $ rvm remove 1.9.2 # This ensures that you will not have any leftovers from the last run
+    $ rvm install 1.9.2 --with-openssl-dir=/usr/local
 
 %p
   Where you replace '/usr/local' with the prefix where your openssl packages are.
@@ -37,9 +37,9 @@
   %br
   %pre.code
     :preserve
-      ∴ rvm package install openssl
-      ∴ rvm remove 1.9.2
-      ∴ rvm install 1.9.2 --with-openssl-dir=$rvm_path/usr
+      $ rvm package install openssl
+      $ rvm remove 1.9.2
+      $ rvm install 1.9.2 --with-openssl-dir=$rvm_path/usr
 
 %p
   If you see readline errors in the make.error.log

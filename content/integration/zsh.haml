@@ -19,16 +19,16 @@
 
 %pre.code
   :preserve
-    ∴ foo=baaaar; [[ $foo =~ ba*r ]] && echo "Your shell supports the =~ regex operator." || echo "Your shell does not support the =~ regex operator."
+    $ foo=baaaar; [[ $foo =~ ba*r ]] && echo "Your shell supports the =~ regex operator." || echo "Your shell does not support the =~ regex operator."
     Your shell supports the =~ regex operator.
-    ∴ zsh --version
+    $ zsh --version
     zsh 4.3.5
 
 %pre.code
   :preserve
-    ∴ foo=baaaar; [[ $foo =~ ba*r ]] && echo "Your shell supports the =~ regex operator." || echo "I like sheep, they are soft and fluffy..."
+    $ foo=baaaar; [[ $foo =~ ba*r ]] && echo "Your shell supports the =~ regex operator." || echo "I like sheep, they are soft and fluffy..."
     zsh: condition expected: =~
-    ∴ zsh --version
+    $ zsh --version
     zsh 4.3.4
 
 %p

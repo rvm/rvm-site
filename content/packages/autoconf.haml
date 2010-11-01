@@ -18,7 +18,7 @@
   you can install it into your RVM.
 %pre.code
   :preserve
-    ∴ rvm package install autoconf
+    $ rvm package install autoconf
 
 %p
   Note that autoconf will be installed to ~/.rvm/bin so be sure it is in your path.
@@ -26,10 +26,10 @@
   If it is not in your path you can add it like this
 %pre.code
   :preserve
-    ∴ export PATH=$rvm_path/bin:$PATH
+    $ export PATH=$rvm_path/bin:$PATH
 
 %p
   Once autoconf has been installed, you can then (re) install your ruby
 %pre.code
   :preserve
-    ∴ rvm install 1.9.2-head
+    $ rvm install 1.9.2-head

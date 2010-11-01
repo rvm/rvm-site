@@ -32,7 +32,7 @@
 
 %pre.code
   :preserve
-    ∴ rvm_archflags="-arch i386" CFLAGS="-arch i386" LDFLAGS="-arch i386" rvm install 1.8.7 --patch osx-arch-fix
+    $ rvm_archflags="-arch i386" CFLAGS="-arch i386" LDFLAGS="-arch i386" rvm install 1.8.7 --patch osx-arch-fix
 
 %p
   To set the default architecture, see
@@ -44,4 +44,4 @@
 
 %pre.code
   :preserve
-    ∴ rvm install ruby-1.9.2-head -C --with-arch=x86_64,i386
+    $ rvm install ruby-1.9.2-head -C --with-arch=x86_64,i386

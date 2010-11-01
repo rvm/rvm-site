@@ -13,26 +13,26 @@
   Before you can use a gemset you must first create it.
 %pre.code
   :preserve
-    ∴ rvm 1.9.2-head
-    ∴ rvm gemset create albinochipmunk
+    $ rvm 1.9.2-head
+    $ rvm gemset create albinochipmunk
 
 %p
   To use a gemset
 %pre.code
   :preserve
-    ∴ rvm gemset use albinochipmunk
+    $ rvm gemset use albinochipmunk
 
 %p
   Alternatively we can switch to a gemset when we use a ruby by appending @gemsetname to the end of the ruby selector string:
 %pre.code
   :preserve
-    ∴ rvm use 1.9.2-head@albinochipmunk
+    $ rvm use 1.9.2-head@albinochipmunk
 
 %p
   Note that you can also specify a default gemset for the interpreter by doing:
 %pre.code
   :preserve
-    ∴ rvm use 1.9.2-head@albinochipmunk --default
+    $ rvm use 1.9.2-head@albinochipmunk --default
 
 
 %p

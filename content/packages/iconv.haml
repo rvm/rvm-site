@@ -18,9 +18,9 @@
   If you have issues with iconv not being available in ruby / irb please try install the ruby you want with the following configure option:
 %pre.code
   :preserve
-    ∴ rvm package install iconv
-    ∴ rvm remove 1.9.2
-    ∴ rvm install 1.9.2 --with-iconv-dir=$rvm_path/usr
+    $ rvm package install iconv
+    $ rvm remove 1.9.2
+    $ rvm install 1.9.2 --with-iconv-dir=$rvm_path/usr
 
 %p
   This effectively installs a fresh copy of iconv, sandboxed to the ~/.rvm/usr directory, and tells

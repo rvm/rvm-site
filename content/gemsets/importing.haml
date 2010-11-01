@@ -15,22 +15,22 @@
   To import a gemset file called 'albinochipmunk.gems' to the albinochipmunk gemset of 1.9.2-head do
 %pre.code
   :preserve
-    ∴ rvm --create 1.9.2-head@albinochipmunk # The --create creates the gemset if it does not exist
-    ∴ rvm gemset import albinochipmunk
+    $ rvm --create 1.9.2-head@albinochipmunk # The --create creates the gemset if it does not exist
+    $ rvm gemset import albinochipmunk
 %p
   Note that you can use any gemset name to import into.
 %p
   You can specify the gemset filename prefix also
 %pre.code
   :preserve
-    ∴ rvm gemset albinochipmunk
-    ∴ rvm gemset import albinochipmunk
+    $ rvm gemset albinochipmunk
+    $ rvm gemset import albinochipmunk
 %p
   Alternatively, if you already have a ruby and/or gemset selected:
 %pre.code
   :preserve
-    ∴ rvm 1.9.2-head@albinochipmunk
-    ∴ rvm gemset import
+    $ rvm 1.9.2-head@albinochipmunk
+    $ rvm gemset import
 %p
   Importing without arguments will check for gemset files in the following order:
   %ul

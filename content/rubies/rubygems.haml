@@ -29,17 +29,17 @@
   You can see the gem directory of the currently selected ruby using the gemdir action:
 %pre.code
   :preserve
-    ∴ rvm 1.9.2
-    ∴ rvm gemdir
+    $ rvm 1.9.2
+    $ rvm gemdir
 
     /Users/wayne/.rvm/gems/ruby-1.9.2-p378
 %p
   To change to the currently selected Ruby's gem directory, use a subshell:
 %pre.code
   :preserve
-    ∴ rvm 1.9.2
-    ∴ cd $(rvm gemdir)
-    ∴ pwd
+    $ rvm 1.9.2
+    $ cd $(rvm gemdir)
+    $ pwd
 
     /Users/wayne/.rvm/gems/ruby-1.9.2-p378
 
@@ -62,19 +62,19 @@
   Then switching is very simple:
 %pre.code
   :preserve
-    ∴ gemdir 1.8.6
+    $ gemdir 1.8.6
 
     /Users/wayne/.rvm/gems/ruby-1.8.6-p399
 
-    ∴ pwd
+    $ pwd
 
     /Users/wayne/.rvm/gems/ruby-1.8.6-p399
 
-    ∴   gemdir 1.9.2
+    $   gemdir 1.9.2
 
     /Users/wayne/.rvm/gems/ruby-1.9.2-p378
 
-    ∴ pwd
+    $ pwd
 
     /Users/wayne/.rvm/gems/ruby-1.9.2-p378
 
