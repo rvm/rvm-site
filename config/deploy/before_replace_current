@@ -2,7 +2,7 @@
 
 source $HOME/.rvm/scripts/rvm
 
-cd $HOME/current/
+cd $stage_path
 
 rvm gemset import rvm-site.gems
 
