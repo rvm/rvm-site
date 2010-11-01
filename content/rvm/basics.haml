@@ -33,10 +33,14 @@
 %p
   The rvm installation documentation instructs you to put the following line at the very end of your bash profile:
 
-[[ -s "$HOME/.rvm/scripts/rvm" ]] && . "$HOME/.rvm/scripts/rvm" # This loads RVM into a shell session.
+%pre.code
+  :preserve
+    [[ -s "$HOME/.rvm/scripts/rvm" ]] && . "$HOME/.rvm/scripts/rvm" # This loads RVM into a shell session.
 
 %p
-  For those, like me, who are not very familiar with bash scripting, this is what the line above does: [[ condition ]] evaluates the condition inside the double brackets and returns true or false. The option -s file tells bash to look for file and decide whether it exists and is nonempty. So the line [[ -s "$HOME/.rvm/scripts/rvm" ]] looks inside the default rvm scripts folder ~/.rvm/scripts/ for rvm, and returns true or false.
+  For those who are not very familiar with bash scripting, I will explain in the next few paragraphs what the line above does.
+%p
+  \[[ condition ]] evaluates the condition inside the double brackets and returns true or false. The option -s file tells bash to look for file and decide whether it exists and is nonempty. So the line [[ -s "$HOME/.rvm/scripts/rvm" ]] looks inside the default rvm scripts folder ~/.rvm/scripts/ for rvm, and returns true or false.
 
 %p
   Next, the &amp; operator (a logical AND with short-circuit) executes the rest of the line if and only if the previous test returns true. This means that in our rvm example, if the file ~/.rvm/scripts/rvm is not found (or is empty), then bash ignores the rest of the line. (ASIDE: I've seen the &amp; used a lot when installing software from source in linux for make && sudo make install -- if make fails, then it doesn't try to install it to your system)
@@ -52,6 +56,9 @@
   Simply executes the rvm shell script, this script contains the master 'rvm()'
   function that you will be using to issue RVM commands in your shell.
 
+%p
+  Note that the '#' is the shell comment character so everything after it is
+  a comment and ignored by the shell when the line is executed.
 %p
   Once the sourcing line is placed in your startup files (.bashrc / .bash_profile or if you are using ZSH in ~/.zshrc), you may now open a new shell and start playing with rvm.
 
