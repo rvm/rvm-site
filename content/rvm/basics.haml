@@ -27,25 +27,71 @@
   %a{:href => "/rvm/install/"} install RVM
   \.
 
+%h3
+  Post Install Configuration
 
 %p
-  Once that is done, you can open a new shell and start playing with rvm. To ensure rvm is loaded correctly, run:
+  The rvm installation documentation instructs you to put the following line at the very end of your bash profile:
+
+[[ -s "$HOME/.rvm/scripts/rvm" ]] && . "$HOME/.rvm/scripts/rvm" # This loads RVM into a shell session.
+
+%p
+  For those, like me, who are not very familiar with bash scripting, this is what the line above does: [[ condition ]] evaluates the condition inside the double brackets and returns true or false. The option -s file tells bash to look for file and decide whether it exists and is nonempty. So the line [[ -s "$HOME/.rvm/scripts/rvm" ]] looks inside the default rvm scripts folder ~/.rvm/scripts/ for rvm, and returns true or false.
+
+%p
+  Next, the &amp; operator (a logical AND with short-circuit) executes the rest of the line if and only if the previous test returns true. This means that in our rvm example, if the file ~/.rvm/scripts/rvm is not found (or is empty), then bash ignores the rest of the line. (ASIDE: I've seen the &amp; used a lot when installing software from source in linux for make && sudo make install -- if make fails, then it doesn't try to install it to your system)
+
+%p
+  Finally, the shell command '.' file is identical to the bash/zsh 'source' command.
+  This command reads the file listed after it and executes each command listed in the currently running shell.
+  This means that:
+%pre.code
+  :preserve
+    . "$HOME/.rvm/scripts/rvm
+%p
+  Simply executes the rvm shell script, this script contains the master 'rvm()'
+  function that you will be using to issue RVM commands in your shell.
+
+%p
+  Once the sourcing line is placed in your startup files (.bashrc / .bash_profile or if you are using ZSH in ~/.zshrc), you may now open a new shell and start playing with rvm.
+
+%p
+  A note about the .bashrc warning.
+  The
+  %a{:href => "/rvm/install"}
+    rvm install troubleshooting notes
+  explain how to change your bash profile to work with rvm.
+  In Ubuntu, the default .bashrc contains the following line: [ -z "$PS1" ] && return
+
+  \[ -z "$PS1" ] is true if the string "$PS1" has zero length (a non-interactive shell).
+  rvm needs to load for both interactive and non-interactive shells which is why it strongly is recommended to alter this file.
+
+%p
+  First ensure that the previous step was successful and that rvm is loaded correctly *as a shell function*, run:
 
 = sh_cmd "type rvm | head -n1"
 
 %p
-  Assuming this shows "rvm is a function", you're good to go. As an example, to install and use Ruby 1.9.1 you may do:
+  Assuming this shows "rvm is a function", you're good to go.
+  As an example, to install and use Ruby 1.9.2 you may do:
 %pre.code
   :preserve
-    $ rvm install 1.9.1 ; rvm 1.9.1
+    $ rvm install 1.9.2
+
+%p
+  Once you have installed a Ruby interpreter with RVM successfully you may then
+  use it.
+%pre.code
+  :preserve
+    $ rvm use 1.9.2
 
     $ ruby -v
 
-    ruby 1.9.1p243 (2009-07-16 revision 24175) [x86_64-linux]
+    ruby 1.9.2p0 (2010-08-18 revision 29036) [x86_64-darwin10.4.0]
 
     $ which ruby
 
-    /home/wayne/.rvm/ruby-1.9.1-p243/bin/ruby
+    /Users/wayne/.rvm/rubies/ruby-1.9.2-p0/bin/ruby
 
 %p
   Using any rubies not managed by rvm is easy as well - rvm refers to these as "system". That is to say, you can do:
@@ -56,7 +102,7 @@
 
     $ ruby -v
 
-    ruby 1.8.7 (2008-08-11 patchlevel 72) [universal-darwin10.0]
+    ruby 1.8.7 (2009-06-12 patchlevel 174) [universal-darwin10.0]
 
     $ which ruby
 
@@ -74,4 +120,16 @@
   Remember that switching rubies is on a per-shell basis. If you want to set which ruby is available
   when you open a new shell, you'll need to
   %a{:href => "/rubies/default/"} set a default ruby interpreter.
+
+%p
+  After you have the hang of dealing with Ruby Interpreters, next start to learn about
+  %a{:href => "/gemsets/basics/"} gemset.
+
+%p
+  If you would like to know what RVM Ruby is selected at any time (if any) you can
+  add this information to your
+  %a{:href => "/workflow/prompt/"} shell prompt.
+%p
+  If you use tab completion in your shell also see the documentation on using
+  %a{:href => "/workflow/completion/"} shell completion.
 
