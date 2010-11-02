@@ -3,22 +3,22 @@
 %h1= @item[:title]
 
 %p
-  Thanks to rvmrc support in rvm, it's fairly simple to make a project-specific workflow.
+  Thanks to rvmrc support in rvm, you can make a project-specific workflow.
   The following examples tie into how we typically work with rvm along with the advantages
   of such approahces.
 
-%h2 A simple example
+%h2 An example
 
 %p
   The most basic workflow is typically project-specific rvmrc's. For each project you
-  work on, you create a new gemset (on the ruby interpreter of choice) and simply let
+  work on, you create a new gemset (on the ruby interpreter of choice) and let
   your rvmrc take care of switching. As an example:
 
 = sh_cmd "rvm use ree@tedxperth"
 
 %p
-  Would use the tedxperth gemset on ruby enterprise edition. To make this easier, we simply
-  choose to run:
+  Would use the tedxperth gemset on ruby enterprise edition. To make this
+  easier, we can run:
 
 = sh_cmd "echo 'rvm ree@tedxperth --create' > .rvmrc"
 
@@ -38,7 +38,7 @@
   %a{:href => "/deployment/best-practices/"} deploy via rvm
   ensuring a consistent choice across all stage.
 
-%h2 A more complex example 
+%h2 A more complex example
 
 %p
   To look at the other extreme, it is possible to use a combined set of features to automate
@@ -66,7 +66,7 @@
 
 %p
   Overall, this approach not only ensures you have a consistent environment everywhere you
-  develop and deploy the project, but it also makes things such as continious integration simpler.
+  develop and deploy the project, but it also helps with tasks such as continious integration.
   For further reference, see:
 
 %ul

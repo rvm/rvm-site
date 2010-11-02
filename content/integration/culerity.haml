@@ -3,8 +3,9 @@
 %h2= @item[:title]
 
 %p
-  If you wish to use an rvm-based ruby and jruby with Culerity, please follow the steps below. Please note that the first set of instructions
-  but currently rely on you using recent versions which make this task a lot simpler.
+  If you wish to use an rvm-based ruby and jruby with Culerity,
+  please follow the steps below. Note that the first set of instructions
+  currently rely on you using recent versions.
 
 %h2 Setting up jruby
 
@@ -49,8 +50,9 @@
 %h2 Configuring Culerity to use your jruby Celerity
 
 %p
-  Once you've generated the wrapper, your next task is to tell Culerity which jruby to use.
-  If you're on a recent version, you should be able to simply add the following to your features/support/env.rb file:
+  Once you've generated the wrapper, your next task is to tell Culerity which
+  jruby to use.  If you are on a recent version, you add the following code
+  snippet to the project's features/support/env.rb file:
 
 %pre.code
   :preserve
@@ -58,7 +60,8 @@
 
 %p
   Replacing ~/.rvm/bin with whatever "echo $rvm_bin_path" shows on your terminal
-  if it fails (Thanks to Matt Patterson for simplifying this on Culerity's side).
+  if it fails
+  (Thanks to Matt Patterson for making this more clear on the Culerity's side).
 
 %p
   On older versions of Culerity, you need to manually specify hooks to toggle the env.
@@ -97,7 +100,7 @@
   %li
     This
     %a{:href => "http://groups.google.com/group/culerity-dev/browse_thread/thread/45b37079b6b6e143"} handy google groups post
-    by Matt Patterson announcing his patches with simplified support.
+    by Matt Patterson announcing his patches with improved support.
   %li
     These
     %a{:href => "http://gist.github.com/353514"} awesome hooks

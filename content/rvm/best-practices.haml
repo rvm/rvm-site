@@ -3,9 +3,10 @@
 %h1= @item[:title]
 
 %p
-  Want to use RVM the way Wayne E. Seguin intended? The following is a collection of tips / best
-  practices that have proven to be effective in simplifying development whilst using rvm.
-  
+  Want to use RVM the way Wayne E. Seguin intended? The following is a
+  collection of tips / best practices that have proven to be effective in making
+  development easier while using rvm.
+
 %h2 The List
 
 %h3 No. 1 - Use project rvmrc files.
@@ -22,13 +23,14 @@
 %p
   By checking the aforementioned rvmrc into source control along side your app,
   you're ensuring all users have a consistent environment when they're using rvm.
-  
+
 %p
   By also automating gemset installs and the like (e.g. check out the rvmrc in the
   %a{:href => "http://github.com/wayneeseguin/rvm-site"} rvm-site
   repository or the
   %a{:href => "http://github.com/YouthTree/TEDxPerth"} TEDxPerth
-  repostory's rvmrc) you also make getting started as simple as changing directory.
+  repostory's rvmrc) you also make bootstrapping a project happen via cd'ing
+  into the project directory.
 
 %p
   On top of this, you can also automatically make your deployments setup your
@@ -38,10 +40,10 @@
 %h3 No. 3 - Use per-project gemsets.
 
 %p
-  Per-project gemsets means each application has its own distinct gem environment, helping
-  you to avoid issues that come about from conflicting versions. In most cases,
-  this is as simple as using something like "ree@your-app" instead of "ree" when selecting
-  a ruby (e.g. in your rvmrc).
+  Per-project gemsets means each application has its own distinct gem environment,
+  helping you to avoid issues that come about from conflicting versions.
+  In most cases, this involves using something like "ree@your-app" instead of
+  "ree" when selecting a ruby (e.g. in your rvmrc).
 
 %p
   Even better, tying it into one and two mean that you and any other users automatically
@@ -56,9 +58,10 @@
   application-specific environment but also makes it easier to track down version-specific
   bugs that occur in production later on in development, primarily since it ensures a reasonably
   consistent environment between the two.
-  
+
 %p
-  Even better, when it comes time to upgrade your ruby, rvm will make it as simple as possible.
+  Even better, when it comes time to upgrade your ruby, RVM can help you with
+  this via the 'rvm upgrade' command.
 
 %h3 No. 5 - Integrate rvm into your tools of choice.
 

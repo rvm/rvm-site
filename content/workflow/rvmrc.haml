@@ -28,7 +28,7 @@
 
 %h2 System / User rvmrc examples
 %p
-  Have RVM install rubies when used instead of simply displaying a warning and exiting.
+  Have RVM install rubies when used instead of only displaying a warning and exiting.
 %pre.code
   :preserve
     rvm_install_on_use_flag=1
@@ -128,7 +128,9 @@
   We see that we are now running ree with a 'projectb' gemset and we see that the prompt is now prefixed with '[ruby-1.9.1-p243]'.
 
 %p
-  Note that the project .rvmrc file is simply a shell script and may contain any shell commands necessary for you to initialize your project's environment.
+  Note that the project .rvmrc file is actually a shell script and may contain
+  any valid shell commands in order for you to initialize your project's
+  environment.
 
 %p
   To turn off the project specific rvmrc functionality in your $HOME/.rvmrc set

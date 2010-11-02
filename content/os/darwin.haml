@@ -10,10 +10,10 @@
   %hr
 
 %h1
-  Darwin 
+  Darwin
 
 %p
-  If you are running on a 
+  If you are running on a
   %a{:href => "http://www.gnu-darwin.org/"}
     Darwin Based System (e.g. OSX)
   you can run:
@@ -27,8 +27,9 @@
 %h2 Snow Leopard: Forcing specific architecture builds
 
 %p
-  If you want to specifically build an i386 version of ruby, you need to use environment variables
-  and a patch. Snow Leopard defaults to building x86_64 when the system determines it). 
+  If you want to specifically build an i386 version of ruby, you need to use
+  environment variables and a patch. Snow Leopard defaults to building x86_64
+  when the system determines it.
 
 %pre.code
   :preserve
@@ -40,7 +41,8 @@
   which explains the available variables.
 
 %p
-  If you with to build a fat binary (with support for i386 and x86_64), simply pass the --with-arch flag as follows:
+  If you with to build a fat binary (with support for i386 and x86_64),
+  pass the --with-arch flag as follows:
 
 %pre.code
   :preserve

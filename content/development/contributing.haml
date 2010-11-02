@@ -26,12 +26,13 @@
 
 %ol
   %li
-    When contributing, either keep patches simple or work on a topic branch - this
-    makes it easier for us to merge in discrete changes and means you always keep
-    things seperate where needed.
+    When contributing, either keep patches small and clear or work on a topic
+    branch - this makes it easier for us to merge in discrete changes and means
+    you always keep things seperate where needed.
   %li
-    The code has to be compatible with bash and takes and almost git-like design architecturally.
-    Many actions (e.g. aliases) simply call out to a script in the ~/.rvm/scripts
+    The code has to be compatible with bash and takes and almost git-like design
+    architecturally.
+    Many actions (e.g. aliases) call out to a script in the ~/.rvm/scripts
     directory. For an example of the new, simplified style of coding these make
     sure you check out:
     %ul
@@ -52,12 +53,12 @@
 
 %ol
   %li
-    When you need to test out something on a fresh install, it's simple
-    enough to just move the .rvm folder out of the way, install a new copy
+    When you need to test out something on a fresh install, it's move the
+    \.rvm folder out of the way to rename it, install a new copy
     and to then move your old copy back when you're finished.
   %li
     Generally, working in a clone of the repository is by far the best way
-    to go and from there it is simple to update your main install / ~/.rvm.
+    to go and from there you can update your main install / ~/.rvm.
     All you need to do is change to the root directory for it (e.g. ~/Code/rvm),
     and run:
     = sh_cmd "./install"

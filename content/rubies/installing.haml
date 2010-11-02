@@ -117,19 +117,22 @@
 
 %h2 Getting Head
 %p
-  Getting the head/trunk version of rubies is very simple.
-  For any interpreter which has head support simply prefix -head after the interpreter.
-  To get the latest development trunk for ruby:
+  Getting the head/trunk version of rubies can be done as follows.
+%p
+  For any interpreter which has '-head' support, postfix '-head' after the
+  interpreter name. For example, in order to install the latest development
+  trunk for ruby 1.9.2:
 %pre.code
   :preserve
-    $ rvm install ruby-head
-    $ rvm use ruby-head
+    $ rvm install ruby-1.9.2-head
+    $ rvm use ruby-1.9.2-head
 %p
-  Note that as of this writing 1.9.2 has no repository branch and thus "1.9.1-head" IS "1.9.2-head".
+  Note that as of this writing 1.9.3 has no repository branch and thus "1.9.3-head" IS "ruby-head".
 
 %h1 Install on Use
 %p
-  If you would like RVM to automatically install a ruby when you use it simply add the flag to your rvmrc file:
+  If you would like RVM to automatically install a ruby when you use it,
+  add the following flag to your rvmrc file:
 %pre.code
   :preserve
     $ cat $HOME/.rvmrc
@@ -144,7 +147,8 @@
 
 %h1 Compile Flags
 %p
-  If you need to pass compile flags for the compile process you can simply set the corresponding environment variables.
+  If you need to pass compile flags for the compile process you can set the
+  corresponding environment variables.
 %p
   As an example, to enable gdb for ruby 1.9.1:
 %pre.code

@@ -28,7 +28,7 @@
 %p
   For a more detailed guide, see below:
 
-%h2 Step 1. Getting and Installing Hudson 
+%h2 Step 1. Getting and Installing Hudson
 
 %p
   The first step is to install hudson on your system of choice. Currently,
@@ -130,8 +130,8 @@
 %h2 Step 3. Configuring Hudson / Adding projects
 
 %p
-  For the actual hard work, we'll simply be using the ability to run
-  a shell script with hudson. 
+  For the actual hard work, we will be using the ability to run a shell script
+  with hudson.
 %p
   Our suggested setup is to use scripts like follows with the hudson
   option to "Execute Shell Script":
@@ -150,7 +150,7 @@
 %p
   The -x option causes bash to exit if any commands exit with
   an error. This is key to making the script work as expected.
-  
+
 %p
   Note that in some setups the environment may not be loaded correctly.
   In these situations, you should add the following below the shebang:
@@ -160,7 +160,7 @@
     source "$HOME/.rvm/scripts/rvm"
 
 %p
-  If you wish to use matrix builds, this approach means you can simply define
+  If you wish to use matrix builds, this approach means you can define
   an environment variable e.g. build_ruby and set the matrix fields to be
   each ruby you wish to use, replacing the rvm use line with:
 

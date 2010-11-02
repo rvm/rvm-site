@@ -13,25 +13,28 @@
 %h1
   Setting the default Ruby
 %p
-  If you would like to make one specific Ruby be the default ruby that is selected when you open a new terminal shell simply use the --default flag:
+  If you would like to make one specific Ruby be the default ruby that is
+  selected when you open a new terminal shell, use the --default flag:
 %pre.code
   :preserve
-    $ rvm --default ruby-head
+    $ rvm --default use 1.9.2
 
     $ ruby -v
 
-    ruby 1.9.2dev (2010-02-25 trunk 26759) [x86_64-darwin10.2.0]
+    ruby 1.9.2p0 (2010-08-18 revision 29036) [x86_64-darwin10.4.0]
+
 %p
-  The next time you open a window Ruby 1.9.2dev will be the selected ruby.
+  The next time you open a window Ruby 1.9.2 will be the selected ruby.
 %p
   To switch back to your system ruby:
 %pre.code
   :preserve
-    $ rvm system
+    $ rvm use system
 
     $ ruby -v
 
-    ruby 1.8.7 (2008-08-11 patchlevel 72) [universal-darwin10.0]
+    ruby 1.8.7 (2009-06-12 patchlevel 174) [universal-darwin10.0]
+
 %p
   To switch at any time to the ruby you have selected as default:
 %pre.code
@@ -40,7 +43,7 @@
 
     $ ruby -v
 
-    ruby 1.9.2dev (2010-02-25 trunk 26759) [x86_64-darwin10.2.0]
+    ruby 1.9.2p0 (2010-08-18 revision 29036) [x86_64-darwin10.4.0]
 
 %p
   To show what ruby is currently the selected default, if any, do
@@ -50,4 +53,4 @@
 
       Default Ruby (for new shells)
 
-         ruby-head [ x86_64 ]
+         ruby-1.9.2-p0 [ x86_64 ]

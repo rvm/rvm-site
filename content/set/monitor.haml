@@ -134,8 +134,10 @@
 
 %h2 Notes
 %p
-  RVM monitor currently runs individual files that have changed only and does not re-run on fail repetitively. It simply runs and reports the results of your changes and stops there.
-  Currently if you wish to run all specs you would not use monitor, for that you would use the rake do action.
+  RVM monitor currently runs individual files that have changed only and does
+  not re-run on fail repetitively. RVM runs and reports the results of your
+  changes and stops there.  Currently if you wish to run all specs you would
+  not use monitor, for that you would use the rake do action.
 %pre.code
   :preserve
     $ rvm 1.8.6,1.8.7,1.9.1 rake spec

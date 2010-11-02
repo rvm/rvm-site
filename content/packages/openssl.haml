@@ -33,14 +33,17 @@
   Where you replace '/usr/local' with the prefix where your openssl packages are.
 
 %p
-  If you simply cannot seem to get this to work you can have RVM install a copy of openssl into ~/.rvm/usr like so:
+  If you can not get this to work you can have RVM install a copy of openssl
+  into ~/.rvm/usr like so:
   %br
   %pre.code
     :preserve
       $ rvm package install openssl
       $ rvm remove 1.9.2
-      $ rvm install 1.9.2 --with-openssl-dir=$rvm_path/usr
+      $ rvm install 1.9.2 --with-openssl-dir=$HOME/.rvm/usr
 
+%p
+  Adjust the location if you have a root install to '/usr/local/rvm/usr'
 %p
   If you see readline errors in the make.error.log
   %a{ :href => "/packages/readline/" }

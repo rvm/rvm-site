@@ -75,10 +75,12 @@
 
     %li Save the file as 'ruby_test.rb'
     %li Press Command + R to run the ruby
-  If you see something like this "ruby 1.9.1p378 (2010-01-10 revision 26273) [i386-darwin10.2.0]" most importantly the 'ruby 1.9.1' part then it is working as expected.
+  If you see something like this "ruby 1.9.1p378 (2010-01-10 revision 26273) [i386-darwin10.2.0]"
+  most importantly the 'ruby 1.9.1' part then it is working as expected.
 
 %p
-  When you wish to switch out the ruby version that textmate uses by default, you can simple change your default RVM ruby version
+  When you wish to switch out the ruby version that textmate uses by default,
+  you can change your default RVM ruby version as follows
   %pre.code
     :preserve
       $ rvm use rbx@rails3 --default
@@ -114,8 +116,8 @@
 
 %p
   Which forces Ruby to read the file with the correct text encoding, allowing multibyte characters.
-  The alternative solution is to for ruby 1.9 to always be run in UTF-8 mode when called via textmate_ruby.
-  To do this, simply edit the textmate_ruby file and replace the line containing:
+  The alternative solution is to for ruby 1.9.X to always be run in UTF-8 mode when called via textmate_ruby.
+  To do this, edit the textmate_ruby file and replace the line containing:
 
 %pre.code
   :preserve

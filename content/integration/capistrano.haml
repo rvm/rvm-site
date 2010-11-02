@@ -16,8 +16,9 @@
 %h2 Integration via the rvm capistrano plugin
 
 %p
-  If your rvm installs on both sides are recent enough (&gt;= 0.1.42), rvm has a new plugin available that
-  takes advantage of a simpler approach. In the new option, you can do (adjusting as needed):
+  If your rvm installs on both sides are recent enough (&gt;= 1.0.1),
+  rvm has a new plugin available that takes advantage of a different approach.
+  In the new option, you can do the following (adjust to your personal setup):
 
 %pre.code
   :preserve
@@ -26,18 +27,18 @@
     set :rvm_ruby_string, 'ree@rails3'        # Or whatever env you want it to run in.
 
 %p
-  This option is preferred as it simplifies configuration and doesn't have hardcoded paths. Please
-  note that rvm
+  This option is preferred as it reduces configuration and does not contain
+  hardcoded paths. Please note that RVM
   %strong will not
-  be automatically loaded as a shell function but it will be available as a binary in PATH
-  (for differences between the two versions, please see
+  be automatically loaded as a shell function but it will be available as a
+  binary in PATH (for differences between the two versions, please see
   %a{:href => "/integration/scripting/"} our scripting page
   for further clarification).
 
 %p
   Please note that this defaults to using a system wide / root install,
-  if you wish to instead set it to use an rvm install in the deploying users home directory,
-  simply add the following to your Capfile / deploy.rb:
+  if you wish to instead set it to use an rvm install in the deploying users
+  home directory, add the following to your Capfile / deploy.rb:
 
 %pre.code
   :preserve
