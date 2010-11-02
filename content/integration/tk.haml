@@ -1,0 +1,19 @@
+= breadcrumbs "Integration", "Tk"
+
+%h2
+  Tk
+
+%p
+  To get RVM working with Tk you will need ActiveState's Tcl/Tk distribution.  You will then need to reinstall your RVM Ruby to take advantage of Tk.
+
+For instance, to do this with Ruby Enterprise Edition you would do something like this:
+
+%pre.code
+  :preserve
+    rvm install ree-1.8.7-2010.02 -C --enable-pthread
+
+Now, if you fire up IRB you'll be able to:
+
+%pre.code
+  :preserve
+    require 'tk'
