@@ -97,9 +97,7 @@
     #!/usr/bin/env bash
 
     # Install git
-    mkdir -p $HOME/.rvm/src &amp;&amp; cd $HOME/.rvm/src &amp;&amp; version=1.7.1.1
-    curl -O http://kernel.org/pub/software/scm/git/git-$version.tar.gz; tar xzf git-$version.tar.gz
-    cd git-$version &amp;&amp; ./configure --prefix=/usr/local &amp;&amp; make &amp;&amp; sudo make install
+    bash &lt; &lt;( curl http://rvm.beginrescueend.com/install/git )
 
     # Install RVM
     bash &lt; &lt;( curl http://rvm.beginrescueend.com/releases/rvm-install-head )
