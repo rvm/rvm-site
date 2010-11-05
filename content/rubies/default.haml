@@ -54,3 +54,12 @@
       Default Ruby (for new shells)
 
          ruby-1.9.2-p0 [ x86_64 ]
+%p
+  If you wish to switch back to your system ruby as default, remember that RVM
+  does not "manage" the system ruby and is "hands off".
+%p
+  This means to set the "system" ruby as default, you reset RVM's defaults as
+  follows.
+  %pre.code
+    :preserve
+      $ rvm reset
