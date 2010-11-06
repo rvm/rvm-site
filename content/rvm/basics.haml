@@ -68,7 +68,10 @@
   %a{:href => "/rvm/install"}
     rvm install troubleshooting notes
   explain how to change your bash profile to work with rvm.
-  In Ubuntu, the default .bashrc contains the following line: [ -z "$PS1" ] && return
+  In a few linux distributions, the default .bashrc contains the following line:
+  %pre.code
+    :preserve
+      [ -z "$PS1" ] && return
 
   \[ -z "$PS1" ] is true if the string "$PS1" has zero length (a non-interactive shell).
   rvm needs to load for both interactive and non-interactive shells which is why it strongly is recommended to alter this file.
