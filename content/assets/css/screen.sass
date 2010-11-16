@@ -116,10 +116,10 @@ h6
 
 
 // content width
-!width = 80%
+$width: 80%
 
 // height of support box on the very top
-!height = 190px
+$height: 190px
 
 =backgroundtex
   background: #fafaf2 url('/images/bgtex.jpg') repeat
@@ -143,10 +143,10 @@ h6
   border-top-right-radius: 10px
 
 
-=centered(!width)
+=centered($width)
   margin-left: auto
   margin-right: auto
-  width = !width
+  width: $width
 
 =shadow
   -webkit-box-shadow: 0px 2px 5px rgba(0,0,0,0.2)
@@ -168,13 +168,13 @@ h6
       padding-right: 10px
       padding-left: 10px
       width: 220px
-      height = !height
+      height: $height
       margin: 10px 0 0 0
       float: left
       border-right: 1px solid #c9c9c9
       text-align: justify
     .supportbox_right
-      height = !height
+      height: $height
       width: 140px
       margin: 10px 0 0 10px
       margin-right: 40px
@@ -192,7 +192,7 @@ h6
   +shadow
   +backgroundtex
   padding: 1em
-  width = !width
+  width: $width
   clear: both
   font-size: 0.9em
   div
@@ -224,7 +224,7 @@ h6
   +topcorners
   margin-top: 1em
   padding: 0.9em
-  width = !width
+  width: $width
   color: #555
   height: 800px
   .headline
