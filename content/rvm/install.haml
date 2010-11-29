@@ -26,10 +26,10 @@
   Please ensure you've read the troubleshooting notes at the bottom of this page.
   Namely, you need to
   %em ensure
-  returns in your shell profiles are converted to ifs.
+  returns in your ~/.bashrc is converted to an if statement.
 
 %p
-  There are at least 2 recommended ways to install RVM.
+  There are at least 2 ways to install RVM.
 
 %h3 1. GitHub Repository (recommended)
 
@@ -62,10 +62,12 @@
 %h2 Post Install
 
 %p
-  The first time you install RVM, you must put the following line into your profile at the very end, after all path loads etc:
+  The first time you install RVM, you must put the following line into your ~/.bash_profile at the very end, after all path loads etc:
 %pre.code
   :preserve
     [[ -s "$HOME/.rvm/scripts/rvm" ]] && . "$HOME/.rvm/scripts/rvm"  # This loads RVM into a shell session.
+%p
+  NOTE: If you are using zsh you likely instead should put the sourcing line into ~/.zshrc
 %p
   Doing so ensures rvm is loaded as a function (versus as a binary), ensuring commands such as rvm use work as expected. Please note that
   you can confirm this worked correctly by opening a new shell and running:
@@ -87,6 +89,12 @@
   Be sure to install any dependencies for your operating system by running:
 
 = sh_cmd "rvm notes"
+
+%p
+  For more information / explanation on the above procedure you can read the
+  %a{:href => "http://rvm.beginrescueend.com/rvm/basics/"}
+    rvm basics
+  page
 
 %p
   The following script will boostrap git + RVM assuming that you have curl &amp; sudo installed.

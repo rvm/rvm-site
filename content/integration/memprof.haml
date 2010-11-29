@@ -1,5 +1,5 @@
 = breadcrumbs "Integration", "MemProf"
-  
+
 %h1
   MemProf
 %p
@@ -13,24 +13,24 @@
 
 %pre.code
   :preserve
-    require `gem which memprof/signal`
+    require `gem which memprof/signal`.strip
 %p
   Be sure the require happens *before* anything else in your applications code.
-  
+
 %p
   Now Profile your application from the command line.
 
   $ memprof --pid [pid] --name [name] --key [api_key]
 %p
-  Where 
+  Where
   %ul
     %li [api_key] is your memprof.com api key.
     %li [pid]  Is the running pid of your application.
     %li [name] Is the name you wish to assign to the memprof dump.
-%br  
-%br  
-%br  
-%br  
+%br
+%br
+%br
+%br
 
 %h1
   Sadism at it's finest...
@@ -45,7 +45,7 @@
   Next install the ruby with debug symbols support.
 %pre.code
   :preserve
-    $ rvm install 1.8.7 -C -ggdb3,-O0
+    $ export optflags="-O0 -ggdb3"; rvm install 1.8.7
 
 %p
   By installing your rubies this way you can extract the maximum amount of *useful* information.

@@ -8,12 +8,12 @@
   set the following variables in your .bashrc / .bash_profile / shell:
 %pre.code
   :preserve
-
     export CC="/usr/bin/gcc-4.2"
 
 %p
   In order to use MacPorts libraries when installing RVM Rubies,
   set the following variables in your .bashrc / .bash_profile / shell:
+
 %pre.code
   :preserve
     export CFLAGS="-O2 -arch x86_64"
@@ -21,12 +21,34 @@
     export CPPFLAGS="-I/opt/local/include"
 
 %p
-  So for example say we want to complile 1.9.2 using MacPorts libraries and
+  First install MacPorts and a base MacPort ruby like 1.8.7,
+  this gets most of the dependencies in place like openssl, readline, etc.
+
+%p
+  So now say we want to complile some rubies using MacPorts libraries and
   gcc, assuming we have the above variables set in our current shell:
 
 %pre.code
   :preserve
-    rvm install 1.9.2 --with-opt-dir=/opt/local
+    $ rvm package install openssl # Requires an older version of openssl.
+    $ rvm install 1.8.6 --with-openssl-dir=$HOME/.rvm/usr
+
+%pre.code
+  :preserve
+    $ rvm install 1.8.7
+
+%pre.code
+  :preserve
+    $ rvm install ree # Ruby Enterprise Edition
+
+%pre.code
+  :preserve
+    $ rvm install 1.9.1 --with-openssl-dir=$HOME/.rvm/usr
+
+%pre.code
+  :preserve
+    $ rvm install 1.9.2 --with-opt-dir=/opt/local
+
 
 %p
   Thanks to metaskills for doing the leg work on this :)

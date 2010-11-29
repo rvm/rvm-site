@@ -38,6 +38,9 @@
     [[ -s "$HOME/.rvm/scripts/rvm" ]] && . "$HOME/.rvm/scripts/rvm" # This loads RVM into a shell session.
 
 %p
+  NOTE: This is for a *user* install. If you installed as root then you substitute '$HOME/.rvm' with
+  '/usr/local/rvm'.
+%p
   For those who are not very familiar with bash scripting, I will explain in the next few paragraphs what the line above does.
 %p
   \[[ condition ]] evaluates the condition inside the double brackets and returns true or false. The option -s file tells bash to look for file and decide whether it exists and is nonempty. So the line [[ -s "$HOME/.rvm/scripts/rvm" ]] looks inside the default rvm scripts folder ~/.rvm/scripts/ for rvm, and returns true or false.
@@ -60,7 +63,11 @@
   Note that the '#' is the shell comment character so everything after it is
   a comment and ignored by the shell when the line is executed.
 %p
-  Once the sourcing line is placed in your startup files (.bashrc / .bash_profile or if you are using ZSH in ~/.zshrc), you may now open a new shell and start playing with rvm.
+  Once the sourcing line is placed in your startup files. Use ~/.profile if it exists, otherwise use .bashrc and .bash_profile.
+  If these files do not exist you may create them.
+  If you are using the ZSH shell then you can place the sourcing line in your  in ~/.zshrc.
+%p
+  You should now open a new shell and start playing with rvm.
 
 %p
   A note about the .bashrc warning.

@@ -40,7 +40,7 @@
   Then install the mysql gem:
 %pre.code
   :preserve
-    ARCHFLAGS="-arch x86_64"gem install mysql -- --with-mysql-config=/usr/local/mysql/bin/mysql_config
+    ARCHFLAGS="-arch x86_64" gem install mysql -- --with-mysql-config=/usr/local/mysql/bin/mysql_config
 %p
   where in this example '/usr/local/mysql/bin/' is the path to my 'mysql_config' file installed with the .pkg mysql installer from dev.mysql.com.
 

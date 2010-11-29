@@ -20,7 +20,7 @@
 %ul
   %li
     %strong
-      Make sure that you are on the latest gem version (rvm update --head).
+      Make sure that you are on the latest gem version (rvm get head).
   %li
     Make sure that the sourcing of the RVM file occurs *last* in your profile files (.bash_profile / .bashrc / .zshrc) essentially after any customizations of PATH / functions or aliases.
     Also, ensure your shell file does not contain "&amp;&amp; return".
@@ -153,7 +153,8 @@
 %p
   rvm hooks into cd in order to do per-directory checks for '.rvmrc' files. Tab
   completion of directories should still work, but some people have reported
-  problems. If tab completion was working %em before
+  problems. If tab completion was working
+  %em before
   you installed rvm and now it's not, you can enable cd completion from within
   rvm itself.
 %p
@@ -167,10 +168,12 @@
   Freenode or on Github. To be honest, the tab completion for cd in
   bash_completion is far more robust than the code in rvm's cd function, and
   %em should
-  still work with rvm. (In fact, it %em does
+  still work with rvm. (In fact, it
+  %em does
   still work on OSX 10.6 with Bash 3.2 and Bash 4, on OpenBSD 4.7 with Bash
   4 and on Debian 5.0.6 with Bash 3.2. All of those were tested with the
-  %a{:href => "http://bash-completion.alioth.debian.org/"} most up-to-date bash-completion
-  . If you don't have that, you may want to try it.)
+  %a{:href => "http://bash-completion.alioth.debian.org/"}
+    most up-to-date bash-completion
+  \. If you don't have that, you may want to try it.)
   Nevertheless, some people have reported problems, and the cd completion
   inside rvm has helped them.
