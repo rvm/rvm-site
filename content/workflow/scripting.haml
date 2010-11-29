@@ -47,12 +47,12 @@
     if [[ -s "$HOME/.rvm/scripts/rvm" ]] ; then
 
       \# First try to load from a user install
-      soure "$HOME/.rvm/scripts/rvm"
+      source "$HOME/.rvm/scripts/rvm"
 
     elif [[ -s "/usr/local/rvm/scripts/rvm" ]] ; then
 
       \# Then try to load from a root install
-      soure "/usr/local/rvm/scripts/rvm"
+      source "/usr/local/rvm/scripts/rvm"
 
     else
 
