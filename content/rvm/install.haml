@@ -72,7 +72,7 @@
   Doing so ensures rvm is loaded as a function (versus as a binary), ensuring commands such as rvm use work as expected. Please note that
   you can confirm this worked correctly by opening a new shell and running:
 
-= sh_cmd "type rvm | head -n1"
+= sh_cmd "type rvm | head -1"
 
 %p If this was performed correctly, you should see:
 
@@ -118,7 +118,7 @@
 %ul
   %li
     %p If you open a new shell and running:
-    = sh_cmd "type rvm | head -n1"
+    = sh_cmd "type rvm | head -1"
     %p does not show "rvm is a function", rvm isn't being sourced correctly.
   %li
     %p
@@ -159,11 +159,11 @@
 
   %li
     %p
-      If you are using GNOME on Red Hat, CentOS or Fedora ensure that the 
-      %em Run command as login shell 
+      If you are using GNOME on Red Hat, CentOS or Fedora ensure that the
+      %em Run command as login shell
       option is checked under the
       %em Title and Command
       tab in
-      %em Profile Preferences. 
-      After changing this setting, you may need to exit your console session and start 
+      %em Profile Preferences.
+      After changing this setting, you may need to exit your console session and start
       a new one before the changes take affect.
