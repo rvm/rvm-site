@@ -24,3 +24,21 @@
   The next most often is when the readline development headers are not available at all. The above
   commands solve this by having rvm compile a local version inside ~/.rvm/usr and then telling the ruby
   install to use it.
+%p
+  If you have already installed your Ruby then you can manually recompile readline
+  as follows. Be sure to first install the readline development headers and/or
+  package as above. For example with 1.9.2-p0 and system readline development
+  headers installed do the following.
+%pre.code
+  :preserve
+    $ cd $HOME/.rvm/src/ruby-1.9.2-p0/ext/readline
+    $ ruby extconf.rb
+    $ make install
+
+%p
+  If you used 'rvm package install readline' then alter the above to:
+%pre.code
+  :preserve
+    $ cd $HOME/.rvm/src/ruby-1.9.2-p0/ext/readline
+    $ ruby extconf.rb -- --with-readline-dir="$HOME/.rvm/usr"
+    $ make install
