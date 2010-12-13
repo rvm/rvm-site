@@ -165,3 +165,13 @@
   :preserve
     $ export optflags="-O0 -ggdb" rvm install 1.9.1
 
+%h1
+  Static MRI
+%p
+  If you wish to compile an MRI Ruby (1.8 / 1.9) as statically linked instead
+  of dynamically then pass the --static flag like so:
+
+%pre.code
+  :preserve
+    $ rvm --static install 1.9.2
+
