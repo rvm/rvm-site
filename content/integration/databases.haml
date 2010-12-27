@@ -2,6 +2,12 @@
 
 %h2
   PostgreSQL
+%p
+  Ensure that pg_config is in your path and the pg gem *should* install with no
+  issues.
+%p
+  Alternatively you can specify the location to the pg_config via the CLI:
+= sh_cmd "gem install pg -- --with-pg-config=/usr/local/postgresql/bin/pg_config"
 
 %h2
   MySQL
@@ -12,7 +18,7 @@
   Ensure that mysql_config is in your path and the mysql gem *should* install
   with no issues.
 %p
-  Alternatively you can specifyh the location to the mysql_config via the CLI:
+  Alternatively you can specify the location to the mysql_config via the CLI:
 = sh_cmd "gem install mysql -- --with-mysql-config=/usr/local/mysql/bin/mysql_config"
 
 %h3
