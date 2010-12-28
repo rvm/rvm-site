@@ -150,6 +150,60 @@
   For example do not put 'rvm ree' or any other such commands in these two rvmrc files.
   They are for setting environment variables only to modify RVM's behavior and settings.
 
+%h2
+  More Examples
+%p
+  If you use Bundler you can add in an automatic bundler install like so:
+
+%pre.code
+  :preserve
+    if ! command -v bundle ; then
+      gem install bundler
+    fi
+
+%p
+  If you would like to auto bundle when you cd to a project directory you may
+  do the following (note that I am filtering success output to reduce noise).
+%pre.code
+  :preserve
+      bundle | grep -v 'Using' | grep -v 'complete'
+
+%p
+  A complete example with the above techniques would look like the following.
+  In addition I have abstracted the ruby string and gemset name out for easy
+  updates to the .rvmrc file when you decide to change either.
+%p
+  I also show here how you check if the desired interpreter is installed and
+  if not print an error message to the user stating this fact.
+
+%pre.code
+  :preserve
+    #!/usr/bin/env bash
+
+    ruby_string="ruby-1.9.2-p136"
+    gemset_name="projectname"
+
+    if rvm list strings | grep -q "${ruby_string}" ; then
+
+      if [[ -d "${rvm_path:-$HOME/.rvm}/environments" \
+        && -s "${rvm_path:-$HOME/.rvm}/environments/${ruby_string}@${gemset_name}" ]] ; then
+        \. "${rvm_path:-$HOME/.rvm}/environments/${ruby_string}@${gemset_name}"
+      else
+        rvm --create  "${ruby_string}@${gemset_name}"
+      fi
+
+      if ! command -v bundle ; then
+        gem install bundler
+      fi
+
+      bundle | grep -v 'Using' | grep -v 'complete'
+
+    else
+
+      echo "${ruby_string} was not found, please run 'rvm install ${ruby_string}' "
+
+    fi
+
 
 %h1
   Community Resources
