@@ -3,5 +3,5 @@
 rvm --create 1.9.2-p0@rvm-site
 
 if [[ -s rvm-site.gems ]] ; then
-  rvm gemset import rvm-site.gems
+  rvm gemset import rvm-site.gems | grep -v already | grep -v listed | grep -v complete | sed -e '/^$/d'
 fi

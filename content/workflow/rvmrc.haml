@@ -158,7 +158,7 @@
 %pre.code
   :preserve
     if [[ -s "projectname.gems" ]] ; then
-      rvm gemset import projectname.gems | grep -v already | grep -v listed
+      rvm gemset import projectname.gems | grep -v already | grep -v listed | grep -v complete | sed '/^$/d'
     fi
 %p
   If you use Bundler you can add in an automatic bundler install like so:
@@ -174,7 +174,7 @@
   do the following (note that I am filtering success output to reduce noise).
 %pre.code
   :preserve
-      bundle | grep -v 'Using' | grep -v 'complete'
+      bundle | grep -v 'Using' | grep -v 'complete' | sed '/^$/d'
 
 %p
   A complete example with the above techniques would look like the following.
