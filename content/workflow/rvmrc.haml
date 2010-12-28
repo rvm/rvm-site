@@ -153,6 +153,14 @@
 %h2
   More Examples
 %p
+  If you use gemset export/import then you can have this be automatically run
+  when you cd into a project directory as follows.
+%pre.code
+  :preserve
+    if [[ -s "projectname.gems" ]] ; then
+      rvm gemset import projectname.gems | grep -v already | grep -v listed
+    fi
+%p
   If you use Bundler you can add in an automatic bundler install like so:
 
 %pre.code
