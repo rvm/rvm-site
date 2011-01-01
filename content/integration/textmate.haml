@@ -129,3 +129,15 @@
 %pre.code
   :preserve
     exec ruby -wKU "$@"
+
+%h2
+  Miscellaneous
+%p
+  You can create a shell function to open a project directory with files excluded.
+  Here is a simple example of this idea:
+
+%script{:src => "https://gist.github.com/762023.js?file=gistfile1.sh"}
+%p
+  The above function code (minus the first line) is placed in your dotfiles or
+  \~/.bash_profile if you do not maintain dotifiles.
+

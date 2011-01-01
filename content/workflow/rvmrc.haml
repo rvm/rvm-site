@@ -201,13 +201,15 @@
         rvm --create  "${ruby_string}@${gemset_name}"
       fi
 
-      # Ensure that Bundler is installed, install it if it is not.
-      if ! command -v bundle ; then
-        gem install bundler
-      fi
+      (
+        # Ensure that Bundler is installed, install it if it is not.
+        if ! command -v bundle ; then
+          gem install bundler
+        fi
 
-      # Bundle while redcing excess noise.
-      bundle | grep -v 'Using' | grep -v 'complete' | sed '/^$/d'
+        # Bundle while redcing excess noise.
+        bundle | grep -v 'Using' | grep -v 'complete' | sed '/^$/d'
+      )&
 
     else
 
