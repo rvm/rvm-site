@@ -29,7 +29,7 @@
     list      - show currently installed versions
     reload    - reload RVM source itself (useful after changing RVM source)
     implode   - removes all ruby installations it manages, everything in ~/.rvm
-    update    - upgrades RVM to the latest version.
+    get       - {latest,head} upgrades RVM to the latest or git head version.
     reset     - remove default and current settings, exit the shell.
     (If you experience odd behavior try this first)
     debug     - emit environment &amp; configuration information for *current* ruby
@@ -62,8 +62,6 @@
   And where [flags] are one of
 %pre.code
   :preserve
-    --self        - with update, updates RVM itself
-    --rubygems    - with update, updates rubygems for selected ruby
     --default     - when used with ruby selection, sets a default ruby for new shells.
     --debug       - Toggle debug mode on for very verbose output.
     --force       - Force install, removes old install & source before install.
