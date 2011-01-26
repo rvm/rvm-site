@@ -49,6 +49,36 @@
 %p
   Lastly, ensure you remove the lines from ~/.rvm/config/user after you've installed the version you want.
 
+%p
+  NOTE: on any OS, if installation of REE fails and the output file
+  reports missing readline-devel, zlib-devel, and openssl-devel
+  headers AND you are sure that you have read the
+  %a{ :href => "/packages/" } packages install instructions
+  or you are otherwise positive that you have the necessary packages
+  installed in a known location, then check your PATH environment
+  variable to make sure something like "/usr/lib" is NOT present.
+  See this
+  %a{ :href=> "http://code.google.com/p/rubyenterpriseedition/issues/detail?id=59&colspec=ID%20Type%20Status%20Priority%20Milestone%20Summary" } REE issue
+  for more information.  If you don't want to change your PATH variable
+  then this patch fixes the issue in REE 2010.02
+
+%pre.code
+  :preserve
+    $ diff ~/.rvm/src/&lt;ree-dir&gt;/platform_info.rb~ ~/.rvm/src/&lt;ree-dir&gt;/platform_info.rb
+    226c226
+    &lt; 			if File.executable?(path)
+    ---
+    &gt; 			if File.executable?(path) && File.file?(path)
+
+%p
+  Additional symptoms of the problem include not being able to override the include
+  directories with the "--with-&lt;pkg-name&gt;-dir" compiler flags.  Other solutions (theoretically)
+  would be to set the CC environment variable to /usr/bin/gcc (although this may result
+  in more dependency issues elsewhere as it's only a solution to a symptom).
+  Again, make sure you try to follow the instructions
+  %a{ :href => "/packages/" } here
+  first, as the problem described in this note is an edge case.
+
 %h1
   Community Resources
 %ul
