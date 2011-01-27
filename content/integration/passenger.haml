@@ -137,7 +137,7 @@
 %h2 Notes
 %ul
   %li
-     Add the passenger default user (PassengerDefaultUser/passenger_default_user) to the rvm group. On some systems this is 'www-data' and on others it might be 'http' or 'www'. One telling sign that you forgot to do this would be spending the better part of a day trying to figure out bizarre fork-bomb-like symptoms on passenger spawn (::grin::).
+    Add the passenger default user (PassengerDefaultUser/passenger_default_user) to the rvm group. On some systems this is 'www-data' and on others it might be 'http' or 'www'. One telling sign that you forgot to do this would be spending the better part of a day trying to figure out bizarre fork-bomb-like symptoms on passenger spawn (::grin::).
 
   %li
     Do no not forget to configure the production environment and/or to set the rails_env/RailsEnv variable to development into nginx.conf/httpd.conf for the virtual server config block.
