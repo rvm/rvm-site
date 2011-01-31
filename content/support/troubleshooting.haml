@@ -177,3 +177,17 @@
   \. If you don't have that, you may want to try it.)
   Nevertheless, some people have reported problems, and the cd completion
   inside rvm has helped them.
+
+%a{:href => "#", :name => "disable-install-doc"}
+%h2
+  Building an interpreter fails with an error related to RDOC
+%p
+  Occasionally a build will fail because the build process picks up an an
+  existing rdoc in your path. If this happens, you can add a configuration
+  option that will prevent the documentation being built during installation:
+%pre.code
+  rvm install <ruby-version> --disable-install-doc
+%p
+  Alternatively, you can try installing a newer version of rdoc to the current
+  environment. That way, the newer rdoc should be able to handle documentation
+  from the more recent version of Ruby that you're installing.
