@@ -80,6 +80,20 @@
 %p
   Then there's Passenger Standalone, i.e. 'passenger start'. Passenger Standalone uses Nginx internally, and it writes a passenger_ruby directive to the Nginx configuration file. This directive points to the RVM Ruby wrapper script that corresponds with the RVM Ruby and RVM gemset that was used to run the 'passenger start' command.
 
+%h2
+  Bundler Gotcha
+%p
+  When using Bundler in your project, Passenger will try to be smart and only add to your $LOAD_PATH the gems listed in your Gemfile. This can lead to "unable to load" errors for your unlisted gems (this should only happen during development). You can check your run-time load path by adding
+
+%pre.code
+  :preserve
+    f = File.open('/tmp/load_path', 'w')
+    f.write($:)
+    f.close
+
+%p
+  to your app's main file (before the "require" calls). You won't be able to load any gems that are not in that load path.
+
 %h1
   Passenger *2* with RVM
 

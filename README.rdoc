@@ -34,7 +34,10 @@ rvm-site requires a few gems that can be found in rvm-site.gems, including:
   Mime-type
   http://rubyforge.org/projects/mime-types/
   
-The cloned site will detect if you have these installed (except Mime-type) in your current ruby and if not it will install them in RVM for you.
+To install the gemset file, use 
+
+  rvm gemset install rvm-site.gems
+
 
 == Getting it Running
 
@@ -46,6 +49,10 @@ If you would like to view the changes locally as you hack,
 You can use Nanoc's AutoCompile feature:
 
 	nanoc3 aco
+
+To view the images correctly, copy them to the public folder:
+
+  cp -R content/assets/images public
 	
 == Update Submission
 
