@@ -22,7 +22,7 @@
 %ul
   %li Have hudson setup on a special user
   %li Setup rvm (optionally with rvm settings to automatically install rubies)
-  %li Use rvmrc's where possible / bundle install in shell tasks with the -x passed to the shebang.
+  %li Use rvmrc's where possible / bundle install in shell tasks with the -e passed to the shebang.
   %li Source rvm manually if it's not available.
 
 %p
@@ -138,7 +138,7 @@
 
 %pre.code
   :preserve
-    #!/bin/bash -x
+    #!/bin/bash -e
     # Use the correct ruby
     rvm use "ruby@gemset"
     # Do any setup
@@ -148,7 +148,7 @@
     rake
 
 %p
-  The -x option causes bash to exit if any commands exit with
+  The -e option causes bash to exit if any commands exit with
   an error. This is key to making the script work as expected.
 
 %p
