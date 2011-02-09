@@ -36,3 +36,10 @@
   :preserve
     ruby-1.8.7-p249 ruby-1.9.1-p378 jruby-1.4.0
 
+%h2
+  Overriding Defaults
+%p
+  RVM tracks the latest stable patchlevels for each release.  If you want to override this,
+  for example, so you could make '1.8.7' to resolve to 'ruby-1.8.7-p302' instead of the
+  latest patchlevel, you can edit the config/user file, which will override the settings
+  in config/db and persist across installs and updates of rvm itself.

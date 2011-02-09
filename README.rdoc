@@ -36,7 +36,7 @@ rvm-site requires a few gems that can be found in rvm-site.gems, including:
   
 To install the gemset file, use 
 
-  rvm gemset install rvm-site.gems
+  rvm gemset import rvm-site.gems
 
 
 == Getting it Running
