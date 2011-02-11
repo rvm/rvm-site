@@ -15,7 +15,12 @@
 %h2
   require "zlib" # => false ?!
 %p
-  If you have issues with zlib not being available in ruby / irb please try the following configure option:
+  If you have issues with zlib not being available in ruby / irb please try the procedure defined below.
+%p
+  NOTE: Before you follow the procedure below please be sure to verify that you
+  have installed any dependencies for the ruby you are installing listed by the
+  'rvm notes' command. If you have not yet done that do so then run
+  'rvm remove X ; rvm install X' where X is the ruby that you are concerned with.
 %pre.code
   :preserve
     $ rvm package install zlib

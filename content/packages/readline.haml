@@ -12,8 +12,12 @@
 %h2
   Readline
 %p
-  If you have an error when compiling pertaining to readline, you may need to attempt installing with the following configure option:
-
+  If you have an error when compiling pertaining to readline, you may need to attempt installing with the procedure defined below.
+%p
+  NOTE: Before you follow the procedure below please be sure to verify that you
+  have installed any dependencies for the ruby you are installing listed by the
+  'rvm notes' command. If you have not yet done that do so then run
+  'rvm remove X ; rvm install X' where X is the ruby that you are concerned with.
 %pre.code
   :preserve
     $ rvm package install readline

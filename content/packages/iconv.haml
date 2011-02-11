@@ -15,7 +15,12 @@
 %h2
   require "iconv" # => false ?!
 %p
-  If you have issues with iconv not being available in ruby / irb please try install the ruby you want with the following configure option:
+  If you have issues with iconv not being available in ruby / irb please try install the ruby you want with the procedure explained below.
+%p
+  NOTE: Before you follow the procedure below please be sure to verify that you
+  have installed any dependencies for the ruby you are installing listed by the
+  'rvm notes' command. If you have not yet done that do so then run
+
 %pre.code
   :preserve
     $ rvm package install iconv

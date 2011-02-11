@@ -22,7 +22,12 @@
     Error compiling openssl due to openssl version 1.0.0* installed on the system.
 
 %p
-  If you have issues with openssl not being available in ruby / irb please try the following configure option:
+  If you have issues with openssl not being available in ruby / irb please try the following configure option you may follow the procedure below.
+%p
+  NOTE: Before you follow the procedure below please be sure to verify that you
+  have installed any dependencies for the ruby you are installing listed by the
+  'rvm notes' command. If you have not yet done that do so then run
+  'rvm remove X ; rvm install X' where X is the ruby that you are concerned with.
 
 %pre.code
   :preserve
