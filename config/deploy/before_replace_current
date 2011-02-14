@@ -1,8 +1,8 @@
 #!/usr/bin/env bash
 
-source $HOME/.rvm/scripts/rvm
+source "$HOME/.rvm/scripts/rvm"
 
-cd $stage_path
+cd "$stage_path"
 
 rvm gemset import rvm-site.gems
 

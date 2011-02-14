@@ -78,3 +78,29 @@
 
     /Users/wayne/.rvm/gems/ruby-1.9.2-p378
 
+%h2
+  RubyGems CLI API
+
+%p
+  RVM now provides a 'rubygems' CLI command which allows you to change the rubygems version for the installed interpreter. In order to install the most recent RubyGems that RVM knows about you can do:
+
+%pre.code
+  :preserve
+    $ rvm rubygems current
+
+%p
+  If a newer version of rubygems has been released than the one that RVM knows about then you should get the latest version of RVM, the latest git head would be best, in order to be able to install the newer version since their download url's change for each release / are not consistent (rubyforge scheme).
+
+%p
+  In order to install a specific rubygems version you can specify the version directly. For example if we wish to install RubyGems version 1.5.2 we would do so as follows.
+
+%pre.code
+  :preserve
+    $ rvm rubygems 1.5.2
+
+%p
+  In the case of MRI 1.9.X a version of RubyGems comes built in. If you install a different RubyGems via the 'rvm rubygems' API and decide to go back to the built in then you can run the following command to remove the different version installed.
+%pre.code
+  :preserve
+    $ rvm rubygems remove
+
