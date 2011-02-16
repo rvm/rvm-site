@@ -3,65 +3,67 @@
 %h2 TextMate
 
 %p
-  First, make sure that your RVM is update to date (seamless Textmate compatibility was added in 0.1.45)
-  %pre.code
-    :preserve
-      $ rvm get head
+  It is possible to support RVM gemsets in TextMate using the TM_RUBY environment variable.
+  Currently, RVM has two possible configurations out of the box - One, rvm-auto-ruby, that supports
+  automatically detecting the ruby based on the .rvmrc (where possible) and another using
+  RVM's built in wrapper functionality to generate  a binary for a fixed ruby version.
 
 %p
-  First create the initial textmate wrapper script for ruby[@gemset] that you require.
-  For example if you want to use a 'rails3' gemset and Rubinius (rbx):
-  %pre.code
-    :preserve
-      $ rvm wrapper rbx@rails3 textmate
-%p
-  This will create the ~/.rvm/bin/textmate_ruby wrapper script.
+  For both of them, it's important to be up to date first - in recent versions, you can do this
+  using the following command:
+  = sh_cmd "rvm get head"
+
+%h3 The rvm-auto-ruby approach
+
 
 %p
-  Next, make your textmate is latest version and run the following script to update all your the bundles
-  %pre.code
-    :preserve
-      #!/usr/bin/env bash
+  Out of the box, rvm ships with a ruby binary, typically in ~/.rvm/bin (or, in system wide installs,
+  inside of /usr/local/bin), that will perform the following steps before executing ruby:
 
-      mkdir -p /Library/Application\ Support/TextMate/
-
-      sudo chown -R $(whoami) /Library/Application\ Support/TextMate
-
-      cd /Library/Application\ Support/TextMate/
-
-      if [[ -d Bundles/.svn ]] ; then
-        cd Bundles && svn up
-      else
-        if [[ -d Bundles ]] ; then
-          mv Bundles Bundles.old
-        fi
-        svn co http://svn.textmate.org/trunk/Bundles
-      fi
-
-      exit 0
+%ol
+  %li Load up RVM
+  %li Look for any RVMRC files and load them
+  %li Execute as a normal ruby
 
 %p
-  Following that, in Textmate open up the Shell Variables editor
+  This approach makes it possible to have the ruby switched on a per-project basis without any extra work.
+  With rvm installed, this is a matter of taking the full path to rvm-auto-ruby, found via:
 
-  %pre.code
-    :preserve
-      Textmate | Preferences | Advanced | Shell Variables
-
-  And set TM_RUBY to <pre>/Users/wayne/.rvm/bin/textmate_ruby</pre> replacing /Users/wayne with your own home directory.
+= sh_cmd "which rvm-auto-ruby"
 
 %p
-  section as per this:
-  %a{:href => "http://cl.ly/23Yl"}
-    http://cl.ly/23Yl
+  And in the advanced section of the textmate preferences, either adding or changing the TM_RUBY
+  variable to point to the given path, like shown in
+  %a{:href => "http://cl.ly/23Yl"} this screenshot
+  with an example installation.
+
+%h3 The RVM wrapper approach
 
 %p
-  Since textmate will use it's own builder, by removing it, we can use TM_RUBY as specified above (Thanks KinkyKamikaze!):
-%pre.code
-  :preserve
-    cd /Applications/TextMate.app/Contents/SharedSupport/Support/lib/ ; mv Builder.rb Builder.rb.backup
+  If you want your TextMate install to always use a single ruby and gemset combination, you'll
+  instead need to use the rvm wrapper approach. This generates a ruby binary that can used
+  by TextMate. To use this approach, first decide the ruby and gemset combination which you wish
+  to use. In our example, we'll go with <pre class='code'>rbx@rails3</pre> (Anything that can
+  be parsed by rvm use, e.g. ree, 1.8.7, 1.9.2@ninja-attack, will work with the wrapper command).
+
+%p
+  Next, you'll need to generate a command. The general structure of the rvm wrapper command is
+  = sh_cmd "rvm wrapper [ruby_string] [wrapper_prefix]"
+
+%p
+  In our case, we thus run:
+  = sh_cmd "rvm wrapper rbx@rails3 textmate"
+
+%p
+  This command will create a file in your rvm bin path (as mentioned earlier), called <pre class='code'>textmate_ruby</pre>
+  which we can for the value of TM_RUBY. So, opening up TextMate and going to the advanced panel of the textmate
+  preferences, add or change the TM_RUBY variable to the output of running <pre class='code'>which textmate_ruby</pre>
+  on the command line (e.g. /Users/wayne/.rvm/textmate_ruby).
 
 %p
   Now quit textmate and re-open it for bundles and TM_RUBY settings to take effect.
+
+%h3 Testing out your wrapper
 
 %p
   You can now test if it is working by following these steps
@@ -88,6 +90,50 @@
   RVM will also switch out the ruby version and gemset based on each project's .rvmrc file
 
 
+
+
+%h3 Making sure TextMate is up to date
+
+%p
+  Next, make your textmate is latest version and run the following script to update all your the bundles
+  %pre.code
+    :preserve
+      #!/usr/bin/env bash
+
+      mkdir -p /Library/Application\ Support/TextMate/
+
+      sudo chown -R $(whoami) /Library/Application\ Support/TextMate
+
+      cd /Library/Application\ Support/TextMate/
+
+      if [[ -d Bundles/.svn ]] ; then
+        cd Bundles && svn up
+      else
+        if [[ -d Bundles ]] ; then
+          mv Bundles Bundles.old
+        fi
+        svn co http://svn.textmate.org/trunk/Bundles
+      fi
+
+      exit 0
+
+%h2 Notes
+
+%p
+  To change the TM_RUBY shell variable, In TextMate use the menu to navigate to:
+
+  %pre.code
+    :preserve
+      Textmate | Preferences | Advanced | Shell Variables
+
+
+%p
+  If you have issues, you may need to change the bundler Builder.rb in TextMate. Since TextMate will use it's own builder,
+  by removing it, we can use TM_RUBY as specified above (Thanks KinkyKamikaze!):
+%pre.code
+  :preserve
+    cd /Applications/TextMate.app/Contents/SharedSupport/Support/lib/ ; mv Builder.rb Builder.rb.backup
+
 %p
   If you need to update osx-plist for Ruby 1.9.X compatibility, this might be of some use:
 %pre.code
@@ -96,9 +142,6 @@
     cd osx-plist/ext/plist
     ruby extconf.rb && make
     cp plist.bundle /Applications/TextMate.app/Contents/SharedSupport/Support/lib/osx/
-
-%h2
-  Notes
 
 %p
   If you have issues with Ruby 1.9+, namely:
