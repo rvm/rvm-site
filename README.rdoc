@@ -50,7 +50,7 @@ You can use Nanoc's AutoCompile feature:
 
 	nanoc3 aco
 
-To view the images correctly, copy them to the public folder:
+To view the images in your browser, first make sure the public folder exists, then copy the images folder to the public folder:
 
   cp -R content/assets/images public
 	
