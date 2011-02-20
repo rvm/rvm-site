@@ -13,18 +13,20 @@
 %h1
   Upgrading RVM
 %p
-  RVM supports two ways of upgrading itself, one to the latest gem and the other to the latest repository source.
+  RVM supports two ways of upgrading itself, one to the latest released version
+  and the other to the latest repository version.
 %h3
-  Upgrading to the latest gem
+  Upgrading to the last release version
 %pre.code
   :preserve
-    $ rvm update
+    $ rvm get latest
 %p
   will install the latest gem and then run the rvm-install command.
 %h3
-  Upgrading to the latest repository source
+  Upgrading to the latest repository source version (the most bugfixes)
 %pre.code
   :preserve
     $ rvm get head
 %p
-  will obtain the latest RVM repository source and run ./install from that repository.
+  this will obtain the latest RVM repository version using git and run ./install
+  from the cloned repository.
