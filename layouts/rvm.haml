@@ -62,7 +62,7 @@
 
       #content
         %center
-          #cse{:style => "width: 100%"} Just a moment.
+          #cse Just a moment.
           %a{ :href => "#docindex"}
             $ rvm help # Documentation Index
 
@@ -332,7 +332,7 @@
 
     %script{:src => "http://www.google.com/jsapi", :type => "text/javascript"}
     :javascript
-      google.load('search', '1', {language : 'en', style : google.loader.themes.MINIMALIST});
+      google.load('search', '1', {language : 'en', style : google.loader.themes.SHINY});
       google.setOnLoadCallback(function() {
         var customSearchControl = new google.search.CustomSearchControl('012125088244772422662:eplzzxbbjte');
         customSearchControl.setResultSetSize(google.search.Search.FILTERED_CSE_RESULTSET);
