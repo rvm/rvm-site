@@ -21,6 +21,34 @@
   :preserve
     $ rvm install jruby
 
+%h2
+  Choosing the Ruby API
+%p
+  Currently, as of this writing, JRuby loads the Ruby 1.8 API and runs as 1.8.7
+  version.
+%p
+  If you need to run JRuby with the 1.9 Ruby API, then you can do this in RVM
+  using after_use hooks. You will have to record the JRUBY
+%pre.code
+  :preserve
+    export JRUBY_OPTS="--1.9"
+%p
+  Be sure to add this to the jruby environment file(s).
+%p
+  For your console environment I recommend detecting JRuby in an after_use
+  %a{:href => "http://rvm.beginrescueend.com/workflow/hooks/"}
+    hook
+  and adding the export.
+%p
+  So for example, your after_use hook file might look something like this:
+%pre.code
+  :preserve
+    case "$GEM_HOME" in
+      *jruby*)
+        JRUBY_OPTS="--1.9" ; export JRUBY_OPTS
+      ;;
+    esac
+
 %h1
   Community Resources
 %ul
