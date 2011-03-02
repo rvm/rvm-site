@@ -46,3 +46,11 @@
     $ cd $HOME/.rvm/src/ruby-1.9.2-p0/ext/readline
     $ ruby extconf.rb -- --with-readline-dir="$HOME/.rvm/usr"
     $ make install
+%p
+  If you would like to automatically use the RVM default you can override config/db
+  ruby configure setting in user/db like this:
+%pre.code
+  :preserve
+    # ~/.rvm/user/db or /usr/local/rvm/user/db
+    ruby_configure_flags=--enable-shared --disable-install-doc --with-readline-dir=/Users/wayneeseguin/.rvm/usr
+
