@@ -218,6 +218,12 @@
     %pre.code
       :preserve
         bundle install $BUNDLE_PATH
+    %p
+      How can I use commands like passenger-status in conjunction with a user install but run them as root?
+      Mainly the key to this is to use wildcards in the sudoers file as the following examples show.
+      %pre.code
+        :preserve
+          /usr/bin/env GEM_PATH=* GEM_HOME=* PATH=* passenger-status
 
 %h2
   Community Resources
