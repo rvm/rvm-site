@@ -26,8 +26,7 @@ changes to environment variables, the second a wrapper around RVM for fish.
 %pre.code
   :preserve
      set -l GITHUB https://github.com/eventualbuddha/fish-nuggets/raw/master/functions
-     curl --create-dirs -o ~/.config/fish/functions/__bash_env_to_fish.fish $GITHUB/__bash_env_to_fish.fish
-     curl -o ~/.config/fish/functions/rvm.fish $GITHUB/rvm.fish
+     curl --create-dirs -o ~/.config/fish/functions/rvm.fish $GITHUB/rvm.fish
      curl -o ~/.config/fish/functions/cd.fish $GITHUB/cd.fish
 
 %h2 Usage
