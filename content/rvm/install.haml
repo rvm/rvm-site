@@ -3,23 +3,43 @@
 %p
   NOTE: $  is my prompt marker!!!
 %p
-  There are three very different ways to use RVM.
+  There two different ways to install and use RVM.
 
+%h2 Installation Schemes
+
+%p
+  There are two fundamentally different ways to install and configure RVM.
 %ul
-  %li As a User
-  %li As Root (be *very* sure you know what you are doing... - like user, but into /usr/local/rvm)
-  %li System Wide (Multiple Users, Installed via Root).
+  %li As a standard user
+  %li As root, shared across all users
 
 %p
-  If you wish to install rvm system wide, please read our
-  %a{:href => "/deployment/system-wide/"} system-wide installation guide
-  which takes a slightly different approach to the method
-  highlighted below.
+  If you are installing for development or most purposes, the recommended
+  installation method is installing into a user's home directory completely
+  self contained.
+
+%h3 Installing as root, shared across all users
+%p
+  If you wish to install rvm once to say /user/local/rvm and share it for all
+  user accounts, run the installer script as root. To install the latest version
+  of RVM this way do the following.
+
+%pre.code
+  :preserve
+    bash < <( curl http://rvm.beginrescueend.com/releases/rvm-install-head )
 
 %p
-  Don't forget to set your
-  %a{:href => "/rubies/default/"} default ruby
-  after the installation so that your command line opens with ruby enabled.
+  Be sure to
+  %a{:href => "/rubies/installing/"}
+    Install a ruby
+  and then set a
+  %a{:href => "/rubies/default/"}
+    default ruby
+  for new shells.
+%p
+  For full details on how to setup RVM and how it works read the
+  %a{:href => "/rvm/basics/"}
+    basics page.
 
 %p
   %strong Install not working?
@@ -28,21 +48,42 @@
   %em ensure
   returns in your ~/.bashrc is converted to an if statement.
 
+%h3 Installing to a user's home directory
+
 %p
-  There are at least 2 ways to install RVM.
+  The installation procedure for installing to a user's home directory is the
+  same with one exception, when you are done you need to source the RVM function
+  into your shells. You can do this at the end of your ~/.bash_profile for
+  example with the following line:
+
+  %pre.code
+    :preserve
+      [[ -s "$HOME/.rvm/scripts/rvm" ]] && . "$HOME/.rvm/scripts/rvm"  # Load RVM into a shell session *as a function*
+%p
+  Be sure to open a new shell in order to use rvm after installation and setup.
+
+%h2 Installation Methods
+
+%p
+  There are at least 2 distinct methods to install RVM, which work the same
+  regardless of which scheme you choose above..
 
 %h3 1. GitHub Repository (recommended)
 
 %p
-  To install from the github repository, recommended.
+  To install from the github repository, which is the recommended way so that
+  you get all of the latest bugfixes and features.
 
 = sh_cmd "bash < <( curl http://rvm.beginrescueend.com/releases/rvm-install-head )"
 %p
   Note that to update RVM itself it is safe to run this script again, or follow the
   %a{:href => "/rvm/upgrading/"}
     upgrading docs.
+
 %p
-  What this script essentially does is the following, with some extra checks and tweaks:
+  What this script essentially does is the following, with extra sanity checks
+  and logical tweaks:
+
 %pre.code
   :preserve
     mkdir -p ~/.rvm/src/ &amp;&amp; cd ~/.rvm/src &amp;&amp; rm -rf ./rvm/ &amp;&amp; git clone --depth 1 git://github.com/wayneeseguin/rvm.git &amp;&amp; cd rvm &amp;&amp; ./install
@@ -51,12 +92,13 @@
 %pre.code
   :preserve
     mkdir -p ~/.rvm/src/ &amp;&amp; cd ~/.rvm/src &amp;&amp; rm -rf ./rvm/ &amp;&amp; git clone --depth 1 http://github.com/wayneeseguin/rvm.git &amp;&amp; cd rvm &amp;&amp; ./install
+
 %blockquote
   NOTE: I recommend you read the installation script yourself,
   this way you will know what it is doing and feel comfortable running it.
   You can read the script by simply running the curl inside the parenthesis.
 
-%h3 2. Installing / updating the latest rvm from the latest source tarball
+%h3 2. Installing / updating the latest rvm from the latest released source tarball
 
 = sh_cmd "bash < <( curl http://rvm.beginrescueend.com/releases/rvm-install-latest )"
 
@@ -73,7 +115,7 @@
   The first time you install RVM, you must put the following line into your ~/.bash_profile at the very end, after all path loads etc:
 %pre.code
   :preserve
-    [[ -s "$HOME/.rvm/scripts/rvm" ]] && . "$HOME/.rvm/scripts/rvm"  # This loads RVM into a shell session.
+    [[ -s "$HOME/.rvm/scripts/rvm" ]] && source "$HOME/.rvm/scripts/rvm" # This loads RVM into a shell session.
 %p
   NOTE: If you are using zsh you likely instead should put the sourcing line into ~/.zshrc
 %p
