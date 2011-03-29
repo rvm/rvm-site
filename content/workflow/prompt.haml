@@ -33,17 +33,17 @@
 
 %p
   Below are some examples of running rvm-prompt with various arguments on different rubies.
-  
+
 %pre.code
   :preserve
     $ rvm 1.9.1 ; rvm-prompt i v p g # default
-      
+
       ruby-1.9.1-p243
-      
+
     $ rvm 1.9.1@rails ; rvm-prompt i v p g # default
 
       ruby-1.9.1-p243@rails
-      
+
     $ rvm ree-1.8.7 ; rvm-prompt i v
 
       ree-1.8.7
@@ -51,15 +51,43 @@
     $ rvm jruby ; rvm-prompt v i
 
       1.5.1-jruby
-      
+
     $ rvm jruby ; rvm-prompt u
 
       ☯
-    
+
     $ rvm system ; rvm-prompt
-    
-      
-      
+
+
+
     $ rvm system ; rvm-prompt s i v p
-      
+
       system
+
+%h1 ps1_functions
+
+Recently there has been a pair programming session that turned out a useful bit
+of prompt setting code. It now resides in contrib/ so you can require it in your
+profiles as follows after sourcing RVM itself.
+
+%pre.code
+  :preserve
+    source "$rvm_path/contrib/ps1_functions"
+
+Immediately after that you can customize your prompt by adding the following line
+%pre.code
+  :preserve
+    ps1_set
+
+There is an article and screen cast associated with this in the community
+resources section.
+
+%h1 Community Resources
+%ul
+  %li
+    ps1_functions creation
+    %a{:href => "http://www.heartmindcode.com/blog/2011/03/crazy-bash-programming-with-wayne-e-seguin/"}
+      Article
+    and
+    %a{:href => "http://vimeo.com/21538711"}
+      ScreenCast
