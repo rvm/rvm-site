@@ -40,7 +40,26 @@
     %a{:href => "http://bdsm.beginrescueend.com/"}
       BDSM
     'deploy' and 'rails' extensions for nicely integrated RVM deployment.
+    %pre.code
+      :preserve
+        root# bdsm add rails deploy
+        user$ bdsm bdsmrc
+        user$ vim ~/bdsmrc     # Update any settings, repo, etc...
+        user$ bdsm rails setup # Set up ~/shared path etc
+        user$ vim ~/shared/config/database.yml # setup your db connection info.
+        user$ bdsm deploy      # Updates ~/current with a fresh release.
 
+   %p
+     Do not forget backups, too many people do...
+    %pre.code
+      :preserve
+        user$ bdsm rails backup_database
+    Stick it in cron, make sure it happens nightly...
+    %pre.code
+      :preserve
+        user$ crontab -e
+        0 2 * * * bdsm rails backup_database
+  %li
     If you "must" (::cough:: bullshit ::cough::) using Capistrano or the like,
     follow the
     %a{:href => "/integration/capistrano/"}
