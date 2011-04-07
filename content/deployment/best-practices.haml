@@ -49,17 +49,17 @@
         user$ vim ~/shared/config/database.yml # setup your db connection info.
         user$ bdsm deploy      # Updates ~/current with a fresh release.
 
-   %p
-     Do not forget backups, too many people do...
-     %pre.code
-       :preserve
-         user$ bdsm rails backup_database
-     Stick it in cron, make sure it happens nightly...
-     %pre.code
-       :preserve
-         user$ crontab -e
+    %p
+      Do not forget backups, too many people do...
+      %pre.code
+        :preserve
+          user$ bdsm rails backup_database
+      Stick it in cron, make sure it happens nightly...
+      %pre.code
+        :preserve
+          user$ crontab -e
 
-         0 2 * * * bdsm rails backup_database
+          0 2 * * * bdsm rails backup_database
 
   %li
     If you "must" (::cough:: bullshit ::cough::) using Capistrano or the like,
