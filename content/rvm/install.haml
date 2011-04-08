@@ -26,7 +26,7 @@
 
 %pre.code
   :preserve
-    bash < <(curl -B http://rvm.beginrescueend.com/install/rvm)
+    bash < <(curl -s -B https://rvm.beginrescueend.com/install/rvm)
 
 %p
   Be sure to
@@ -70,7 +70,7 @@
   To install from the github repository, which is the recommended way so that
   you get all of the latest bugfixes and features.
 
-= sh_cmd "bash < <( curl -B http://rvm.beginrescueend.com/install/rvm )"
+= sh_cmd "bash < <(curl -s -B https://rvm.beginrescueend.com/install/rvm)"
 %p
   Note that to update RVM itself it is safe to run this script again, or follow the
   %a{:href => "/rvm/upgrading/"}
@@ -83,11 +83,11 @@
 
 %h3 Installing / updating the latest rvm from the latest released source tarball
 
-= sh_cmd "curl -L http://rvm.beginrescueend.com/install/rvm -o rvm-installer ; chmod +x rvm-installer ; ./rvm-install latest"
+= sh_cmd "curl -s -B -L https://rvm.beginrescueend.com/install/rvm -o rvm-installer ; chmod +x rvm-installer ; ./rvm-install latest"
 
 %h3 Installing a specific version
 
-= sh_cmd "curl -L http://rvm.beginrescueend.com/install/rvm -o rvm-installer ; chmod +x rvm-installer ; ./rvm-install 1.5.3"
+= sh_cmd "curl -s -B -L https://rvm.beginrescueend.com/install/rvm -o rvm-installer ; chmod +x rvm-installer ; ./rvm-install 1.5.3"
 
 %h2 Post Install
 
@@ -135,10 +135,10 @@
     #!/usr/bin/env bash
 
     # Install git
-    bash &lt; &lt;( curl http://rvm.beginrescueend.com/install/git )
+    bash &lt; &lt;( curl -s -B https://rvm.beginrescueend.com/install/git )
 
     # Install RVM
-    bash &lt; &lt;( curl http://rvm.beginrescueend.com/releases/rvm-install-head )
+    bash &lt; &lt;(curl -s -B https://rvm.beginrescueend.com/install/rvm)
 
     # Install some rubies
     source "$HOME/.rvm/scripts/rvm"
