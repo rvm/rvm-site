@@ -29,6 +29,10 @@
     bash < <(curl -s https://rvm.beginrescueend.com/install/rvm)
 
 %p
+  %strong
+    NOTE: For those who can not update ca-certificates and encounter a certificate error, a work around is to temporarily add 'insecure' to ~/.curlrc
+
+%p
   Be sure to
   %a{:href => "/rubies/installing/"}
     Install a ruby
