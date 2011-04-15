@@ -65,3 +65,14 @@
 %p
   The latest RVM HEAD properly escapes the sourcing '.' so this should no longer be an issue. Update (rvm get head) if you see this issue related to RVM scripts.
 
+%h2
+  zsh + iTerm2
+  
+%p
+  If you are using iTerm2's feature allowing you to open new tabs / windows and 
+  %strong
+    "Reuse Previous Tab's Directory"
+  then you will want to add the following line to the bottom of your .zshrc
+%pre.code
+  __rvm_project_rvmrc
+

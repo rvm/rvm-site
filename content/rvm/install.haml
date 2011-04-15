@@ -29,6 +29,10 @@
     bash < <(curl -s https://rvm.beginrescueend.com/install/rvm)
 
 %p
+  %strong
+    NOTE: For those who can not update ca-certificates and encounter a certificate error, a work around is to temporarily add 'insecure' to ~/.curlrc
+
+%p
   Be sure to
   %a{:href => "/rubies/installing/"}
     Install a ruby
@@ -83,11 +87,11 @@
 
 %h3 Installing / updating the latest rvm from the latest released source tarball
 
-= sh_cmd "curl -s https://rvm.beginrescueend.com/install/rvm -o rvm-installer ; chmod +x rvm-installer ; ./rvm-install latest"
+= sh_cmd "curl -s https://rvm.beginrescueend.com/install/rvm -o rvm-installer ; chmod +x rvm-installer ; ./rvm-installer --version lastest"
 
 %h3 Installing a specific version
 
-= sh_cmd "curl -s https://rvm.beginrescueend.com/install/rvm -o rvm-installer ; chmod +x rvm-installer ; ./rvm-install 1.5.3"
+= sh_cmd "curl -s https://rvm.beginrescueend.com/install/rvm -o rvm-installer ; chmod +x rvm-installer ; ./rvm-installer 1.5.3"
 
 %h2 Post Install
 
