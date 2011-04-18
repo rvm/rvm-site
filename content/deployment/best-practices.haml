@@ -14,7 +14,7 @@
     Install RVM as root
     %pre.code
       :preserve
-        root# bash < <(curl -s http://rvm.beginrescueend.com/install/rvm)>>
+        root# bash < <(curl -s https://rvm.beginrescueend.com/install/rvm)>>
   %li
     Use one system user per project, preferably with the same shortname as the
     project.
@@ -42,12 +42,27 @@
     'deploy' and 'rails' extensions for nicely integrated RVM deployment.
     %pre.code
       :preserve
-        root# bdsm add rails deploy
-        user$ bdsm bdsmrc
-        user$ vim ~/bdsmrc     # Update any settings, repo, etc...
-        user$ bdsm rails setup # Set up ~/shared path etc
-        user$ vim ~/shared/config/database.yml # setup your db connection info.
-        user$ bdsm deploy      # Updates ~/current with a fresh release.
+        root# bdsm install rails deploy unicorn # Install rails,depoy,unicorn extensions.
+        appuser$ bdsm bdsmrc      # Put a default ~/.bdsmrc in place.
+        appuser$ vim ~/bdsmrc     # Update settings, specifically repository_url, etc...
+        appuser$ bdsm rails setup # This sets up ~/shared path etc
+        appuser$ bdsm deploy      # Updates ~/current with a fresh release.
+        appuser$ vim ~/shared/config/database.yml # setup your db connection info.
+        appuser$ cd ~/current
+        appuser$ gem install bundler && bundle install # Be sure that 'gem "unicorn"' is in Gemfile first, no version.
+        appuser$ bdsm unicorn start
+
+    %p
+      I run Nginx, so what I do is the following,
+    %pre.code
+      :preserve
+        root# bdsm install nginx  # This installs the Nginx BDSM extension.
+        root# bdsm nginx install
+        root# chmod go+rx /home/appuser # This makes sure that Nginx can read the dir.
+        root# bdsm nginx server appuser # This creates /etc/nginx/servers/appuser.conf configured for a unicorn UDS proxy by default.
+        root# bdsm nginx start
+    %p
+      Note that this will setup for Unicorn
 
     %p
       Do not forget backups, too many people do...
