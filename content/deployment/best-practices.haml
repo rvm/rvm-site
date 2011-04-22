@@ -40,7 +40,7 @@
     'deploy' and 'rails' extensions for nicely integrated RVM deployment.
     %pre.code
       :preserve
-        root# bdsm install rails deploy unicorn # Install rails,depoy,unicorn extensions.
+        root# bdsm extend rails deploy unicorn # Install rails,depoy,unicorn extensions.
         appuser$ bdsm bdsmrc      # Put a default ~/.bdsmrc in place.
         appuser$ vim ~/bdsmrc     # Update settings, specifically repository_url, etc...
         appuser$ bdsm rails setup # This sets up ~/shared path etc
@@ -54,7 +54,7 @@
       I run Nginx, so what I do is the following,
     %pre.code
       :preserve
-        root# bdsm install nginx  # This installs the Nginx BDSM extension.
+        root# bdsm extend nginx  # This installs the Nginx BDSM extension.
         root# bdsm nginx install
         root# chmod go+rx /home/appuser # This makes sure that Nginx can read the dir.
         root# bdsm nginx server appuser # This creates /etc/nginx/servers/appuser.conf configured for a unicorn UDS proxy by default.
