@@ -16,7 +16,7 @@
   The easiest way to ensure it's working is to make screen use a login shell by placing the following in your ~/.screenrc file:
 %pre.code
   :preserve
-    shell ${SHELL}
+    shell -${SHELL}
 %p
   If you do not want your screen to be spawning login shells then make sure
   that the RVM sourcing line is installed at the end of your ~/.bashrc
