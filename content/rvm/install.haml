@@ -72,7 +72,7 @@
   %em Multi-User Install Note: The rvm function must be configured for every user you wish to use rvm.
  
       
-%h4 3. Reload shell configuration & test
+%h3 3. Reload shell configuration & test
 
 %p Open a new shell or reload your .bash_profile with the following command:
 
@@ -103,9 +103,8 @@
     $ sudo gem install xxxx 
     # Right
     $ rvmsudo gem install xxxx 
-
     
-%h3 3. Let's try out your new RVM installation:
+%h2 Try out your new RVM installation:
 
 %em I've included the (truncated) output of each command on my system as an example.
 
@@ -174,3 +173,86 @@
 
 %h2 Enjoy using RVM!
 
+%h3
+  Where to now?
+%p
+  If you are new to RVM I recommend that you read the
+  %a{:href => "http://rvm.beginrescueend.com/rvm/basics/"}
+    basics page
+  At the end of the basics page there are further links as suggestions for
+  getting started.
+
+%h2 Troubleshooting your Install
+
+%ul
+  %li
+    %p If you open a new shell and running:
+    = sh_cmd "type rvm | head -1"
+    %p does not show "rvm is a function", rvm isn't being sourced correctly.
+  %li
+    %p
+      Do NOT 'return' from inside the .bashrc file or else RVM will be prevented from working properly -
+      That is to say, if your .bashrc contains "&& return", e.g, ubuntu in particular has
+    %pre.code
+      :preserve
+        [ -z "$PS1" ] && return
+    %p you'll need to convert it into an if statement - e.g, in this case we change the given line into
+    %pre.code
+      :preserve
+        if [[ -n "$PS1" ]]; then
+    %p
+      indent everything below it one level and then add a trailing "fi" on a new line. Once that is done,
+      we add the source line as noted above
+      %em after
+      the fi you added. E.g, this:
+    %pre.code
+      :preserve
+        [ -z "$PS1" ] && return
+        # Some code here... e.g.
+        export HISTCONTROL=ignoreboth
+    %p would become:
+    %pre.code
+      :preserve
+        if [[ -n "$PS1" ]]; then
+          # Some code here... e.g.
+          export HISTCONTROL=ignoreboth
+        fi
+        [[ -s "$HOME/.rvm/scripts/rvm" ]] && . "$HOME/.rvm/scripts/rvm"  # This loads RVM into a shell session.
+
+  %li
+    %p
+      Ensure that rvm is the last thing sourced in all of your shell profiles - e.g. it is sourced in the
+      user specific profile after any environment variables,
+      %em especially PATH
+      are set. Otherwise, the values you set be trampled when you switch rubies.
+
+  %li
+    %p
+      If you are using GNOME on Red Hat, CentOS or Fedora ensure that the
+      %em Run command as login shell
+      option is checked under the
+      %em Title and Command
+      tab in
+      %em Profile Preferences.
+      After changing this setting, you may need to exit your console session and start
+      a new one before the changes take affect.
+
+%h3 Example rvm bootstrap script
+
+%p
+  The following script will boostrap git + RVM assuming that you have curl &amp; sudo installed.
+  It will also install (last line) several common rubies.
+
+%pre.code
+  :preserve
+    #!/usr/bin/env bash
+
+    # Install git
+    bash &lt; &lt;( curl -s https://rvm.beginrescueend.com/install/git )
+
+    # Install RVM
+    bash &lt; &lt;(curl -s https://rvm.beginrescueend.com/install/rvm)
+
+    # Install some rubies
+    source "$HOME/.rvm/scripts/rvm"
+    rvm install ree,1.9.2-head,jruby
