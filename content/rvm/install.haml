@@ -1,213 +1,176 @@
 %h1 Installing RVM
 
-%p
-  NOTE: $  is my prompt marker!!!
-%p
-  There two different ways to install and use RVM.
+%p There are two fundamentally different ways to install and configure RVM. 
 
-%h2 Installation Schemes
-
-%p
-  There are two fundamentally different ways to install and configure RVM.
 %ul
-  %li As a standard user
-  %li As root, shared across all users
+  %li Single-User Installation as a standard user
+  %li Multi-User installation as root
 
-%p
-  If you are installing for development or most purposes, the recommended
-  installation method is installing into a user's home directory completely
-  self contained.
+%p <strong>For most purposes, the recommended installation method is Single-User</strong>, which is a self-contained rvm installation in a user's home directory. 
 
-%h3 Installing as root, shared across all users
-%p
-  If you wish to install rvm once to say /user/local/rvm and share it for all
-  user accounts, run the installer script as root. To install the latest version
-  of RVM this way do the following.
 
-%pre.code
-  :preserve
-    bash < <(curl -s https://rvm.beginrescueend.com/install/rvm)
+%p <strong>All multi-user instructions must be run as root.</strong> The installation process is similar for both installation methods; any differences will be noted in the instructions below. 
 
-%p
-  %strong
-    NOTE: For those who can not update ca-certificates and encounter a certificate error, a work around is to temporarily add 'insecure' to ~/.curlrc
+%h4 To update an existing RVM installation
 
-%p
-  Be sure to
-  %a{:href => "/rubies/installing/"}
-    Install a ruby
-  and then set a
-  %a{:href => "/rubies/default/"}
-    default ruby
-  for new shells.
-%p
-  For full details on how to setup RVM and how it works read the
-  %a{:href => "/rvm/basics/"}
-    basics page.
-
-%p
-  %strong Install not working?
-  Please ensure you've read the troubleshooting notes at the bottom of this page.
-  Namely, you need to
-  %em ensure
-  returns in your ~/.bashrc is converted to an if statement.
-
-%h3 Installing to a user's home directory
-
-%p
-  The installation procedure for installing to a user's home directory is the
-  same with one exception, when you are done you need to source the RVM function
-  into your shells. You can do this at the end of your ~/.bash_profile for
-  example with the following line:
-
-  %pre.code
-    :preserve
-      [[ -s "$HOME/.rvm/scripts/rvm" ]] && . "$HOME/.rvm/scripts/rvm"  # Load RVM into a shell session *as a function*
-%p
-  Be sure to open a new shell in order to use rvm after installation and setup.
-
-%h2 Installation Methods
-
-%h3 Install absolute latest
-
-%p
-  To install from the github repository, which is the recommended way so that
-  you get all of the latest bugfixes and features.
-
-= sh_cmd "bash < <(curl -s https://rvm.beginrescueend.com/install/rvm)"
-%p
-  Note that to update RVM itself it is safe to run this script again, or follow the
+%p 
+  It is safe to run the installation script again, or follow the
   %a{:href => "/rvm/upgrading/"}
-    upgrading docs.
+    upgrading docs.    
+         
+%h2 Installation 
 
-%blockquote
-  NOTE: I recommend you read the installation script yourself,
-  this way you will know what it is doing and feel comfortable running it.
-  You can read the script by simply running the curl inside the parenthesis.
-
-%h3 Installing / updating the latest rvm from the latest released source tarball
-
-= sh_cmd "curl -s https://rvm.beginrescueend.com/install/rvm -o rvm-installer ; chmod +x rvm-installer ; ./rvm-installer --version latest"
-
-%h3 Installing a specific version
-
-= sh_cmd "curl -s https://rvm.beginrescueend.com/install/rvm -o rvm-installer ; chmod +x rvm-installer ; ./rvm-installer 1.5.3"
-
-%h2 Post Install
-
-%p
-  The first time you install RVM, you must put the following line into your ~/.bash_profile at the very end, after all path loads etc:
+%p I recommend you <a href="https://rvm.beginrescueend.com/install/rvm">read the installation script yourself</a>; you will understand what it is doing and feel more comfortable running it. 
+    
+%h3 1. Download and run the RVM installation script
+%h4 Installing the latest release version in git:
 %pre.code
   :preserve
-    [[ -s "$HOME/.rvm/scripts/rvm" ]] && source "$HOME/.rvm/scripts/rvm" # This loads RVM into a shell session.
-%p
-  NOTE: If you are using zsh you likely instead should put the sourcing line into ~/.zshrc
-%p
-  Doing so ensures rvm is loaded as a function (versus as a binary), ensuring commands such as rvm use work as expected. Please note that
-  you can confirm this worked correctly by opening a new shell and running:
-
-= sh_cmd "type rvm | head -1"
-
-%p If this was performed correctly, you should see:
+    $ bash < <(curl -s https://rvm.beginrescueend.com/install/rvm)
+ 
+%h4 Installing a specific version:
 
 %pre.code
-  :preserve
-    rvm is a function
-
+  :preserve 
+    curl -s https://rvm.beginrescueend.com/install/rvm -o rvm-installer ; chmod +x rvm-installer ; ./rvm-installer 1.5.3
+       
+%h4 Single-User Install Location: ~/.rvm/
 %p
-  Next, you can manually load the new code into your current shell and start using RVM ! w00t!
-
-= sh_cmd "source ~/.rvm/scripts/rvm"
-
+  If the install script is run as standard, non-root user, rvm will install into the current users's home directory. 
+    
+%h4 Multi-User Install Location: /usr/local/rvm
 %p
-  Be sure to install any dependencies for your operating system by running:
-
-= sh_cmd "rvm notes"
-
+  If the install script is run as root, rvm will automatically install into /usr/local/rvm 
+    
 %p
-  For more information / explanation on the above procedure you can read the
-  %a{:href => "http://rvm.beginrescueend.com/rvm/basics/"}
-    rvm basics
-  page
-
-%p
-  The following script will boostrap git + RVM assuming that you have curl &amp; sudo installed.
-  It will also install (last line) several common rubies.
+  <strong>If the rvm install script does nothing or complains about certificates</strong>  
+  you can bypass this by adding a '-k' switch to the curl command: 
 
 %pre.code
   :preserve
-    #!/usr/bin/env bash
-
-    # Install git
-    bash &lt; &lt;( curl -s https://rvm.beginrescueend.com/install/git )
-
-    # Install RVM
-    bash &lt; &lt;(curl -s https://rvm.beginrescueend.com/install/rvm)
-
-    # Install some rubies
-    source "$HOME/.rvm/scripts/rvm"
-    rvm install ree,1.9.2-head,jruby
-
-%h3
-  Where to now?
+    $ bash < <(curl -sk https://rvm.beginrescueend.com/install/rvm)
+     
+%h3 2. Load RVM into your shell sessions as a function
+%em 
+  Throughout these instructions, you may replace .bash_profile with the appropriate startup script for your bash-compatible shell. For other shells you may need to modify these commands.  
 %p
-  If you are new to RVM I recommend that you read the
-  %a{:href => "http://rvm.beginrescueend.com/rvm/basics/"}
-    basics page
-  At the end of the basics page there are further links as suggestions for
-  getting started.
+  Append RVM function setup to your .bash_profile:
+  
+%h4 Single-User:
 
-%h2 Troubleshooting your Install
+%pre.code
+  :preserve
+    $ echo '[[ -s "$HOME/.rvm/scripts/rvm" ]] && . "$HOME/.rvm/scripts/rvm" # Load RVM function >> ~/.bash_profile
 
-%ul
-  %li
-    %p If you open a new shell and running:
-    = sh_cmd "type rvm | head -1"
-    %p does not show "rvm is a function", rvm isn't being sourced correctly.
-  %li
-    %p
-      Do NOT 'return' from inside the .bashrc file or else RVM will be prevented from working properly -
-      That is to say, if your .bashrc contains "&& return", e.g, ubuntu in particular has
-    %pre.code
-      :preserve
-        [ -z "$PS1" ] && return
-    %p you'll need to convert it into an if statement - e.g, in this case we change the given line into
-    %pre.code
-      :preserve
-        if [[ -n "$PS1" ]]; then
-    %p
-      indent everything below it one level and then add a trailing "fi" on a new line. Once that is done,
-      we add the source line as noted above
-      %em after
-      the fi you added. E.g, this:
-    %pre.code
-      :preserve
-        [ -z "$PS1" ] && return
-        # Some code here... e.g.
-        export HISTCONTROL=ignoreboth
-    %p would become:
-    %pre.code
-      :preserve
-        if [[ -n "$PS1" ]]; then
-          # Some code here... e.g.
-          export HISTCONTROL=ignoreboth
-        fi
-        [[ -s "$HOME/.rvm/scripts/rvm" ]] && . "$HOME/.rvm/scripts/rvm"  # This loads RVM into a shell session.
+%h4 Multi-User:
+ 
+%pre.code
+  :preserve
+    $ echo '[[ -s "/usr/local/rvm/scripts/rvm" ]] && . "/usr/local/rvm/scripts/rvm" # Load RVM function >> ~/.bash_profile
 
-  %li
-    %p
-      Ensure that rvm is the last thing sourced in all of your shell profiles - e.g. it is sourced in the
-      user specific profile after any environment variables,
-      %em especially PATH
-      are set. Otherwise, the values you set be trampled when you switch rubies.
+%p 
+  %em Multi-User Install Note: The rvm function must be configured for every user you wish to use rvm.
+ 
+      
+%h4 3. Reload shell configuration & test
 
-  %li
-    %p
-      If you are using GNOME on Red Hat, CentOS or Fedora ensure that the
-      %em Run command as login shell
-      option is checked under the
-      %em Title and Command
-      tab in
-      %em Profile Preferences.
-      After changing this setting, you may need to exit your console session and start
-      a new one before the changes take affect.
+%p Open a new shell or reload your .bash_profile with the following command:
+
+%pre.code
+  :preserve
+    $ source .bash_profile
+    
+%p If configuration and installation was performed correctly, this command should output 'rvm is a function':
+
+%pre.code
+  :preserve
+    $ type rvm | head -1
+    
+%p See if there are any dependencies for your operating system by running:  
+  
+%pre.code
+  :preserve
+    $ rvm notes    
+    
+%h4 Congratulations! You have successfully installed RVM.
+
+%p
+  <strong>Multi-User Install Note:</strong> After installation, where you would normally use 'sudo', non-root users will need to use 'rvmsudo' (e.g. <code>rvmsudo gem install xxxx</code>). This may affect or break some deployment scripts.
+  E.G:
+%pre.code
+  :preserve
+    # Wrong, will fail
+    $ sudo gem install xxxx 
+    # Right
+    $ rvmsudo gem install xxxx 
+
+    
+%h3 3. Let's try out your new RVM installation:
+
+%em I've included the (truncated) output of each command on my system as an example.
+
+%p Display list of all "known" rubies (RVM can install many more rubies not listed):
+%pre.code
+  :preserve
+    $ rvm list known
+    # MRI Rubies
+    [ruby-]1.8.6[-p420]
+    [ruby-]1.8.6-head
+    [ruby-]1.8.7[-p334]
+    [ruby-]1.8.7-head
+    [ruby-]1.9.1-p378
+    [ruby-]1.9.1[-p431]
+    [ruby-]1.9.1-head
+    [ruby-]1.9.2[-p180]
+    [ruby-]1.9.2-head
+    ruby-head
+    
+    # GoRuby
+    goruby
+    
+    # JRuby
+    jruby-1.2.0
+    
+    ...
+
+%p Install a version of ruby (eg 1.9.2):
+
+%pre.code
+  :preserve
+    $ rvm install 1.9.2
+    Installing Ruby from source to: /Users/user/.rvm/rubies/ruby-1.9.2-p180, this may take a while depending on your cpu(s)...
+
+    ruby-1.9.2-p180 - #fetching 
+    ruby-1.9.2-p180 - #downloading ruby-1.9.2-p180, this may take a while depending on your connection...
+    ...
+    ruby-1.9.2-p180 - #extracting ruby-1.9.2-p180 to /Users/user/.rvm/src/ruby-1.9.2-p180
+    ruby-1.9.2-p180 - #extracted to /Users/user/.rvm/src/ruby-1.9.2-p180
+    ruby-1.9.2-p180 - #configuring 
+    ruby-1.9.2-p180 - #compiling 
+    ruby-1.9.2-p180 - #installing 
+    ...
+    Install of ruby-1.9.2-p180 - #complete 
+    
+%p Use the ruby version:
+
+%pre.code
+  :preserve
+    $ rvm use 1.9.2
+    Using /Users/user/.rvm/gems/ruby-1.9.2-p180
+    
+%p Check this worked correctly:  
+%pre.code
+  :preserve
+    $ ruby -v 
+    ruby 1.9.2p180 (2011-02-18 revision 30909) [i386-darwin9.8.0]
+    $ which ruby
+    Using /Users/user/.rvm/gems/ruby-1.9.2-p180
+        
+%p Optionally, set a version of ruby to use as the default for new shells (overrides the 'system' ruby):
+
+%pre.code
+  :preserve
+    $ rvm use 1.9.2 --default
+
+%h2 Enjoy using RVM!
+
