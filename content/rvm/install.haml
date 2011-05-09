@@ -60,13 +60,13 @@
 
 %pre.code
   :preserve
-    user$ echo '[[ -s "$HOME/.rvm/scripts/rvm" ]] && . "$HOME/.rvm/scripts/rvm" # Load RVM function >> ~/.bash_profile
+    user$ echo '[[ -s "$HOME/.rvm/scripts/rvm" ]] && . "$HOME/.rvm/scripts/rvm" # Load RVM function' >> ~/.bash_profile
 
 %h4 Multi-User:
 
 %pre.code
   :preserve
-    user$ echo '[[ -s "/usr/local/rvm/scripts/rvm" ]] && . "/usr/local/rvm/scripts/rvm" # Load RVM function >> ~/.bash_profile
+    user$ echo '[[ -s "/usr/local/rvm/scripts/rvm" ]] && . "/usr/local/rvm/scripts/rvm" # Load RVM function' >> ~/.bash_profile
 
 %p
   %em Multi-User Install Note: The rvm function must be configured for every user you wish to use rvm.
