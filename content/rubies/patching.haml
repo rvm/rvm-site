@@ -1,0 +1,121 @@
+.breadcrumbs
+  %a{ :href => "/" }
+    Documentation
+  &nbsp;>&nbsp;
+  %a{ :href => "/rubies/" }
+    Rubies
+  &nbsp;>&nbsp;
+  %a{ :href => "/rubies/patching/" }
+    Patching
+  %hr
+
+%h1 Patching Rubies
+
+%p
+  As a side effect of RVM it is very easy to test patches with many versions of ruby.
+  %p
+    Installing specific rubies with custom ruby source patches
+  %pre.code
+    :preserve
+      $ rvm install 1.8.6 --patch /path/to/awesome.patch
+  %p
+    Alternatively you can specify more than one patch, they are applied in the order given.
+  %pre.code
+    :preserve
+      $ rvm install 1.8.6 --patch /path/to/awesome.patch,/path/to/another.patch
+
+%h1 Contributing patches
+%h2 Testing patches
+%h3 Functionality improvements
+
+%p
+  %p
+    Test ruby before patching
+  %pre.code
+    :preserve
+      $ rvm install 1.8.7
+      $ ruby your_test.rb #or
+      $ ruby -e "puts 'your one line test'"
+
+  %p
+    Uninstall previous version before installing with patch
+  %pre.code
+    :preserve
+      $ rvm remove 1.8.7
+
+  %p
+    Test ruby after patching
+  %pre.code
+    :preserve
+      $ rvm install 1.8.7 --patch /path/to/awesome.patch
+      $ ruby your_test.rb #or
+      $ ruby -e "puts 'your one line test'"
+
+%h3 Compilation errors
+
+%p
+  %p
+    Test ruby after patching
+  %pre.code
+    :preserve
+      $ rvm install 1.8.6 --patch /path/to/compilation.patch
+      $ ruby -v
+
+%h2 Contributing patches
+%p
+  If your patch fixes important issues on old branches like 1.8.6 it can be contributed to RVM.
+  But first talk with somebody, before you start preparing your contribution check out what other think about it,
+  some changes aren't right for everybody and shouldn't be contributed.
+  Best way is to use
+  %a{:href => "/support/irc/"} IRC
+  and ask a questions about your patch.
+
+%p
+  It might appear that your patch is to awesome for everybody and you should keep it as your own vendor extension
+  %strong vendor/ruby-patches/my-awesome.patch
+  , and always use
+  %strong --patch
+  option.
+
+%p
+  To start you need to fork
+  %a{:href => "http://github.com/wayneeseguin/rvm"} wayneeseguin/rvm
+  clone your fork to disk, and add your patch to right directory like:
+  %strong patches/ruby/1.8.6/
+
+%p
+  Install your version of RVM into system
+  %p
+    Backup original RVM installation
+  %pre.code
+    :preserve
+      $ mv $HOME/.rvm $HOME/.rvm-backup
+
+  %p
+    Install extended RVM (from your checked out fork directory)
+  %pre.code
+    :preserve
+      $ ./install
+
+  %p
+    Install ruby which should be automatically patched, test as needed
+  %pre.code
+    :preserve
+      $ rvm install 1.8.7
+      $ ruby -v #or
+      $ ruby your_test.rb #or
+      $ ruby -e "puts 'your one line test'"
+
+  %p
+    remove test rvm installation, restore backup
+  %pre.code
+    :preserve
+      $ rm -rf $HOME/.rvm
+      $ mv $HOME/.rvm-backup $HOME/.rvm
+
+%p
+  When the code is ready and tested:
+  %ol
+    %li Commit your code, don't miss a thing.
+    %li push changes to github.
+    %li order a pull request
