@@ -3,5 +3,5 @@ compass -v0.10.5
 cri -v1.0.1
 haml -v3.0.18
 mime-types -v1.16
-nanoc3 -v3.1.5
+nanoc3 -v3.1.7
 rack -v1.2.1
