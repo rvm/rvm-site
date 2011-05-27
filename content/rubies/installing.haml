@@ -113,6 +113,24 @@
 %p
   A list of all valid tags can be found in the ruby repository: http://svn.ruby-lang.org/repos/ruby/tags/
 
+%h2 Branches (MRI)
+%p
+  Installing specific ruby branch
+  %h1
+    Repository Branches (MRI)
+  %p
+    To install a specific branch version of ruby from the repository we specify --branch (branch name).
+  %pre.code
+    :preserve
+      $ rvm install ruby-head --branch ruby_1_8 ; rvm ruby-head
+
+      $ ruby -v
+
+      ruby 1.8.8dev (2011-05-25) [i386-darwin10.7.0]
+
+%p
+  A list of all valid branches can be found in the ruby repository: http://svn.ruby-lang.org/repos/ruby/branches/
+
 %h2 Custom Patches (MRI)
 %p
   Installing specific rubies with custom ruby source patches
