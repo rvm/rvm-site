@@ -1,0 +1,57 @@
+.breadcrumbs
+  %a{ :href => "/" }
+    Documentation
+  &nbsp;>&nbsp;
+  %a{ :href => "/rubies/" }
+    Rubies
+  &nbsp;>&nbsp;
+  %a{ :href => "/rubies/upgrading/" }
+    Upgrading
+  %hr
+
+%h1 Upgrading Rubies
+
+%p
+  Upgrades the specified (already installed) source ruby given to the
+  given destination ruby version. Will migrate gemsets, wrappers, aliases
+  and environment files.
+%p
+  The process will prompt you at each stage - if the versions look incorrect,
+  please cancel and perform it manually.
+
+%h3 Examples
+%pre.code
+  :preserve
+    $ rvm upgrade 1.9.2-p136 1.9.2-p180
+    $ rvm upgrade ree-2011.01 ree-2011-03
+
+%p
+  Upgrade is easy, but it does all at once, if you need to do it once at a time check out following instructions.
+
+%h2 Coping single gemsets to new ruby
+%p
+  When testing another ruby distribution it is possible to simply copy gemset. Just install new ruby, copy your gemset and test if your application will past all the test you have.
+%h3 Examples
+%pre.code
+  :preserve
+    $ rvm gemset copy 1.8.6-p420@myapplication rbx-1.2.3@myapplication
+
+%h2 Manual migration of all gemsets
+%p
+  When there are already two versions installed of ruby, it is possible to migrate gemset from one to another. During migration gems will be copied from first to second and <strong>removed</strong> from first.
+%p
+  An good usecase would be installation of Rubinius or JRuby - just to test them and after being convinced that they work it is possible to migrate all gemsets (applications) to the new ruby of choice.
+%h3 Examples
+%pre.code
+  :preserve
+    $ rvm migrate 1.8.6-p420 rbx-1.2.3
+
+%h2 Updating all gemsets
+%p
+  An useful option for those leaving on edge. To keep all the installed gems current it is enough to use <strong>rubygems update</strong>, it will take care of updating everything.
+
+%h3 Examples
+%pre.code
+  :preserve
+    $ rvm gemset update
+
