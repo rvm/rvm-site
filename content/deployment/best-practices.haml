@@ -55,10 +55,10 @@
     %pre.code
       :preserve
         root# bdsm extend nginx  # This installs the Nginx BDSM extension.
-        root# bdsm nginx install
+        root# bdsm nginx package install
         root# chmod go+rx /home/appuser # This makes sure that Nginx can read the dir.
         root# bdsm nginx server appuser # This creates /etc/nginx/servers/appuser.conf configured for a unicorn UDS proxy by default.
-        root# bdsm nginx start
+        root# bdsm nginx service start
     %p
       Note that this will setup for Unicorn
 
@@ -73,6 +73,9 @@
           user$ crontab -e
 
           0 2 * * * bdsm rails backup_database
+    %p
+      Note that this will soon change to 'bdsm rails backup database'
+      (note the space)
 
   %li
     If you "must" (::cough:: bullshit ::cough::) using Capistrano or the like,
