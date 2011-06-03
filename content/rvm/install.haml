@@ -64,12 +64,8 @@
 
 %h4 Multi-User:
 
-%pre.code
-  :preserve
-    user$ echo '[[ -s "/usr/local/rvm/scripts/rvm" ]] && . "/usr/local/rvm/scripts/rvm" # Load RVM function' >> ~/.bash_profile
-
 %p
-  %em Multi-User Install Note: The rvm function must be configured for every user you wish to use rvm.
+  The rvm function will be automatically configured for every user on the system if you install as root.
 
 
 %h3 3. Reload shell configuration &amp; test
