@@ -4,8 +4,25 @@
   Bundler
 
 %p
-  RVM >= 1.0.23 and Bundler >= 1.0.5 are made to work great with each other.
+  RVM >= 1.6.18 and Bundler >= 1.0.5 are made to work great with each other.
   Be sure to be using the latest release of each.
+%p
+  RVM in now even tighter integrated with Bundler.
+  From now on calling any binaries installed by `bundle install` does not require to prefix them with `bundle exec`
+%p
+  So the old code:
+  %pre.code
+    :preserve
+      $ bundle install
+      $ bundle exec rake db:migrate
+
+%p
+  Can be replaced with much cleaner:
+  %pre.code
+    :preserve
+      $ bundle install
+      $ rake db:migrate
+
 %p
   NOTE: Do *not* use BUNDLE_PATH as it will override and interfere with RVM's
   control of the gem environment and more than likely suprise you with a Kancho
