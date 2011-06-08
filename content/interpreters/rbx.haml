@@ -30,6 +30,15 @@
     $ rvm install rbx
 
 %p
+  Configuration options for rbx-head can be passed after `--`.
+  %br
+  It is important to keep proper order of options so `enable-version` has to be specified before `default-version`:
+
+  %pre.code
+    :preserve
+      $ rvm install rbx -- --enable-version=1.9,1.8 --default-version=1.8
+
+%p
   If you're installing rubinius on Ubuntu and you have issues with makeinfo
   missing, you can solve it by installing the texinfo package by:
 
