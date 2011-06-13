@@ -13,6 +13,10 @@
   using the following command:
   = sh_cmd "rvm get head"
 
+%p
+  You should also choose a default Ruby, for example to set 1.9.2 as your default
+  = sh_cmd "rvm --default use 1.9.2"
+
 %h3 The rvm-auto-ruby approach
 
 
@@ -49,10 +53,6 @@
 %p
   Next, you'll need to generate a command. The general structure of the rvm wrapper command is
   = sh_cmd "rvm wrapper [ruby_string] [wrapper_prefix]"
-
-%p
-  You should also choose a default Ruby, for example to set 1.9.2 as your default
-  = sh_cmd "rvm --default use 1.9.2"
 
 %p
   In our case, we thus run:
