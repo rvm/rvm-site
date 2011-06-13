@@ -51,6 +51,10 @@
   = sh_cmd "rvm wrapper [ruby_string] [wrapper_prefix]"
 
 %p
+  You should also choose a default Ruby, for example to set 1.9.2 as your default
+  = sh_cmd "rvm --default use 1.9.2"
+
+%p
   In our case, we thus run:
   = sh_cmd "rvm wrapper rbx@rails3 textmate"
 
