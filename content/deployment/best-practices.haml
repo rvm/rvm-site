@@ -42,7 +42,7 @@
       :preserve
         root# bdsm extend rails deploy unicorn # Install rails,depoy,unicorn extensions.
         appuser$ bdsm bdsmrc      # Put a default ~/.bdsmrc in place.
-        appuser$ vim ~/bdsmrc     # Update settings, specifically repository_url, etc...
+        appuser$ vim ~/.bdsmrc     # Update settings, specifically repository_url, etc...
         appuser$ bdsm rails setup # This sets up ~/shared path etc
         appuser$ bdsm deploy      # Updates ~/current with a fresh release.
         appuser$ vim ~/shared/config/database.yml # setup your db connection info.
@@ -57,7 +57,7 @@
         root# bdsm extend nginx  # This installs the Nginx BDSM extension.
         root# bdsm nginx package install
         root# chmod go+rx /home/appuser # This makes sure that Nginx can read the dir.
-        root# bdsm nginx server appuser # This creates /etc/nginx/servers/appuser.conf configured for a unicorn UDS proxy by default.
+        root# bdsm nginx service appuser # This creates /etc/nginx/servers/appuser.conf configured for a unicorn UDS proxy by default.
         root# bdsm nginx service start
     %p
       Note that this will setup for Unicorn
