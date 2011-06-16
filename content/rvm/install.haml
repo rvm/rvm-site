@@ -50,6 +50,17 @@
   :preserve
     user$ bash &lt; &lt;(curl -sk https://rvm.beginrescueend.com/install/rvm)
 
+%p
+  %strong If you doesn't like the ~/bin and ~/share dirs created on the root of your home directory
+  you can overwrite the rvm_bin_path and rvm_man_path variables by doing the command:
+
+%pre.code
+  :preserve
+    user$ curl -s https://rvm.beginrescueend.com/install/rvm -o rvm-installer ; chmod +x rvm-installer ; rvm_bin_path=~/.rvm/bin rvm_man_path=~/.rvm/share/man ./rvm-installer
+
+%p
+  or change the directories accordly.
+
 %h3 2. Load RVM into your shell sessions as a function
 %em
   Throughout these instructions, you may replace .bash_profile with the appropriate startup script for your bash-compatible shell. For other shells you may need to modify these commands.
