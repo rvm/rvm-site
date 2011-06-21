@@ -1,14 +1,21 @@
+@import compass/reset
+@import compass/css3
+@import compass/layout/sticky-footer
+
 @import base.sass
 @import default.sass
 @import text.sass
 
+@include sticky-footer(80px, "#container", "#layout-footer", "#footer")
+
 *
   margin: 0
   padding: 0
-  font-family: Gill Sans, sans-serif, Georgia, Palatino, Times, "Times New Roman"
+  font-family: "Lucida Grande", "Gill Sans", sans-serif
+  font-size: 1em
 
 body
-  background: #8b1417 url(/images/bottom-gradient.gif) repeat-x fixed center bottom
+  background: #8b1417 url("/images/bottom-gradient.gif") repeat-x fixed center bottom
   line-height: 1.4em
   .relative
     position: relative
@@ -102,7 +109,7 @@ body
 
 
 
-/************* New Design **************/
+/************* Design update 2011-06-21 **************/
 
 center
   margin: 0
@@ -127,6 +134,9 @@ h6
   margin: 0.3em 0 0 0
 
 
+//container-width
+$container-width: 90%
+
 // content width
 $width: 80%
 
@@ -141,6 +151,24 @@ $height: 190px
   -webkit-border-radius: 10px
   -khtml-border-radius: 10px
   border-radius: 10px
+
+@mixin round_border($topleft,$topright,$bottomleft,$bottomright)
+  border-top-left-radius: $topleft
+  border-top-right-radius: $topright
+  border-bottom-left-radius: $bottomleft
+  border-bottom-right-radius: $bottomright
+  -moz-border-radius-topleft: $topleft
+  -moz-border-radius-topright: $topright
+  -moz-border-radius-bottomleft: $bottomleft
+  -moz-border-radius-bottomright: $bottomright
+  -webkit-border-top-left-radius: $topleft
+  -webkit-border-top-right-radius: $topright
+  -webkit-border-bottom-left-radius: $bottomleft
+  -webkit-border-bottom-right-radius: $bottomright
+  -o-border-radius-topleft: $topleft
+  -o-border-radius-topright: $topright
+  -o-border-radius-bottomleft: $bottomleft
+  -o-border-radius-bottomright: $bottomright
 
 =topcorners
   -moz-border-radius-topleft: 10px
@@ -167,46 +195,108 @@ $height: 190px
   box-shadow: 0px 2px 5px rgba(0,0,0,0.2)
 
 
-#heaven_grid
-  height: 200px
-  width: 100%
-  +backgroundtex
-  margin: 0
-  +shadow
-  #heaven
-    +centered(1200px)
-    width: 1200px
-    .supportbox_left
-      padding-right: 10px
-      padding-left: 10px
-      width: 220px
-      height: $height
-      margin: 10px 0 0 0
-      float: left
-      border-right: 1px solid #c9c9c9
-      text-align: justify
-    .supportbox_right
-      height: $height
-      width: 140px
-      margin: 10px 0 0 10px
-      margin-right: 40px
-      float: right
-      text-align: justify
-      h6
-        margin-left: -2em
+$box-background: #3D3D3D
+$title-background: #292929
 
-.logo
-  margin: 0em
+.title
+  font-size: 80%
+  text-align: center
+  text-transform: uppercase
+  letter-spacing: 0.1em
+  color: #5C5C5C
+  text-shadow: 0.1em 0.1em #000
+  background: $title-background
+
+@mixin default-box 
+  background: $box-background
+  float: left
+  +shadow
+  +round_border(0, 0, 5px, 5px)
+  width: 18%
+  margin-right: 0.7%
+
+@mixin default-text
+  .text
+    font-size: 70%
+    padding: 3%
+    color: #E0E0E0
+
+#heaven
+  height: 1%
+  @include sticky-footer(80px)
+  width: 100%
+  +box-shadow
+  background: $title-background
+
+#container
+  +centered($container-width)
+  margin-bottom: 2%
+
+  #donate, #recommend, #irc
+    a
+      color: #E0BABA
+      &:hover
+        text-decoration: underline
+    
+
+  #logo
+    text-align: center
+    @include default-box
+    background: $title-background
+    img
+      max-width: 100%
+      max-height: 170px
+  
+  #donate
+    @include default-box
+    @include default-text
+    height: auto
+    .pledgie
+      text-align: center
+      img
+        max-width: 100% 
+        margin-top: 5%
+
+  #recommend, #irc
+    @include default-box
+    @include default-text
+
+
+  #sponsors
+    float: right
+    width: 25%
+    background: $box-background
+    +round_border(0, 0, 5px, 5px)
+    +shadow
+    height: auto
+    .logo
+      width: 45%
+      padding: 1%
+      text-align: center
+      font-size: 80%
+      img
+        max-height: 13%
+        max-width: 100%
+        margin: 0 auto
+    .bbg
+      float: left
+      img
+        margin-top: 15%
+    .eyrd
+      float: right
+      img
+        margin-top: 5%
+        max-height: 130px
 
 #content
-  +centered
-  +roundcorners
   +shadow
   +backgroundtex
   padding: 1em
-  width: $width
-  clear: both
+  margin-top: 2%
   font-size: 0.9em
+  +round_border(5px, 5px, 5px, 5px)
+  img
+    max-width: 100%
   div
     font-size: medium
     &.title
@@ -230,15 +320,12 @@ $height: 190px
     overflow: auto
 
 #docindex
-  +centered
   +shadow
   +backgroundtex
-  +topcorners
-  margin-top: 1em
-  padding: 0.9em
-  width: $width
-  color: #555
-  height: 800px
+  padding: 1em
+  margin-top: 2%
+  font-size: 0.9em
+  +round_border(5px, 5px, 5px, 5px)
   .headline
     font-size: small
     font-weight: bold
@@ -268,14 +355,42 @@ $height: 190px
     margin-left: 0.5em
     margin-top: -0.3em
 
-#footer
-  +backgroundtex
-  padding-top: 0.2em
-  margin-top: 1em
-  height: 75px
-  width: 100%
-  text-align: center
-  font-size: 0.8em
-  text-transform: uppercase
-  letter-spacing: 0.4em
 
+@media screen and (max-width: 768px)
+  #logo, #donate, #recommend, #irc, #sponsors
+    min-height: 120px
+  #sponsors
+    .logo .title
+      display: none
+  #donate .text, .more
+    display: none
+
+@media screen and (min-width: 768px)
+  #logo, #donate, #recommend, #irc, #sponsors
+    min-height: 200px
+
+@media screen and (min-width: 1200px)
+  #content
+    width: 50%
+    float: left
+    margin-bottom: 1%
+  #docindex
+    width: 44%
+    float: right
+  a.docindex
+    display: none
+
+
+#footer
+  height: 80px
+  @include sticky-footer(80px)
+  width: 100%
+  +box-shadow
+  background: $box-background
+  #footer-container
+    +centered($container-width)
+    text-align: center
+    font-size: 0.7em
+    color: #CFC2B5
+    a
+      color: #CFC2B5

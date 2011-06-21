@@ -1,0 +1,64 @@
+!!!
+%html
+  %head
+    %title
+      RVM: Ruby Version Manager -
+      = @item[:title]
+    %link{ :href => "/css/screen.css", :rel => "stylesheet", :type => "text/css", :media => "screen" }
+    %meta{ :content => "text/html; charset=UTF-8", "http-equiv" => "Content-Type" }
+
+  %body
+
+    #heaven
+
+    #container
+
+      =render "shared/header"
+    
+      #content
+        %center
+          #cse Just a moment.
+          %a{ :href => "#docindex", :class => "docindex"}
+            $ rvm help # Documentation Index
+
+        %a{ :name => "top" }
+        =yield
+        %a{ :name => "bottom" }
+
+      =render "shared/doc"
+
+    #footer
+      #footer-container
+        &infin;
+        Copyright &copy; >= 2009-2011
+        %a{:href => "http://wayneseguin.us/"}
+          Wayne E. Seguin
+        &infin;
+        Built with
+        %a{:href => "http://nanoc.stoneship.org/"}
+          Nanoc
+        &infin;
+        Hosted by
+        %a{:href => "http://www.bluebox.net"}
+          Blue Box Group, LLC
+        &infin;
+        %br
+          %a{ :href => "http://www.bluebox.net/" }
+            %img{:src => "/images/bbg_logo.png", :alt => "Blue Box Group, LLC", :height => "50px"}
+
+
+
+
+    %script{:src => "https://www.google.com/jsapi", :type => "text/javascript"}
+      :javascript
+        google.load('search', '1', {language : 'en', style : google.loader.themes.SHINY});
+        google.setOnLoadCallback(function() {
+          var customSearchControl = new google.search.CustomSearchControl('012125088244772422662:eplzzxbbjte');
+          customSearchControl.setResultSetSize(google.search.Search.FILTERED_CSE_RESULTSET);
+          customSearchControl.draw('cse');
+        }, true);
+
+      :preserve
+        <script src="https://www.google.com/jsapi?key=ABQIAAAAlfGITCLCzrcO4cy2viT78RSZcRLSY2B0NYnmYEy-3gaXzTHyQxRduJj7nQ6rEtYNpUjIQpEEosF5XA" type="text/javascript"></script>
+        <script src="/javascripts/site.js" type="text/javascript"></script>
+
