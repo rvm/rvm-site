@@ -1,5 +1,5 @@
 # rvm-site.gems generated gem export file. Note that any env variable settings will be missing. Append these after using a ';' field separator
-compass -v0.10.5
+compass -v0.11.3
 cri -v1.0.1
 haml -v3.1.2
 sass -v3.1.3

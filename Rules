@@ -42,7 +42,7 @@ end
 
 compile '*' do
   filter :haml
-  layout "rvm"
+  layout "default"
 end
 
 route '*' do
