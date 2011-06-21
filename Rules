@@ -12,34 +12,33 @@ compile "/assets/css/*/" do
   filter :sass, Compass.sass_engine_options
 end
 
-
 route "/assets/css/_*/" do
   nil # don't output partials, so return nil
 end
 
-route "/assets/images/*/" do
-  nil # don't output partials, so return nil
+route '/assets/css/*' do
+  item.identifier.chop.sub(%r{^/assets}, '') + ".css"
 end
-compile '/assets/images/*/' do
+
+
+%w(assets/images assets/javascripts).each do |asset_dir|
+  compile "/#{asset_dir}/*" do
+    nil
+  end
+
+  route "/#{asset_dir}/*" do
+    item.identifier.chop.sub(%r{^/assets}, '') + "." + item[:extension]
+  end
+end
+
+compile "/assets/favicon" do
   nil
 end
 
-compile '/assets/favicon*' do
-  nil
+route "/assets/favicon/" do
+  "/favicon.ico"
 end
 
-route "/assets/javascripts/*/" do
-  # don't generate a directory like we do for HTML files
-  item.identifier.sub(%r{^/assets}, '').chop + ".js"
-end
-compile '/assets/javascripts/*/' do
-  nil
-end
-
-route "/assets/css/*/" do
-  # don't generate a directory like we do for HTML files
-  item.identifier.sub(%r{^/assets}, '').chop + ".css"
-end
 
 compile '*' do
   filter :haml
