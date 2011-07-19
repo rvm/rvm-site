@@ -50,10 +50,6 @@ You can use Nanoc's AutoCompile feature:
 
 	nanoc3 aco
 
-To view the images in your browser, first make sure the public folder exists, then copy the images folder to the public folder:
-
-  cp -R content/assets/images public
-	
 == Update Submission
 
 Once you are satisfied with your changes to the documentation push it back to your github fork and initiate a pull request.
