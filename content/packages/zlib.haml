@@ -23,7 +23,7 @@
   'rvm remove X ; rvm install X' where X is the ruby that you are concerned with.
 %pre.code
   :preserve
-    $ rvm package install zlib
+    $ rvm pkg install zlib
     $ rvm remove 1.9.2
     $ rvm install 1.9.2 --with-zlib-dir=$rvm_path/usr
 %p
@@ -33,7 +33,7 @@
   %br
   %pre.code
     :preserve
-      $ rvm package install zlib
+      $ rvm pkg install zlib
       $ rvm remove 1.9.2
       $ rvm install 1.9.2
 

@@ -20,7 +20,7 @@
   'rvm remove X ; rvm install X' where X is the ruby that you are concerned with.
 %pre.code
   :preserve
-    $ rvm package install readline
+    $ rvm pkg install readline
     $ rvm remove 1.9.2
     $ rvm install 1.9.2 --with-readline-dir=$rvm_path/usr
 %p
@@ -40,7 +40,7 @@
     $ make install
 
 %p
-  If you used 'rvm package install readline' then alter the above to:
+  If you used 'rvm pkg install readline' then alter the above to:
 %pre.code
   :preserve
     $ cd $HOME/.rvm/src/ruby-1.9.2-p0/ext/readline
