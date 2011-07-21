@@ -4,38 +4,19 @@
   Bundler
 
 %p
-  RVM >= 1.6.18 and Bundler >= 1.0.5 are made to work great with each other.
-  Be sure to be using the latest release of each.
+  Unfortunately attempts to make rvm and bundler integrate were rejected
+  by bundler team. As a temporary solution a new game was created which was
+  discussed with rubygems and bundler teams, as they not really like the
+  solution be warned they will most likely not support.
+
 %p
-  RVM in now even tighter integrated with Bundler.
-  From now on calling any binaries installed by `bundle install` does not require to prefix them with `bundle exec`
-%p
-  So the old code:
+  Installation:
   %pre.code
     :preserve
-      $ bundle install
-      $ bundle exec rake db:migrate
-
-%p
-  Can be replaced with much cleaner:
-  %pre.code
-    :preserve
-      $ bundle install
-      $ rake db:migrate
-
-%p
-  NOTE: Do *not* use BUNDLE_PATH as it will override and interfere with RVM's
-  control of the gem environment and more than likely suprise you with a Kancho
-  attack when you least expect it.
-
-%h2
-  Troubleshooting
-%p
-  If you are experiencing behavior of Bundler that you do not expect when using
-  it for a project first try removing the ~/.bundle/config file then reattempt
-  what you were trying. You may also want to in the project directory remove
-  the .bundle/config file if it exists as well to ensure you are running
-  Bundler with clean settings.
+      gem install rubygems-bundler
+  And follow onscreen instructions, for mor information visit
+  %a{:href => "https://github.com/mpapis/rubygems-bundler"}
+    rubygems-bundler @ github
 
 %h1
   Community Resources
@@ -44,4 +25,3 @@
     You can read bundler's README on
     %a{:href => "http://github.com/carlhuda/bundler"}
       GitHub
-
