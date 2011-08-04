@@ -85,10 +85,12 @@
 
 %p
   Otherwise, perhaps you use bundler, then you would bootstrap your gems as follows
+  ( Note, Be sure that 'gem "unicorn"' is in the Gemfile first,
+  *with no version specified* )
 %pre.code
   :preserve
     appuser$ cd ~/current
-    appuser$ gem install bundler && bundle install # Be sure that 'gem "unicorn"' is in Gemfile first, no version.
+    appuser$ gem install bundler && bundle install
 
 %p
   Once your Ruby app environment is bootstrapped, you shoudl be able to start
@@ -160,18 +162,9 @@
     0 2 * * * bdsm rails backup_database
 %p
   Note that this will soon change to 'bdsm rails backup database' (note the space)
+%p
+  Use wrapper scripts for managing things like god, unicorns and the like.
+  %pre.code
+    :preserve
+      user$ rvm help wrapper
 
-%h4
-  Misc...
-%ul
-  %li
-    You can
-    %a{:href => "/rvm/install/"}
-      install RVM as root
-    if you wish and use the 'rvm' group to enable installing gems / rubies.
-
-  %li
-    Use wrapper scripts for managing things like god, unicorns and the like.
-    %pre.code
-      :preserve
-        user$ rvm help wrapper
