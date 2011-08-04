@@ -40,26 +40,58 @@
     'deploy' and 'rails' extensions for nicely integrated RVM deployment.
     %pre.code
       :preserve
-        appuser$ bdsm bdsmrc      # Put a default ~/.bdsmrc in place.
-        appuser$ vim ~/.bdsmrc    # Update settings, specifically repository_url, etc...
-        appuser$ bdsm rails setup # This sets up ~/shared path etc
-        appuser$ bdsm deploy      # Updates ~/current with a fresh release.
+        appuser$ bdsm bdsmrc        # Put a default ~/.bdsmrc in place.
+        appuser$ vim ~/.bdsmrc      # Update settings, especially repository_url
+        appuser$ echo 'rvm_path="$HOME/.rvm"' >> ~/.rvmrc # Set rvm_path
+        appuser$ bdsm rails setup   # This sets up ~/shared path, rvm/ruby etc...
+        appuser$ bdsm unicorn setup # Unicorn configuration file in place
         appuser$ vim ~/shared/config/database.yml # setup your db connection info.
+        appuser$ bdsm deploy        # Updates ~/current with a fresh release.
+    %p
+      If you use Bundler, do the following next
+    %pre.code
+      :preserve
         appuser$ cd ~/current
         appuser$ gem install bundler && bundle install # Be sure that 'gem "unicorn"' is in Gemfile first, no version.
+    %p
+      Finally once your Ruby app env is bootstrapped, start unicorn up.
+    %pre.code
+      :preserve
         appuser$ bdsm unicorn start
+    %p
+      If there are any issues they can be seen by looking in the unicorn error log,
+    %pre.code
+      :preserve
+        tail -n 100 ~/shared/log/unicorn.stderr.log
 
     %p
-      I run Nginx, so what I do is the following,
+      I run Nginx, so what I do is the following, first we install nginx and
+      configure system (eg. /etc/nginx/)
     %pre.code
       :preserve
         root# bdsm nginx package install
-        root# chmod go+rx /home/appuser  # This makes sure that Nginx can read the dir.
-        root# bdsm nginx service appuser # This creates /etc/nginx/servers/appuser.conf configured for a unicorn UDS proxy by default.
-        root# bdsm nginx service start
+        root# bdsm nginx configure system
     %p
-      Note that this will setup for Unicorn
-
+      Next for each application user I have, we generate an applicaiton server
+      configuration file (in /etc/nginx/servers/)
+    %pre.code
+      :preserve
+        root# bdsm nginx server add {{appuser}}
+    %p
+      Note that this creates /etc/nginx/servers/appuser.conf configured to proxy
+      to a unicorn running on a Unix Domain Socket (UDS) by default.
+    %p
+      Now we ensure their directory is readable by Nginx
+    %pre.code
+      :preserve
+        root# chmod go+rx /home/{{appuser}}
+    %p
+      This ensures that Nginx can read the dir.
+    %p
+      Now we can startup the Nginx service,
+    %pre.code
+      :preserve
+        root# bdsm nginx service start
     %p
       Do not forget backups, too many people do...
       %pre.code
