@@ -3,114 +3,175 @@
 %a{:name => "best-practices"}
 %h1 Deployment Best Practices
 
+%h4
+  Use
+%a{:href => "http://bdsm.beginrescueend.com/"}
+  BDSM
+'deploy' and 'rails' extensions for nicely integrated RVM deployment.
+
+%h4
+  Walkthrough
 %p
-  When deploying with rvm, there are a few things to keep in mind. Please note that
-  all of these are our suggested practices and are typically best setup on a new machine:
+  When deploying rvm applications with BDSM, there are a few things to keep in mind.
+  Please note that all of these are our suggested practices and are typically
+  best setup on a new machine:
 
-%h2 The Best Practice List
+%p
+  The best way is to create one system user per application(project) and deploy an isolated
+  environment to each user, preferably with the same shortname as the application.
 
+%p
+  Use an RVM gemset for each application (project)
+%p
+  Also be sure to use a
+  %a{:href => "http://rvm.beginrescueend.com/workflow/rvmrc/#project"}
+    project .rvmrc
+  for each project, for both development and deployment.
+
+%p
+  First we start by generating a defult ~/.bdsmrc
+%pre.code
+  :preserve
+    appuser$ bdsm bdsmrc
+
+%p
+  Now update any settings you need to in the ~/.bdsmrc file, such as the
+  environment, repository_url and perhaps the branch to deploy from.
+%pre.code
+  :preserve
+    appuser$ vim ~/.bdsmrc
+
+%p
+  Now, we set the rvm_path to be user facing.
+%pre.code
+  :preserve
+    appuser$ echo 'rvm_path="$HOME/.rvm"' >> ~/.rvmrc
+%p
+  Now we run the rails setup command, this will create and setup the
+  configuration within the ~/shared path and install rvm with the selected or
+  default ruby (currently 1.9.2)
+%pre.code
+  :preserve
+    appuser$ bdsm rails setup
+
+%p
+  Generate the unicorn configuration file in ~/shared/config/. Edit this file
+  if you would like to run more than 2 unicorn worker processes by default
+  and to tweak any unicorn settings.
+%pre.code
+  :preserve
+    appuser$ bdsm unicorn setup
+
+%p
+  Edit the default generated database.yml file and setup your db connection
+  information.
+%pre.code
+  :preserve
+    appuser$ vim ~/shared/config/database.yml
+
+%p
+  Update ~/current with a fresh release using the latest code from the defined
+  repository and branch.
+%pre.code
+  :preserve
+    appuser$ bdsm deploy
+
+%p
+  If you use rvm gemset files, do the following
+%pre.code
+  :preserve
+    appuser$ source ~/.bash_profile # load RVM into your current shell
+    appuser$ rvm gemset import ~/current/production.gems
+
+%p
+  Otherwise, perhaps you use bundler, then you would bootstrap your gems as follows
+%pre.code
+  :preserve
+    appuser$ cd ~/current
+    appuser$ gem install bundler && bundle install # Be sure that 'gem "unicorn"' is in Gemfile first, no version.
+
+%p
+  Once your Ruby app environment is bootstrapped, you shoudl be able to start
+  your application running under unicorn,
+%pre.code
+  :preserve
+    appuser$ bdsm unicorn start
+
+%p
+  If there are any issues starting up your application you will be notified
+  by the Unicorn extension as such and you can find more details by looking
+  in the unicorn error log,
+%pre.code
+  :preserve
+    tail -n 100 ~/shared/log/unicorn.stderr.log
+
+%p
+  If you run Nginx like I do, you proceed as follows. Please take note that
+  we have switched to running as root :)
+%pre.code
+  :preserve
+    root# bdsm nginx package install
+
+%p
+  Now we 'configure the system' which means copying the Nginx configuration
+  directory into /etc/nginx
+%pre.code
+  :preserve
+    root# bdsm nginx configure system
+
+%p
+  Next for each application user I have, we generate an applicaiton server
+  configuration file (in /etc/nginx/servers/)
+%pre.code
+  :preserve
+    root# bdsm nginx server add {{appuser}}
+
+%p
+  Note that this creates /etc/nginx/servers/appuser.conf configured to proxy
+  to a unicorn running on a Unix Domain Socket (UDS) by default.
+%p
+  Now we ensure their directory is readable by Nginx
+%pre.code
+  :preserve
+    root# chmod go+rx /home/{{appuser}}
+
+%p
+  Now we can startup the Nginx service,
+%pre.code
+  :preserve
+    root# bdsm nginx service start
+
+%p
+  Do not forget backups, too many people do...
+  The rails extension comes with a backup_database action.
+  This will backup the database based on the database.yml file into the
+  \~/shared/backups/ directory.
+  (If you want them in a different location, use filesystem symlinks.)
+%pre.code
+  :preserve
+    user$ bdsm rails backup_database
+
+%p
+  Stick it in cron, make sure it happens nightly at 02:00,
+%pre.code
+  :preserve
+    user$ crontab -e
+
+    0 2 * * * bdsm rails backup_database
+%p
+  Note that this will soon change to 'bdsm rails backup database' (note the space)
+
+%h4
+  Misc...
 %ul
   %li
+    You can
     %a{:href => "/rvm/install/"}
-      Install RVM as root
-  %li
-    Use one system user per project, preferably with the same shortname as the
-    project.
-  %li
-    Use  gemset per-project
-  %li
-    Use a
-    %a{:href => "http://rvm.beginrescueend.com/workflow/rvmrc/#project"}
-      project .rvmrc
-    for each project, for both development and deployment.
-  %li
-    When using
-    %a{:href => "/integration/passenger/"} Phusion Passenger,
-    ensure all projects use the same ruby.
+      install RVM as root
+    if you wish and use the 'rvm' group to enable installing gems / rubies.
+
   %li
     Use wrapper scripts for managing things like god, unicorns and the like.
     %pre.code
       :preserve
         user$ rvm help wrapper
-
-  %li
-    Use
-    %a{:href => "http://bdsm.beginrescueend.com/"}
-      BDSM
-    'deploy' and 'rails' extensions for nicely integrated RVM deployment.
-    %pre.code
-      :preserve
-        appuser$ bdsm bdsmrc        # Put a default ~/.bdsmrc in place.
-        appuser$ vim ~/.bdsmrc      # Update settings, especially repository_url
-        appuser$ echo 'rvm_path="$HOME/.rvm"' >> ~/.rvmrc # Set rvm_path
-        appuser$ bdsm rails setup   # This sets up ~/shared path, rvm/ruby etc...
-        appuser$ bdsm unicorn setup # Unicorn configuration file in place
-        appuser$ vim ~/shared/config/database.yml # setup your db connection info.
-        appuser$ bdsm deploy        # Updates ~/current with a fresh release.
-    %p
-      If you use Bundler, do the following next
-    %pre.code
-      :preserve
-        appuser$ cd ~/current
-        appuser$ gem install bundler && bundle install # Be sure that 'gem "unicorn"' is in Gemfile first, no version.
-    %p
-      Finally once your Ruby app env is bootstrapped, start unicorn up.
-    %pre.code
-      :preserve
-        appuser$ bdsm unicorn start
-    %p
-      If there are any issues they can be seen by looking in the unicorn error log,
-    %pre.code
-      :preserve
-        tail -n 100 ~/shared/log/unicorn.stderr.log
-
-    %p
-      I run Nginx, so what I do is the following, first we install nginx and
-      configure system (eg. /etc/nginx/)
-    %pre.code
-      :preserve
-        root# bdsm nginx package install
-        root# bdsm nginx configure system
-    %p
-      Next for each application user I have, we generate an applicaiton server
-      configuration file (in /etc/nginx/servers/)
-    %pre.code
-      :preserve
-        root# bdsm nginx server add {{appuser}}
-    %p
-      Note that this creates /etc/nginx/servers/appuser.conf configured to proxy
-      to a unicorn running on a Unix Domain Socket (UDS) by default.
-    %p
-      Now we ensure their directory is readable by Nginx
-    %pre.code
-      :preserve
-        root# chmod go+rx /home/{{appuser}}
-    %p
-      This ensures that Nginx can read the dir.
-    %p
-      Now we can startup the Nginx service,
-    %pre.code
-      :preserve
-        root# bdsm nginx service start
-    %p
-      Do not forget backups, too many people do...
-      %pre.code
-        :preserve
-          user$ bdsm rails backup_database
-      Stick it in cron, make sure it happens nightly...
-      %pre.code
-        :preserve
-          user$ crontab -e
-
-          0 2 * * * bdsm rails backup_database
-    %p
-      Note that this will soon change to 'bdsm rails backup database'
-      (note the space)
-
-  %li
-    If you "must" (::cough:: bullshit ::cough::) using Capistrano or the like,
-    follow the
-    %a{:href => "/integration/capistrano/"}
-      capistrano integration guide
-    closely
-
