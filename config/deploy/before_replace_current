@@ -2,12 +2,20 @@
 
 source "$HOME/.rvm/scripts/rvm"
 
-cd "$stage_path"
+enter "$stage_path"
 
 rvm gemset import rvm-site.gems
 
 nanoc3 co --verbose
 
-rsync -avgz content/assets/images/ public/images/
-rsync -avgz content/assets/pdf/ public/pdf/
+# TODO: Enable to specify copy_paths and symlink_paths for deploys.
+if [[ -d "content/assets/images" ]]
+then
+  rsync -avgz content/assets/images/ public/images/
+fi
+
+if [[ -d "content/assets/pdf" ]]
+then
+  rsync -avgz content/assets/pdf/ public/pdf/
+fi
 
