@@ -14,7 +14,7 @@
   Rubinius
 %p
   Rubinius is a ruby interpreter written in C++ using many advanced techniques and technologies such as LLVM, a "precise, compacting, generational garbage collector",
-  a compatible C extension api to standard MRI Ruby and many other awesome ideas that will give any language nut a huge nerdon.
+  a compatible C extension API to standard MRI Ruby, and many other awesome ideas that will give any language-nut a huge nerdon.
 
 %h3
   Website
@@ -32,15 +32,15 @@
 %p
   Configuration options for rbx-head can be passed after `--`.
   %br
-  It is important to keep proper order of options so `enable-version` has to be specified before `default-version`:
+  It is important to keep proper order of options; `enable-version` must be specified before `default-version`:
 
   %pre.code
     :preserve
       $ rvm install rbx -- --enable-version=1.9,1.8 --default-version=1.8
 
 %p
-  If you're installing rubinius on Ubuntu and you have issues with makeinfo
-  missing, you can solve it by installing the texinfo package by:
+  If you're installing rubinius on Ubuntu, and you find that makeinfo
+  is missing, you can solve that by installing the texinfo package by:
 
 %pre.code
   :preserve

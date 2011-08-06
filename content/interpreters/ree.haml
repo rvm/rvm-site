@@ -12,8 +12,8 @@
 %h1
   Ruby Enterprise Edition (REE)
 %p
-  REE builds on top of MRI Rubies versions 1.8.X in order to deliver an enhanced interpreter with many performance and memory optimizations,
-  including common patch sets such as MBARI.
+  REE builds on top of MRI Rubies, versions 1.8.X and later, to deliver an enhanced interpreter with many performance and memory optimizations,
+  including common patch-sets such as MBARI.
 
 %h2
   Installing
@@ -23,7 +23,7 @@
     $ rvm install ree
 
 %p
-  If you wish to install a previous version of Ruby Enterprise Edition, you'll need to do a couple of things before continuing.
+  To install a prior version of Ruby Enterprise Edition, you'll need to do a couple of things before continuing.
   Firstly, you'll need to edit ~/.rvm/config/user to update the download url base for the ruby you wish to install. As an example,
   for ree-1.8.7-p2010.01, you would add:
 
@@ -32,15 +32,15 @@
     ree_1.8.7_url=http://rubyforge.org/frs/download.php/68719
 
 %p
-  But for ree-1.8.7-p20090928 you would need to add:
+  For ree-1.8.7-p20090928 you would need to add:
 
 %pre.code
   :preserve
     ree_1.8.7_url=http://rubyforge.org/frs/download.php/64475
 
 %p
-  When using 20090928 on OSX, you also need to pass a few extra options. As an example,
-  you would need to run:
+  When using 20090928 on OSX, you also need to pass in a few extra options. As an example,
+  you'd need to run:
 
 %pre.code
   :preserve
@@ -53,9 +53,9 @@
   NOTE: on any OS, if installation of REE fails and the output file
   reports missing readline-devel, zlib-devel, and openssl-devel
   headers AND you are sure that you have read the
-  %a{ :href => "/packages/" } packages install instructions
+  %a{ :href => "/packages/" } packages install instructions - 
   or you are otherwise positive that you have the necessary packages
-  installed in a known location, then check your PATH environment
+  installed in a known location - check your PATH environment
   variable to make sure something like "/usr/lib" is NOT present.
   See this
   %a{ :href=> "http://code.google.com/p/rubyenterpriseedition/issues/detail?id=59&colspec=ID%20Type%20Status%20Priority%20Milestone%20Summary" } REE issue

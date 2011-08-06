@@ -10,15 +10,15 @@
   %hr
 
 %p
-  You can empty a gemset, this will prompt you whether you are sure you wish to empty the gemset.
-  This removes all gems installed to the gemset.
+  If you empty a gemset, rvm will prompt you for confirmation.
+  This action removes all gems installed in the gemset.
 %pre.code
   :preserve
     $ rvm gemset use albinochipmunk
     $ rvm gemset empty albinochipmunk
 
 %p
-  If you wish to not be prompted, pass --force:
+To skip confirmation, pass the --force flag:
 %pre.code
   :preserve
     $ rvm gemset use albinochipmunk

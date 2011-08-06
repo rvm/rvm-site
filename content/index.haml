@@ -27,37 +27,40 @@
 %h2 Introduction
 
 %p
-  RVM is a command line tool which allows us to easily install, manage and work with multiple ruby environments from interpreters to sets of gems.
+  RVM is a command-line tool which allows you to easily install, manage and work with multiple ruby environments, from interpreters to sets of gems.
 
 %h2 Production
 
 %p
-  RVM  allows users to deploy each project with its own completely self-contained and dedicated environment--from the specific version of ruby all the way down to the precise set of required gems to run the application. Having a precise set of gems also avoids the issue of version conflicts between projects, causing difficult-to-trace errors and hours of hair loss.  With RVM, NO OTHER GEMS than those required are installed. This makes working with multiple complex applications where each has a long list of gem dependencies efficient. RVM allows us to easily test gem upgrades by switching to a new clean set of gems to test with while leaving our original set intact. It is flexible enough to even have a set of gems per environment or development branch--or even individual developer's taste!
+  RVM  lets you deploy each project with its own completely self-contained and dedicated environment--from the specific version of ruby, all the way down to the precise set of required gems to run your application. Having a precise set of gems also avoids the issue of version conflicts between projects, which can cause difficult-to-trace errors and hours of hair loss.  With RVM, NO OTHER GEMS than those required are installed. This makes working with multiple complex applications, where each has a long list of gem dependencies, much more efficient. RVM let you easily test gem upgrades, by switching to a new clean set of gems to test with, while leaving your original set intact. It is flexible enough to even let you maintain a set of gems per environment, or per development branch--or even per individual developer's taste!
 
 %h2 Development
 
-RVM reduces the complexity that is the many facets of ruby development through
-its command line API.  RVM allows you to have **identical** self-contained
+RVM reduces the complexity of the many facets of ruby development through
+its command-line API.  With RVM, you can have **identical** self-contained
 environments in your Development, CI, Q/A, Staging, and Production environments.
-No more hidden gotchas. If it works for one of them it will work in all of them.
-With named gemsets, you can to push changes from one environment to another.
-And, RVM is for Ruby applications *not just for Rails*!
-Any ruby based application will benefit from usage of RVM.
+No more hidden gotchas: if it works for one of them, it will work in all of them.
+With named gemsets, you can reliably and immediately push changes from one environment to another.
+And, RVM is for Ruby applications, *not just for Rails*!
+%em Any
+ruby-based application will benefit from your use of RVM.
 
 %h2 Testing
 
 %p
-  RVM enables us to easily test both upgrade and escape paths very easily and consistently. RVM has the ability to run a test suite, rake tasks, benchmarks and gem commands against multiple ruby versions at the same time. This means that we can easily ensure that our applications work in ruby 1.8.X, ree, 1.9.1, jruby, etc... and quickly expose areas in which they do not.
+  RVM enables you to easily test both upgrade and escape paths very easily and consistently. With RVM, you can run a test suite, rake tasks, benchmarks and gem commands against multiple ruby versions
+  %em at the same time.
+  This means that you can easily ensure your applications work in ruby 1.8.X, ree, 1.9.1, jruby, etc... and quickly expose any areas in which they do not.
 
 %h2 Gem Management
 %p
-  RVM has an extremely flexible gem management system called Named Gem Sets. RVM's gems(ets) make managing gems across multiple versions of ruby a non issue. RVM enables you to add a small text file to your application's repository instead of checking in tons of gems inflating your repository size needlessly. Additionally RVM's gemset management uses a common cache directory so as to only have one downloaded version of each gem on disk rather than several copies.
+  RVM has an extremely flexible gem management system called Named Gem Sets. RVM's gems(ets) make managing gems across multiple versions of ruby a non-issue. RVM lets you add a small text file to your application's repository, instead of checking in tons of gems which would needlessly inflate your repository size. Additionally, RVM's gemset management uses a common cache directory, so only one downloaded version of each gem resides on disk rather than several copies.
 
 %p
-  RVM helps ensure that all aspects of ruby are completely contained within user space, strongly encouraging non-root usage. Use of RVM rubies provide a higher level of system security and therefore reduce risk and overall system downtime. Additionally, since all processes run as the user, a compromised ruby process will not be able to compromise the entire system.
+  RVM helps ensure that all aspects of ruby are completely contained within user space, strongly encouraging safer, non-root use. Use of RVM rubies thus provides a higher level of system security, and therefore reduces risk and cuts overall system downtime. Additionally, since all processes run at user level, a compromised ruby process cannot compromise the entire system.
 
 %h2 Support
 
 %p
-  RVM is continuously evolving thanks to constant community feedback. The lead developer of RVM (Wayne E. Seguin) is highly responsive, addresses issues quickly and cares about helping the ruby community grow.
+  RVM is continuously evolving, thanks to constant community feedback. The lead developer of RVM (Wayne E. Seguin) is highly-responsive, addresses issues quickly, and cares deeply about helping the ruby community grow.
 

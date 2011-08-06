@@ -14,54 +14,56 @@
 %p
   The easiest way to get help with rvm is to join the #rvm channel
   on freenode - You can use a
-  %a{:href => "http://webchat.freenode.net/?channels=rvm"} web based client
-  if you don't have one installed. If you're unable to chat in the channel,
+  %a{:href => "http://webchat.freenode.net/?channels=rvm"} web-based client
+  if you don't already have an IRC application. If you're unable to chat in the channel,
   make sure you
   %a{:href => "http://www.wikihow.com/Register-a-User-Name-on-Freenode"} register your nick first
 
 %p
   If you encounter an issue with rvm, you can make it greatly easier
-  for use by following the steps below. Namely, each will help provide
-  insight into what is going wrong.
+  for us by following the steps below. Each one helps provide
+  additional insight into what is going wrong.
 
 %h3 Tracking Down Bugs
 
 %p
   If you do encounter a bug, the first (and most important) information we need
-  is related to how rvm is loaded. You should first ensure that rvm is loaded as a function.
-  You can do this by running:
+  is related to how rvm is loaded. You should first confirm that rvm is loaded as a function.
+  Do this by running:
 
 = sh_cmd "type rvm | head -1"
 
 %p
-  Which should output "rvm is a function". If it shows anything else, rvm isn't
-  being loaded correctly. For information on why this occurs and how to solve it,
+  which should output "rvm is a function". If it shows anything else, rvm isn't
+  loading correctly. For information on why this occurs, and how to solve it,
   please see
-  %a{:href => "/rvm/install/"} the bottom of the installation instructions.
+  %a{:href => "/rvm/install/"} the bottom of the Installation instructions.
 
 %p
-  Next, when telling us the problem, we need two sets of information. Namely, the output
+  Next, we'll need two sets of information. Namely, the output
   of running 'rvm debug', like so:
 
 = sh_cmd "rvm debug"
 
 %p
-  And the output of running the broken command with the trace option, e.g.:
+  And the output of running the broken command 
+  %em with the trace option
+  , e.g. if you're having a use problem:
 
 = sh_cmd "rvm use ree"
 
 %p
-  Would need to be run as:
+  you would need to try running it as:
 
 = sh_cmd "rvm --trace use ree"
 
 %p
-  When sharing this information with us in IRC, you need to use a site like
+  To share this information with us in IRC, use a site like
   %a{:href => "http://gist.github.com/"} gist
   or
   %a{:href => "http://pastie.org/"} pastie.
-  We prefer to use gist as it lets us easily fork
-  your results and provide edited output but either will suffice.
+  We prefer gist, as it lets us easily fork
+  your results and provide edited output; but either will suffice.
 
 %p
   Lastly, please ensure you've read
