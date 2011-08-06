@@ -166,7 +166,7 @@
     ruby 1.9.2p180 (2011-02-18 revision 30909) [i386-darwin9.8.0]
 
     user$ which ruby
-    Using /Users/user/.rvm/gems/ruby-1.9.2-p180
+    Using /Users/user/.rvm/gems/ruby-1.9.2-p180/bin/ruby
 
 %p Optionally, set a version of ruby to use as the default for new shells (overrides the 'system' ruby):
 
@@ -181,8 +181,8 @@
 %p
   If you are new to RVM I recommend that you read the
   %a{:href => "http://rvm.beginrescueend.com/rvm/basics/"}
-    basics page
-  At the end of the basics page there are further links as suggestions for
+    basics page.
+  At the end of the basics page there are further links for
   getting started.
 
 %h2 Troubleshooting your Install
@@ -191,16 +191,18 @@
   %li
     %p If you open a new shell and running:
     = sh_cmd "type rvm | head -1"
-    %p does not show "rvm is a function", rvm isn't being sourced correctly.
+    %p does 
+      %em not
+      show "rvm is a function", rvm isn't being sourced correctly.
 
   %li
     %p
       Ensure that rvm is sourced after any path settings as RVM and manipulates the path.
-      Failure to do this may end up with RVM not working as expected.
+      If you don't do this, RVM may not work as expected.
 
   %li
     %p
-      If you are using GNOME on Red Hat, CentOS or Fedora ensure that the
+      If you are using GNOME on Red Hat, CentOS or Fedora, ensure that the
       %em Run command as login shell
       option is checked under the
       %em Title and Command
@@ -212,7 +214,7 @@
 %h3 Example rvm bootstrap script
 
 %p
-  The following script will boostrap git + RVM assuming that you have curl &amp; sudo installed.
+  The following script will boostrap git + RVM, assuming that you have curl &amp; sudo installed.
   It will also install (last line) several common rubies.
 
 %pre.code

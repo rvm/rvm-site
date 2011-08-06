@@ -12,7 +12,7 @@
 %h1
   JRuby
 %p
-  JRuby is a ruby interpreter that gives the best of the JVM which has been field battle tested for many years, together with the awesomeness that is Ruby syntax.
+  JRuby is a ruby interpreter that gives the best of the JVM -- as battle-tested in the field for many years -- together with the awesomeness that is Ruby syntax.
 
 %h2
   Installing
@@ -27,15 +27,15 @@
   Currently, as of this writing, JRuby loads the Ruby 1.8 API and runs as 1.8.7
   version.
 %p
-  If you need to run JRuby with the 1.9 Ruby API, then you can do this in RVM
-  using after_use hooks. You will have to record the JRUBY
+  If you need to run JRuby with the 1.9 Ruby API, you can do so in RVM
+  using after_use hooks. You must record the JRUBY configuration
 %pre.code
   :preserve
     export JRUBY_OPTS="--1.9"
 %p
-  Be sure to add this to the jruby environment file(s).
+  Be sure to add this to your jruby environment file(s).
 %p
-  For your console environment I recommend detecting JRuby in an after_use
+  For your console environment, I recommend detecting JRuby in an after_use
   %a{:href => "http://rvm.beginrescueend.com/workflow/hooks/"}
     hook
   and adding the export.

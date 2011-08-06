@@ -13,7 +13,7 @@
 %h1 Initializing Gemsets during Ruby Installs
 
 %p
-  When installing a new ruby, RVM not only creates two gemsets (the default, empty gemset
+  When you install a new ruby, RVM not only creates two gemsets (the default, empty gemset
   and the global gemset), it also uses a set of user-editable files to determine which
   gems to install.
 
@@ -33,7 +33,7 @@
   %li ~/.rvm/gemsets/default.gems
 
 %p
-  As an example of an intended use case, you may edit ~/.rvm/gemsets/global.gems to add two lines:
+  For example, if you edited ~/.rvm/gemsets/global.gems by adding these two lines:
 
 %pre.code
   :preserve
@@ -41,11 +41,10 @@
     awesome_print
 
 %p
-  Ensuring that every time you install a new ruby, these two gems will be installed in the global gemset.
+  every time you install a new ruby, these two gems are installed into your global gemset.
 
 %p
-  RVM also allows you to ensure a specific version of a given gem gets included in the default or global 
-  gemsets. Here is an example of how you would specify a gem's version in your global or default gemset.
+  Using the default or global gemsets, you can also make RVM include a specific version of a given gem. Here's how:
 
 %pre.code
   :preserve
@@ -54,4 +53,4 @@
     hirb -v0.4.5
 
 %p
-  By default, rvm uses these gemsets to install common libraries such as rake and in the case of jruby, jruby-openssl.
+  By default, rvm uses these gemsets to install common libraries (such as rake, and in the case of jruby, jruby-openssl.)

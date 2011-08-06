@@ -13,12 +13,12 @@
   Named Gem Sets
 %p
   RVM gives you compartmentalized independent ruby setups.
-  This means that ruby, gems and irb are all separate and self-contained from system and from each other.
+  This means that ruby, gems and irb are all separate and self-contained - from the system, and from each other.
 %p
   You may even have separate named gemsets.
 %p
-  Let's say, for example, that you are testing two versions of a gem with ruby 1.9.2-head.
-  You can install one to the default 1.9.2-head and create a named gemset for the other version and switch between them easily.
+  Let's say, for example, that you are testing two versions of a gem, with ruby 1.9.2-head.
+  You can install one to the default 1.9.2-head, then create a named gemset for the other version, and switch between them easily.
 %h3
   Example: testing gems
 %pre.code
@@ -34,7 +34,7 @@
 %h3
   Example: Rails versions & upgrading apps
 %p
-  To illustrate the point, let's talk about a common use case. Let us assume that we are testing out a rails application in order to upgrade it to the latest Rails from a previous version. RVM makes such testing very easy as it lets you quickly switch between multiple Rails versions. First let's set up the environments:
+  To illustrate the point, let's talk about a common use case. Assume you are testing out a rails application against a new Rails release. RVM makes such testing very easy, by letting you quickly switch between multiple Rails versions. First, let's set up the environments:
 %pre.code
   :preserve
 
@@ -54,11 +54,11 @@
     $ rvm 1.8.7
     $ gem install rails -v 1.2.3
 %p
-  Note that, on each of the ruby installs above,
+  Note that, for each of the ruby installs above,
   you can have completely separate versions!
 %p
-  Now that our environments are set up, switching between Rails versions
-  and Ruby versions can be done as follows.
+  Now that your environments are set up, you can simply switch between Rails versions
+  and Ruby versions as follows.
 %pre.code
   :preserve
     $ rvm 1.9.2-head@rails126 ; rails --version
@@ -77,26 +77,27 @@
 
     Rails 2.3.3
 %p
-  If you are deploying to a server or you do not want to wait around for rdoc and ri to install for each gem then you can disable these for gem installs and updates.  Place these two lines in your ~/.gemrc or /etc/gemrc:
+  If you are deploying to a server, or you do not want to wait around for rdoc and ri to install for each gem, you can disable them for gem installs and updates.  Just add these two lines to your ~/.gemrc or /etc/gemrc:
 %pre.code
   :preserve
     install: --no-rdoc --no-ri
     update: --no-rdoc --no-ri
 %p
-  Note: You likely do not want to run this for *every* gem command as these args would break some 'gem X' commands.
+  Note: You likely do not want to run this for *every* gem command, as these args would break some 'gem X' commands.
   Which is why I did not use 'gem: --no-rdoc --no-ri' in the example above.
 %h2
   Warning!!!
 %p
-  * RVM gives you a separate gem directory for each and every Ruby version and gemset. *
-  What this means is that gems will have to be explicitly installed for each revision and gemset.
-  RVM provides you with a way to manage this process; see the
+  * RVM gives you a separate gem directory for 
+  %emeach and every Ruby version and gemset. *
+  This means that gems must be explicitly installed for each revision and gemset.
+  RVM helps you manage this process; see the
   '
   %a{:href => "/set/gem/"} RVM gem
   '
   page.
 %p
-  Although I recommend against it, if you are sure you can, use 'rvm gemdup default' and 'rvm gemdup system' to clone user default gems and system gems respectively.
-  Unless of course I decide to remove this feature as I am not convinced it is worthwile :)
+  Although I recommend against it, you can use 'rvm gemdup default' and 'rvm gemdup system' to clone user-default gems and system gems respectively.
+  Unless of course I decide to remove this feature, as I am not convinced it is worthwhile :)
 
 

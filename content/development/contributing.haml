@@ -13,10 +13,10 @@
 %h1 Contributing to RVM
 
 %p
-  So, you want to contribute to rvm? Excellent, we can always do with
+  So, you want to contribute to rvm? Excellent! We can always do with
   an extra helping hand (or two). If you're not a great coder, we always
-  appreciate people helping out in the channel and giving support. If you
-  are interested in coding, there are a few things you'll need to know and
+  appreciate people helping out in the channel, and giving support. If you
+  are interested in coding, there are a few things you'll need to know - and
   a few things that make the process in general a lot smoother.
 
 %p
@@ -26,26 +26,27 @@
 
 %ol
   %li
-    When contributing, either keep patches small and clear or work on a topic
-    branch - this makes it easier for us to merge in discrete changes and means
-    you always keep things seperate where needed.
+    When contributing, either keep patches small and clear, or work on a topic
+    branch - this makes it easier for us to merge in discrete changes, and means
+    you always keep things separate where needed.
   %li
-    The code has to be compatible with bash and takes and almost git-like design
+    The code has to be compatible with bash, and takes an almost git-like design
     architecturally.
     Many actions (e.g. aliases) call out to a script in the ~/.rvm/scripts
-    directory. For an example of the new, simplified style of coding these make
+    directory. For an example of the new, simplified style for coding these, make
     sure you check out:
     %ul
       %li scripts/snapshot
       %li scripts/repair
       %li scripts/tools
   %li
-    Clean code is preferred - if in doubt, take a look back and refactor.
+    %em Clean
+    code is preferred - if in doubt, take a look back, and refactor.
   %li
     Drop into the IRC room (#rvm on freenode) and chat to wayneeseguin if you have a task
     in mind. You may find someone else has already started on it.
   %li
-    If you're interested in helping out but don't have something specific in
+    If you're interested in helping out, but don't have something specific in
     mind, check out the
     %a{:href => "https://www.pivotaltracker.com/projects/26822"} rvm pivotal tracker.
 
@@ -53,18 +54,18 @@
 
 %ol
   %li
-    When you need to test out something on a fresh install, it's move the
-    \.rvm folder out of the way to rename it, install a new copy
-    and to then move your old copy back when you're finished.
+    When you need to test out something on a fresh install, it's simplest to move the
+    \.rvm folder out of the way by renaming it, installing a new copy,
+    and then moving your old copy back when you're finished.
   %li
     Generally, working in a clone of the repository is by far the best way
-    to go and from there you can update your main install / ~/.rvm.
+    to go; from there, you can update your main install / ~/.rvm.
     All you need to do is change to the root directory for it (e.g. ~/Code/rvm),
     and run:
     = sh_cmd "./install"
   %li
-    It helps to use bash as your primary shell but for some features you'll
-    want to have zsh installed as well to ensure compatibility.
+    It helps to use bash as your primary shell, but for some features you'll
+    want to have zsh installed as well, to ensure compatibility.
 
 %h2 Repositories
 
