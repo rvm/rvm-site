@@ -40,12 +40,19 @@
 %pre.code
   :preserve
     appuser$ vim ~/.bdsmrc
+%p
+  For a Ruby application we will want to install and use the 'ruby' extension
+  set which includes extensions such as rvm, unicorn, and rails.
+%pre.code
+  :preserve
+    root# bdsm sets install ruby
 
 %p
   Now, set the rvm_path to be user-facing.
 %pre.code
   :preserve
     appuser$ echo 'rvm_path="$HOME/.rvm"' >> ~/.rvmrc
+
 %p
   Next, run the Rails setup command; this creates and sets up the
   configuration within the ~/shared path, installing rvm with the selected or
@@ -70,8 +77,14 @@
     appuser$ vim ~/shared/config/database.yml
 
 %p
-  Update ~/current with a fresh release, using the latest code from the defined
-  repository and branch.
+  Now install the deploy extension,
+%pre.code
+  :preserve
+    root# bdsm ext install deploy
+%p
+  Now we can use the deployment extension which will update ~/current with a
+  fresh release, using the latest code from the repository and branch
+  information defined in ~/.bdsmrc.
 %pre.code
   :preserve
     appuser$ bdsm deploy
@@ -107,6 +120,13 @@
   :preserve
     tail -n 100 ~/shared/log/unicorn.stderr.log
 
+
+%p
+  I use the Nginx webserver to serve http/https traffic and to proxy to my
+  application. The Nginx extension is found in the 'servers' extension set,
+%pre.code
+  :preserve
+    root# bdsm sets install servers
 %p
   If you run Nginx (like I do), proceed as follows. Please note that
   you'll switch here to running as root :)
