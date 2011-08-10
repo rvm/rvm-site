@@ -1,20 +1,26 @@
 #!/usr/bin/env bash
 
-source "$HOME/.rvm/scripts/rvm"
-
 enter "$stage_path"
 
-rvm gemset import rvm-site.gems
+source_files "$HOME/.rvm/scripts/rvm"
 
-nanoc3 co --verbose
+if command_exists rvm
+then
+  rvm gemset import rvm-site.gems
+fi
+
+if command_exists nanoc3
+then
+  nanoc3 co --verbose
+fi
 
 # TODO: Enable to specify copy_paths and symlink_paths for deploys.
-if [[ -d "content/assets/images" ]]
+if directory_exists "content/assets/images"
 then
   rsync -avgz content/assets/images/ public/images/
 fi
 
-if [[ -d "content/assets/pdf" ]]
+if directory_exists "content/assets/pdf"
 then
   rsync -avgz content/assets/pdf/ public/pdf/
 fi
