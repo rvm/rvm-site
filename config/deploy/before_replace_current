@@ -15,12 +15,12 @@ then
 fi
 
 # TODO: Enable to specify copy_paths and symlink_paths for deploys.
-if directory_exists "content/assets/images"
+if path_exists "content/assets/images"
 then
   rsync -avgz content/assets/images/ public/images/
 fi
 
-if directory_exists "content/assets/pdf"
+if path_exists "content/assets/pdf"
 then
   rsync -avgz content/assets/pdf/ public/pdf/
 fi
