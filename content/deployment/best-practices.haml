@@ -3,22 +3,30 @@
 %a{:name => "best-practices"}
 %h1 Deployment Best Practices
 
-%h4
-  Use
-%a{:href => "http://bdsm.beginrescueend.com/"}
-  BDSM
-'deploy' and 'rails' extensions for nicely-integrated RVM deployment.
+%h2
+  Use the
+  %a{:href => "http://bdsm.beginrescueend.com/"}
+    BDSM Framework
+%p
+  BDSM framework extensions can be used for flexible server-side code deployments.
+  The following walkthrough will explain the steps involved for one example.
+  This example will be deploying a Ruby on Rails application from GitHub.
+  Please note that the deployment extension is not 'ruby specific' and can be
+  used for deploying any codebase desired.
 
 %h4
   Walkthrough
 %p
-  When deploying rvm applications with BDSM, there are a few things to keep in mind.
+  When deploying rvm applications, there are a few things to keep in mind.
   Please note that all of these are our recommended practices, and are typically
   best setup on a new machine:
 
 %p
-  The best way is to create one system-user per application (project), and deploy an isolated
-  environment to each user -- preferably with the same shortname as the application.
+  The best way to deploy any application is to create a a new user on the target
+  system for each application (project / code base) to be deployed. We then
+  deploy each application to it's own *isolated* environemnt (eg. as the user,
+  in the user's home path); Preferably the username is the same as the
+  'shortname' of the application.
 
 %p
   Use an RVM gemset for each application (project)
@@ -40,6 +48,16 @@
 %pre.code
   :preserve
     appuser$ vim ~/.smrc
+%p
+  For example, when I deploy a redmine instance I in the ~/.smrc file I set the
+  following two variables:
+%pre.code
+  :preserve
+    appuser$ grep repository_url ~/.smrc
+    repository_url="git://github.com/edavis10/redmine.git"
+
+    appuser$ grep branch ~/.smrc
+    branch="1.2-stable"
 %p
   For a Ruby application we will want to install and use the 'ruby' extension
   set which includes extensions such as rvm, unicorn, and rails.
