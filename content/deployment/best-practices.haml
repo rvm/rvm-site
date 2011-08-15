@@ -29,23 +29,23 @@
   for each project, for both development and deployment.
 
 %p
-  Start by generating a default ~/.bdsmrc
+  Start by generating a default ~/.smrc
 %pre.code
   :preserve
-    appuser$ bdsm bdsmrc
+    appuser$ sm smrc
 
 %p
-  Next, update any settings you may need to change in the ~/.bdsmrc file, such as the
+  Next, update any settings you may need to change in the ~/.smrc file, such as the
   environment, repository_url and perhaps the branch to deploy from.
 %pre.code
   :preserve
-    appuser$ vim ~/.bdsmrc
+    appuser$ vim ~/.smrc
 %p
   For a Ruby application we will want to install and use the 'ruby' extension
   set which includes extensions such as rvm, unicorn, and rails.
 %pre.code
   :preserve
-    root# bdsm sets install ruby
+    root# sm sets install ruby
 
 %p
   Now, set the rvm_path to be user-facing.
@@ -59,7 +59,7 @@
   default ruby (currently 1.9.2)
 %pre.code
   :preserve
-    appuser$ bdsm rails setup
+    appuser$ sm rails setup
 
 %p
   Generate the unicorn configuration file in ~/shared/config/. Edit this file
@@ -67,7 +67,7 @@
   and to tweak any unicorn settings.
 %pre.code
   :preserve
-    appuser$ bdsm unicorn service setup
+    appuser$ sm unicorn service setup
 
 %p
   Edit the default generated database.yml file, and setup your db connection
@@ -80,14 +80,14 @@
   Now install the deploy extension,
 %pre.code
   :preserve
-    root# bdsm ext install deploy
+    root# sm ext install deploy
 %p
   Now we can use the deployment extension which will update ~/current with a
   fresh release, using the latest code from the repository and branch
-  information defined in ~/.bdsmrc.
+  information defined in ~/.smrc.
 %pre.code
   :preserve
-    appuser$ bdsm deploy
+    appuser$ sm deploy
 
 %p
   If you use rvm gemset files, do the following
@@ -110,7 +110,7 @@
   your application running under unicorn,
 %pre.code
   :preserve
-    appuser$ bdsm unicorn start
+    appuser$ sm unicorn start
 
 %p
   If there are any issues starting up the application, you'll be notified
@@ -120,36 +120,35 @@
   :preserve
     tail -n 100 ~/shared/log/unicorn.stderr.log
 
-
 %p
   I use the Nginx webserver to serve http/https traffic and to proxy to my
   application. The Nginx extension is found in the 'servers' extension set,
 %pre.code
   :preserve
-    root# bdsm sets install servers
+    root# sm sets install servers
 %p
   If you run Nginx (like I do), proceed as follows. Please note that
   you'll switch here to running as root :)
 %pre.code
   :preserve
-    root# bdsm nginx package install
+    root# sm nginx install
 
 %p
   Now, 'configure the system' - which means copying the Nginx configuration
   directory into /etc/nginx
 %pre.code
   :preserve
-    root# bdsm nginx configure system
+    root# sm nginx configure system
 
 %p
   Next, for each application user, you'll generate an application server
   configuration file (in /etc/nginx/servers/)
 %pre.code
   :preserve
-    root# bdsm nginx server add {{appuser}}
+    root# sm nginx server add {{appuser}}
 
 %p
-  Note: this creates a /etc/nginx/servers/appuser.conf file, configured by default to proxy
+  Note: this creates a /etc/nginx/servers/{{appuser}}.conf file, configured by default to proxy
   to a unicorn running on a Unix Domain Socket (UDS).
 %p
   Now, ensure their directory is readable by Nginx
@@ -161,7 +160,7 @@
   Finally, startup the Nginx service
 %pre.code
   :preserve
-    root# bdsm nginx service start
+    root# sm nginx service start
 
 %p
   %em Do not forget backups
@@ -172,7 +171,7 @@
   (If you want them in a different location, use filesystem symlinks.)
 %pre.code
   :preserve
-    user$ bdsm rails backup_database
+    user$ sm rails backup_database
 
 %p
   Stick it in cron, to make sure it happens nightly at 02:00,
@@ -180,12 +179,126 @@
   :preserve
     user$ crontab -e
 
-    0 2 * * * bdsm rails backup_database
+    0 2 * * * sm rails backup_database
 %p
-  Note: this will soon change to 'bdsm rails backup database' (note the space)
+  Note: this will soon change to 'sm rails backup database' (note the space)
 %p
   Use wrapper scripts for managing things like god, unicorns and the like.
   %pre.code
     :preserve
       user$ rvm help wrapper
+
+%h4
+  Deploying a specific branch and revision
+%p
+  The BDSM deployment extension also allows you to specifiy branch and revision
+  to use from the application's repository. So for example if you use git you
+  can set one or both of these in the ~/.smrc file:
+%pre.code
+  :preserve
+    branch="production"
+    revision="asdf4269"
+
+%h4
+  Deployment Hooks
+%p
+  In the above walkthrough I showed you how to use a few BDSM framework
+  extensions to accomplish a Ruby on Rails deployment and have a single server
+  running with your application code served on port 80 using a Unicorn and
+  Nginx web server stack. Here 'Unicorn' is called an "application server" which
+  means that it is what runs the actual Ruby code. Nginx, the "web server",
+  is used to serve static files (css, images, javascripts, etc...) and proxy all
+  other requests to the Unicorn herd (application servers).
+%p
+  Several of the above steps you must do each time you want to update your
+  code to the latest on your server. I will now show you how to automate that
+  even further so that you need only type 'sm deploy'! Once installed you need
+  not reinstall or update the extensions and extension sets unless you are
+  updating them to a newer version. You also do not need to reconfigure the
+  project, database and unicorn configurations.
+%p
+  If you use rvm gemsets and/or bundler (yes, you can use both together as I do
+  myself) then every time you deploy new code version of your application you
+  will want to ensure your gems are up to date.
+%p
+  This can be accomplished for you automatically during the deployment process.
+  Several steps are taken in order to complete a deployment deployment.
+  Most of these steps occur in a staging location ($stage_path).
+  The deployment extension provides a before and after hook for each step in
+  the deployment process. In order to have actions happen at any of these hook
+  points in the process you create an executable file in config/depoy/.
+%p
+  Let us take the example of updating your gems before replacing the current
+  applications codebase so that you are sure that your application will not
+  temporarily falter. We create the following executable file in our
+  application's code repository 'config/deploy/before_replace_current'.
+%pre.code
+  :preserve
+    #!/bin/bash
+    enter "${stage_path}"
+    command_exists bundle || gem install bundler --no-rdoc --no-ri
+    bundle --without development,test
+
+%p
+  Once this file with this content is checked into the application code
+  repository, the very next time 'sm deploy' is run as {{appuser}} on the server
+  this file will be run just before the deployment extension replaces the
+  currently deployed code directory.
+%p
+  One thing to note is that this file is a shell script! This means that you can
+  run any commands to accomplish whatever it is that you ned to happen on the
+  server before the currently running code is replaced.
+
+%p
+  Another step that must happen in order for your website to change it's running
+  codebase is that the application server (unicorn) must be restarted so that
+  it reloads the new codebase. The way to do this with sm is
+%pre.code
+  :preserve
+    appuser$ sm unicorn restart
+%p
+  This is something we want to happen after the current directory has been
+  replaced. So for this we can use the after_replace_current hook! Let's create
+  the file 'config/deploy/after_replace_current' with the following contents:
+%pre.code
+  :preserve
+    #!/bin/bash
+    enter ${release_path} # Not necessary but it makes me feel warm and fuzzy.
+    sm unicorn restart
+%p
+  The unicorn restart will signal the running unicorn process to reload the
+  codebase without dropping requests. If the unicorn herd is not running yet
+  then this will start the unicorn herd, which is equivalent to 'sm unicorn start'
+%p
+  Things are not always unicorns and rainbows, especially when changing and
+  updating an application's codebase. There have been many times where I have
+  worn keyboard imprints on my forehead for several days after being unable
+  to start my application's unicorn herd only to finally figure out it was
+  because my new codebase was using a new rubygem and I had forgotten to add
+  it to my application's Gemfile! When the codebase udpate was successful but
+  the unicorns will not restart then you can check the status of this by
+  examining the unicorn log; For example to check the last 200 lines of the
+  unicorn log you issue the following command:
+%p
+  appuser$ tail -n 200 ~/shared/log/unicorn.log
+%p
+  Then you figure out what the errors are telling you, fix the issue and deploy
+  again!!! Aye, a vicious cycle 'tis ;)
+
+%p
+  I personally use airbrakeapp (was: hoptoadapp) for application runtime error
+  notifications in all of my Ruby applications and I find that it is a most
+  useful product! Thus my applications also have a 'config/deploy/after_deploy'
+  executable hook file which sends a deployment notification to the airbrake
+  application.
+%pre.code
+  :preserve
+    #!/bin/bash
+    enter ${release_path}
+    rake hoptoad:deploy TO="$environment" \
+      REVISION="$(cat "${release_path}/revision")"
+%p
+  Note that this time the 'enter ${release_path}' IS necessary as the rake
+  command here must be run from within the application's deployed codebase so
+  that it can find the application's Rakefile.
 
