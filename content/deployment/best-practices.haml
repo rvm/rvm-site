@@ -237,11 +237,12 @@
   other requests to the Unicorn herd (application servers).
 %p
   Several of the above steps you must do each time you want to update your
-  code to the latest on your server. I will now show you how to automate that
-  even further so that you need only type 'sm deploy'! Once installed you need
-  not reinstall or update the extensions and extension sets unless you are
-  updating them to a newer version. You also do not need to reconfigure the
-  project, database and unicorn configurations.
+  code to the latest on your server. We will now show you how to automate these
+  steps even further so that you need only type 'sm deploy'!
+  Once installed it is not required to reinstall or update the extensions and
+  extension sets unless you are updating them to a newer version.
+  There is also no need to reconfigure the project, database and unicorn
+  configurations, these are all one time tasks.
 %p
   If you use rvm gemsets and/or bundler (yes, you can use both together as I do
   myself) then every time you deploy new code version of your application you
@@ -272,8 +273,8 @@
   currently deployed code directory.
 %p
   One thing to note is that this file is a shell script! This means that you can
-  run any commands to accomplish whatever it is that you ned to happen on the
-  server before the currently running code is replaced.
+  run any commands to accomplish whatever it is that is required to happen on
+  the server before the currently running code is replaced.
 
 %p
   Another step that must happen in order for your website to change it's running
@@ -301,7 +302,7 @@
   worn keyboard imprints on my forehead for several days after being unable
   to start my application's unicorn herd only to finally figure out it was
   because my new codebase was using a new rubygem and I had forgotten to add
-  it to my application's Gemfile! When the codebase udpate was successful but
+  it to my application's Gemfile! When the codebase update was successful but
   the unicorns will not restart then you can check the status of this by
   examining the unicorn log; For example to check the last 200 lines of the
   unicorn log you issue the following command:
