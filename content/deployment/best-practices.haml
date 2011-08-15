@@ -176,7 +176,7 @@
   configured by default to proxy to a unicorn running on a
   Unix Domain Socket (UDS).
 %p
-  Now, ensure their directory is readable by Nginx:
+  Now, ensure the appuser's directory is readable by Nginx:
 %pre.code
   :preserve
     root# chmod go+rx /home/{{appuser}}
