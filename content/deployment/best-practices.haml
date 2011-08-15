@@ -53,10 +53,8 @@
   variables in the ~/.smrc file:
 %pre.code
   :preserve
-    appuser$ grep repository_url ~/.smrc
+    appuser$ grep -E '^repository_url=|^branch=' ~/.smrc
     repository_url="git://github.com/edavis10/redmine.git"
-
-    appuser$ grep branch ~/.smrc
     branch="1.2-stable"
 %p
   For a Ruby application we will want to install and use the 'ruby' extension
@@ -143,10 +141,14 @@
 %pre.code
   :preserve
     appuser$ tail -n 200 ~/shared/log/unicorn.log
+%p
+  Then you figure out what the errors are telling you, fix the issue and deploy
+  again!!! Aye, a vicious cycle 'tis ;)
 
 %p
-  I use the Nginx webserver to serve http/https traffic and to proxy to my
-  application. The Nginx extension is found in the 'servers' extension set:
+  We use the Nginx webserver to serve http/https traffic and to proxy to the
+  application servers.
+  The Nginx extension is found in the 'servers' extension set:
 %pre.code
   :preserve
     root# sm sets install servers
@@ -299,21 +301,6 @@
   The unicorn restart will signal the running unicorn process to reload the
   codebase without dropping requests. If the unicorn herd is not running yet
   then this will start the unicorn herd, which is equivalent to 'sm unicorn start'
-%p
-  Things are not always unicorns and rainbows, especially when changing and
-  updating an application's codebase. There have been many times where I have
-  worn keyboard imprints on my forehead for several days after being unable
-  to start my application's unicorn herd only to finally figure out it was
-  because my new codebase was using a new rubygem and I had forgotten to add
-  it to my application's Gemfile! When the codebase update was successful but
-  the unicorns will not restart then you can check the status of this by
-  examining the unicorn log; For example to check the last 200 lines of the
-  unicorn log you issue the following command:
-%p
-  appuser$ tail -n 200 ~/shared/log/unicorn.log
-%p
-  Then you figure out what the errors are telling you, fix the issue and deploy
-  again!!! Aye, a vicious cycle 'tis ;)
 
 %p
   I personally use airbrakeapp (was: hoptoadapp) for application runtime error
