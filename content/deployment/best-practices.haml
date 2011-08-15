@@ -37,14 +37,14 @@
   for each project, for both development and deployment.
 
 %p
-  Start by generating a default ~/.smrc
+  Start by generating a default ~/.smrc:
 %pre.code
   :preserve
     appuser$ sm smrc
 
 %p
   Next, update any settings you may need to change in the ~/.smrc file, such as the
-  environment, repository_url and perhaps the branch to deploy from.
+  environment, repository_url and perhaps the branch to deploy from:
 %pre.code
   :preserve
     appuser$ vim ~/.smrc
@@ -60,13 +60,13 @@
     branch="1.2-stable"
 %p
   For a Ruby application we will want to install and use the 'ruby' extension
-  set which includes extensions such as rvm, unicorn, and rails.
+  set which includes extensions such as rvm, unicorn, and rails:
 %pre.code
   :preserve
     root# sm sets install ruby
 
 %p
-  Now, set the rvm_path to be user-facing.
+  Now, set the rvm_path to be user-facing:
 %pre.code
   :preserve
     appuser$ echo 'rvm_path="$HOME/.rvm"' >> ~/.rvmrc
@@ -74,7 +74,7 @@
 %p
   Next, run the Rails application setup extension action; this creates and sets
   up the directories and configuration files within the application user's
-  \~/shared path. It will also install RVM with the default ruby (currently 1.9.2)
+  \~/shared path. It will also install RVM with the default ruby (currently 1.9.2):
 %pre.code
   :preserve
     appuser$ sm rails setup
@@ -82,33 +82,33 @@
 %p
   Generate the unicorn configuration file in ~/shared/config/. Edit this file
   if you wish to run more than 2 unicorn worker processes by default,
-  and to tweak any unicorn settings.
+  and to tweak any unicorn settings:
 %pre.code
   :preserve
     appuser$ sm unicorn service setup
 
 %p
   Edit the default generated database.yml file, and set up your database
-  connection information.
+  connection information:
 %pre.code
   :preserve
     appuser$ vim ~/shared/config/database.yml
 
 %p
-  Now install the deploy extension,
+  Now install the deploy extension:
 %pre.code
   :preserve
     root# sm ext install deploy
 %p
   Now we can use the deployment extension which will update ~/current with a
   fresh release, using the latest code from the repository and branch
-  information defined in ~/.smrc.
+  information defined in ~/.smrc:
 %pre.code
   :preserve
     appuser$ sm deploy
 
 %p
-  If you use rvm gemset files, do the following
+  If you use rvm gemset files, do the following:
 %pre.code
   :preserve
     appuser$ source ~/.bash_profile # load RVM into your current shell
@@ -117,7 +117,7 @@
 %p
   If you use bundler, bootstrap your gems as follows
   ( Note: ensure that 'gem "unicorn"' is in the Gemfile first,
-  *with no version specified* )
+  *with no version specified* ):
 %pre.code
   :preserve
     appuser$ cd ~/current
@@ -146,27 +146,27 @@
 
 %p
   I use the Nginx webserver to serve http/https traffic and to proxy to my
-  application. The Nginx extension is found in the 'servers' extension set,
+  application. The Nginx extension is found in the 'servers' extension set:
 %pre.code
   :preserve
     root# sm sets install servers
 %p
-  If you run Nginx (like I do), proceed as follows. Please note that
-  you'll switch here to running as root :)
+  We run Nginx, so for us we proceed as follows. Please note the switch to
+  running as root:
 %pre.code
   :preserve
     root# sm nginx install
 
 %p
   Now, 'configure the system' - which means copying the Nginx configuration
-  directory into /etc/nginx
+  directory into /etc/nginx:
 %pre.code
   :preserve
     root# sm nginx configure system
 
 %p
   Next, for each application user, you'll generate an application server
-  configuration file (in /etc/nginx/servers/)
+  configuration file (in /etc/nginx/servers/):
 %pre.code
   :preserve
     root# sm nginx server add {{appuser}}
@@ -176,13 +176,13 @@
   configured by default to proxy to a unicorn running on a
   Unix Domain Socket (UDS).
 %p
-  Now, ensure their directory is readable by Nginx
+  Now, ensure their directory is readable by Nginx:
 %pre.code
   :preserve
     root# chmod go+rx /home/{{appuser}}
 
 %p
-  Finally, startup the Nginx service
+  Finally, startup the Nginx service:
 %pre.code
   :preserve
     root# sm nginx service start
@@ -194,13 +194,13 @@
   The Rails extension provides a backup_database action.
   This will backup the database based on the database.yml file into the
   \~/shared/backups/ directory.
-  (If you want them in a different location, use filesystem symlinks.)
+  (If you want them in a different location, use filesystem symlinks.):
 %pre.code
   :preserve
     user$ sm rails backup_database
 
 %p
-  Stick it in cron, to make sure it happens nightly at 02:00,
+  Stick it in cron, to make sure it happens nightly at 02:00:
 %pre.code
   :preserve
     user$ crontab -e
