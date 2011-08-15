@@ -182,7 +182,7 @@
     root# chmod go+rx /home/{{appuser}}
 
 %p
-  Finally, startup the Nginx service:
+  Finally, start the Nginx service:
 %pre.code
   :preserve
     root# sm nginx service start
@@ -190,7 +190,7 @@
 %p
   %em Do not forget to make backups!!!
   For most this is an afterthought only brought about by an event that they are
-  ill prepaired for. Avoid this pain for yourself.
+  ill prepared for. Avoid this pain for yourself.
   The Rails extension provides a backup_database action.
   This will backup the database based on the database.yml file into the
   \~/shared/backups/ directory.
@@ -200,7 +200,7 @@
     user$ sm rails backup_database
 
 %p
-  Stick it in cron, to make sure it happens nightly at 02:00:
+  Add the command to cron such that it is run nightly at 02:00:
 %pre.code
   :preserve
     user$ crontab -e
@@ -218,7 +218,7 @@
   Deploying a specific branch and revision
 %p
   The BDSM deployment extension also allows you to specifiy branch and revision
-  to use from the application's repository. So for example if you use git you
+  to use from the application's repository. So, for example, if you use git you
   can set one or both of these in the ~/.smrc file:
 %pre.code
   :preserve
@@ -229,10 +229,12 @@
   Deployment Hooks
 %p
   In the above walkthrough I showed you how to use a few BDSM framework
-  extensions to accomplish a Ruby on Rails deployment and have a single server
-  running with your application code served on port 80 using a Unicorn and
-  Nginx web server stack. Here 'Unicorn' is called an "application server" which
-  means that it is what runs the actual Ruby code. Nginx, the "web server",
+  extensions to accomplish a Ruby on Rails deployment. We now have a single
+  server running with the application code served on port 80. We are running a
+  Unicorn and Nginx web server stack.
+%p
+  Note: For those new to deployments; 'Unicorn' is called an "application server"
+  which means that it is what runs the actual Ruby code. Nginx, the "web server",
   is used to serve static files (css, images, javascripts, etc...) and proxy all
   other requests to the Unicorn herd (application servers).
 %p
@@ -245,8 +247,8 @@
   configurations, these are all one time tasks.
 %p
   If you use rvm gemsets and/or bundler (yes, you can use both together as I do
-  myself) then every time you deploy new code version of your application you
-  will want to ensure your gems are up to date.
+  myself) then every time you deploy a new version of your application, you will
+  want to ensure that your gems are up to date.
 %p
   This can be accomplished for you automatically during the deployment process.
   Several steps are taken in order to complete a deployment.
@@ -258,7 +260,7 @@
   Let us take the example of updating your gems before replacing the current
   application's codebase so that you are sure the application will not
   temporarily falter. We create the following executable file in our
-  ap:lication's code repository 'config/deploy/before_replace_current':
+  application's code repository 'config/deploy/before_replace_current':
 %pre.code
   :preserve
     #!/bin/bash
