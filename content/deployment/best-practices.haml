@@ -19,7 +19,7 @@
 %p
   When deploying rvm applications, there are a few things to keep in mind.
   Please note that all of these are our recommended practices, and are typically
-  best setup on a new machine:
+  best set up on a new machine:
 
 %p
   The best way to deploy any application is to create a a new user on the target
@@ -72,9 +72,9 @@
     appuser$ echo 'rvm_path="$HOME/.rvm"' >> ~/.rvmrc
 
 %p
-  Next, run the Rails setup command; this creates and sets up the
-  configuration within the ~/shared path, installing rvm with the selected or
-  default ruby (currently 1.9.2)
+  Next, run the Rails application setup extension action; this creates and sets
+  up the directories and configuration files within the application user's
+  \~/shared path. It will also install RVM with the default ruby (currently 1.9.2)
 %pre.code
   :preserve
     appuser$ sm rails setup
@@ -88,8 +88,8 @@
     appuser$ sm unicorn service setup
 
 %p
-  Edit the default generated database.yml file, and setup your db connection
-  information.
+  Edit the default generated database.yml file, and set up your database
+  connection information.
 %pre.code
   :preserve
     appuser$ vim ~/shared/config/database.yml
@@ -125,18 +125,24 @@
 
 %p
   Once your Ruby app environment is bootstrapped, start
-  your application running under unicorn,
+  your application running under unicorn:
 %pre.code
   :preserve
     appuser$ sm unicorn start
 
 %p
-  If there are any issues starting up the application, you'll be notified
-  by the Unicorn extension, and you can find more details by looking
-  in the unicorn error log
+  Things are not always unicorns and rainbows, especially when changing and
+  updating an application's codebase. There have been many times where I have
+  worn keyboard imprints on my forehead for several days after being unable
+  to start my application's unicorn herd only to finally figure out it was
+  because my new codebase was using a new rubygem and I had forgotten to add
+  it to my application's Gemfile! When the codebase udpate was successful but
+  the unicorns will not restart then you can check the status of this by
+  examining the unicorn log; For example to check the last 200 lines of the
+  unicorn log you issue the following command:
 %pre.code
   :preserve
-    tail -n 100 ~/shared/log/unicorn.stderr.log
+    appuser$ tail -n 200 ~/shared/log/unicorn.log
 
 %p
   I use the Nginx webserver to serve http/https traffic and to proxy to my
@@ -166,8 +172,9 @@
     root# sm nginx server add {{appuser}}
 
 %p
-  Note: this creates a /etc/nginx/servers/{{appuser}}.conf file, configured by default to proxy
-  to a unicorn running on a Unix Domain Socket (UDS).
+  Note: this creates a /etc/nginx/servers/{{appuser}}.conf file;
+  configured by default to proxy to a unicorn running on a
+  Unix Domain Socket (UDS).
 %p
   Now, ensure their directory is readable by Nginx
 %pre.code
@@ -181,9 +188,10 @@
     root# sm nginx service start
 
 %p
-  %em Do not forget backups
-  , too many people do...
-  The Rails extension comes with a backup_database action.
+  %em Do not forget to make backups!!!
+  For most this is an afterthought only brought about by an event that they are
+  ill prepaired for. Avoid this pain for yourself.
+  The Rails extension provides a backup_database action.
   This will backup the database based on the database.yml file into the
   \~/shared/backups/ directory.
   (If you want them in a different location, use filesystem symlinks.)
@@ -201,7 +209,7 @@
 %p
   Note: this will soon change to 'sm rails backup database' (note the space)
 %p
-  Use wrapper scripts for managing things like god, unicorns and the like.
+  Use wrapper scripts for managing things like god, unicorns and the like:
   %pre.code
     :preserve
       user$ rvm help wrapper
@@ -240,16 +248,16 @@
   will want to ensure your gems are up to date.
 %p
   This can be accomplished for you automatically during the deployment process.
-  Several steps are taken in order to complete a deployment deployment.
+  Several steps are taken in order to complete a deployment.
   Most of these steps occur in a staging location ($stage_path).
   The deployment extension provides a before and after hook for each step in
   the deployment process. In order to have actions happen at any of these hook
-  points in the process you create an executable file in config/depoy/.
+  points in the process you create an executable file in config/deploy/.
 %p
   Let us take the example of updating your gems before replacing the current
-  applications codebase so that you are sure that your application will not
+  application's codebase so that you are sure the application will not
   temporarily falter. We create the following executable file in our
-  application's code repository 'config/deploy/before_replace_current'.
+  ap:lication's code repository 'config/deploy/before_replace_current':
 %pre.code
   :preserve
     #!/bin/bash
@@ -270,7 +278,7 @@
 %p
   Another step that must happen in order for your website to change it's running
   codebase is that the application server (unicorn) must be restarted so that
-  it reloads the new codebase. The way to do this with sm is
+  it reloads the new codebase. The way to do this with the unicorn extension is:
 %pre.code
   :preserve
     appuser$ sm unicorn restart
@@ -308,7 +316,7 @@
   notifications in all of my Ruby applications and I find that it is a most
   useful product! Thus my applications also have a 'config/deploy/after_deploy'
   executable hook file which sends a deployment notification to the airbrake
-  application.
+  application:
 %pre.code
   :preserve
     #!/bin/bash
