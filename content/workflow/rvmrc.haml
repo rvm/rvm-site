@@ -67,15 +67,24 @@
 %p
   If you are using the latest version of RVM (rvm get head) then you can take advantage of a few new features, namely hooks and the new project specific ‘.rvmrc’ file. (Available in RVM 0.0.85+)
 %p
+  Also as of RVM 1.7.0 this feature is opt-in and therefore off by default, in
+  order to enable this feature set the following value in either /etc/rvmrc
+  or ~/.rvmrc
+%pre.code
+  :preserve
+    rvm_project_rvmrc=1
+%p
   Let’s say I have my project directory as ~/projects/ and in this directory I have three projects 'projecta', 'projectb', and 'projectc'. Project a runs on jruby, project b runs on ree 1.8.7, and project c runs on 1.9.1. The setup:
 
 %pre.code
   :preserve
     mkdir -p ~/projects/projecta ~/projects/projectb ~/projects/projectc
-
-    echo "rvm jruby@projecta" > ~/projects/projecta/.rvmrc
-    echo "rvm ree@projectb" > ~/projects/projectb/.rvmrc
-    echo "rvm 1.9.1@projectc" > ~/projects/projectc/.rvmrc
+    cd ~/projects/projecta/
+    rvm --rvmrc --create jruby@projecta
+    cd ~/projects/projectb/
+    rvm --rvmrc --create ree@projectb
+    cd ~/projects/projectc/
+    rvm --rvmrc --create 1.9.1@projectc
 
 %p
   Then if I type this:
