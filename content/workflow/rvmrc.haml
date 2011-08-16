@@ -61,20 +61,32 @@
 %a{:name => "project"}
 %h2 Project .rvmrc
 %p
-  The project .rvmrc file is different than the system & user. System & user rvmrc files are meant for altering the settings and behavior of RVM.
-  The project rvmrc files are intended to be used to setup your project's ruby environment when you switch to the project root directory.
-
+  The project .rvmrc file is different than the system & user.
+  System &amp; user rvmrc files are meant for altering the settings and behavior of RVM.
+  The project rvmrc files are intended to be used to setup your project's ruby
+  environment when you switch to the project root directory.
 %p
-  If you are using the latest version of RVM (rvm get head) then you can take advantage of a few new features, namely hooks and the new project specific ‘.rvmrc’ file. (Available in RVM 0.0.85+)
+  If you are using the latest version of RVM (rvm get head) then you can take
+  advantage of a few new features, namely hooks and the new project specific
+  ‘.rvmrc’ file. (Available in RVM 0.0.85+)
 %p
-  Also as of RVM 1.7.0 this feature is opt-in and therefore off by default, in
-  order to enable this feature set the following value in either /etc/rvmrc
-  or ~/.rvmrc
+  %em
+    As of RVM 1.7.0 this feature is opt-in and therefore off by default.
+  To order to enable this feature set the following value in either /etc/rvmrc
+  or ~/.rvmrc:
 %pre.code
   :preserve
     rvm_project_rvmrc=1
 %p
-  Let’s say I have my project directory as ~/projects/ and in this directory I have three projects 'projecta', 'projectb', and 'projectc'. Project a runs on jruby, project b runs on ree 1.8.7, and project c runs on 1.9.1. The setup:
+  Note that project .rvmrc files are shell scripts that gets run when you cd
+  into a directory containing one, you are asked to trust it the first time as
+  well. This does mean that you can put any commands and code you'd like into
+  them in order to get your environment for a project bootstrapped and ready
+  to use.
+%p
+  Let’s say I have my project directory as ~/projects/ and in this directory I
+  have three projects 'projecta', 'projectb', and 'projectc'. Project a runs on
+  jruby, project b runs on ree 1.8.7, and project c runs on 1.9.1. The setup:
 
 %pre.code
   :preserve
