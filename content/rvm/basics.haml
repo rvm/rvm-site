@@ -47,7 +47,7 @@
 
 %p
   Next, the &amp;&amp; operator (a logical AND with short-circuit) executes the rest of the line if and only if the previous test returns true. This means that, in our rvm example, if the file '~/.rvm/scripts/rvm' is not found (or is empty) then bash ignores the rest of the line.
-  
+
   NOTE: I've seen the &amp;&amp; used a lot when installing software from source in linux for make &amp;&amp; sudo make install -- if make fails, then it doesn't try to install it to your system. This is the joy of command chaining at its finest.
 
 %p
@@ -62,7 +62,7 @@
   function that you will be using to issue RVM commands in your shell.
 
   NOTE: Sometimes on OS X, '.' fails to source correctly. If that happens, simply change '.' for 'source'.
-  
+
 %p
   Note that the '#' is the shell comment character so everything after it is
   a comment and ignored by the shell when the line is executed.
@@ -78,7 +78,7 @@
 %p
   Then, when you login or spawn a shell this will automatically load RVM regardless of the shell type. Pretty handy, huh?
   Also, make sure the RVM sourcing line is the <i>last</i> line in your '$HOME/.bashrc' file. This stops anything else from being able to override it since it will be the last thing executed from the .bashrc file.
-     
+
   If you are using the ZSH shell then you can place the sourcing line in your  in ~/.zshrc.
 
 %p
@@ -177,5 +177,5 @@
   %li
     Check here for an
     %a{:href => "http://rubylearning.com/blog/2010/12/20/how-do-i-keep-multiple-ruby-projects-separate/", :target => "_blank"}
-  excellent post 
-    introducting the why of RVM, written by Steve Klabnik.
+  excellent post
+  introducting the why of RVM, written by Steve Klabnik.
