@@ -74,11 +74,13 @@
     if [ -f "$HOME/.bashrc" ]; then
       source $HOME/.bashrc
     fi
-  
+
+%p
   Then, when you login or spawn a shell this will automatically load RVM regardless of the shell type. Pretty handy, huh?
   Also, make sure the RVM sourcing line is the <i>last</i> line in your '$HOME/.bashrc' file. This stops anything else from being able to override it since it will be the last thing executed from the .bashrc file.
      
   If you are using the ZSH shell then you can place the sourcing line in your  in ~/.zshrc.
+
 %p
   You should now open a new shell and start playing with rvm.
 
@@ -110,7 +112,7 @@
 
 %p
   Once you have installed a Ruby interpreter with RVM successfully you may then
-  use it.
+  use it by executing the following command:
 %pre.code
   :preserve
     $ rvm use 1.9.2
@@ -144,7 +146,7 @@
   Which tells the current shell to act as if you haven't run any "rvm use" commands yet.
 
 %h3
-  Where to now?
+  Where To Now?
 
 %p
   For further explanation, look around the rest of the site. In particular, make sure you check out
@@ -161,7 +163,7 @@
   %a{:href => "/gemsets/basics/"} gemsets.
 
 %p
-  If you would like to know what RVM Ruby is selected at any time (if any) you can
+  If you would like to know which Ruby RVM has selected and made active at any time, if any, you can
   add this information to your
   %a{:href => "/workflow/prompt/"} shell prompt.
 %p
@@ -173,7 +175,7 @@
   Community Resources
 %ul
   %li
-    An
+    Check here for an
     %a{:href => "http://rubylearning.com/blog/2010/12/20/how-do-i-keep-multiple-ruby-projects-separate/", :target => "_blank"}
-      excellent post
-    introducting the why of RVM by Steve Klabnik
+  excellent post 
+    introducting the why of RVM, written by Steve Klabnik.
