@@ -38,15 +38,17 @@
     [[ -s "$HOME/.rvm/scripts/rvm" ]] && . "$HOME/.rvm/scripts/rvm" # This loads RVM into a shell session.
 
 %p
-  NOTE: This is for a *user* install. If you installed as root then you substitute '$HOME/.rvm' with
+  NOTE: This is for a <b>user</b> install. If you installed as root then you substitute '$HOME/.rvm' with
   '/usr/local/rvm'.
 %p
   For those who are not very familiar with bash scripting, I will explain in the next few paragraphs what the line above does.
 %p
-  \[[ condition ]] evaluates the condition inside the double brackets and returns true or false. The option -s file tells bash to look for file and decide whether it exists and is nonempty. So the line [[ -s "$HOME/.rvm/scripts/rvm" ]] looks inside the default rvm scripts folder ~/.rvm/scripts/ for rvm, and returns true or false.
+  \[[ condition ]] evaluates the condition inside the double brackets and returns true or false. The option -s tells bash to look for the named file, and decide whether it exists and is nonempty. So the line [[ -s "$HOME/.rvm/scripts/rvm" ]] looks inside the default rvm scripts folder <i>'~/.rvm/scripts/'</i> for rvm, and returns true or false based on that criteria.
 
 %p
-  Next, the &amp;&amp; operator (a logical AND with short-circuit) executes the rest of the line if and only if the previous test returns true. This means that in our rvm example, if the file ~/.rvm/scripts/rvm is not found (or is empty), then bash ignores the rest of the line. (ASIDE: I've seen the &amp;&amp; used a lot when installing software from source in linux for make &amp;&amp; sudo make install -- if make fails, then it doesn't try to install it to your system)
+  Next, the &amp;&amp; operator (a logical AND with short-circuit) executes the rest of the line if and only if the previous test returns true. This means that, in our rvm example, if the file '~/.rvm/scripts/rvm' is not found (or is empty) then bash ignores the rest of the line.
+  
+  NOTE: I've seen the &amp;&amp; used a lot when installing software from source in linux for make &amp;&amp; sudo make install -- if make fails, then it doesn't try to install it to your system. This is the joy of command chaining at its finest.
 
 %p
   Finally, the shell command '.' file is identical to the bash/zsh 'source' command.
@@ -59,12 +61,23 @@
   This executes the rvm shell script, this script contains the master 'rvm()'
   function that you will be using to issue RVM commands in your shell.
 
+  NOTE: Sometimes on OS X, '.' fails to source correctly. If that happens, simply change '.' for 'source'.
+  
 %p
   Note that the '#' is the shell comment character so everything after it is
   a comment and ignored by the shell when the line is executed.
 %p
-  Once the sourcing line is placed in your startup files. Use ~/.profile if it exists, otherwise use .bashrc and .bash_profile.
-  If these files do not exist you may create them.
+  Place the sourcing line in your startup files. Use ~/.profile if it exists, otherwise use .bashrc and .bash_profile.
+  If these files do not exist you may create them. Since .bashrc is used for non-interactive login shells, and .bash_profile whenever you log in either via ssh or the local shell account, there is a little trick for ensuring RVM is loaded no matter what. Put the sourcing line in your $HOME/.bashrc and then load your .bashrc from .bash_profile using an 'if' statement in your .bash_profile like as follows:
+%pre.code
+  :preserve
+    if [ -f "$HOME/.bashrc" ]; then
+      source $HOME/.bashrc
+    fi
+  
+  Then, when you login or spawn a shell this will automatically load RVM regardless of the shell type. Pretty handy, huh?
+  Also, make sure the RVM sourcing line is the <i>last</i> line in your '$HOME/.bashrc' file. This stops anything else from being able to override it since it will be the last thing executed from the .bashrc file.
+     
   If you are using the ZSH shell then you can place the sourcing line in your  in ~/.zshrc.
 %p
   You should now open a new shell and start playing with rvm.
