@@ -126,13 +126,36 @@
     /Users/wayne/.rvm/rubies/ruby-1.9.2-p0/bin/ruby
 
 %p
+  NOTE: There has been some confusion amongst new users as to the proper way to switch between Ruby versions.
+  Do not include the 'ruby-' portion of whatever is listed in the output of 'rvm list' for installed rubies.
+  This is just used to indicate the differences between, say, ree rubies, and MRI rubies, etc. When you want
+  to switch, just use the version number and any patch level. If its a -head version use the full string as it
+  will not contain numbers. This also applies when setting a default Ruby. Below is an example of what I mean:
+  
+  %pre.code
+    :preserve
+      $ rvm use 1.9.2-p180 --default
+      
+      $ rvm use ruby-head # This just changes to ruby-head but does <i>not</i> set it as your default Ruby.
+            
+      $ rvm use ree-head --default
+      
+      $ rvm use 1.9.2 --default
+
+%p
+  The last example above does not use a patch level because you are basically saying use the most currently released
+  stable version of 1.9.2 which, as of the time of this writing, is 1.9.2-p290. Also, please take note that the keyword
+  <i>use</i> above causes RVM to output the vesion it is switching to. Basically, it makes the change operation verbose.
+  Note that it is <i>not</i> required in most operations.
+  
+%p
   RVM is 'hands off' any system ruby that you have installed.
   To be able to "use" your system ruby you can tell RVM to undo the environment
   changes that it has applied as follows.
 
 %pre.code
   :preserve
-    $ rvm system
+    $ rvm use system
 
     $ ruby -v
 
