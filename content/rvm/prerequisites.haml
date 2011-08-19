@@ -32,4 +32,11 @@
   %li subversion (for installing '-head' rubies)
 
 %p
-  If you want to use RVM in Zsh, you'll also need zsh >= 4.3.5 as well.
+  If you want to use RVM in Zsh, you will also need zsh >= 4.3.5 as well.
+
+%p
+  NOTE: For a quick and dirty way to find out if you have these programs and where they are, copy and paste the following code into your shell. This works in both Zsh and Bash so you can copy and paste with no worries.
+
+%pre.code
+  :preserve
+    for name in {bash,awk,sed,grep,ls,cp,tar,curl,gunzip,bunzip2} ; do which $name ;  done
