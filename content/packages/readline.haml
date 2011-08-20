@@ -15,18 +15,18 @@
   If you have an error when compiling pertaining to readline, you may need to attempt installing with the procedure defined below.
 %p
   NOTE: Before you follow the procedure below please be sure to verify that you
-  have installed any dependencies for the ruby you are installing listed by the
+  have installed any dependencies for the Ruby you are installing listed by the
   'rvm notes' command. If you have not yet done that do so then run
-  'rvm remove X ; rvm install X' where X is the ruby that you are concerned with.
+  'rvm remove X ; rvm install X' where X is the Ruby that you are concerned with.
 %pre.code
   :preserve
     $ rvm pkg install readline
     $ rvm remove 1.9.2
     $ rvm install 1.9.2 --with-readline-dir=$rvm_path/usr
 %p
-  Note that this error occurs most often when having a macports installed readline on your system.
+  Note that this error occurs most often when having a MacPorts, Fink, or Homebrew installed readline on your system.
   The next most often is when the readline development headers are not available at all. The above
-  commands solve this by having rvm compile a local version inside ~/.rvm/usr and then telling the ruby
+  commands solve this by having RVM compile a local version inside ~/.rvm/usr and then telling the ruby
   install to use it.
 %p
   If you have already installed your Ruby then you can manually recompile readline
