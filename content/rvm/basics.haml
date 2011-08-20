@@ -128,8 +128,9 @@
 %p
   NOTE: There has been some confusion amongst new users as to the proper way to switch between Ruby versions.
   Do not include the 'ruby-' portion of whatever is listed in the output of 'rvm list' for installed rubies.
-  This is just used to indicate the differences between, say, ree rubies, and MRI rubies, etc. When you want
-  to switch, just use the version number and any patch level. If its a -head version use the full string as it
+  This is just used to indicate the differences between, say, ree rubies, and MRI rubies, etc. However, do note, 
+  that when you are switching between an MRI or Rubinus, or REE, as an example, <i>then</i> you use the ree|ruby|rbx part.
+  When you want to switch, just use the version number and any patch level. If its a -head version use the full string as it
   will not contain numbers. This also applies when setting a default Ruby. Below is an example of what I mean:
   
   %pre.code
@@ -139,6 +140,8 @@
       $ rvm use ruby-head # This just changes to ruby-head but does <i>not</i> set it as your default Ruby.
             
       $ rvm use ree-head --default
+      
+      $ rvm use ree-1.8.7-2011.03   # You use this full form if, for example, you previously had an MRI or Rubinus ruby selected.
       
       $ rvm use 1.9.2 --default
 
