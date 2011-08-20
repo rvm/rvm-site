@@ -27,8 +27,17 @@
   Note that this error occurs most often when having a MacPorts, Fink, or Homebrew installed readline on your system.
   The next most often is when the readline development headers are not available at all. The above
   commands solve this by having RVM compile a local version inside ~/.rvm/usr and then telling the ruby
-  install to use it.
-%p
+  install to use it. If you have readline already installed using one of the above-mentioned package managers,
+  you can use that readline by exchanging the location such as the following:
+  %pre.code
+    :preserve
+      $ rvm install 1.9.2 --with-readline-dir=/usr/local/Cellar/readline/x.x.x
+  
+  %strong Note: 
+  In the above case, we are compiling using the Homebrew readline installation.
+  In the example, as well, you would need to replace 'x.x.x' with the correct version string.
+  <br /><br />
+  
   If you have already installed your Ruby then you can manually recompile readline
   as follows. Be sure to first install the readline development headers and/or
   package as above. For example with 1.9.2-p0 and system readline development
