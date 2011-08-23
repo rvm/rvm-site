@@ -35,6 +35,23 @@
   :preserve
     $ rvm_archflags="-arch i386" CFLAGS="-arch i386" LDFLAGS="-arch i386" rvm install 1.8.7 --patch osx-arch-fix
 
+%h2 Lion: gcc, llvm and specific architectures
+
+%p 
+  Ruby 1.9.2 will install without setting any environment variables.  
+  This will use llvm and create x86_64 binaries.
+
+%pre.code
+  :preserve
+    $ rvm install 1.9.2
+
+%p
+  Ruby 1.8.7 will install if you use the i386 environment variables, and set your compiler to gcc-4.2
+
+%pre.code
+  :preserve
+    $ CC=gcc-4.2 rvm_archflags="-arch i386" CFLAGS="-arch i386" LDFLAGS="-arch i386" rvm install 1.8.7 --patch osx-arch-fix
+
 %p
   To set the default architecture, see
   %a{:href => "/workflow/rvmrc/"} the rvmrc page
