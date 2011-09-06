@@ -70,19 +70,21 @@
   advantage of a few new features, namely hooks and the new project specific
   ‘.rvmrc’ file. (Available in RVM 0.0.85+)
 %p
+  As of RVM 1.8.0, after a survey where greater than 80% of respondants wanted
+  the feature on by default,
   %strong
-    As of RVM 1.7.0 project .rvmrc files are opt-in by default (therefore off).
-  To order to enable this feature set the following value in either /etc/rvmrc
+    project .rvmrc files are opt-out by default (therefore on).
+  To order to disable this feature set the following value in either /etc/rvmrc
   or ~/.rvmrc:
 %pre.code
   :preserve
-    rvm_project_rvmrc=1
+    rvm_project_rvmrc=0
 %p
   Note that project .rvmrc files are shell scripts that run when you cd
   into a directory containing one. You are asked to trust it the first time as
   well. This means that you can put any commands and code you'd like into
   them in order to get your environment for a project bootstrapped and ready
-  to use.
+  to use. Be sure to read them before trusting them if you did not write them.
 %p
   Let’s say I have my project directory as ~/projects/ and in this directory I
   have three projects 'projecta', 'projectb', and 'projectc'. Project a runs on
@@ -151,7 +153,7 @@
 %p
   Note that the project .rvmrc file is actually a shell script and may contain
   any valid shell commands in order for you to initialize your project's
-  environment. 
+  environment. Be sure to read them before trusting them if you did not write them.
 
 %p
   To turn off the project specific rvmrc functionality in your $HOME/.rvmrc set
