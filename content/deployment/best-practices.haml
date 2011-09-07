@@ -35,7 +35,19 @@
   %a{:href => "http://rvm.beginrescueend.com/workflow/rvmrc/#project"}
     project .rvmrc
   for each project, for both development and deployment.
-
+%p
+  Set the rvm_path to be user-facing:
+%pre.code
+  :preserve
+    appuser$ echo 'rvm_path="$HOME/.rvm"' >> ~/.rvmrc
+%p
+  Now install RVM,
+%pre.code
+  :preserve
+    appuser$ curl -s https://rvm.beginrescueend.com/install/rvm -o rvm-installer ; chmod +x rvm-installer ; ./rvm-installer
+%p
+  Once you have RVM installed for the target application user, you are ready to
+  setup the deployment!
 %p
   Start by generating a default ~/.smrc:
 %pre.code
@@ -62,13 +74,6 @@
 %pre.code
   :preserve
     root# sm sets install ruby
-
-%p
-  Now, set the rvm_path to be user-facing:
-%pre.code
-  :preserve
-    appuser$ echo 'rvm_path="$HOME/.rvm"' >> ~/.rvmrc
-
 %p
   Next, run the Rails application setup extension action; this creates and sets
   up the directories and configuration files within the application user's
@@ -76,7 +81,6 @@
 %pre.code
   :preserve
     appuser$ sm rails setup
-
 %p
   Generate the unicorn configuration file in ~/shared/config/. Edit this file
   if you wish to run more than 2 unicorn worker processes by default,
@@ -84,14 +88,12 @@
 %pre.code
   :preserve
     appuser$ sm unicorn service setup
-
 %p
   Edit the default generated database.yml file, and set up your database
   connection information:
 %pre.code
   :preserve
     appuser$ vim ~/shared/config/database.yml
-
 %p
   Now install the deploy extension:
 %pre.code
