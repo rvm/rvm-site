@@ -20,11 +20,14 @@
   Would use the tedxperth gemset on ruby enterprise edition. To make this
   easier, we can run:
 
-= sh_cmd "echo 'rvm --create --rvmrc use ree@tedxperth'"
+= sh_cmd "echo 'rvm --create --rvmrc use ree@tedxperth' > .rvmrc"
 
 %p
-  Inside the root of your project. This tells rvm that everytime we change in to the directly,
-  it should use ree with the tedxperth gemset, creating the gemset if it doesn't exist.
+  from inside the root of your project. This tells rvm that everytime we change in to the project's directory,
+  it should use ree with the tedxperth gemset, creating the gemset if it doesn't exist. After executing the above
+  command, you can reload RVM in order to make it see the new .rvmrc and allow you check it out and 'trust' it.
+
+= sh_cmd "rvm reload"
 
 %p
   This basic approach not only ensures we have gems seperate from the rest of the system but
