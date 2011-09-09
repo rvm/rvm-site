@@ -161,11 +161,13 @@
   :preserve
     rvm_project_rvmrc=0
 %p
-  To enable switching to default / system when leaving a directory set
+  To enable switching to default / system when leaving a directory in your $HOME?.rvmrc set
 
 %pre.code
   :preserve
     rvm_project_rvmrc_default=1
+
+%p NOTE: As of RVM v1.8.0, the $rvm_project_rvmrc_default is set to OFF by default. However, rvm_project_rvmrc is set to ON.
 
 %h2 Warning
 %p
