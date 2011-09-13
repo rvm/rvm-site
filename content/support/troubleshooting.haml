@@ -32,7 +32,7 @@
   If you have trouble installing ruby-debug19 try installing with the following command:
 %pre.code
   :preserve
-    $ gem install ruby-debug19 -- --with-ruby-include="$rvm_src_path/$(rvm tools identifier)/"
+    $ gem install ruby-debug19 -- --with-ruby-include="${rvm_path}/src/${rvm_ruby_string}/"
 
 %a{:href => "#", :name => "segfault"}
 %h2
