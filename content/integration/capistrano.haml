@@ -59,4 +59,21 @@
     }
 %p
   To get the accurate locations have a look at cat ~/.rvm/config/default
+%p
+  Also, in order to have capistrano automatically trust project rvmrc files on deployments, you can do the following.
+  In your 'config/deploy.rb' you can add:
+  %pre.code
+    :preserve
+      namespace :rvm do
+        task :trust_rvmrc do
+          run \"rvm rvmrc trust \#\{release_path\}\"
+        end
+      end
+%p
+  And then use capistrano's hooks capabilities, by adding an 'after' hook like the following:
+  %pre.code
+    :preserve
+      after "deploy", "rvm:trust_rvmrc"
+%p
+  to launch it.
 
