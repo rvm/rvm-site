@@ -160,7 +160,8 @@
   Add the following to your ~/.bashrc or ~/.profile (~/.bash_profile) as
   appropriate:
 %pre.code
-  export rvm_cd_complete_flag=1
+  :preserve
+    export rvm_cd_complete_flag=1
 %p
   If you have this problem, please report the details of your operating system,
   $BASH_VERSION, the version of bash_completion you're using, etc. to #rvm on
@@ -200,6 +201,15 @@
 %p
   which will cause the Ruby to be installed as ruby-1.9.2-p###-1_9 where ## is the
   current patch level at the time of install, rather than simply as ruby-1.9.2-p###.
+  To use the named ruby you would do:
+%pre.code
+  rvm use 1.9.2 -n 1_9
+%p
+  NOTE: This will be changing in a future version to be as follows:
+%pre.code
+  rvm use 1.9.2-n1_9
+%p
+  However, that syntax currently does not work.
 %h2
   How do I completely clean out all traces of RVM from my system, including for system wide installs?
 %p
