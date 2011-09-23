@@ -4,7 +4,7 @@ You can see the documentation live online at http://rvm.beginrescueend.com/.
 
 == Get the Site Running Locally
 
-If you're going to help you'll first need to get the site running locally. 
+If you're going to help you'll first need to get the site running locally.
 Start by forking the repository and cloning the fork.
 
 == Requirements
@@ -20,21 +20,21 @@ rvm-site requires a few gems that can be found in rvm-site.gems, including:
 
   Compass
   http://compass-style.org/
-  
+
   HAML (SASS is bundled with this Gem)
   http://haml-lang.com/
   http://sass-lang.com/
-  
+
   Nanoc3
   http://nanoc.stoneship.org/
-  
+
   Rack
   http://guides.rubyonrails.org/rails_on_rack.html
-  
+
   Mime-type
   http://rubyforge.org/projects/mime-types/
-  
-To install the gemset file, use 
+
+To install the gemset file, use
 
   rvm gemset import rvm-site.gems
 
@@ -43,17 +43,19 @@ To install the gemset file, use
 
 If you are in RVM and have 1.9.2 already running,
 simply clone this repository and cd to the directory.
-The project .rvmrc will be loaded and you can open in your editor and start hacking away.
+The project .rvmrc will be loaded and you can open in your editor and start
+hacking away.
 
-If you would like to view the changes locally as you hack, 
+If you would like to view the changes locally as you hack,
 You can use Nanoc's AutoCompile feature:
 
 	nanoc3 aco
 
 == Update Submission
 
-Once you are satisfied with your changes to the documentation push it back to your github fork and initiate a pull request.
+Once you are satisfied with your changes to the documentation push it back to
+your github fork and initiate a pull request.
 
 == Thanks
 
-Thanks for taking the time to work on RVM.
+Thanks for taking the time to work on the RVM documentation project!

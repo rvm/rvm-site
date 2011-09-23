@@ -12,15 +12,15 @@
 %h2
   Managing gemsets
 %p
-  We can not only use completely separate gemsets per application/project/etc... we can also export and load them easily.
+  You can not only use completely separate gemsets per application/project/etc... you can also export and load them very easily, too.
 
 %p
-  To export a gemset easily, assuming a project called 'albinochipmunk' running on Ruby 1.9.1:
+  To export a gemset, assuming a project called 'albinochipmunk' running on Ruby 1.9.2:
 %pre.code
   :preserve
-    $ rvm 1.9.1@albinochipmunk gemset export
+    $ rvm 1.9.2@albinochipmunk gemset export
 %p
-  will create an 'albinochipmunk.gems' file.
+  creates an 'albinochipmunk.gems' file.
 
 %p
   Alternatively, if you already have a ruby selected
@@ -28,16 +28,17 @@
   :preserve
     rvm gemset export
 %p
-  will create a 'default.gems' file.
+  creates a 'default.gems' file.
 
 %p
-  You can specify the gemset filename prefix also
+  You can specify the gemset filename prefix, also
 %pre.code
   :preserve
     rvm gemset export albinochipmunk.gems
 
 %p
   A subtle difference with the above command is to leave off the '.gems' which will export the gems for the gemset named 'mygemsetname'
+  / unclear what happens here. if the example used 'redsquirrel', I'd interpret this as "although gem set albinochipmunk is currently in use, this command will export the not-in-use gem set 'redquirrel', perhaps to the export file 'redsquirrel.gems'"
 %pre.code
   :preserve
     rvm gemset export albinochipmunk

@@ -32,9 +32,9 @@
   %h1
     Patch Levels with RVM
   %p
-    For each C based interpreter you can also specify a patchlevel using the '-l' or '--level' options.
+    For each C-based interpreter, you can also specify a patchlevel using the '-l' or '--level' options.
     Each interpreter defaults to the latest patchlevel known to RVM.
-    For example, RVM (as of this writing) defaults ruby 1.8.7 to patchlevel 174.
+    For example, RVM (as of this writing) defaults ruby 1.8.7 to patchlevel 352.
     If you wanted to switch to patchlevel 160 to test something out you can easily do that by:
 
   %pre.code
@@ -59,7 +59,7 @@
 
       ruby 1.8.7 (2009-04-08 patchlevel 160) [i686-darwin9.8.0]
 
-      $ rvm  ruby-1.8.7-p174
+      $ rvm  ruby-1.8.7-p352
 
       Switching to ruby 1.8.7 174 ...
 
@@ -71,7 +71,7 @@
   %pre.code
     :preserve
       $ rvm 1.8.7-p160    # same as: rvm ruby-1.8.7-p160
-      $ rvm 1.8.7-p174    # same as: rvm ruby-1.8.7-p174
+      $ rvm 1.8.7-p352    # same as: rvm ruby-1.8.7-p352
 
 %h2
   Repository Revisions (MRI)
@@ -129,7 +129,7 @@
       ruby 1.8.8dev (2011-05-25) [i386-darwin10.7.0]
 
 %p
-  A list of all valid branches can be found in the ruby repository: http://svn.ruby-lang.org/repos/ruby/branches/
+  You'll find a list of all valid branches in the ruby repository: http://svn.ruby-lang.org/repos/ruby/branches/
 
 %h2 Custom Patches (MRI)
 %p
@@ -138,14 +138,14 @@
     :preserve
       $ rvm install 1.8.6 --patch /path/to/awesome.patch
   %p
-    Alternatively you can specify more than one patch, they are applied in the order given.
+    Alternatively you can specify more than one patch; they are applied in the order given.
   %pre.code
     :preserve
       $ rvm install 1.8.6 --patch /path/to/awesome.patch,/path/to/another.patch
 
-%h2 Getting Head
+%h2 Getting the Latest and Greatest
 %p
-  Getting the head/trunk version of rubies can be done as follows.
+  You can get the head/trunk version of any given ruby as follows.
 %p
   For any interpreter which has '-head' support, postfix '-head' after the
   interpreter name. For example, in order to install the latest development
@@ -154,13 +154,12 @@
   :preserve
     $ rvm install ruby-1.9.2-head
     $ rvm use ruby-1.9.2-head
-%p
-  Note that as of this writing 1.9.3 has no repository branch and thus "1.9.3-head" IS "ruby-head".
 
 %h1 Install on Use
 %p
-  If you would like RVM to automatically install a ruby when you use it,
-  add the following flag to your rvmrc file:
+  If you would like RVM to automatically install a ruby when you
+  %em use
+  it, add the following flag to your rvmrc file:
 %pre.code
   :preserve
     $ cat $HOME/.rvmrc
@@ -168,14 +167,14 @@
 
 %h1 Configure flags
 %p
-  Configure script flags can be passed by a comma separated list with no spaces after -C like so:
+  Configure script flags can be passed by a comma-separated list with no spaces after -C, like so:
 %pre.code
   :preserve
     $ rvm install 1.9.1 -C --enable-shared,--with-readline-dir=$HOME/.rvm/usr
 
 %h1 Compile Flags
 %p
-  If you need to pass compile flags for the compile process you can set the
+  If you need to pass compile flags for the compile process, just set the
   corresponding environment variables.
 %p
   As an example, to enable gdb for ruby 1.9.1:
@@ -186,8 +185,8 @@
 %h1
   Static MRI
 %p
-  If you wish to compile an MRI Ruby (1.8 / 1.9) as statically linked instead
-  of dynamically then pass the --static flag like so:
+  If you wish to compile an MRI Ruby (1.8 / 1.9) as statically-linked instead
+  of dynamically, then pass the --static flag like so:
 
 %pre.code
   :preserve

@@ -38,15 +38,17 @@
     [[ -s "$HOME/.rvm/scripts/rvm" ]] && . "$HOME/.rvm/scripts/rvm" # This loads RVM into a shell session.
 
 %p
-  NOTE: This is for a *user* install. If you installed as root then you substitute '$HOME/.rvm' with
+  NOTE: This is for a <b>user</b> install. If you installed as root then you substitute '$HOME/.rvm' with
   '/usr/local/rvm'.
 %p
   For those who are not very familiar with bash scripting, I will explain in the next few paragraphs what the line above does.
 %p
-  \[[ condition ]] evaluates the condition inside the double brackets and returns true or false. The option -s file tells bash to look for file and decide whether it exists and is nonempty. So the line [[ -s "$HOME/.rvm/scripts/rvm" ]] looks inside the default rvm scripts folder ~/.rvm/scripts/ for rvm, and returns true or false.
+  \[[ condition ]] evaluates the condition inside the double brackets and returns true or false. The option -s tells bash to look for the named file, and decide whether it exists and is nonempty. So the line [[ -s "$HOME/.rvm/scripts/rvm" ]] looks inside the default rvm scripts folder <i>'~/.rvm/scripts/'</i> for rvm, and returns true or false based on that criteria.
 
 %p
-  Next, the &amp;&amp; operator (a logical AND with short-circuit) executes the rest of the line if and only if the previous test returns true. This means that in our rvm example, if the file ~/.rvm/scripts/rvm is not found (or is empty), then bash ignores the rest of the line. (ASIDE: I've seen the &amp;&amp; used a lot when installing software from source in linux for make &amp;&amp; sudo make install -- if make fails, then it doesn't try to install it to your system)
+  Next, the &amp;&amp; operator (a logical AND with short-circuit) executes the rest of the line if and only if the previous test returns true. This means that, in our rvm example, if the file '~/.rvm/scripts/rvm' is not found (or is empty) then bash ignores the rest of the line.
+
+  NOTE: I've seen the &amp;&amp; used a lot when installing software from source in linux for make &amp;&amp; sudo make install -- if make fails, then it doesn't try to install it to your system. This is the joy of command chaining at its finest.
 
 %p
   Finally, the shell command '.' file is identical to the bash/zsh 'source' command.
@@ -59,13 +61,26 @@
   This executes the rvm shell script, this script contains the master 'rvm()'
   function that you will be using to issue RVM commands in your shell.
 
+  NOTE: Sometimes on OS X, '.' fails to source correctly. If that happens, simply change '.' for 'source'.
+
 %p
   Note that the '#' is the shell comment character so everything after it is
   a comment and ignored by the shell when the line is executed.
 %p
-  Once the sourcing line is placed in your startup files. Use ~/.profile if it exists, otherwise use .bashrc and .bash_profile.
-  If these files do not exist you may create them.
+  Place the sourcing line in your startup files. Use ~/.profile if it exists, otherwise use .bashrc and .bash_profile.
+  If these files do not exist you may create them. Since .bashrc is used for non-interactive login shells, and .bash_profile whenever you log in either via ssh or the local shell account, there is a little trick for ensuring RVM is loaded no matter what. Put the sourcing line in your $HOME/.bashrc and then load your .bashrc from .bash_profile using an 'if' statement in your .bash_profile like as follows:
+%pre.code
+  :preserve
+    if [ -f "$HOME/.bashrc" ]; then
+      source $HOME/.bashrc
+    fi
+
+%p
+  Then, when you login or spawn a shell this will automatically load RVM regardless of the shell type. Pretty handy, huh?
+  Also, make sure the RVM sourcing line is the <i>last</i> line in your '$HOME/.bashrc' file. This stops anything else from being able to override it since it will be the last thing executed from the .bashrc file.
+
   If you are using the ZSH shell then you can place the sourcing line in your  in ~/.zshrc.
+
 %p
   You should now open a new shell and start playing with rvm.
 
@@ -97,7 +112,7 @@
 
 %p
   Once you have installed a Ruby interpreter with RVM successfully you may then
-  use it.
+  use it by executing the following command:
 %pre.code
   :preserve
     $ rvm use 1.9.2
@@ -111,13 +126,39 @@
     /Users/wayne/.rvm/rubies/ruby-1.9.2-p0/bin/ruby
 
 %p
+  NOTE: There has been some confusion amongst new users as to the proper way to switch between Ruby versions.
+  Do not include the 'ruby-' portion of whatever is listed in the output of 'rvm list' for installed rubies.
+  This is just used to indicate the differences between, say, ree rubies, and MRI rubies, etc. However, do note, 
+  that when you are switching between an MRI or Rubinus, or REE, as an example, <i>then</i> you use the ree|ruby|rbx part.
+  When you want to switch, just use the version number and any patch level. If its a -head version use the full string as it
+  will not contain numbers. This also applies when setting a default Ruby. Below is an example of what I mean:
+  
+  %pre.code
+    :preserve
+      $ rvm use 1.9.2-p180 --default
+      
+      $ rvm use ruby-head # This just changes to ruby-head but does <i>not</i> set it as your default Ruby.
+            
+      $ rvm use ree-head --default
+      
+      $ rvm use ree-1.8.7-2011.03   # You use this full form if, for example, you previously had an MRI or Rubinus ruby selected.
+      
+      $ rvm use 1.9.2 --default
+
+%p
+  The last example above does not use a patch level because you are basically saying use the most currently released
+  stable version of 1.9.2 which, as of the time of this writing, is 1.9.2-p290. Also, please take note that the keyword
+  <i>use</i> above causes RVM to output the version it is switching to. Basically, it makes the change operation verbose.
+  Note that it is <i>not</i> required in most operations.
+  
+%p
   RVM is 'hands off' any system ruby that you have installed.
   To be able to "use" your system ruby you can tell RVM to undo the environment
   changes that it has applied as follows.
 
 %pre.code
   :preserve
-    $ rvm system
+    $ rvm use system
 
     $ ruby -v
 
@@ -131,7 +172,7 @@
   Which tells the current shell to act as if you haven't run any "rvm use" commands yet.
 
 %h3
-  Where to now?
+  Where To Now?
 
 %p
   For further explanation, look around the rest of the site. In particular, make sure you check out
@@ -148,7 +189,7 @@
   %a{:href => "/gemsets/basics/"} gemsets.
 
 %p
-  If you would like to know what RVM Ruby is selected at any time (if any) you can
+  If you would like to know which Ruby RVM has selected and made active at any time, if any, you can
   add this information to your
   %a{:href => "/workflow/prompt/"} shell prompt.
 %p
@@ -160,7 +201,6 @@
   Community Resources
 %ul
   %li
-    An
-    %a{:href => "http://rubylearning.com/blog/2010/12/20/how-do-i-keep-multiple-ruby-projects-separate/", :target => "_blank"}
-      excellent post
-    introducting the why of RVM by Steve Klabnik
+    Check here for an
+    %a{:href => "http://rubylearning.com/blog/2010/12/20/how-do-i-keep-multiple-ruby-projects-separate/", :target => "_blank"} excellent post
+    introducting the why of RVM, written by Steve Klabnik.

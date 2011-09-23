@@ -1,0 +1,34 @@
+.breadcrumbs
+  %a{ :href => "/" }
+    Documentation
+  &nbsp;>&nbsp;
+  %a{ :href => "/os/" }
+    Interpreters
+  &nbsp;>&nbsp;
+  %a{ :href => "/os/opensuse/" }
+    OpenSUSE / RedHat
+  %hr
+
+%h1
+  OpenSUSE / RedHat
+
+%p
+  If you are running on a 
+  %a{:href => "http://opensuse.org/"}
+    OpenSUSE / RedHat based Systems
+  you can run:
+
+= sh_cmd "rvm notes"
+
+%p
+  To find out the various dependencies for each ruby.
+
+%p
+  When you first install, you will want to remove patterns-openSUSE-minimal_base as it causes you to be unable to install git/git-core.
+  You will also want to install the following:
+
+= sh_cmd "zypper install gcc gcc-c++ autoconf automake bison binutils libtool zlib zlib-devel libopenssl-devel openssl-doc"
+
+%p
+  This installs the C and C++ compilers, autoconf and automake for Makefile creation and management, and various other tools most rubies and gems will need.
+

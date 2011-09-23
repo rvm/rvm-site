@@ -12,8 +12,8 @@
 %h1
   MacRuby
 %p
-  MacRuby is a ruby interpreter built on top of Apple's NS Framework,
-  it is aimed at allowing developers to create native OSX applications using Ruby!
+  MacRuby is a ruby interpreter built on top of Apple's NS Framework.
+  It allows developers to create fully-native OSX applications that take advantage of Ruby!
 %p
   Please note that much of the content below was taken from
   %a{:href => "https://github.com/MacRuby/MacRuby/blob/trunk/README.rdoc"}
@@ -22,7 +22,7 @@
 %h2
   Latest Release
 %p
-  Installing the latest official release known by your RVM is the same procedure
+  Installing the latest official release known to RVM is the same procedure
   as for other interpreters.
 
 %pre.code
@@ -32,11 +32,9 @@
 %h2
   Head (aka 'trunk')
 %p
-  Installing the latest macruby development from it's repository on github is
-  detailed in the following.
+  Here's how you can install the latest macruby release from its github repository:
 %p
-  Please be sure that LLVM and all other requirements (see below) are met
-  before running the following command.
+  Please be sure you have installed LLVM and met all other requirements (see below) before you continue.
 
 %pre.code
   :preserve
@@ -47,7 +45,7 @@
   Objective-C runtime and garbage collector, the CoreFoundation framework and
   the LLVM compiler infrastructure.
 %p
-  It is the goal of MacRuby to enable the creation of full-fledged Mac OS X
+  The goal of MacRuby is to enable the creation of full-fledged Mac OS X
   applications which do not sacrifice performance in order to enjoy the benefits
   of using Ruby.
 
@@ -67,7 +65,7 @@
 %ul
   %li
     An Intel machine. PowerPC machines are no longer supported, but may still
-    work. An Intel 64-bit machine (Intel Core Duo 2) is recommended.
+    work. An Intel 64-bit machine (Intel Core Duo 2 or later) is recommended.
 
   %li
     Mac OS X 10.6 or later.
@@ -78,8 +76,10 @@
 %h3 Compiling LLVM
 
 %p
-  LLVM is a moving target and breaks periodically. We recommend to install
-  revision 106781, being sure to specify the correct C and C++ compilers through
+  LLVM is a moving target, and breaks periodically. We recommend you install
+  revision 106781. 
+  / still valid version recommendation?
+  Make sure you specify the correct C and C++ compilers with
   environment variables.
 
 %pre.code
@@ -91,12 +91,12 @@
     $ sudo env UNIVERSAL=1 UNIVERSAL_ARCH="i386 x86_64" CC=/usr/bin/gcc CXX=/usr/bin/g++ make install
 
 %p
-  Note that compiling LLVM can take quite a while. If you have a machine with
-  multiple cores, which is quite likely, you might want to speed up the process
-  by using all/more cores. However, doing this can make your machine
-  unresponsive during compilation. To use multiple cores pass the `-j N'
-  option, where `N' stands for the number of cores you'd like to use. So for a
-  Core Duo the command would look like:
+  Compiling LLVM can take quite a while. If you have a machine with
+  multiple cores, which is quite likely, you can speed up the process
+  by using all/more cores. However, doing so may make your machine
+  unresponsive during compilation. To use multiple cores, pass the `-j N'
+  option, where `N' stands for the number of cores you want to use. So for a
+  Core Duo, the command would look like:
 
 %pre.code
   :preserve
@@ -106,7 +106,7 @@
   Community Resources
 %ul
   %li
-    The project website contains more documentation, such as tutorials and guides
+    The project website contains more documentation, such as tutorials and guides. It
     can be found at
     %a{:href => "http://www.macruby.org/", :target => "_blank"}
       http://www.macruby.org/

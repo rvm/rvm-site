@@ -3,24 +3,24 @@
 %p There are two fundamentally different ways to install and configure RVM.
 
 %ul
-  %li Single-User Installation as a standard user (<strong>for developers</strong>)
+  %li Single-User installation as a standard user (<strong>for developers</strong>)
   %li Multi-User installation as root (<strong>for server administrators</strong>)
 
-%p <strong style="color: red;">For most purposes, the recommended installation method is Single-User</strong>, which is a self-contained rvm installation in a user's home directory.
+%p <strong style="color: red;">For most purposes, the recommended installation method is Single-User</strong>, which is a self-contained RVM installation in a user's home directory.
 
 
-%p <strong>All multi-user instructions must be run as root.</strong> The installation process is similar for both installation methods; any differences will be noted in the instructions below.
+%p <strong>All multi-user instructions must be run as root.</strong> The installation process is similar for both installation methods. Any differences will be noted in the instructions below.
 
 %h4 To update an existing RVM installation
 
 %p
-  It is safe to run the installation script again, or follow the
+  It is safe to run the installation script again, or you can follow the
   %a{:href => "/rvm/upgrading/"}
     upgrading docs.
 
 %h2 Installation
 
-%p I recommend you <a href="https://rvm.beginrescueend.com/install/rvm">read the installation script yourself</a>; you will understand what it is doing and feel more comfortable running it.
+%p I recommend you <a href="https://rvm.beginrescueend.com/install/rvm">read the installation script</a> yourself. This will give you a chance to understand what it is doing <i>before</i> installing, and allow you to feel more comfortable running it if you do so.
 
 %h3 1. Download and run the RVM installation script
 %h4 Installing the latest release version in git:
@@ -36,11 +36,11 @@
 
 %h4 Single-User Install Location: ~/.rvm/
 %p
-  If the install script is run as standard, non-root user, rvm will install into the current users's home directory.
+  If the install script is run as standard, non-root user, RVM will install into the current users's home directory.
 
 %h4 Multi-User Install Location: /usr/local/rvm
 %p
-  If the install script is run as root, rvm will automatically install into /usr/local/rvm
+  If the install script is run as root, RVM will automatically install into /usr/local/rvm
 
 %p
   <strong>If the rvm install script does nothing or complains about certificates</strong>
@@ -51,24 +51,25 @@
     user$ bash &lt; &lt;(curl -sk https://rvm.beginrescueend.com/install/rvm)
 
 %p
-  %strong If you doesn't like the ~/bin and ~/share dirs created on the root of your home directory
-  you can overwrite the 'rvm_bin_path' and 'rvm_man_path' variables by doing the command below, it also solves problems with capistrano deployments as they use the old path scheme, do:
+  %strong If you don't like the ~/bin and ~/share dirs created on the root of your home directory,
+  you can overwrite the 'rvm_bin_path' and 'rvm_man_path' variables by using the command below. It also solves problems with capistrano deployments as they use the old path scheme.
 
 %pre.code
   :preserve
     user$ curl -s https://rvm.beginrescueend.com/install/rvm -o rvm-installer ; chmod +x rvm-installer ; rvm_bin_path=~/.rvm/bin rvm_man_path=~/.rvm/share/man ./rvm-installer
 
 %p
-  or change the 'rvm_bin_path' and 'rvm_man_path' to your proffered paths.
+  or change the 'rvm_bin_path' and 'rvm_man_path' to your preferred paths.
 
 %h3 2. Load RVM into your shell sessions as a function
 %em
   Throughout these instructions, you may replace .bash_profile with the appropriate startup script for your bash-compatible shell. For other shells you may need to modify these commands.
-%p
-  Append RVM function setup to your .bash_profile:
 
 %h4 Single-User:
 
+%p
+  Load RVM by appending the rvm function sourcing to your .bash_profile:
+  
 %pre.code
   :preserve
     user$ echo '[[ -s "$HOME/.rvm/scripts/rvm" ]] && . "$HOME/.rvm/scripts/rvm" # Load RVM function' >> ~/.bash_profile
@@ -87,23 +88,32 @@
   :preserve
     user$ source .bash_profile
 
-%p If configuration and installation was performed correctly, this command should output 'rvm is a function':
+%p 
+  If installation and configuration were successful, RVM should now load whenever you open a new shell.
+  This can be tested by executing the following command which should output <i>'rvm is a function'</i> as shown below.
 
 %pre.code
   :preserve
     user$ type rvm | head -1
+    rvm is a function
 
-%p See if there are any dependencies for your operating system by running:
+%p
+  Finally, see if there are any dependency requirements for your operating system by running:
 
 %pre.code
   :preserve
     user$ rvm notes
 
+%p
+  %strong NOTE:
+  Whenever you upgrade RVM in the future, you should always run <i>'rvm notes'</i> as this is usually where you will
+  find details on any major changes and/or additional requirements to ensure your installation stays working.
+  
 %h4 Congratulations! You have successfully installed RVM.
 
 %p
-  <strong>Multi-User Install Note:</strong> After installation, where you would normally use 'sudo', non-root users will need to use 'rvmsudo' (e.g. <code>rvmsudo gem install xxxx</code>). This may affect or break some deployment scripts.
-  E.G:
+  <strong>Multi-User Install Note:</strong> After installation, where you would normally use 'sudo', non-root users will need to use 'rvmsudo'. This may affect, or break, some deployment scripts. Below are 2 detailed examples:
+  
 %pre.code
   :preserve
     # Incorrect, this will fail
@@ -112,11 +122,14 @@
     # Correct usage, this will succeed
     user$ rvmsudo gem install xxxx
 
-%h2 Try out your new RVM installation:
+%h2 Try out your new RVM installation
 
-%em I've included the (truncated) output of each command on my system as an example.
+%p
+  Below are some examples of how to install and use a Ruby under RVM.
 
-%p Display list of all "known" rubies (RVM can install many more rubies not listed):
+%p
+  Display a list of all "known" rubies. NOTE: RVM can install many more Rubies not listed.
+
 %pre.code
   :preserve
     user$ rvm list known
@@ -134,7 +147,7 @@
 
     ...
 
-%p Install a version of ruby (eg 1.9.2):
+%p Install a version of Ruby (eg 1.9.2):
 
 %pre.code
   :preserve
@@ -152,7 +165,7 @@
     ...
     Install of ruby-1.9.2-p180 - #complete
 
-%p Use the ruby version:
+%p Use the newly installed Ruby:
 
 %pre.code
   :preserve
@@ -166,9 +179,9 @@
     ruby 1.9.2p180 (2011-02-18 revision 30909) [i386-darwin9.8.0]
 
     user$ which ruby
-    Using /Users/user/.rvm/gems/ruby-1.9.2-p180
+    Using /Users/user/.rvm/gems/ruby-1.9.2-p180/bin/ruby
 
-%p Optionally, set a version of ruby to use as the default for new shells (overrides the 'system' ruby):
+%p Optionally, you can set a version of Ruby to use as the default for new shells. Note that this overrides the 'system' ruby:
 
 %pre.code
   :preserve
@@ -181,26 +194,29 @@
 %p
   If you are new to RVM I recommend that you read the
   %a{:href => "http://rvm.beginrescueend.com/rvm/basics/"}
-    basics page
-  At the end of the basics page there are further links as suggestions for
+    basics page.
+  At the end of the basics page there are further links for
   getting started.
 
-%h2 Troubleshooting your Install
+%h2 Troubleshooting Your Install
 
 %ul
   %li
     %p If you open a new shell and running:
     = sh_cmd "type rvm | head -1"
-    %p does not show "rvm is a function", rvm isn't being sourced correctly.
+    %p
+      does
+      %em not
+      show "rvm is a function", RVM isn't being sourced correctly.
 
   %li
     %p
-      Ensure that rvm is sourced after any path settings as RVM and manipulates the path.
-      Failure to do this may end up with RVM not working as expected.
+      Ensure that RVM is sourced after any path settings as RVM and manipulates the path.
+      If you don't do this, RVM may not work as expected.
 
   %li
     %p
-      If you are using GNOME on Red Hat, CentOS or Fedora ensure that the
+      If you are using GNOME on Red Hat, CentOS or Fedora, ensure that the
       %em Run command as login shell
       option is checked under the
       %em Title and Command
@@ -209,11 +225,11 @@
       After changing this setting, you may need to exit your console session and start
       a new one before the changes take affect.
 
-%h3 Example rvm bootstrap script
+%h3 Example RVM bootstrap script
 
 %p
-  The following script will boostrap git + RVM assuming that you have curl &amp; sudo installed.
-  It will also install (last line) several common rubies.
+  The following script will boostrap git + RVM, assuming that you have curl and sudo installed.
+  The last line of the script will also install several commonly used Rubies for you.
 
 %pre.code
   :preserve
@@ -225,7 +241,6 @@
     # Install RVM
     bash &lt; &lt;(curl -s https://rvm.beginrescueend.com/install/rvm)
 
-    # Install some rubies
+    # Install some Rubies
     source "$HOME/.rvm/scripts/rvm"
     rvm install 1.9.2,rbx,jruby
-

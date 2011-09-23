@@ -13,24 +13,24 @@
 %h1
   Upgrading RVM
 %p
-  RVM supports two ways of upgrading itself, one to the latest released version
+  RVM supports two ways of upgrading itself: one to the latest released version
   and the other to the latest repository version.
 %h3
-  Upgrading to the last release version
+  To upgrade to the most recent release version
 %pre.code
   :preserve
     $ rvm get latest
 %p
-  will install the latest released version.
+  installs the latest released version.
 %h3
   Upgrading to the latest repository source version (the most bugfixes)
 %pre.code
   :preserve
     $ rvm get head
 %p
-  this will obtain the latest RVM repository version using git and run ./install
+  obtains the latest RVM repository version by using git, then running ./install
   from the cloned repository.
 
 %p
-  After having your RVM updated you might be also interested in
-  %a{ :href => "/rubies/upgrading/" } Upgrading rubies
+  After updating RVM, you may be also interested in
+  %a{ :href => "/rubies/upgrading/" } Upgrading Rubies.

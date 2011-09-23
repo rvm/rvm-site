@@ -4,25 +4,25 @@
 %h1 Myths
 
 %p
-  Whilst RVM stands for 'ruby version manager', a lot of people seem to be uncertain
-  about the range of things you can use rvm for as well as how well it fits in to
-  the development and deployment ecosystem. This page is primarily here to dispell
-  these myths and to provide our perspective.
+  Whilst RVM stands for 'Ruby enVironment Manager', a lot of people seem unclear
+  about the range of things you can use RVM for, and how well it fits into
+  the development and deployment ecosystem. This page aims to dispel
+  these myths, and to provide our perspective. By the way, yes, RVM originally stood for 'Ruby Version Manager',
+  but it was changed to 'Ruby enVironment Manager' since it handles so much more than just Rubies themselves.
 
 %h2 Myth #1: RVM is only useful for managing ruby versions.
 
 %p
-  Although RVM stands for "ruby version manager", it does a lot more than that. In fact,
-  RVM is more useful when you consider it as a collection of tools for handling common tasks
-  associated with Ruby development.
+  Although RVM stands for "Ruby enVironment Manager", it does much more than that. In fact,
+  RVM is even more useful when you consider it as a collection of tools for handling many frequent tasks commonly associated with Ruby development.
 
 %p
   Outside of offering multiple ruby versions, it also offers gemsets (which let you keep
-  different projects seperate in terms of gems, work with multiple versions of gems even
-  when they might not be compatible - e.g. Rails 2 and Rails 3) as well as things like:
+  different projects separate in terms of gems, work with multiple versions of gems even
+  when they may not be compatible - e.g. Rails 2 and Rails 3) as well as things like:
 
 %ul
-  %li Automatically switching your gemset / ruby on directory changes
+  %li Automatically switching your gemset / ruby version as you change directories
   %li Setting up common dependencies (via packages)
   %li Providing a consistent ruby environment for a given project
   %li Letting you build custom rubies / build rubies with custom patches
@@ -31,49 +31,51 @@
   %li Simplifying / automating the setup of rubies and gems
 
 %p
-  More importantly, it provides an interface to deal with ruby versions that is consistent
-  across all platforms.
+  More importantly, it provides an interface for dealing with ruby versions that is consistent across all platforms.
 
 %h2 Myth #2: RVM is only for {OSX,Linux,Your OS here}
 
 %p
-  RVM is built to work on any *-nix system that provides an implementation built on posix
-  tools. If rvm doesn't work on your posix-compatible system of choice (the minimum requirements
-  being the tools to build ruby, curl and bash) then it's a bug - let us know by contacting
-  us in the #rvm irc channel on freenode.
+  RVM is built to work on
+  %em any
+  *-nix system built on POSIX
+  tools. If RVM doesn't work on your POSIX-compatible system of choice (the minimum requirements
+  being the tools needed to build ruby, curl and Bash) then you've found a bug - let us know by contacting
+  us in the #RVM irc channel on freenode.
 
-%h2 Myth #3: RVM is only for bash
-
-%p
-  RVM is currently designed so that it should work on any shell that provides the base level
-  features as found in bash - namely, support for arrays, [[-style tests and the like are expected.
-  This means that it should work on any shell that provides a superset of bash features.
+%h2 Myth #3: RVM is only for Bash
 
 %p
-  If your shell doesn't work with rvm and it should (e.g. it isn't csh / ksh / some other non-sh
-  like shell), let us know. Currently it isn't compliant with the posix sh standard but there are
+  RVM is currently designed to work with any shell that provides the basic
+  features found in Bash - namely, support for arrays, [[-style tests and the like are expected.
+  This means that it should work on any shell that provides a superset of Bash features.
+
+%p
+  If your shell doesn't work with RVM and it should (e.g. it isn't csh / ksh / some other non-sh
+  like shell),
+  %em let us know
+  \. Currently, it isn't compliant with the POSIX sh standard. However, there are
   plans to introduce support for this in the future.
 
 %h2 Myth #4: RVM is only for development
 
 %p
-  One of the most common claims is that rvm is only for use in development. In fact, rvm was originally
-  built for a server setting and is perfect for such use. Not only does it include tools that can be easily
+  One of the most common misconceptions we hear is that RVM "is only for use in development". In reality, RVM was originally
+  built for a server setting, and is perfect for such use. Not only does it include tools that can be easily
   automated to make setting up rubies / gems efficient, it also means you can have consistent environments
-  both in development and production.
+  from development, through testing, and into production.
 
 %p
-  More importantly, rvm lets you easily upgrade ruby versions when you need to (e.g. for security updates)
-  and more importantly it makes automating tasks efficient.
+  More importantly, RVM lets you easily upgrade Ruby versions when you need to such as for security updates.
+  Equally importantly, it makes automating tasks efficient.
 
 %p
-  Lastly, for those in test environments, rvm makes running tests against
-  multiple ruby versions incredibly efficient - in continious integration,
+  Lastly, for those in test environments, RVM makes running tests against
+  multiple ruby versions incredibly efficient. In continuous integration,
   RVM is the perfect fit for managing your rubies.
 
 %h2 Myth #5: Wayne is a robot / Wayne is really Batman
 
 %p
   We neither confirm or deny these statements.
-
 

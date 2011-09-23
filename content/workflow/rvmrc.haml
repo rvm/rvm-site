@@ -61,21 +61,44 @@
 %a{:name => "project"}
 %h2 Project .rvmrc
 %p
-  The project .rvmrc file is different than the system & user. System & user rvmrc files are meant for altering the settings and behavior of RVM.
-  The project rvmrc files are intended to be used to setup your project's ruby environment when you switch to the project root directory.
-
+  The project .rvmrc file is different than the system & user.
+  System &amp; user rvmrc files are meant for altering the settings and behavior of RVM.
+  The project rvmrc files are intended to be used to setup your project's ruby
+  environment when you switch to the project root directory.
 %p
-  If you are using the latest version of RVM (rvm get head) then you can take advantage of a few new features, namely hooks and the new project specific ‘.rvmrc’ file. (Available in RVM 0.0.85+)
+  If you are using the latest version of RVM (rvm get head) then you can take
+  advantage of a few new features, namely hooks and the new project specific
+  ‘.rvmrc’ file. (Available in RVM 0.0.85+)
 %p
-  Let’s say I have my project directory as ~/projects/ and in this directory I have three projects 'projecta', 'projectb', and 'projectc'. Project a runs on jruby, project b runs on ree 1.8.7, and project c runs on 1.9.1. The setup:
+  As of RVM 1.8.0, after a survey where greater than 80% of respondants wanted
+  the feature on by default,
+  %strong
+    project .rvmrc files are opt-out by default (therefore on).
+  In order to disable this feature, set the following value in either /etc/rvmrc
+  or ~/.rvmrc:
+%pre.code
+  :preserve
+    rvm_project_rvmrc=0
+%p
+  Note that project .rvmrc files are shell scripts that run when you cd
+  into a directory containing one. You are asked to trust it the first time as
+  well. This means that you can put any commands and code you'd like into
+  them in order to get your environment for a project bootstrapped and ready
+  to use. Be sure to read them before trusting them if you did not write them.
+%p
+  Let’s say I have my project directory as ~/projects/ and in this directory I
+  have three projects 'projecta', 'projectb', and 'projectc'. Project a runs on
+  jruby, project b runs on ree 1.8.7, and project c runs on 1.9.1. The setup:
 
 %pre.code
   :preserve
     mkdir -p ~/projects/projecta ~/projects/projectb ~/projects/projectc
-
-    echo "rvm jruby@projecta" > ~/projects/projecta/.rvmrc
-    echo "rvm ree@projectb" > ~/projects/projectb/.rvmrc
-    echo "rvm 1.9.1@projectc" > ~/projects/projectc/.rvmrc
+    cd ~/projects/projecta/
+    rvm --rvmrc --create jruby@projecta
+    cd ~/projects/projectb/
+    rvm --rvmrc --create ree@projectb
+    cd ~/projects/projectc/
+    rvm --rvmrc --create 1.9.1@projectc
 
 %p
   Then if I type this:
@@ -130,7 +153,7 @@
 %p
   Note that the project .rvmrc file is actually a shell script and may contain
   any valid shell commands in order for you to initialize your project's
-  environment.
+  environment. Be sure to read them before trusting them if you did not write them.
 
 %p
   To turn off the project specific rvmrc functionality in your $HOME/.rvmrc set
@@ -138,11 +161,13 @@
   :preserve
     rvm_project_rvmrc=0
 %p
-  To enable switching to default / system when leaving a directory set
+  To enable switching to default / system when leaving a directory in your $HOME/.rvmrc set
 
 %pre.code
   :preserve
     rvm_project_rvmrc_default=1
+
+%p NOTE: As of RVM v1.8.0, the $rvm_project_rvmrc_default is set to OFF by default. However, rvm_project_rvmrc is set to ON.
 
 %h2 Warning
 %p
