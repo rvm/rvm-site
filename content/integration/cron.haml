@@ -1,0 +1,72 @@
+= breadcrumbs "Integration", "Cron"
+
+%a{:name => "sketchup"}
+%h1 Using RVM with Cron
+
+%p
+  RVM allows few easy ways to integrate with cron
+
+%ol
+  %li
+    Direct calling RVM generated wrappers.
+  %li
+    Loading RVM environment files in shell scripts.
+  %li
+    %a{:href => "/integration/god/"}
+      Direct calling custom RVM wrappers (eg. God).
+  %li
+    %a{:href => "/workflow/scripting/"}
+      Loading and using RVM in shell scripts.
+
+%h2 Direct calling RVM generated wrappers
+%p
+  For every installed ruby and created gemset RVM creates wrappers for basic command
+  line tools like
+  %strong gem, rake, ruby.
+  You can find them in `$rvm_path/bin`.
+
+%p
+  So when the project ruby is
+  %strong 1.9.2-p290@projectX
+  then the foloowing cron entries will work using proper environment:
+
+  %pre.code
+    :preserve
+      1 0  * * * /usr/local/rvm/bin/ruby-1.9.2-p290@projectX /path/to/script.rb
+      1 15 * * * /usr/local/rvm/bin/rake-ruby-1.9.2-p290@projectX update stats
+
+%h2 Loading RVM environment files in shell scripts
+%p
+  For every installed ruby and created gemset RVM creates environment files.
+  You can find them by running:.
+  %pre.code
+    :preserve
+      rvm env --path -- ruby-version[@gemset-name]
+
+%p
+  Assuming the the project ruby@gmeset is
+  %strong 1.9.2-p290@projectX
+  then calling:
+  %pre.code
+    :preserve
+      rvm env --path -- 1.9.2-p290@projectX
+
+%p
+  will return
+  %pre.code
+    :preserve
+      /usr/local/rvm/environments/ruby-1.9.2-p290@projectX
+
+%h3 Example script
+%p
+  Basic shell script for interacting with rvm installed ruby would look like this:
+  %pre.code
+    :preserve
+      #!/usr/bin/env bash
+
+      # load rvm ruby
+      source /usr/local/rvm/environments/ruby-1.9.2-p290@projectX
+
+      bundle install
+      ruby /path/to/script.rb
+      rake do something
