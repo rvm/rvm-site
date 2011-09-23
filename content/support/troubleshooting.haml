@@ -190,3 +190,14 @@
   Alternatively, you can try installing a newer version of rdoc to the current
   environment. That way, the newer rdoc should be able to handle documentation
   from the more recent version of Ruby that you're installing.
+%h2
+  My named-ruby installs fail to properly name (-n param to installs)
+%p
+  When you use the -n parameter to installs in order to 'name' your ruby, be sure
+  not to use a '.' in the name. So you would do the following:
+%pre.code
+  rvm install -n 1_9 1.9.2
+%p
+  which will cause the Ruby to be installed as ruby-1.9.2-p###-1_9 where ## is the
+  current patch level at the time of install, rather than simply as ruby-1.9.2-p###.
+
