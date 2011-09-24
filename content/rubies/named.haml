@@ -1,0 +1,81 @@
+.breadcrumbs
+  %a{ :href => "/" }
+    Documentation
+  &nbsp;>&nbsp;
+  %a{ :href => "/rubies/" }
+    Rubies
+  &nbsp;>&nbsp;
+  %a{ :href => "/rubies/named/" }
+    Named
+  %hr
+
+%h1 Named Rubies
+%p
+  RVM allows you to install the same ruby multiple times using suffixes.
+
+%h2 Creating Named Ruby
+%p
+  The process is the same as installation, just use
+  %strong -n {name}
+  switch
+%pre.code
+  :preserve
+    $ rvm install rbx -n default_19 -- --default-version=1.9
+    rbx-head-default_19 installing #dependencies
+    ...
+    $ rvm use rbx-default_19
+    Using /home/mpapis/.rvm/gems/rbx-head-default_19
+
+%pre.code
+  :preserve
+    $ rvm install 1.9.2-named
+    ...
+    ruby-1.9.2-p290-named - #configuring
+    ...
+    $ rvm use 1.9.2-named
+    Using /home/mpapis/.rvm/gems/ruby-1.9.2-p290-named
+
+%h2 Selecting names for your rubies
+%p
+  There are strict rules for creating named rubies, mostly the name can not be
+  name of other ruby, it can not be also any other common version specifier.
+
+%p
+  The name requires to match following patter(regexp):
+%pre.code
+  :preserve
+    [[:alpha:]][[:alnum:]_]*
+
+%p
+  Here is a list of rules that will match before name(regexp):
+%pre.code
+  :preserve
+    head
+    system
+    nightly
+    preview.*
+    rc[[:digit:]].*
+    p[[:digit:]].*
+    r[[:digit:]].*
+    s[[:digit:]].*
+    tv[[:digit:]].*
+    t[[:digit:]].*
+    m[[:digit:]].*
+    u[[:alnum:]].*
+    a[[:digit:]][[:digit:]].*
+    b[[:digit:]].*
+    ruby
+    rbx
+    jruby
+    macruby
+    ree
+    kiji
+    rubinius
+    maglev
+    ironruby
+    goruby
+
+%p
+  If the above list is not complete or you found exceptions please feel free to
+  %a{ :href => "/development/contributing/" }
+    contribute.
