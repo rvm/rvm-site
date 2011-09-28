@@ -53,6 +53,18 @@
 
 %a{:href => "#", :name => "i386"}
 %h2
+  I keep getting callback.func errors with Ruby 1.8.7
+%p
+  This is usually caused by using pre-release compilers. In this case, this usually shows up under gcc-4.6.
+  This issue does not take place with gcc-4.5. It is suggested you install gcc-4.5 and add the variable
+%pre.code
+  :preserve
+    CC=/usr/bin/gcc-4.5
+
+%p
+  to your $rvm_path/environments/<ruby_version_string> file. Most people will find this problem when using ArchLinux.
+  <b>NOTE: We do NOT support pre-release compilers of any kind.
+%h2
   i386 (32 bit)
 %p
   I need to compile ruby X as i386 (32 bit).
