@@ -9,7 +9,24 @@
 %p <strong style="color: red;">For most purposes, the recommended installation method is Single-User</strong>, which is a self-contained RVM installation in a user's home directory.
 
 
-%p <strong>All multi-user instructions must be run by prefixing with the 'sudo' command.</strong> The installation process is similar for both installation methods, however, when installing a multi-user configuration, do not run the installer directly as root. Always use the sudo command. However, please note that the installer, even when run using sudo, will <strong><i>not</i></strong> ensure root or any users are added to the RVM group! This <strong>must</strong> be done manually before users are able to utilize the installation. Also, you only use 'sudo' during the install process. Anything involving the Multi-User during normal operations will require using 'rvmsudo' which preserves the RVM environment and passes this on to 'sudo'. There are *very* few cases where 'rvmsudo' or 'sudo' of any kind is required once the core install is completed, except for when installing additional rubies or updating RVM itself.
+%p <strong>All multi-user instructions must be run by prefixing with the 'sudo' command.</strong> The installation process is similar for both installation methods, however, when installing a multi-user configuration, <strong>do not run the installer directly <em>as</em> root</strong>. Always use the sudo command. However, please note that the installer, even when run using sudo, will <strong><i>not</i></strong> ensure root or any users are added to the RVM group! This <strong>must</strong> be done manually before users are able to utilize the installation. Also, you only use 'sudo' during the install process. Anything involving the Multi-User during normal operations will require using 'rvmsudo' which preserves the RVM environment and passes this on to 'sudo'. There are *very* few cases where 'rvmsudo' or 'sudo' of any kind is required once the core install is completed, except for when installing additional rubies or updating RVM itself.
+
+%p
+  Please note that if you want to install for
+  %strong
+    root
+  specifically, as a per-user, then you
+  %strong
+    must
+  prepopulated root's $HOME/.rvmrc with the following BEFORE you attempt to install:
+  %pre.code
+    :preserve
+      echo 'export rvm_prefix="$HOME"' > /root/.rvmrc
+      echo 'export rvm_path="$HOME/.rvm"' >> /root/.rvmrc
+      
+  to override the checking done that assumes that if root is executing the install, it must be a Multi-User installation type, and that RVM must go into /usr/local/rvm. This also negates the need to use sudo, as the combination of all these factors effeccively turns it into a Per-User installation type specifically for the root user only.
+  %strong
+    Please note that this is <em>not</em> a typical, or generally supported installation type.
 
 %h4 To update an existing RVM installation
 
