@@ -8,31 +8,6 @@
 
 %p <strong style="color: red;">For most purposes, the recommended installation method is Single-User</strong>, which is a self-contained RVM installation in a user's home directory.
 
-
-%p <strong>All multi-user instructions must be run by prefixing with the 'sudo' command.</strong> The installation process is similar for both installation methods, however, when installing a multi-user configuration, <strong>do not run the installer directly <em>as</em> root</strong>. Always use the sudo command. This is due to variables that are different between root's environment and a user's that aren't affected by an EUID change, as well as code checks in the install itself. In addition, when you use sudo, it will not load the /etc/profile.d/rvm.sh, and as such will not load RVM. You can prove this to yourself by executing:
-%pre.code
-  :preserve
-    sudo printenv | grep -i rvm
-%p
-  Also, please note that the installer, even when run using sudo, will <strong><i>not</i></strong> ensure root or any users are added to the RVM group! This <strong>must</strong> be done manually before users are able to utilize the installation. Also, you only use 'sudo' during the install process. Anything involving the Multi-User during normal operations will require using 'rvmsudo' which preserves the RVM environment and passes this on to 'sudo'. There are *very* few cases where 'rvmsudo' or 'sudo' of any kind is required once the core install is completed, except for when updating RVM itself. Once users added to the 'rvm' group logout/login in order to gain rvm group membership, rvmsudo should only be needed for updating RVM itself.
-
-%p
-  Please note that if you want to install for
-  %strong
-    root
-  specifically, as a per-user, then you
-  %strong
-    must
-  prepopulated root's $HOME/.rvmrc with the following BEFORE you attempt to install:
-  %pre.code
-    :preserve
-      echo 'export rvm_prefix="$HOME"' > /root/.rvmrc
-      echo 'export rvm_path="$HOME/.rvm"' >> /root/.rvmrc
-      
-  to override the checking done that assumes that if root is executing the install, it must be a Multi-User installation type, and that RVM must go into /usr/local/rvm. This also negates the need to use sudo, as the combination of all these factors effeccively turns it into a Per-User installation type specifically for the root user only.
-  %strong
-    Please note that this is <em>not</em> a typical, or generally supported installation type.
-
 %h4 To update an existing RVM installation
 
 %p
@@ -54,7 +29,11 @@
   %pre.code
     :preserve
       user$ sudo bash &lt; &lt;(curl -s https://rvm.beginrescueend.com/install/rvm)
-
+  %strong
+    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Note: All multi-user install instructions <i>must</i> be prefixed with the 
+    %a{:href => "/support/troubleshooting/#sudo"}
+      'sudo' command.
+    
 %h4 Installing a specific version:
 
 %pre.code
@@ -69,11 +48,14 @@
 
 %h4 Single-User Install Location: ~/.rvm/
 %p
-  If the install script is run as standard, non-root user, RVM will install into the current users's home directory.
+  If the install script is run as a standard, non-root user, RVM will install into the current users's home directory.
 
 %h4 Multi-User Install Location: /usr/local/rvm
 %p
-  If the install script is run as root, RVM will automatically install into /usr/local/rvm
+  If the install script is run prefixed with sudo, RVM will automatically install into /usr/local/rvm
+  Please see the troubleshooting page for an
+  %a{:href => "/support/troubleshooting/#sudo"}
+    important note regarding Multi-User Installs.
 
 %p
   <strong>If the rvm install script does nothing or complains about certificates</strong>
@@ -84,6 +66,14 @@
 %pre.code
   :preserve
     user$ bash &lt; &lt;(curl -sk https://rvm.beginrescueend.com/install/rvm)
+  
+%p
+  Please see the FAQ page for an
+  %a{:href => "/support/faq/#root"}
+    important note regarding
+    %strong
+      root only installs
+
 %p
   For a Multi-User install you would do:
 %pre.code

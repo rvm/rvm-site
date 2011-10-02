@@ -26,6 +26,23 @@
   %li
     Be sure to be using either bash or zsh, RVM (latest versions preferred) is untested at best in other shells.
 
+%a{:href => "#", :name => "sudo"}
+%h2 Multi-User Installs - Using the sudo command
+%p The installation process is similar for both installation methods, however, when installing a multi-user configuration, <strong>do not run the installer directly <em>as</em> root</strong>. Always use the sudo command. This is due to variables that are different between root's environment and a user's that aren't affected by an EUID change, as well as code checks in the install itself. In addition, when you use sudo, it will not load the /etc/profile.d/rvm.sh, and as such will not load RVM. You can prove this to yourself by executing:
+%pre.code
+  :preserve
+    sudo printenv | grep -i rvm
+%p
+  Also, you only use the sudo command during the install process. In Multi-User configurations, any operations which require sudo access must use the rvmsudo command which preserves the RVM environment and passes this on to sudo. There are very few cases where rvmsudo is required once the core install is completed, except for when updating RVM itself. There is never a reason to use sudo post-install. Once users added to the 'rvm' group have logged out, then back in to gain rvm group membership, rvmsudo should only be needed for updating RVM itself with
+%pre.code
+  :preserve
+    rvmsudo rvm get head
+%p
+  Note: Users
+  %strong
+    must
+  log out and back in to gain rvm group membership because group memberships are only evaluated by the operating system at initial login time.
+
 %a{:href => "#", :name => "ruby-debug"}
 %h2 ruby-debug and ruby 1.9
 %p
