@@ -98,7 +98,7 @@
 
 %p
   The rvm function will be automatically configured for every user on the system if you install as root.
-  This is accomplished by loading /etc/profile.d/rvm.sh on login. Most Linux distributions default to parsing /etc/profile which contains the logic to load all files residing in the /etc/profile.d/ directory.
+  This is accomplished by loading /etc/profile.d/rvm.sh on login. Most Linux distributions default to parsing /etc/profile which contains the logic to load all files residing in the /etc/profile.d/ directory. Once you have added the users you want to be able to use RVM to the rvm group, those users MUST log out and back in to gain rvm group membership because group memberships are only evaluated by the operating system at initial login time.
 
 %h3 3. Reload shell configuration &amp; test
 
