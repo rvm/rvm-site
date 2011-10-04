@@ -113,3 +113,21 @@
     Issue Tracker
   complete with the current error and the change as you see it. If you created a pull request, please
   reference the URL in your Issue.
+
+%a{:href => "#", :name => "root"}
+%h2
+  I want to install for root only!
+%p
+  Please note that if you want to install for root only, using a per-user install, then you
+  %strong
+    must
+  prepopulate root's $HOME/.rvmrc with the following BEFORE you attempt to install:
+  %pre.code
+    :preserve
+      echo 'export rvm_prefix="$HOME"' > /root/.rvmrc
+      echo 'export rvm_path="$HOME/.rvm"' >> /root/.rvmrc
+
+  to override the checking done that assumes that if root is executing the install it must be a Multi-User installation type, and that RVM must go into /usr/local/rvm. This also negates the need to use sudo, as the combination of all these factors effeccively turns it into a Per-User installation type specifically for the root user only.
+  %strong
+    Please note that this is <em>not</em> a typical, or generally supported installation type.
+

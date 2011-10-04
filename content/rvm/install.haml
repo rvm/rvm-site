@@ -3,24 +3,22 @@
 %p There are two fundamentally different ways to install and configure RVM.
 
 %ul
-  %li Single-User installations - For standard users (<strong>for developers</strong>)
-  %li Multi-User installations (<strong>for server administrators</strong>)
+  %li <strong>Single-User installations</strong> - (For an isolated install within a user's $HOME)
+  %li <strong>Multi-User installations</strong> (For server administrators - For an installation usable by all users on the system - Please note that Single-User supercedes Multi-User)
+   
 
 %p <strong style="color: red;">For most purposes, the recommended installation method is Single-User</strong>, which is a self-contained RVM installation in a user's home directory.
-
-
-%p <strong>All multi-user instructions must be run by prefixing with the 'sudo' command.</strong> The installation process is similar for both installation methods, however, when installing a multi-user configuration, do not run the installer directly as root. Always use the sudo command. However, please note that the installer, even when run using sudo, will <strong><i>not</i></strong> ensure root or any users are added to the RVM group! This <strong>must</strong> be done manually before users are able to utilize the installation. Also, you only use 'sudo' during the install process. Anything involving the Multi-User during normal operations will require using 'rvmsudo' which preserves the RVM environment and passes this on to 'sudo'. There are *very* few cases where 'rvmsudo' or 'sudo' of any kind is required once the core install is completed, except for when installing additional rubies or updating RVM itself.
 
 %h4 To update an existing RVM installation
 
 %p
-  It is safe to run the installation script again, or you can follow the
+  It is safe to simply re-run the installation script again, or you can follow the
   %a{:href => "/rvm/upgrading/"}
     upgrading docs.
 
 %h2 Installation
 
-%p I recommend you <a href="https://rvm.beginrescueend.com/install/rvm">read the installation script</a> yourself. This will give you a chance to understand what it is doing <i>before</i> installing, and allow you to feel more comfortable running it if you do so.
+%p I recommend you <a href="https://github.com/wayneeseguin/rvm/blob/master/binscripts/rvm-installer">read the installation script</a> yourself. This will give you a chance to understand what it is doing <i>before</i> installing, and allow you to feel more comfortable running it if you do so.
 
 %h3 1. Download and run the RVM installation script
 %h4 Installing the latest release version in git:
@@ -32,7 +30,11 @@
   %pre.code
     :preserve
       user$ sudo bash &lt; &lt;(curl -s https://rvm.beginrescueend.com/install/rvm)
-
+  %strong
+    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Note: All multi-user install instructions <i>must</i> be prefixed with the 
+    %a{:href => "/support/troubleshooting/#sudo"}
+      'sudo' command.
+    
 %h4 Installing a specific version:
 
 %pre.code
@@ -47,11 +49,14 @@
 
 %h4 Single-User Install Location: ~/.rvm/
 %p
-  If the install script is run as standard, non-root user, RVM will install into the current users's home directory.
+  If the install script is run as a standard, non-root user, RVM will install into the current users's home directory.
 
 %h4 Multi-User Install Location: /usr/local/rvm
 %p
-  If the install script is run as root, RVM will automatically install into /usr/local/rvm
+  If the install script is run prefixed with sudo, RVM will automatically install into /usr/local/rvm
+  Please see the troubleshooting page for an
+  %a{:href => "/support/troubleshooting/#sudo"}
+    important note regarding Multi-User Installs.
 
 %p
   <strong>If the rvm install script does nothing or complains about certificates</strong>
@@ -62,6 +67,14 @@
 %pre.code
   :preserve
     user$ bash &lt; &lt;(curl -sk https://rvm.beginrescueend.com/install/rvm)
+  
+%p
+  Please see the FAQ page for an
+  %a{:href => "/support/faq/#root"}
+    important note regarding
+    %strong
+      root only installs
+
 %p
   For a Multi-User install you would do:
 %pre.code
@@ -85,7 +98,7 @@
 
 %p
   The rvm function will be automatically configured for every user on the system if you install as root.
-  This is accomplished by loading /etc/profile.d/rvm.sh on login. Most Linux distributions default to parsing /etc/profile which contains the logic to load all files residing in the /etc/profile.d/ directory.
+  This is accomplished by loading /etc/profile.d/rvm.sh on login. Most Linux distributions default to parsing /etc/profile which contains the logic to load all files residing in the /etc/profile.d/ directory. Once you have added the users you want to be able to use RVM to the rvm group, those users MUST log out and back in to gain rvm group membership because group memberships are only evaluated by the operating system at initial login time.
 
 %h3 3. Reload shell configuration &amp; test
 
@@ -112,24 +125,13 @@
 
 %pre.code
   :preserve
-    user$ rvm notes
+    user$ rvm requirements
 
 %p
   %strong NOTE:
-  Whenever you upgrade RVM in the future, you should always run <i>'rvm notes'</i> as this is usually where you will find details on any major changes and/or additional requirements to ensure your installation stays working. Also, you should also run the above command on any fresh installs. This is where all your additionals will be noted making it an extremely important stop on your way to RVM bliss!
+  Whenever you upgrade RVM in the future, you should always run <i>'rvm notes'</i> and <i>'rvm requirements'</i> as this is usually where you will find details on any major changes and/or additional requirements to ensure your installation stays working. Also, you should also run the above command on any fresh installs. This is where all your additionals will be noted making it an extremely important stop on your way to RVM bliss!
   
 %h4 Congratulations! You have successfully installed RVM.
-
-%p
-  <strong>Multi-User Install Note:</strong> After installation, where you would normally use 'sudo', non-root users will need to use 'rvmsudo'. This may affect, or break, some deployment scripts. Below are 2 detailed examples:
-  
-%pre.code
-  :preserve
-    # Incorrect, this will fail
-    user$ sudo gem install xxxx
-
-    # Correct usage, this will succeed
-    user$ rvmsudo gem install xxxx
 
 %h2 Try out your new RVM installation
 
