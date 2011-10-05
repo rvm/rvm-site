@@ -13,6 +13,50 @@
   RVM FAQ & Notes
 
 %h2
+  I have found a bug in RVM. How do I submit an issue or a patch to get this fixed?
+%p
+  To report bugs against RVM, please go to https://github.com/wayneeseguin/rvm/issues/ and open an Issue there.
+  %strong
+    READ ALL EXISTING REPORTS!
+  Sometimes the problem is already under investigation or has already been solved. Opening a new one for the same issue is a waste of time and resources and may cause your report to be summarily closed. Please use 
+  %a{:href => "https://gist.github.com"}
+    https://gist.github.com
+  to store and file supplimentary evidence related to the bug report. Include the returned https (not git) URL in your report. Please provide 
+  %ul
+    %li
+      A) The output from 
+      %pre.code
+        :preserve
+          rvm info 
+    %li
+      B) If you are using gemsets, the output from
+      %pre.code
+        :preserve
+          gem list -dl
+    %li
+      C) All commands run, any errors / output, and contents of logfiles RVM tells you to look in.
+    %li
+      D) The complete output of the following trace / debugging command. 
+      %pre.code
+        :preserve
+          set -x ; rvm --trace <your commands here> ; set +x
+      to give us maximum information to work with. These must accompany your Issue / Bug report in order for us to be able to assist you.
+
+
+%h2
+  I noticed some incorrect information on the RVM website. How do I submit a patch or Issue?
+%p
+  Please feel free to fork
+  %a{ :href => "https://github.com/wayneeseguin/rvm-site/" }
+    rvm-site
+  and to fix anything you find amiss. Then submit a Pull Request.
+  Regardless, whether you feel comfortable doing the above or not, please file an Issue at
+  %a{ :href => "https://github.com/wayneeseguin/rvm-site/issues/" }
+    Issue Tracker
+  complete with the current error and the change as you see it. If you created a pull request, please
+  reference the URL in your Issue.
+
+%h2
   Do I need to use sudo with gems?
 %p
   %strong
@@ -101,18 +145,6 @@
 %pre.code
   :preserve
     rvm_archflags="-arch x86_64"
-%h2
-  I noticed some incorrect information on the RVM website. How do I submit a patch or Issue?
-%p
-  Please feel free to fork
-  %a{ :href => "https://github.com/wayneeseguin/rvm-site/" }
-    rvm-site
-  and to fix anything you find amiss. Then submit a Pull Request.
-  Regardless, whether you feel comfortable doing the above or not, please file an Issue at
-  %a{ :href => "https://github.com/wayneeseguin/rvm-site/issues/" }
-    Issue Tracker
-  complete with the current error and the change as you see it. If you created a pull request, please
-  reference the URL in your Issue.
 
 %a{:href => "#", :name => "root"}
 %h2
