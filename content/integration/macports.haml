@@ -17,8 +17,8 @@
 %pre.code
   :preserve
     export CFLAGS="-O2 -arch x86_64"
-    export LDFLAGS="-L/opt/local/lib"
-    export CPPFLAGS="-I/opt/local/include"
+    export LDFLAGS="-L$HOME/.rvm/usr/lib -L/opt/local/lib"
+    export CPPFLAGS="-I$HOME/.rvm/usr/include -I/opt/local/include"
 
 %p
   First install MacPorts and a base MacPort ruby like 1.8.7,
