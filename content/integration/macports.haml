@@ -17,8 +17,8 @@
 %pre.code
   :preserve
     export CFLAGS="-O2 -arch x86_64"
-    export LDFLAGS="-L$HOME/.rvm/usr/lib -L/opt/local/lib"
-    export CPPFLAGS="-I$HOME/.rvm/usr/include -I/opt/local/include"
+    export LDFLAGS="-L/opt/local/lib"
+    export CPPFLAGS="-I/opt/local/include"
 
 %p
   First install MacPorts and a base MacPort ruby like 1.8.7,
@@ -31,7 +31,7 @@
 %pre.code
   :preserve
     $ rvm pkg install openssl # Requires an older version of openssl.
-    $ rvm install 1.8.6 --with-openssl-dir=$HOME/.rvm/usr
+    $ rvm install 1.8.6 --with-openssl-dir=/opt/local
 
 %pre.code
   :preserve
@@ -43,7 +43,7 @@
 
 %pre.code
   :preserve
-    $ rvm install 1.9.1 --with-openssl-dir=$HOME/.rvm/usr
+    $ rvm install 1.9.1 --with-openssl-dir=/opt/local
 
 %pre.code
   :preserve
