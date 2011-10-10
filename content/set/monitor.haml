@@ -20,9 +20,9 @@
   For the first example I will use the extlib project. First start up RVM monitor and then in my editor I change the files spec/array_spec.rb spec/blank_spec.rb and save them both at the same time.
 %pre.code
   :preserve
-    rvm 1.8.6,1.8.7,1.9.1 monitor
+    rvm 1.8.6,1.8.7,1.9.1 do monitor
 
-    wayne@Genius ~/projects/ruby/extlib [git:master]  (0) $ rvm 1.8.6,1.8.7,1.9.1,jruby monitor
+    wayne@Genius ~/projects/ruby/extlib [git:master]  (0) $ rvm 1.8.6,1.8.7,1.9.1,jruby do monitor
 
 
     ruby-1.8.6-p383: ruby 1.8.6 (2009-08-04 patchlevel 383) [i686-darwin10.2.0]
@@ -140,11 +140,11 @@
   not use monitor, for that you would use the rake do action.
 %pre.code
   :preserve
-    $ rvm 1.8.6,1.8.7,1.9.1 rake spec
+    $ rvm 1.8.6,1.8.7,1.9.1 do rake spec
     # or
-    $ rvm 1.8.6,1.8.7,1.9.1 rake test
+    $ rvm 1.8.6,1.8.7,1.9.1 do rake test
     # or
-    $ rvm 1.8.6,1.8.7,1.9.1 specs
+    $ rvm 1.8.6,1.8.7,1.9.1 do specs
     # or
-    $ rvm 1.8.6,1.8.7,1.9.1 tests
+    $ rvm 1.8.6,1.8.7,1.9.1 do tests
 

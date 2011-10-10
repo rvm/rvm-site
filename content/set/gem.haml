@@ -14,7 +14,7 @@
 
 %pre.code
   :preserve
-    \~/projects/ruby/extlib [git:master] $ rvm 1.8.6,1.9.1 gem install rspec json --no-rdoc --no-ri
+    ~/projects/ruby/extlib [git:master] $ rvm 1.8.6,1.9.1 do gem install rspec json --no-rdoc --no-ri
 
     ruby-1.8.6-p383: ruby 1.8.6 (2009-08-04 patchlevel 383) [i686-darwin10.0.0]
     **************************************************
@@ -43,3 +43,16 @@
     Building native extensions.  This could take a while...
     Successfully installed json-1.1.9
     2 gems installed
+
+%p
+  NOTE: If you do not pass a single or multiple rubies to act against, the command will be executed against
+  %em
+    all
+  rubies installed on the system by RVM!
+
+%p
+  %strong
+    The use of the 'rvm' keyword is not used when operating against the
+    %em
+      currently active
+    ruby and, additionally, gemset.

@@ -1,15 +1,15 @@
-= breadcrumbs "Set", "Exec"
+= breadcrumbs "Set", "Do"
 
 %h1= @item[:title]
 
 %p
-  Like most of the rvm set operations, exec lets your perform commands against
-  all installed rubies. Unlike the others, there is a key distinction - exec lets
+  Like most of the rvm set operations, do lets your perform commands against
+  all installed rubies. Unlike the others, there is a key distinction - do lets
   you run any command (versus just ruby / gem and the like) and if it is only run
-  against a single ruby, it performs the equivelent of exec (e.g. no error message)
+  against a single ruby, it performs the equivelent of do (e.g. no error message)
   after setting up the environment. As an example,
 
-= sh_cmd "rvm exec bash -c 'echo $GEM_HOME'"
+= sh_cmd "rvm do bash -c 'echo $GEM_HOME'" # Note this command executes over ALL RVM-controlled rubies in the system!
 
 %p
   Will iterate over each ruby, calling bash with the given arguments. e.g, showing:
@@ -38,7 +38,7 @@
 
     info: ruby-1.8.7-head: ruby 1.8.7 (2010-07-17 patchlevel 300) [i686-darwin10.4.0]
 
-    /Users/sutto/.rvm/gems/ruby-1.8.7-head
+    /Users/sutto/.rvm/gems/ruby-1.8.7-headdo
 
     info: ruby-1.9.2-head: ruby 1.9.2dev (2010-07-01 revision 28513) [x86_64-darwin10.3.0]
 
@@ -51,7 +51,7 @@
 %p
   Alternatively, calling against a single ruby will perform as such:
 
-= sh_cmd "rvm ree exec bash -c 'echo $GEM_HOME'"
+= sh_cmd "rvm ree do bash -c 'echo $GEM_HOME'"
 
 %p
   Shows the following, minus the info statements as above:

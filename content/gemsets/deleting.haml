@@ -23,7 +23,7 @@
     $ rvm gemset use albinochipmunk
     $ rvm --force gemset delete albinochipmunk
 %p
-  By default, rvm deletes gemsets from the currently selected Ruby interpreter. To delete a gemset from a different interpreter, run your command this way:
+  By default, rvm deletes gemsets from the currently selected Ruby interpreter. To delete a gemset from a different interpreter, say 1.9.2, run your command this way:
 %pre.code
   :preserve
-    $ rvm otherruby gemset delete albinochipmunk
+    $ rvm 1.9.2 do gemset delete albinochipmunk
