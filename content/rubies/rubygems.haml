@@ -104,3 +104,39 @@
   :preserve
     $ rvm rubygems remove
 
+%h2 Same Ruby Version with Different RubyGem Versions
+
+%p
+  A RubyGem version is tied to a Ruby version. One can not have two different versions of RubyGems with same Ruby versions at the same time. But sometimes you will want to have two or more different versions of RubyGems tied to same version of Ruby.
+
+%p
+  In order to achieve this, we will have to install same version of a Ruby but with different
+  %a{ :href => "/rubies/named/" }
+    names.
+
+%pre.code
+  :preserve
+    $ rvm install ree -n rg-152
+    $ rvm use ree-rg152
+    $ gem --version
+    1.8.10
+    $ rvm rubygems 1.5.2
+     ...
+    $ gem --version
+    1.5.2
+
+%p
+  And to have same version of Ruby with packeged/latest RubyGems.
+
+%pre.code
+  :preserve
+    $ rvm install ree
+    $ rvm use ree
+    $ gem --version
+    1.8.10
+    $ rvm list
+
+    rvm rubies
+
+    => ree-1.8.7-2011.03 [ i386 ]
+       ree-1.8.7-2011.03-rg-152 [ i386 ]
