@@ -4,18 +4,18 @@
 
 %p
   There is no need to do anything to make bundler work with RVM, but there
-  is one thing about bundler that makes it harder to use - by default bundler
-  does not generate wrappers for gem binaries. To use proper version of gem
-  binary users a forced to prefix every command with `bundle exec` this makes
-  working in console rather painful. Fortunately there are solutions that
-  allow to just write binary names - and binary from gem specified in Gemfile
-  will be used.
+  is one thing about bundler that makes it harder to use. By default, bundler
+  does not generate wrappers for gem binaries. To make use of the proper version 
+  of a gem binary, users are forced to prefix every command with `bundle exec`.
+  This makes working in the console rather painful. Fortunately, there are solutions 
+  that allow us to just write binary names; the binary from 'gem' specified in the
+  Gemfile will be used.
 
 %h2 RVM hook
 
 %p
-  Thanks to Rick DeNatale we have now a hook that automatically will append
-  BUNDLE_BIN path to PATH when changing directories.
+  Thanks to Rick DeNatale, we now have a hook that automatically will append
+  BUNDLE_BIN path to the PATH when changing directories.
 
 %p
   Enabling hook
@@ -32,16 +32,16 @@
       bundle install --binstubs=./bundler_stubs
 
 %p
-  From now any project which was generated this way will automatically
+  From now on, any project which was generated this way will automatically
   add ./bundler_stubs to the PATH.
 
 %h2 rubygems-bundler gem
 
 %p
-  Another solution for this problem is gem which makes bundler and rubygems
-  generate binaries wrappers that are aware of bundler, it was discussed with
-  rubygems and bundler teams, as they did not really like the solution be
-  warned they will most likely not support it.
+  Another solution for this problem is a gem which makes bundler and rubygems
+  generate binary wrappers that are aware of bundler. It was discussed with
+  the rubygems and bundler teams, however,they did not really like the solution.
+  Be forewarned, they will most likely not support it.
 
 %p
   Installation:
@@ -55,22 +55,22 @@
     rubygems-bundler @ github
 
 %p
-  To make it fully working bundler 1.1 is required (which is not yet released),
-  but fortunately the rubygems plugins enabled bundler is also available for
+  To make it fully working, bundler 1.1 is required (which is not yet released).
+  Fortunately, the rubygems plugins enabled bundler is also available for
   installation:
   %pre.code
     :preserve
       gem install mpapis-bundler
 
 %p
-  As `mpapis-bundler` already depends on `rubygems-bundler` you could skip
+  As `mpapis-bundler` already depends on `rubygems-bundler` you could skip the
   previous step. `mpapis-bundler` uses only code that is already in the commit
-  tree of bundler - so you do not have to worry about compatibility.
+  tree of bundler, so you do not have to worry about compatibility.
 
 %h2
   Community Resources
 %ul
   %li
-    You can read bundler's README on
+    You can read bundler's README at
     %a{:href => "http://github.com/carlhuda/bundler"}
       GitHub
