@@ -1,24 +1,60 @@
 = breadcrumbs "Integration", "Bundler"
 
-%h2
-  Bundler
+%h1 Bundler
 
 %p
-  Unfortunately attempts to make rvm and bundler integrate were rejected
-  by the bundler team. As a temporary solution a new gem was created which was
-  discussed with rubygems and bundler teams, as they did not really like the
-  solution be warned they will most likely not support it.
+  There is no need to do anything to make bundler work with RVM, but there
+  is one thing about bundler that makes it harder to use - by default bundler
+  does not generate wrappers for gem binaries. To use proper version of gem
+  binary users a forced to prefix every command with `bundle exec` this makes
+  working in console rather painful. Fortunately there are solutions that
+  allow to just write binary names - and binary from gem specified in Gemfile
+  will be used.
+
+%h2 RVM hook
+
+%p
+  Thanks to Rick DeNatale we have now a hook that automatically will append
+  BUNDLE_BIN path to PATH when changing directories.
+
+%p
+  Enabling hook
+  %pre.code
+    :preserve
+      rvm get head && rvm reload
+      chmod +x $rvm_path/hooks/after_cd_bundler
+
+%p
+  Generating bundler stubs (binaries wrappers)
+  %pre.code
+    :preserve
+      cd /path/to/project
+      bundle install --binstubs=./bundler_stubs
+
+%p
+  From now any project which was generated this way will automatically
+  add ./bundler_stubs to the PATH.
+
+%h2 rubygems-bundler gem
+
+%p
+  Another solution for this problem is gem which makes bundler and rubygems
+  generate binaries wrappers that are aware of bundler, it was discussed with
+  rubygems and bundler teams, as they did not really like the solution be
+  warned they will most likely not support it.
 
 %p
   Installation:
   %pre.code
     :preserve
       gem install rubygems-bundler
-  And follow onscreen instructions, for mor information visit
+
+%p
+  And follow onscreen instructions, for more information visit
   %a{:href => "https://github.com/mpapis/rubygems-bundler"}
     rubygems-bundler @ github
 
-%h1
+%h2
   Community Resources
 %ul
   %li
