@@ -54,6 +54,19 @@
   %a{:href => "https://github.com/mpapis/rubygems-bundler"}
     rubygems-bundler @ github
 
+%p
+  To make it fully working bundler 1.1 is required (which is not yet released),
+  but fortunately the rubygems plugins enabled bundler is also available for
+  installation:
+  %pre.code
+    :preserve
+      gem install mpapis-bundler
+
+%p
+  As `mpapis-bundler` already depends on `rubygems-bundler` you could skip
+  previous step. `mpapis-bundler` uses only code that is already in the commit
+  tree of bundler - so you do not have to worry about compatibility.
+
 %h2
   Community Resources
 %ul
