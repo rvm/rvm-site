@@ -4,5 +4,7 @@ compass -v0.11.5
 cri -v1.0.1
 fssm -v0.2.7
 haml -v3.1.2
+mime-types -v1.16
 nanoc3 -v3.1.9
+rack -v1.2.1
 sass -v3.1.4

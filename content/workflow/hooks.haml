@@ -36,23 +36,30 @@
   %li rvm_ruby_tag - The currently selected ruby tag (if any)
 
 %p
+  For `after_use` and `after_cd` hooks, multiple hook files are processed.
+  RVM provides the main hook file for each of these, which loads other files
+  within the hooks directory that are prefixed with `[hook name]_`.
+  Each prefixed hook file which has it's executable flag set will be loaded in alphabetical order.
+%p
+  Other hooks may follow this convention in the future, if necessary.
+  When RVM is updated, any existing hook file that needs to be replaced
+  with one of these wrappers will be renamed to `[hook name]_custom`.
+%p
   As an example say we want to print out the ruby string every time we switch rubies.
 %pre.code
   :preserve
-    $ cat ~/.rvm/hooks/after_use
-
-      echo "Now using $rvm_ruby_string"
-
+    $ cat &gt; ~/.rvm/hooks/after_use_show_ruby &lt;&lt;EOF
+    &gt;    echo "Now using \$rvm_ruby_string"
+    &gt;  EOF
+    $ chmod +x ~/.rvm/hooks/after_use_show_ruby
 %p
   Will produce the following.
 %pre.code
   :preserve
     $ rvm 1.9.1
-
       Now using ruby-1.9.1-p243
 
     $ rvm 1.8.7
-
       Now using ruby-1.8.7-p174
 %h1
   Community Resources
