@@ -7,3 +7,7 @@ tags
 *.tmproj
 *~
 .idea
+.bundle/
+Gemfile*
+vendor/bundle/
+*.swp
