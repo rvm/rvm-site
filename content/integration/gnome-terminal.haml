@@ -1,0 +1,22 @@
+= breadcrumbs "Integration", "gnome-terminal"
+
+%a{:name => "gnome-terminal"}
+%h1 Integrating rvm with gnome-terminal
+
+%p
+  If you are going to use multi-user rvm installation with gnome-terminal, you'll probably need to change it's default options.
+
+%p
+  Multi-user rvm creates a script in /etc/profile.d, which is being sourced on startup. By default, gnome-terminal runs bash as usual, non-login shell, therefore skipping /etc/profile* and executing only ~/.bashrc
+
+%p 
+  For rvm to work properly, you have to choose between two options:
+
+  %ol
+    %li
+      Set 'Run command as login shell' checkbox on Title and Command tab inside of gnome-terminal settings.
+    %li
+      Add the following line to the bottom of your ~/.bashrc file:
+      %pre.code
+        source /etc/profile.d/rvm.sh
+
