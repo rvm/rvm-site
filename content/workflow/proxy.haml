@@ -10,7 +10,24 @@
   %hr
 
 %h1
-  RVM behind a proxy
+  Installing RVM behind a proxy
+%h2
+  Export your shell environment for http proxy use
+%p
+  export http_proxy="http://hostname:port" or save it to your shell profile. (i.e. ~/.bash_rc)
+%pre.code
+  export http_proxy="http://example.proxy_name.com:80"
+
+%h2
+  Setting git to use a proxy
+%p
+  Set your git tool to use the environment proxy inside you ~/.gitconfig
+%pre.code
+  [http]
+    proxy = %http_proxy%
+
+%h1
+  Using RVM behind a proxy
 %p
   There are a few ways to use RVM from behind a proxy.
 
