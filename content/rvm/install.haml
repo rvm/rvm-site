@@ -1,6 +1,6 @@
 %h1 Installing RVM
 
-%p There are two fundamentally different ways to install and configure RVM.
+%p There are thre different ways to install and configure RVM.
 
 %ul
   %li
@@ -14,6 +14,12 @@
     This also used to be called the System-Wide Install.
     <strong style="color: red;">Using this type of installation without 
     knowledge how umask works is a big security risk.</strong>
+  %li
+    <strong>Mixed mode installations</strong> - 
+    For an installation usable by all users on the system - 
+    with isolated rubies/gemsets within a user's $HOME.
+    Installation instructions are exactly the same as for
+    Multi-User installations, the difference is in users environment.
 
 %p
   %strong
@@ -114,6 +120,22 @@
 %p
   The rvm function will be automatically configured for every user on the system if you install as root.
   This is accomplished by loading /etc/profile.d/rvm.sh on login. Most Linux distributions default to parsing /etc/profile which contains the logic to load all files residing in the /etc/profile.d/ directory. Once you have added the users you want to be able to use RVM to the rvm group, those users MUST log out and back in to gain rvm group membership because group memberships are only evaluated by the operating system at initial login time.
+
+%h4 Mixed mode:
+
+%p Above instructions for Multi-User apply, additional configuration is needed for every user (or in /etc/skel)
+  
+%p
+  Rubies installed in system, gemsets separated per user:
+  %pre.code
+    :preserve
+      user$ rvm user gemsets
+  
+%p
+  Rubies and gemsets separated per user:
+  %pre.code
+    :preserve
+      user$ rvm user all
 
 %h3 3. Reload shell configuration &amp; test
 
