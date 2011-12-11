@@ -23,8 +23,9 @@
 %p
   Set your git tool to use the environment proxy inside you ~/.gitconfig
 %pre.code
-  [http]
-    proxy = %http_proxy%
+  :preserve
+    [http]
+      proxy = %http_proxy%
 
 %h1
   Using RVM behind a proxy
@@ -51,4 +52,3 @@
   Community Resources
 %ul
   %li
-
