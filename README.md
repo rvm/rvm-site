@@ -1,4 +1,4 @@
-## Welcome to the RVM Site Documentation
+# Welcome to the RVM Site Documentation
 
 You can see the documentation live online at <https://rvm.beginrescueend.com/>.
 
