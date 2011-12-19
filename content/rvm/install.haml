@@ -1,8 +1,8 @@
 %h1 Installing RVM
 
-%p There are thre different ways to install and configure RVM.
+%p There are three different ways to install and configure RVM.
 
-%ul
+%ol
   %li
     <strong>Single-User installations</strong> (<span style="color: blue;">recommended</span>) -
     For an isolated install within a user's $HOME
@@ -21,52 +21,54 @@
     Installation instructions are exactly the same as for
     Multi-User installations, the difference is in users environment.
 
-%p
-  %strong
-    The system-wide script is no longer available, and any tutorials referencing it will no longer work correctly. Multi-User is the System-Wide install. The only supported install type for multiple users is the Multi-User install referenced below.
-
-%p
-  Note that that any outside tutorials are NOT supported whether they work or not. Tutorials are great, however we have spent massive amounts of man hours debugging the installation process. Please use the install process(es) from this site only, as this is the only supported installation types and methods.   
-
-%p <strong style="color: red;">For most purposes, the recommended installation method is Single-User</strong>, which is a self-contained RVM installation in a user's home directory.
-
-%h4 To update an existing RVM installation
-
-%p
-  It is safe to simply re-run the installation script again, or you can follow the
-  %a{:href => "/rvm/upgrading/"}
-    upgrading docs.
-
 %h2 Installation
 
 %p I recommend you <a href="https://github.com/wayneeseguin/rvm/blob/master/binscripts/rvm-installer">read the installation script</a> yourself. This will give you a chance to understand what it is doing <i>before</i> installing, and allow you to feel more comfortable running it if you do so.
 
 %h3 1. Download and run the RVM installation script
-%h4 Installing the latest release version in git:
-%pre.code
-  :preserve
-    user$ bash < <(curl -s https://raw.github.com/wayneeseguin/rvm/master/binscripts/rvm-installer )
+%p
+  Installing the stable release version:
+  %pre.code
+    :preserve
+      user$ bash -s stable < <(curl -s https://raw.github.com/wayneeseguin/rvm/master/binscripts/rvm-installer )
+%p
+  To get the latest development state:
+  %pre.code
+    :preserve
+      user$ bash < <(curl -s https://raw.github.com/wayneeseguin/rvm/master/binscripts/rvm-installer )
 %p
   For a Multi-User install you would execute the following:
   %pre.code
     :preserve
-      user$ sudo bash < <(curl -s https://raw.github.com/wayneeseguin/rvm/master/binscripts/rvm-installer )
+      user$ sudo bash -s stable < <(curl -s https://raw.github.com/wayneeseguin/rvm/master/binscripts/rvm-installer )
   %strong
     &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Note: All multi-user install instructions <i>must</i> be prefixed with the 
     %a{:href => "/support/troubleshooting/#sudo"}
       'sudo' command.
     
-%h4 Installing a specific version:
-
-%pre.code
-  :preserve
-    user$ curl -s https://raw.github.com/wayneeseguin/rvm/master/binscripts/rvm-installer -o rvm-installer ; chmod +x rvm-installer ; ./rvm-installer --version latest
-
 %p
-  For a Multi-User install you would do:
+  Installing a specific version:
   %pre.code
     :preserve
-      user$ curl -s https://raw.github.com/wayneeseguin/rvm/master/binscripts/rvm-installer -o rvm-installer ; chmod +x rvm-installer ; sudo ./rvm-installer --version latest
+      user$ bash -s -- --version latest < <(curl -s https://raw.github.com/wayneeseguin/rvm/master/binscripts/rvm-installer )
+      user$ bash -s -- --branch [owner/][repo] < <(curl -s https://raw.github.com/wayneeseguin/rvm/master/binscripts/rvm-installer )
+  Check
+  %a{:href => "/rvm/upgrading/"}
+    upgrading docs
+  for more details on branch format.
+
+%p
+  Debugging installation process:
+  %pre.code
+    :preserve
+      user$ bash -s -- --trace < <(curl -s https://raw.github.com/wayneeseguin/rvm/master/binscripts/rvm-installer )
+
+%p
+  <strong>If the rvm install script does nothing or complains about certificates</strong>
+  you can bypass this by adding a '-k' switch to the curl command:
+  %pre.code
+    :preserve
+      user$ bash -s stable < <(curl -sk https://raw.github.com/wayneeseguin/rvm/master/binscripts/rvm-installer)
 
 %h4 Single-User Install Location: ~/.rvm/
 %p
@@ -78,17 +80,6 @@
   Please see the troubleshooting page for an
   %a{:href => "/support/troubleshooting/#sudo"}
     important note regarding Multi-User Installs.
-
-%p
-  <strong>If the rvm install script does nothing or complains about certificates</strong>
-  you can bypass this by adding a '-k' switch to the curl command:
-
-%p
-  For Single-User installs
-%pre.code
-  :preserve
-    user$ bash &lt; &lt;(curl -sk https://raw.github.com/wayneeseguin/rvm/master/binscripts/rvm-installer)
-  
 %p
   Please see the FAQ page for an
   %a{:href => "/support/faq/#root"}
@@ -96,11 +87,16 @@
     %strong
       root only installs
 
+%h4 External tutorials
 %p
-  For a Multi-User install you would do:
-%pre.code
-  :preserve
-    user$ sudo bash &lt; &lt;(curl -sk https://raw.github.com/wayneeseguin/rvm/master/binscripts/rvm-installer)
+  Note that that any outside tutorials are NOT supported whether they work or not. Tutorials are great, however we have spent massive amounts of man hours debugging the installation process. Please use the install process(es) from this site only, as this is the only supported installation types and methods.   
+
+%h4 To update an existing RVM installation
+
+%p
+  It is safe to simply re-run the installation script again, or you can follow the
+  %a{:href => "/rvm/upgrading/"}
+    upgrading docs.
 
 %h3 2. Load RVM into your shell sessions as a function
 %em
@@ -287,7 +283,7 @@
     bash &lt; &lt;( curl -s https://rvm.beginrescueend.com/install/git )
 
     # Install RVM
-    bash < <(curl -s https://raw.github.com/wayneeseguin/rvm/master/binscripts/rvm-installer )
+    bash -s stable < <(curl -s https://raw.github.com/wayneeseguin/rvm/master/binscripts/rvm-installer )
 
     # Install some Rubies
     source "$HOME/.rvm/scripts/rvm"
@@ -304,7 +300,7 @@
     sudo bash &lt; &lt;( curl -s https://rvm.beginrescueend.com/install/git )
 
     # Install RVM
-    sudo bash < <(curl -s https://raw.github.com/wayneeseguin/rvm/master/binscripts/rvm-installer )
+    sudo bash -s stable < <(curl -s https://raw.github.com/wayneeseguin/rvm/master/binscripts/rvm-installer )
 
     # Install some Rubies
     source "/usr/local/rvm/scripts/rvm"

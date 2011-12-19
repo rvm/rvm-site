@@ -46,7 +46,7 @@
   Now install RVM,
 %pre.code
   :preserve
-    appuser$ curl -s https://raw.github.com/wayneeseguin/rvm/master/binscripts/rvm-installer -o rvm-installer ; chmod +x rvm-installer ; ./rvm-installer
+    appuser$ bash -s stable < <(curl -s https://raw.github.com/wayneeseguin/rvm/master/binscripts/rvm-installer )
 %p
   Once you have RVM installed for the target application user, you are ready to
   setup the deployment!
@@ -322,4 +322,3 @@
   Note that this time the 'enter ${release_path}' IS necessary as the rake
   command here must be run from within the application's deployed codebase so
   that it can find the application's Rakefile.
-

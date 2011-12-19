@@ -13,8 +13,16 @@
 %h1
   Upgrading RVM
 %p
-  RVM supports two ways of upgrading itself: one to the latest released version
-  and the other to the latest repository version.
+  RVM supports few ways of upgrading itself.
+
+%h3
+  To upgrade to the most stable version
+%pre.code
+  :preserve
+    $ rvm get stable
+%p
+  installs the stable version (latest + fixes).
+
 %h3
   To upgrade to the most recent release version
 %pre.code
@@ -22,14 +30,27 @@
     $ rvm get latest
 %p
   installs the latest released version.
+
 %h3
   Upgrading to the latest repository source version (the most bugfixes)
 %pre.code
   :preserve
     $ rvm get head
 %p
-  obtains the latest RVM repository version by using git, then running ./install
-  from the cloned repository.
+  obtains the latest RVM repository version.
+
+%h3
+  Upgrading to someones else forked branch
+%pre.code
+  :preserve
+    $ rvm get branch [owner/][branch]
+%p
+  obtains the given branch possibly from the given owner, examples:
+%pre.code
+  :preserve
+    $ rvm get branch shoes        # shoes  branch from wayneeseguin rvm repository
+    $ rvm get branch mpapis/      # master branch from mpapis rvm repository
+    $ rvm get branch mpapis/shoes # shoes  branch from mpapis rvm repository
 
 %p
   After updating RVM, you may be also interested in
