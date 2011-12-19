@@ -30,3 +30,9 @@
 %p
   This effectively installs a fresh copy of iconv, sandboxed to the ~/.rvm/usr directory, and tells
   ruby to use it during the compile.
+
+%p
+  In case of compilation problems try:
+  %pre.code
+    :preserve
+      $ rvm --skip-autoreconf pkg install iconv

@@ -63,3 +63,8 @@
     # ~/.rvm/user/db or /usr/local/rvm/user/db
     ruby_configure_flags=--enable-shared --disable-install-doc --with-readline-dir=/Users/wayneeseguin/.rvm/usr
 
+%p
+  In case of compilation problems try:
+  %pre.code
+    :preserve
+      $ rvm --skip-autoreconf pkg install readline

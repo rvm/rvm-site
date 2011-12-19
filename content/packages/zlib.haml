@@ -37,4 +37,8 @@
       $ rvm remove 1.9.2
       $ rvm install 1.9.2
 
-
+%p
+  In case of compilation problems try:
+  %pre.code
+    :preserve
+      $ rvm --skip-autoreconf pkg install zlib

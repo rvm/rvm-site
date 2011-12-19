@@ -33,3 +33,9 @@
 %pre.code
   :preserve
     $ rvm install 1.9.2-head
+
+%p
+  In case of compilation problems try:
+  %pre.code
+    :preserve
+      $ rvm --skip-autoreconf pkg install autoconf

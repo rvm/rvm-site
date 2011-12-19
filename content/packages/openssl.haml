@@ -54,3 +54,9 @@
   %a{ :href => "/packages/readline/" }
     visit the readline page
   also.
+
+%p
+  In case of compilation problems try:
+  %pre.code
+    :preserve
+      $ rvm --skip-autoreconf pkg install openssl
