@@ -1,0 +1,13 @@
+rvm:
+  - 1.9.2
+before-install: rvm gemset import .gems
+script: nanoc3 compile
+notifications:
+  irc:
+    channels:
+      - "irc.freenode.org#beginrescueend"
+      - "irc.freenode.org#rvm"
+  email:
+    recipients:
+      - mpapis@gmail.com
+    on_failure: change
