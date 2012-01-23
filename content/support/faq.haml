@@ -42,19 +42,44 @@
           set -x ; rvm --trace your_commands_here ; set +x
       to give us maximum information to work with. These must accompany your Issue / Bug report in order for us to be able to assist you.
 
-
-%h2
-  I noticed some incorrect information on the RVM website. How do I submit a patch or Issue?
+%h2#shell_login
+  What shell login means ('bash -l')
 %p
-  Please feel free to fork
-  %a{ :href => "https://github.com/wayneeseguin/rvm-site/" }
-    rvm-site
-  and to fix anything you find amiss. Then submit a Pull Request.
-  Regardless, whether you feel comfortable doing the above or not, please file an Issue at
-  %a{ :href => "https://github.com/wayneeseguin/rvm-site/issues/" }
-    Issue Tracker
-  complete with the current error and the change as you see it. If you created a pull request, please
-  reference the URL in your Issue.
+  There are sites that describe this how it was 10 years ago like
+  %a{:href => "http://askubuntu.com/questions/40287/etc-profile-not-being-sourced"} here
+  or
+  %a{:href => "http://superuser.com/questions/183870/difference-between-bashrc-and-bash-profile/183980#183980"} here
+  so read to see how it works in current world:
+
+  %ol
+    %li
+      When you login graphically to your system it will read `~/.profile` so you put there settings like `LANG` which are important for graphical applications
+    %li
+      When you open a terminal (except Gnome-terminal & Screen) you open a `login` shell which sources `~/.bash_profile` 
+    %li
+      When you execute commands in non login shell like `ssh server command` or `scp file server:~` or `sudo`(without -i) or `su` (without -l) it will execute `~/.bashrc`
+
+  %p
+    `~/.bashrc` is meant for non login invocations, you should not print there any output - it makes tools like `scp` to fail
+  %p
+    it is good idea to put environment variables in `~/.bashrc`, things that you depend upon in your scripts (for `ssh server script`)
+  %p
+    then if your system does not source  `~/.bashrc` by default via `/etc/profile` you should source it in `~/.bash_profile` file so any login shell will have access also to the same environment like non login sessions.
+  %p
+    RVM by default adds itself currently to `~/.bash_profile` file, and the recommended way is to enable login shell in gnome-terminal (and screen).
+  
+  %h2
+    I noticed some incorrect information on the RVM website. How do I submit a patch or Issue?
+  %p
+    Please feel free to fork
+    %a{ :href => "https://github.com/wayneeseguin/rvm-site/" }
+      rvm-site
+    and to fix anything you find amiss. Then submit a Pull Request.
+    Regardless, whether you feel comfortable doing the above or not, please file an Issue at
+    %a{ :href => "https://github.com/wayneeseguin/rvm-site/issues/" }
+      Issue Tracker
+    complete with the current error and the change as you see it. If you created a pull request, please
+    reference the URL in your Issue.
 
 %h2
   Do I need to use sudo with gems?
@@ -162,4 +187,3 @@
   to override the checking done that assumes that if root is executing the install it must be a Multi-User installation type, and that RVM must go into /usr/local/rvm. This also negates the need to use sudo, as the combination of all these factors effeccively turns it into a Per-User installation type specifically for the root user only.
   %strong
     Please note that this is <em>not</em> a typical, or generally supported installation type.
-

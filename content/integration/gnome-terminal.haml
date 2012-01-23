@@ -10,13 +10,9 @@
   Multi-user rvm creates a script in /etc/profile.d, which is being sourced on startup. By default, gnome-terminal runs bash as usual, non-login shell, therefore skipping /etc/profile* and executing only ~/.bashrc
 
 %p 
-  For rvm to work properly, you have to choose between two options:
+  For rvm to work properly, you have to set 'Run command as login shell' checkbox on Title and Command tab inside of gnome-terminal settings.
 
-  %ol
-    %li
-      Set 'Run command as login shell' checkbox on Title and Command tab inside of gnome-terminal settings.
-    %li
-      Add the following line to the bottom of your ~/.bashrc file:
-      %pre.code
-        source /etc/profile.d/rvm.sh
-
+%p
+  Read the explanation of what
+  %a{:href=>"http://localhost:3000/support/faq/#shell_login"} Shell login
+  means if in doubt or advised by other sites to not use it.
