@@ -49,7 +49,8 @@
   If you have trouble installing ruby-debug19 try installing with the following command:
 %pre.code
   :preserve
-    $ gem install ruby-debug19 -- --with-ruby-include="${rvm_path}/src/${rvm_env_string//@*}"
+    $ rvm reinstall 1.9.3 --patch debug --force-autoconf
+    $ gem install ruby-debug19 -- --with-ruby-include="${MY_RUBY_HOME/rubies/src}"
 
 %a{:href => "#", :name => "segfault"}
 %h2
@@ -90,11 +91,11 @@
   :preserve
     CFLAGS='-m32' CXXFLAGS='-m32' LDFLAGS='-m32' rvm install X
 %p
-  Also note you may need to add the following to the start of the line on osx:
+  Also note on OSX it is enough to use:
 
 %pre.code
   :preserve
-    rvm_archflags="-arch i386"
+    rvm install X --32 
 
 %a{:href => "#", :name => "segfault"}
 %h2
@@ -221,25 +222,7 @@
   Alternatively, you can try installing a newer version of rdoc to the current
   environment. That way, the newer rdoc should be able to handle documentation
   from the more recent version of Ruby that you're installing.
-%h2
-  My named-ruby installs fail to properly name (-n param to installs)
-%p
-  When you use the -n parameter to installs in order to 'name' your ruby, be sure
-  not to use a '.' in the name. So you would do the following:
-%pre.code
-  rvm install -n 1_9 1.9.2
-%p
-  which will cause the Ruby to be installed as ruby-1.9.2-p###-1_9 where ## is the
-  current patch level at the time of install, rather than simply as ruby-1.9.2-p###.
-  To use the named ruby you would do:
-%pre.code
-  rvm use 1.9.2 -n 1_9
-%p
-  NOTE: This will be changing in a future version to be as follows:
-%pre.code
-  rvm use 1.9.2-n1_9
-%p
-  However, that syntax currently does not work.
+
 %h2
   How do I completely clean out all traces of RVM from my system, including for system wide installs?
 %p
