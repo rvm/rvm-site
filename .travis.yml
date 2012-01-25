@@ -5,7 +5,7 @@ script: nanoc3 compile
 notifications:
   irc:
     channels:
-      - "irc.freenode.org#beginrescueend"
+      - "irc.freenode.org#rvm-test"
       - "irc.freenode.org#rvm"
   email:
     recipients:
