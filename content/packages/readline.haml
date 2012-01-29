@@ -10,19 +10,23 @@
   %hr
 
 %h2
+  Quick fix
+%p
+  Remove all the manually installed packages:
+  = sh_cmd "rm -rf $rvm_path/usr"
+  Find the requirements (follow the instructions):
+  = sh_cmd "rvm requirements"
+  Reinstall ruby:
+  = sh_cmd "rvm reinstall 1.9.3"
+
+%h2
   Readline
 %p
   If you have an error when compiling pertaining to readline, you may need to attempt installing with the procedure defined below.
-%p
-  NOTE: Before you follow the procedure below please be sure to verify that you
-  have installed any dependencies for the Ruby you are installing listed by the
-  'rvm notes' command. If you have not yet done that do so then run
-  'rvm remove X ; rvm install X' where X is the Ruby that you are concerned with.
 %pre.code
   :preserve
     $ rvm pkg install readline
-    $ rvm remove 1.9.2
-    $ rvm install 1.9.2 --with-readline-dir=$rvm_path/usr
+    $ rvm reinstall 1.9.2 --with-readline-dir=$rvm_path/usr
 %p
   Note that this error occurs most often when having a MacPorts, Fink, or Homebrew installed readline on your system.
   The next most often is when the readline development headers are not available at all. The above
@@ -31,7 +35,7 @@
   you can use that readline by exchanging the location such as the following:
   %pre.code
     :preserve
-      $ rvm install 1.9.2 --with-readline-dir=/usr/local/Cellar/readline/x.x.x
+      $ rvm reinstall 1.9.2 --with-readline-dir=/usr/local/Cellar/readline/x.x.x
   
   %strong Note: 
   In the above case, we are compiling using the Homebrew readline installation.

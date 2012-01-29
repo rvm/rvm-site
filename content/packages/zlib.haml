@@ -10,22 +10,27 @@
   %hr
 
 %h2
+  Quick fix
+%p
+  Remove all the manually installed packages:
+  = sh_cmd "rm -rf $rvm_path/usr"
+  Find the requirements (follow the instructions):
+  = sh_cmd "rvm requirements"
+  Reinstall ruby:
+  = sh_cmd "rvm reinstall 1.9.3"
+
+%h2
   Zlib
 
 %h2
   require "zlib" # => false ?!
 %p
   If you have issues with zlib not being available in ruby / irb please try the procedure defined below.
-%p
-  NOTE: Before you follow the procedure below please be sure to verify that you
-  have installed any dependencies for the ruby you are installing listed by the
-  'rvm notes' command. If you have not yet done that do so then run
-  'rvm remove X ; rvm install X' where X is the ruby that you are concerned with.
+
 %pre.code
   :preserve
     $ rvm pkg install zlib
-    $ rvm remove 1.9.2
-    $ rvm install 1.9.2 --with-zlib-dir=$rvm_path/usr
+    $ rvm reinstall 1.9.2 --with-zlib-dir=$rvm_path/usr
 %p
   Where you replace '/usr/local' with the prefix where your zlib packages are.
 %p
@@ -34,8 +39,7 @@
   %pre.code
     :preserve
       $ rvm pkg install zlib
-      $ rvm remove 1.9.2
-      $ rvm install 1.9.2
+      $ rvm reinstall 1.9.2
 
 %p
   In case of compilation problems try:

@@ -10,22 +10,27 @@
   %hr
 
 %h2
+  Quick fix
+%p
+  Remove all the manually installed packages:
+  = sh_cmd "rm -rf $rvm_path/usr"
+  Find the requirements (follow the instructions):
+  = sh_cmd "rvm requirements"
+  Reinstall ruby:
+  = sh_cmd "rvm reinstall 1.9.3"
+
+%h2
   Iconv
 
 %h2
   require "iconv" # => false ?!
 %p
   If you have issues with iconv not being available in ruby / irb please try install the ruby you want with the procedure explained below.
-%p
-  NOTE: Before you follow the procedure below please be sure to verify that you
-  have installed any dependencies for the ruby you are installing listed by the
-  'rvm notes' command. If you have not yet done that do so then run
 
 %pre.code
   :preserve
     $ rvm pkg install iconv
-    $ rvm remove 1.9.2
-    $ rvm install 1.9.2 --with-iconv-dir=$rvm_path/usr
+    $ rvm reinstall 1.9.2 --with-iconv-dir=$rvm_path/usr
 
 %p
   This effectively installs a fresh copy of iconv, sandboxed to the ~/.rvm/usr directory, and tells

@@ -7,6 +7,16 @@
   %hr
 
 %h2
+  Quick fix
+%p
+  Remove all the manually installed packages:
+  = sh_cmd "rm -rf $rvm_path/usr"
+  Find the requirements (follow the instructions):
+  = sh_cmd "rvm requirements"
+  Reinstall ruby:
+  = sh_cmd "rvm reinstall 1.9.3"
+
+%h2
   %a{:href => "/packages/"} Packages
 %p
   %ul

@@ -12,17 +12,23 @@
 
 %h2
   Quick Install
-%p
-  To install and/or update the latest code from the github repository ( requires git ):
 
-= sh_cmd "bash -s stable < <(curl -s https://raw.github.com/wayneeseguin/rvm/master/binscripts/rvm-installer)"
+%p
+  Install RVM:
+  = sh_cmd "bash -s stable < <(curl -s https://raw.github.com/wayneeseguin/rvm/master/binscripts/rvm-installer)"
+  Reload your shell environment:
+  = sh_cmd "source ~/.bash_profile"
+  Find the requirements (follow the instructions):
+  = sh_cmd "rvm requirements"
+  Install ruby:
+  = sh_cmd "rvm install 1.9.3"
 
 You can also:
 
 %ul.square
   %li
     visit the
-    %a{:href => "/rvm/install/"}
+    %a{:href => "/rvm/install/#explained"}
       installation documentation,
   %li
     watch the most accurate (but not official)

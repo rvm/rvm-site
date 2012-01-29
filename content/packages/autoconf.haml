@@ -10,6 +10,16 @@
   %hr
 
 %h2
+  Quick fix
+%p
+  Remove all the manually installed packages:
+  = sh_cmd "rm -rf $rvm_path/usr"
+  Find the requirements (follow the instructions):
+  = sh_cmd "rvm requirements"
+  Reinstall ruby:
+  = sh_cmd "rvm reinstall 1.9.3"
+
+%h2
   Autoconf
 
 %p
@@ -32,7 +42,7 @@
   Once autoconf has been installed, you can then (re) install your ruby
 %pre.code
   :preserve
-    $ rvm install 1.9.2-head
+    $ rvm reinstall 1.9.2-head
 
 %p
   In case of compilation problems try:
