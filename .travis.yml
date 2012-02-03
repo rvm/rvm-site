@@ -1,6 +1,7 @@
 rvm:
   - 1.9.2
-before_install: rvm gemset import .gems
+install: true
+before_script: rvm gemset import .gems
 script: nanoc3 compile
 notifications:
   irc:
