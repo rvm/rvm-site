@@ -24,10 +24,10 @@
   to store and file supplimentary evidence related to the bug report. Include the returned https (not git) URL in your report. Please provide 
   %ul
     %li
-      A) The output from 
+      A) The output from
       %pre.code
         :preserve
-          rvm info 
+          rvm info
     %li
       B) If you are using gemsets, the output from
       %pre.code
@@ -67,19 +67,26 @@
     then if your system does not source  `~/.bashrc` by default via `/etc/profile` you should source it in `~/.bash_profile` file so any login shell will have access also to the same environment like non login sessions.
   %p
     RVM by default adds itself currently to `~/.bash_profile` file, and the recommended way is to enable login shell in gnome-terminal (and screen).
-  
-  %h2
-    I noticed some incorrect information on the RVM website. How do I submit a patch or Issue?
-  %p
-    Please feel free to fork
-    %a{ :href => "https://github.com/wayneeseguin/rvm-site/" }
-      rvm-site
-    and to fix anything you find amiss. Then submit a Pull Request.
-    Regardless, whether you feel comfortable doing the above or not, please file an Issue at
-    %a{ :href => "https://github.com/wayneeseguin/rvm-site/issues/" }
-      Issue Tracker
-    complete with the current error and the change as you see it. If you created a pull request, please
-    reference the URL in your Issue.
+
+%p
+  To fix the configuration files automatically run:
+  %pre.code
+    :preserve
+      rvm get [head|stable] --auto
+
+
+%h2
+  I noticed some incorrect information on the RVM website. How do I submit a patch or Issue?
+%p
+  Please feel free to fork
+  %a{ :href => "https://github.com/wayneeseguin/rvm-site/" }
+    rvm-site
+  and to fix anything you find amiss. Then submit a Pull Request.
+  Regardless, whether you feel comfortable doing the above or not, please file an Issue at
+  %a{ :href => "https://github.com/wayneeseguin/rvm-site/issues/" }
+    Issue Tracker
+  complete with the current error and the change as you see it. If you created a pull request, please
+  reference the URL in your Issue.
 
 %h2
   Do I need to use sudo with gems?
