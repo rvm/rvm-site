@@ -20,7 +20,11 @@
   Would use the tedxperth gemset on ruby enterprise edition. To make this
   easier, we can run:
 
-= sh_cmd "echo 'rvm --create --rvmrc use ree@tedxperth' > .rvmrc"
+  = sh_cmd "echo 'rvm --create use ree@tedxperth' > .rvmrc"
+
+  or
+
+  = sh_cmd "rvm --create --rvmrc use ree@tedxperth"
 
 %p
   from inside the root of your project. This tells rvm that everytime we change in to the project's directory,
@@ -28,6 +32,30 @@
   command, you can reload RVM in order to make it see the new .rvmrc and allow you check it out and 'trust' it.
 
 = sh_cmd "rvm reload"
+
+%p
+  A set of new project files that do not require trusting are available (rvm 1.11.0):
+
+  = sh_cmd "rvm --create --ruby-version use ree@tedxperth"
+
+  It will create a new file .ruby-version
+
+  = sh_cmd "rvm --create --versions-conf use ree@tedxperth"
+
+  It will create a new file .versions.conf
+
+  Or add comments to Gemfile:
+
+  %pre.code
+    :preserve
+      #ruby=1.9.3
+      #ruby-gemset=my-project
+
+  From this 3 new formats .ruby-version is already supported by rbfu, for more details check:
+
+  %a{:href => "https://gist.github.com/1912050"} A Common .ruby-version File For Ruby Projects
+  by
+  %a{:href => "https://github.com/fnichol"} Fletcher Nichol.
 
 %p
   This basic approach not only ensures we have gems seperate from the rest of the system but
