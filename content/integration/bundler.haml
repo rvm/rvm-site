@@ -11,6 +11,58 @@
   that allow us to just write binary names; the binary from 'gem' specified in the
   Gemfile will be used.
 
+%h2 rubygems-bundler gem (default from rvm 1.11.0)
+
+%p
+  One of the solutions for this problem is a gem which makes bundler and rubygems
+  generate binary wrappers that are aware of bundler. It was discussed with
+  the rubygems and bundler teams, however,they did not really like the solution.
+  Be forewarned, they will most likely not support it although the wrapper is a
+  combination of their wrappers.
+
+%p
+  Starting with 1.11.0 new RVM installations has it enabled by default, 
+  you can still install it with:
+  %pre.code
+    :preserve
+      gem install rubygems-bundler
+
+%p
+  And follow onscreen instructions, for more information visit
+  %a{:href => "https://github.com/mpapis/rubygems-bundler"} rubygems-bundler @ github.
+  If this gem is already installed you missed this instruction:
+  %pre.code
+    :preserve
+      First step is to add following line to ~/.gemrc
+      
+          custom_shebang: $env ruby_bundler_wrapper
+      
+      To make all the executables bundler compatible run:
+      
+          gem regenerate_binstubs # only once
+      
+      To always use bundler add the following line to ~/.rvmrc or ~/.bashrc
+      
+          export USE_BUNDLER=force
+      
+      Relogin or call in every open shell:
+      
+          export USE_BUNDLER=force
+      
+      For more information read:
+      
+          https://github.com/mpapis/rubygems-bundler
+
+%p
+  You can add/remove installation of this gem from default by adding/removing the line
+  %pre.code
+    :preserve
+      rubygems-bundler
+  in this files in:
+  %ul.square
+    %li $rvm_path/gemsets/default.gems
+    %li $rvm_path/gemsets/global.gems
+
 %h2 RVM hook
 
 %p
@@ -34,38 +86,6 @@
 %p
   From now on, any project which was generated this way will automatically
   add ./bundler_stubs to the PATH.
-
-%h2 rubygems-bundler gem
-
-%p
-  Another solution for this problem is a gem which makes bundler and rubygems
-  generate binary wrappers that are aware of bundler. It was discussed with
-  the rubygems and bundler teams, however,they did not really like the solution.
-  Be forewarned, they will most likely not support it.
-
-%p
-  Installation:
-  %pre.code
-    :preserve
-      gem install rubygems-bundler
-
-%p
-  And follow onscreen instructions, for more information visit
-  %a{:href => "https://github.com/mpapis/rubygems-bundler"}
-    rubygems-bundler @ github
-
-%p
-  To make it fully working, bundler 1.1 is required (which is not yet released).
-  Fortunately, the rubygems plugins enabled bundler is also available for
-  installation:
-  %pre.code
-    :preserve
-      gem install mpapis-bundler
-
-%p
-  As `mpapis-bundler` already depends on `rubygems-bundler` you could skip the
-  previous step. `mpapis-bundler` uses only code that is already in the commit
-  tree of bundler, so you do not have to worry about compatibility.
 
 %h2
   Community Resources
