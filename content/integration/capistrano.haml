@@ -22,9 +22,11 @@
 
 %pre.code
   :preserve
+    set :rvm_ruby_string, 'ree@rails3'        # Or:
+    #set :rvm_ruby_string, `rvm current`      # Read from local system
+
     $:.unshift(File.expand_path('./lib', ENV['rvm_path'])) # Add RVM's lib directory to the load path.
     require "rvm/capistrano"                  # Load RVM's capistrano plugin.
-    set :rvm_ruby_string, 'ree@rails3'        # Or whatever env you want it to run in.
 
 %p
   This option is preferred as it reduces configuration and does not contain
@@ -44,7 +46,72 @@
   :preserve
     set :rvm_type, :user  # Copy the exact line. I really mean :user here
 
-%h2 Integration via :default_environment
+%h3 Automatic installing RVM / Ruby (starting with rvm 1.11.0)
+
+%p
+  RVM can be automatically installed on server, add the following to your Capfile / deploy.rb:
+
+  %pre.code
+    :preserve
+      before 'deploy:setup', 'rvm:install_rvm'
+
+  and additionally if you prefer to update rvm on every installation:
+
+  %pre.code
+    :preserve
+      before 'deploy', 'rvm:install_rvm'
+
+  You can control if development / stable(default) version of RVM is installed with:
+
+  %pre.code
+    :preserve
+      set :rvm_install_type, :head # or:
+      #set :rvm_install_type, :stable
+
+%p
+  RVM can automatically install Ruby on server, add the following to your Capfile / deploy.rb:
+
+  %pre.code
+    :preserve
+      before 'deploy:setup', 'rvm:install_ruby'
+
+  or if you prefer to try to install on every deployment:
+
+  %pre.code
+    :preserve
+      before 'deploy', 'rvm:install_ruby'
+
+  You can control if ruby is only installed if needed(default) or always reinstalled with:
+
+  %pre.code
+    :preserve
+      set :rvm_install_ruby, :install # or:
+      #set :rvm_install_ruby, :reinstall
+
+  By default ruby will be installed using all CPU cores, you can control this with:
+
+  %pre.code
+    :preserve
+      set :rvm_install_ruby_threads, 4
+
+%p
+  You can control shell selected for installing RVM / Ruby, by default it is Bash:
+
+  %pre.code
+    :preserve
+      set :rvm_install_shell, :zsh
+
+%h3 Important resources
+
+%ul.square
+  %li
+    %a{:href => "https://github.com/mpapis/ad"} Example application
+    we tested deployment on it.
+  %li
+    %a{:href => "/workflow/projects/#ruby-versions"} New project files
+    not requiring trusting.
+
+%h2 Integration via :default_environment (hardcore)
 
 %p
   For the second option add the following line in your deploy.rb file, adjusting to your particular rvm ruby of course,
@@ -76,4 +143,3 @@
       after "deploy", "rvm:trust_rvmrc"
 %p
   to launch it.
-
