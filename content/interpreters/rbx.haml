@@ -30,13 +30,25 @@
     $ rvm install rbx
 
 %p
-  Configuration options for rbx-head can be passed after `--`.
-  %br
-  It is important to keep proper order of options; `enable-version` must be specified before `default-version`:
-
+  Rubinius supports a 1.8 language mode (the default) and a 1.9 mode. You can install with
+  the 1.9 language mode as the default using the --1.9 option:
   %pre.code
     :preserve
-      $ rvm install rbx -- --enable-version=1.9,1.8 --default-version=1.8
+      $ rvm install rbx --1.9
+
+%p
+  You might do this if you intend to use 1.9 mode primarily. It is also possible to create
+  two separate named installs, one for each mode:
+  %pre.code
+    :preserve
+      $ rvm install rbx --1.8 -n d18
+      $ rvm install rbx --1.9 -n d19
+
+%p
+  Rubinius-specific configuration options can be passed following --:
+  %pre.code
+    :preserve
+      $ rvm install rbx -- --with-vendor-zlib
 
 %p
   If you're installing rubinius on Ubuntu, and you find that makeinfo
