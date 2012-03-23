@@ -8,9 +8,11 @@
 
 %ol
   %li
-    Direct calling RVM generated wrappers.
+    %a{:href => "#direct"}
+      Direct calling RVM generated wrappers.
   %li
-    Loading RVM environment files in shell scripts.
+    %a{:href => "#environment"}
+      Loading RVM environment files in shell scripts.
   %li
     %a{:href => "/integration/god/"}
       Direct calling custom RVM wrappers (eg. God).
@@ -18,7 +20,7 @@
     %a{:href => "/workflow/scripting/"}
       Loading and using RVM in shell scripts.
 
-%h2 Direct calling RVM generated wrappers
+%h2#direct Direct calling RVM generated wrappers
 %p
   For every installed ruby and created gemset RVM creates wrappers for basic command
   line tools like
@@ -35,7 +37,7 @@
       1 0  * * * /usr/local/rvm/bin/ruby-1.9.2-p290@projectX /path/to/script.rb
       1 15 * * * /usr/local/rvm/bin/rake-ruby-1.9.2-p290@projectX update stats
 
-%h2 Loading RVM environment files in shell scripts
+%h2#environment Loading RVM environment files in shell scripts
 %p
   For every installed ruby and created gemset RVM creates environment files.
   You can find them by running:.
