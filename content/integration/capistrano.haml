@@ -6,13 +6,22 @@
   You currently have three options:
 %ol
   %li
-    If your rvm version on the server and locally are recent enough, use the new built in integration.
-  %li
-    Enable .ssh environment variables using the PermitUserEnvironment option in your ssh configuration file
+    If your rvm version on the server and locally are recent enough, use the rvm-capistrano gem.
   %li
     Use the capistrano :default_environment setting
+  %li
+    Enable .ssh environment variables using the PermitUserEnvironment option in your ssh configuration file
 
-%h2#gem Integration via the rvm capistrano gem
+%p
+  Gem option is preferred as it reduces configuration and does not contain
+  hardcoded paths. Please note that RVM
+  %strong will not
+  be automatically loaded as a shell function but it will be available as a
+  binary in PATH (for differences between the two versions, please see
+  %a{:href => "/workflow/scripting/"} our scripting page
+  for further clarification).
+
+%h2#gem Integration via the rvm-capistrano gem
 
 %p#plugin
   Starting with RVM 1.11.3 Capistrano integration was extracted to a separate gem.
@@ -31,7 +40,7 @@
     :preserve
       gem 'rvm-capistrano'
 
-  Example:
+  Example Capfile / deploy.rb:
 
   %pre.code
     :preserve
@@ -41,22 +50,13 @@
       require "rvm-capistrano"                               # Load RVM's capistrano plugin.
 
 %p
-  This option is preferred as it reduces configuration and does not contain
-  hardcoded paths. Please note that RVM
-  %strong will not
-  be automatically loaded as a shell function but it will be available as a
-  binary in PATH (for differences between the two versions, please see
-  %a{:href => "/workflow/scripting/"} our scripting page
-  for further clarification).
+  Please note that this defaults to using a user installation of rvm,
+  if you wish to instead set it to use an system wide / root install
+  add the following to your Capfile / deploy.rb:
 
-%p
-  Please note that this defaults to using a system wide / root install,
-  if you wish to instead set it to use an rvm install in the deploying users
-  home directory, add the following to your Capfile / deploy.rb:
-
-%pre.code
-  :preserve
-    set :rvm_type, :user  # Copy the exact line. I really mean :user here
+  %pre.code
+    :preserve
+      set :rvm_type, :system  # Copy the exact line. I really mean :system here
 
 %h3#automatic_installation Automatic installing RVM / Ruby (starting with rvm 1.11.0)
 
