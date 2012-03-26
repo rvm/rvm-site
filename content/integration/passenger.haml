@@ -45,38 +45,26 @@
   :preserve
     echo 1.9.3@my-app-name > .ruby-version
 
-%p Then in the rails project, add a new file config/setup_load_paths.rb and add
+%p
+  Then in the rails project, add a new file config/setup_load_paths.rb and add
+  Starting with RVM 1.12.0(or head) RVM is installed as a gem in default gemset,
+  there is no need to unshift $LOAD_PATH.
+  %a{ :href => "#old_setup_load_paths" } config/setup_load_paths.rb.
 
 %pre.code
   :preserve
     if ENV['MY_RUBY_HOME'] && ENV['MY_RUBY_HOME'].include?('rvm')
       begin
-        rvm_path     = File.dirname(File.dirname(ENV['MY_RUBY_HOME']))
-        rvm_lib_path = File.join(rvm_path, 'lib')
-        $LOAD_PATH.unshift rvm_lib_path
         require 'rvm'
         RVM.use_from_path! File.dirname(File.dirname(__FILE__))
       rescue LoadError
-        # RVM is unavailable at this point.
-        raise "RVM ruby lib is currently unavailable."
+        raise "RVM gem is currently unavailable."
       end
     end
 
-    # Pick the lines for your version of Bundler
-    # If you're not using Bundler at all, remove all of them
-
-    # Require Bundler 1.0 
+    # If you're not using Bundler at all, remove lines bellow
     ENV['BUNDLE_GEMFILE'] = File.expand_path('../Gemfile', File.dirname(__FILE__))
     require 'bundler/setup'
-
-    # Require Bundler 0/9
-    # if File.exist?(".bundle/environment.rb")
-    #   require '.bundle/environment'
-    # else
-    #   require 'rubygems'
-    #   require 'bundler'
-    #   Bundler.setup
-    # end
 
 %p
   Please note that for Passenger 3 you now use the ruby wrapper script directly with no need to use the passenger_ruby wrapper.
@@ -172,6 +160,7 @@
     %pre.code
       :preserve
          passenger_root /home/millisami/.rvm/gems/ree-1.8.7-2010.01/gems/passenger-2.2.11
+
 %h2
   Troubleshooting
 %ul
@@ -230,6 +219,40 @@
       %pre.code
         :preserve
           /usr/bin/env GEM_PATH=* GEM_HOME=* PATH=* passenger-status
+
+%p#old_setup_load_paths
+  This is config/setup_load_paths.rb for RVM versions bellow 1.12.0.
+
+%pre.code
+  :preserve
+    if ENV['MY_RUBY_HOME'] && ENV['MY_RUBY_HOME'].include?('rvm')
+      begin
+        rvm_path     = File.dirname(File.dirname(ENV['MY_RUBY_HOME']))
+        rvm_lib_path = File.join(rvm_path, 'lib')
+        # $LOAD_PATH.unshift rvm_lib_path
+        require 'rvm'
+        RVM.use_from_path! File.dirname(File.dirname(__FILE__))
+      rescue LoadError
+        # RVM is unavailable at this point.
+        raise "RVM ruby lib is currently unavailable."
+      end
+    end
+
+    # Pick the lines for your version of Bundler
+    # If you're not using Bundler at all, remove all of them
+
+    # Require Bundler 1.0
+    ENV['BUNDLE_GEMFILE'] = File.expand_path('../Gemfile', File.dirname(__FILE__))
+    require 'bundler/setup'
+
+    # Require Bundler 0/9
+    # if File.exist?(".bundle/environment.rb")
+    #   require '.bundle/environment'
+    # else
+    #   require 'rubygems'
+    #   require 'bundler'
+    #   Bundler.setup
+    # end
 
 %h2
   Community Resources
