@@ -18,6 +18,7 @@
   Starting with RVM 1.11.3 Capistrano integration was extracted to a separate gem.
   %a{ :href => "#old-plugin" } The old plugin integration.
 
+%p
   Installation:
 
   %pre.code
@@ -105,7 +106,6 @@
     :preserve
       set :rvm_install_ruby_threads, 4
 
-%p
   You can control shell selected for installing RVM / Ruby, by default it is Bash:
 
   %pre.code
@@ -122,7 +122,7 @@
     %a{:href => "/workflow/projects/#ruby-versions"} New project files
     not requiring trusting.
 
-%h2#old-plugin Integration via the rvm capistrano plugin
+%h2#old-plugin Integration via the rvm capistrano plugin (old way)
 
 %p
   If your rvm installs on both sides are recent enough (&gt;= 1.0.1),
