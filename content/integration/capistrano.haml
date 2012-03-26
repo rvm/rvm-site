@@ -1,7 +1,6 @@
 = breadcrumbs "Integration", "Capistrano"
 
-%a{ :name => "capistrano" }
-%h1
+%h1#capistrano
   Using RVM rubies with Capistrano
 %p
   You currently have three options:
@@ -13,20 +12,32 @@
   %li
     Use the capistrano :default_environment setting
 
-%h2#plugin Integration via the rvm capistrano plugin
+%h2#gem Integration via the rvm capistrano gem
 
-%p
-  If your rvm installs on both sides are recent enough (&gt;= 1.0.1),
-  rvm has a new plugin available that takes advantage of a different approach.
-  In the new option, you can do the following (adjust to your personal setup):
+%p#plugin
+  Starting with RVM 1.11.3 Capistrano integration was extracted to a separate gem.
+  %a{ :href => "#old-plugin" } The old plugin integration.
 
-%pre.code
-  :preserve
-    set :rvm_ruby_string, 'ree@rails3'                     # Or:
-    #set :rvm_ruby_string, ENV['GEM_HOME'].gsub(/.*\//,"") # Read from local system
+  Installation:
 
-    $:.unshift(File.expand_path('./lib', ENV['rvm_path'])) # Add RVM's lib directory to the load path.
-    require "rvm/capistrano"                               # Load RVM's capistrano plugin.
+  %pre.code
+    :preserve
+      gem install rvm-capistrano
+
+  Or add to Gemfile:
+
+  %pre.code
+    :preserve
+      gem 'rvm-capistrano'
+
+  Example:
+
+  %pre.code
+    :preserve
+      set :rvm_ruby_string, 'ree@rails3'                     # Or:
+      #set :rvm_ruby_string, ENV['GEM_HOME'].gsub(/.*\//,"") # Read from local system
+      
+      require "rvm-capistrano"                               # Load RVM's capistrano plugin.
 
 %p
   This option is preferred as it reduces configuration and does not contain
@@ -110,6 +121,24 @@
   %li
     %a{:href => "/workflow/projects/#ruby-versions"} New project files
     not requiring trusting.
+
+%h2#old-plugin Integration via the rvm capistrano plugin
+
+%p
+  If your rvm installs on both sides are recent enough (&gt;= 1.0.1),
+  rvm has a new plugin available that takes advantage of a different approach.
+  In the new option, you can do the following (adjust to your personal setup):
+
+  %pre.code
+    :preserve
+      set :rvm_ruby_string, 'ree@rails3'                     # Or:
+      #set :rvm_ruby_string, ENV['GEM_HOME'].gsub(/.*\//,"") # Read from local system
+      
+      $:.unshift(File.expand_path('./lib', ENV['rvm_path'])) # Add RVM's lib directory to the load path.
+      require "rvm/capistrano"                               # Load RVM's capistrano plugin.
+
+  Rest of the integration is the same as for
+  %a{ :href => "#gem" } gem.
 
 %h2#hardcore Integration via :default_environment (hardcore)
 
