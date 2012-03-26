@@ -60,9 +60,10 @@
 
 %h3#automatic_installation Automatic installing RVM / Ruby (starting with rvm 1.11.0)
 
-%p#install_rvm
+%h4#install_rvm
   RVM can be automatically installed on server, add the following to your Capfile / deploy.rb:
 
+%p
   %pre.code
     :preserve
       before 'deploy:setup', 'rvm:install_rvm'
@@ -80,9 +81,10 @@
       set :rvm_install_type, :head # or:
       #set :rvm_install_type, :stable
 
-%p#install_ruby
+%h4#install_ruby
   RVM can automatically install Ruby on server, add the following to your Capfile / deploy.rb:
 
+%p
   %pre.code
     :preserve
       before 'deploy:setup', 'rvm:install_ruby'
