@@ -13,7 +13,7 @@
   %li
     Use the capistrano :default_environment setting
 
-%h2 Integration via the rvm capistrano plugin
+%h2#plugin Integration via the rvm capistrano plugin
 
 %p
   If your rvm installs on both sides are recent enough (&gt;= 1.0.1),
@@ -46,9 +46,9 @@
   :preserve
     set :rvm_type, :user  # Copy the exact line. I really mean :user here
 
-%h3 Automatic installing RVM / Ruby (starting with rvm 1.11.0)
+%h3#automatic_installation Automatic installing RVM / Ruby (starting with rvm 1.11.0)
 
-%p
+%p#install_rvm
   RVM can be automatically installed on server, add the following to your Capfile / deploy.rb:
 
   %pre.code
@@ -68,7 +68,7 @@
       set :rvm_install_type, :head # or:
       #set :rvm_install_type, :stable
 
-%p
+%p#install_ruby
   RVM can automatically install Ruby on server, add the following to your Capfile / deploy.rb:
 
   %pre.code
@@ -101,7 +101,7 @@
     :preserve
       set :rvm_install_shell, :zsh
 
-%h3 Important resources
+%h3#resources Important resources
 
 %ul.square
   %li
@@ -111,7 +111,7 @@
     %a{:href => "/workflow/projects/#ruby-versions"} New project files
     not requiring trusting.
 
-%h2 Integration via :default_environment (hardcore)
+%h2#hardcore Integration via :default_environment (hardcore)
 
 %p
   For the second option add the following line in your deploy.rb file, adjusting to your particular rvm ruby of course,
