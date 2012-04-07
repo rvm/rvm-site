@@ -16,6 +16,10 @@
 %p
   Install RVM:
   = sh_cmd "curl -L get.rvm.io | bash -s stable"
+  Or with ruby & rails
+  = sh_cmd "curl -L get.rvm.io | bash -s stable --rails"
+  Or with rubinius & rails & puma
+  = sh_cmd "curl -L get.rvm.io | bash -s stable --ruby=rbx --gems=rails,puma"
   Reload your shell environment:
   = sh_cmd "source ~/.bash_profile"
   Find the requirements (follow the instructions):
