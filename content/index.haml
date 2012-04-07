@@ -15,7 +15,7 @@
 
 %p
   Install RVM:
-  = sh_cmd "bash -s stable < <(curl -s https://raw.github.com/wayneeseguin/rvm/master/binscripts/rvm-installer)"
+  = sh_cmd "curl -L get.rvm.io | bash -s stable"
   Reload your shell environment:
   = sh_cmd "source ~/.bash_profile"
   Find the requirements (follow the instructions):

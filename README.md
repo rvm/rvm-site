@@ -1,6 +1,6 @@
 # Welcome to the RVM Site Documentation
 
-You can see the documentation live online at <https://rvm.beginrescueend.com/>.
+You can see the documentation live online at <https://rvm.io/>.
 
 ## Get the Site Running Locally
 
