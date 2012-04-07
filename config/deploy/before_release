@@ -1,0 +1,8 @@
+#!/bin/sh
+
+source $HOME/.rvm/environments/default
+
+path enter "${stage_path}"
+
+nanoc co
+
