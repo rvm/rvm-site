@@ -5,16 +5,16 @@
 %p
   Install RVM:
   = sh_cmd "curl -L get.rvm.io | bash -s stable"
-  Or with ruby & rails
-  = sh_cmd "curl -L get.rvm.io | bash -s stable --rails"
-  Or with rubinius & rails & puma
-  = sh_cmd "curl -L get.rvm.io | bash -s stable --ruby=rbx --gems=rails,puma"
-  Reload your shell environment:
-  = sh_cmd "source ~/.bash_profile"
+  Load RVM:
+  = sh_cmd "source ~/.rvm/scripts/'rvm'"
   Find the requirements (follow the instructions):
   = sh_cmd "rvm requirements"
   Install ruby:
   = sh_cmd "rvm install 1.9.3"
+  Or guided mode with ruby & rails
+  = sh_cmd "curl -L get.rvm.io | bash -s stable --rails"
+  Or guided mode with rubinius & rails & puma
+  = sh_cmd "curl -L get.rvm.io | bash -s stable --ruby=rbx --gems=rails,puma"
 
 You can also:
 
@@ -147,7 +147,9 @@ You can also:
 
 %h4 External tutorials
 %p
-  Note that that any outside tutorials are NOT supported whether they work or not. Tutorials are great, however we have spent massive amounts of man hours debugging the installation process. Please use the install process(es) from this site only, as this is the only supported installation types and methods.   
+  Note that that any outside tutorials are NOT supported whether they work or not.
+  Tutorials are great, however we have spent massive amounts of man hours debugging the installation process.
+  Please use the install process(es) from this site only, as this is the only supported installation types and methods.
 
 %h4 To update an existing RVM installation
 
@@ -157,23 +159,25 @@ You can also:
     upgrading docs.
 
 %h3 2. Load RVM into your shell sessions as a function
-%em
-  Throughout these instructions, you may replace .bash_profile with the appropriate startup script for your bash-compatible shell. For other shells you may need to modify these commands. Zsh should be able to use these commands unmodified.
 
 %h4 Single-User:
 
 %p
-  Load RVM by appending the rvm function sourcing to your .bash_profile:
-  
-%pre.code
-  :preserve
-    user$ echo '[[ -s "$HOME/.rvm/scripts/rvm" ]] && . "$HOME/.rvm/scripts/rvm" # Load RVM function' >> ~/.bash_profile
+  The rvm function will be automatically configured for every user on the system if you install as single user.
+  Read the output of installer to check which files were modified.
 
 %h4 Multi-User:
 
 %p
   The rvm function will be automatically configured for every user on the system if you install as root.
-  This is accomplished by loading /etc/profile.d/rvm.sh on login. Most Linux distributions default to parsing /etc/profile which contains the logic to load all files residing in the /etc/profile.d/ directory. Once you have added the users you want to be able to use RVM to the rvm group, those users MUST log out and back in to gain rvm group membership because group memberships are only evaluated by the operating system at initial login time.
+  This is accomplished by loading /etc/profile.d/rvm.sh on login.
+  Most Linux distributions default to parsing /etc/profile which contains the logic to load all files residing in the /etc/profile.d/ directory.
+  Once you have added the users you want to be able to use RVM to the rvm grou p, those users MUST log out and back in
+  to gain rvm group membership because group memberships are only evaluated by the operating system at initial login time.
+  %em Zsh not always sources /etc/profile so you might need to add this in /etc/**/zprofile:
+  %pre.code
+    :preserve
+      source /etc/profile
 
 %h4 Mixed mode:
 
@@ -193,14 +197,13 @@ You can also:
 
 %h3 3. Reload shell configuration &amp; test
 
-%p Close out your current shell or terminal session and open a new one. You may attempt reloading your ~/.bash_profile with the following command:
+%p
+  Close out your current shell or terminal session and open a new one (preferred).
+  You may load RVM with the following command:
 
 %pre.code
   :preserve
-    user$ source ~/.bash_profile
-
-%p
-  However, closing out your current shell or terminal and opening a new one is the preferred way for initial installations.
+    user$ source ~/.rvm/scripts/rvm
 
 %p 
   If installation and configuration were successful, RVM should now load whenever you open a new shell.
@@ -208,7 +211,7 @@ You can also:
 
 %pre.code
   :preserve
-    user$ type rvm | head -1
+    user$ type rvm | head -n 1
     rvm is a function
 
 %p

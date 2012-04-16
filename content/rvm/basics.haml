@@ -67,13 +67,13 @@
   Note that the '#' is the shell comment character so everything after it is
   a comment and ignored by the shell when the line is executed.
 %p
-  Place the sourcing line in your startup files. Use ~/.profile if it exists, otherwise use .bashrc and .bash_profile.
-  If these files do not exist you may create them. Since .bashrc is used for non-interactive login shells, and .bash_profile whenever you log in either via ssh or the local shell account, there is a little trick for ensuring RVM is loaded no matter what. Put the sourcing line in your $HOME/.bashrc and then load your .bashrc from .bash_profile using an 'if' statement in your .bash_profile like as follows:
-%pre.code
-  :preserve
-    if [ -f "$HOME/.bashrc" ]; then
-      source $HOME/.bashrc
-    fi
+  When you log in either via ssh or the local shell account RVM will be loaded as a function.
+%p
+  For non-interactive shells RVM will be added to PATH only, not loaded.
+  This means using rubies is not possible in this mode, but there are simple metohds to load ruby:
+  %pre.code
+    :preserve
+      source $(rvm 1.9.3 do rvm env --path)
 
 %p
   Then, when you login or spawn a shell this will automatically load RVM regardless of the shell type. Pretty handy, huh?
