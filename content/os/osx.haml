@@ -25,7 +25,16 @@
   The 'easiest' workaround is to install Xcode 4.1, upgrade to Xcode 4.2, then upgrade Xcode 4.2 via Software Update, and 
   download 4.3 but do not let it remove prior versions when it asks. All Rubies build stabley with GCC-4.2 which is part of Xcode 4.1, 
   but have issues when compiled with newer Xcode versions. Xcode 4.2 removes this GCC-4.2. If you let Xcode 4.2 upgrade, but not replace, Xcode 4.1 then
-  Xcode 4.2 will leave the Xcode 4.1's GCC-4.2 where it is. It will be available on the system as the /usr/bin/gcc-4.2 binary and works as expected.
+  Xcode 4.2 will leave the Xcode 4.1's GCC-4.2 where it is. It will be available on the system under '/usr/bin' and reports as follows 
+  
+%pre.code
+  :preserve
+    /usr/bin/gcc-4.2 --version
+
+    i686-apple-darwin11-gcc-4.2.1 (GCC) 4.2.1 (Apple Inc. build 5666) (dot 3)
+    Copyright (C) 2007 Free Software Foundation, Inc.
+    This is free software; see the source for copying conditions.  There is NO
+    warranty; not even for MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.
 
 %p
   Please note that Rubies >= 1.9.3-p125, while they do compile with Xcode 4.3, are known to segfault quite often as do many native-compile gems.
