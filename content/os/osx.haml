@@ -15,14 +15,16 @@
 %p
   Some Rubies have issues when compiled with the recent Xcode on OSX. Its an Xcode compiler chain issue, not an RVM issue.
   There is no problem with Xcode 4.1 with building the various Rubies and natively compiled gems. From Xcode 4.2 and up, this changes with greater degrees of 'trouble'.
-  The basics of the issue is that Xcode 4.1's compiler is 
+  The basics of the issue is that Xcode 4.1's compiler is a
   %a{ :href => "http://developer.apple.com/library/mac/#documentation/DeveloperTools/Conceptual/WhatsNewXcode/Articles/xcode_4_1.html#//apple_ref/doc/uid/00100-SW1" }
     LLVM-GCC 4.2
-  which is source-compatible with GCC 4.2, and was removed in Xcode 4.2. Xcode 4.3 uses yet a different, CLANG-based, compiler. For a bit more information, please see the 
+  backend compiler, which is source-compatible with GCC 4.2, and was removed in Xcode 4.2. Xcode 4.3 uses a different, CLANG-based, compiler front-end for translating 
+  sources before pushing to the LLVM backend compiler. For a bit more information, please see the 
   following Stack Overflow Q&A about 
   %a{ :href => "http://stackoverflow.com/questions/5708610/llvm-vs-clang-on-mac" }
     LLVM vs. CLANG on Apple Mac OS X.
-
+  which all translates into various problems building on OSX. (This could be caused by the CLANG front-end itself, changes in Apple's libraries, and a myriad of other
+  potentials.) All in all, it boils down to "There be dragons here"!
 %p
   The 'easiest' workaround is to install Xcode 4.1, upgrade to Xcode 4.2, then upgrade Xcode 4.2 via Software Update, and 
   download 4.3 but do not let it remove prior versions when it asks. All Rubies build stabley with GCC-4.2 which is part of Xcode 4.1, 
