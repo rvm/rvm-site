@@ -39,7 +39,10 @@
     warranty; not even for MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.
 
 %p
-  Please note that Rubies >= 1.9.3-p125, while they do compile with Xcode 4.3, are known to segfault quite often as do many native-compile gems.
+  Please note that MRI Rubies >= 1.9.3-p125, while they do compile with Xcode 4.3, are known to segfault quite often as do many native-compile gems.
+  They are also the first to specifically support being built with CLANG based compilers. Please note, that this issue is also compounded by the 
+  fact that there are multiple strains of Ruby such as MRI, Rubinius (rbx), MacRuby, Ruby Enterprise Edition (ree), IronRuby, and others. Each respective 
+  Ruby is affected differently internally, or at all as with JRuby (a java based ruby) since it uses 'Ant', as are the various native gems out there.
   Unfortunately, this is out of the control of the RVM Project, and is directly related to the changes in these compiler chains.
   RVM is currently working on internalizing a work-around for the various available compiler chains in an effort to preselect the 
   correct compiler at each Ruby's install time. 
