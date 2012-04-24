@@ -12,8 +12,8 @@
 %h1 RVM Prerequisites
 
 %p
-  Most of the requirements bellow are met by standard Linux distributions,
-  make sure to check following command after installing rvm:
+  Most of the requirements below are met by standard Linux distributions.
+  Please make sure to check the following command after installing RVM:
   %pre.code
     :preserve
       rvm requirements
@@ -21,10 +21,10 @@
 %hr.top
 
 %p
-  RVM uses the following standard GNU tools (some are built into bash):
+  RVM uses the following standard GNU tools (some of which are built-in functions to Bash):
 
 %ul.square
-  %li bash (>= 3.2)
+  %li bash (>= 3.2.25)
   %li awk
   %li sed
   %li grep
@@ -37,14 +37,19 @@
   %li bunzip2
 
 %p
-  RVM also requires the following libraries (for installing '-head' rubies).
+  %strong
+    Please note that RVM requires Bash, not SH, as it makes use of multiple Bash-isms that the SH shell does not support.
+
+%p
+  RVM also requires the following libraries for installing '-head' rubies. (e.g 'rvm install 1.9.3-head')
 
 %ul.square
-  %li git
+  %li git (>= 1.7.6)
   %li subversion
 
 %p
-  If you want to use RVM in Zsh, you will also needs version: 4.3.5  <=  zsh  <=  4.3.12.
+  If you want to use RVM under Zsh, you will need version: 4.3.5 to 4.3.12. Please note Zsh 4.3.15 is buggy! Be careful with it as it can break RVM; especially Multi-User installations.
+  If you currently have Zsh 4.3.15 installed, you should consider downgrading Zsh to 4.3.12 which has proven to work more reliably with RVM.
 
 %p
   NOTE: For a quick and dirty way to find out if you have these programs and where they are, copy and paste the following code into your shell. This works in both Zsh and Bash so you can copy and paste with no worries.
