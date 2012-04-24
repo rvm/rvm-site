@@ -14,29 +14,59 @@
   Troubleshooting
 %p
   Here we will explore common issues and their resolutions.
-%h2
-  Before trying any solution below, please:
+%p
+  %strong
+    Before trying any solution below, please verify the following
 %ul
   %li
-    %strong
-      Make sure that you are on the latest gem version (rvm get head).
+    Make sure that you are on the latest RVM version by executing 
+    %pre.code
+      :preserve
+        rvm get stable
+    or, if you are more adventurous, 
+    %pre.code
+      :preserve
+        rvm get head
   %li
-    Make sure that the sourcing of the RVM file occurs *last* in your profile files (.bash_profile / .bashrc / .zshrc) essentially after any customizations of PATH / functions or aliases.
-    Also, ensure your shell file does not contain "&amp;&amp; return".
+    Make sure that the sourcing of the RVM file occurs *last* in your shell configuration files (.bash_profile / .bashrc / .zshrc) especially after any customizations of your $PATH, functions or aliases.
   %li
-    Be sure to be using either bash or zsh, RVM (latest versions preferred) is untested at best in other shells.
+    Ensure your files do not contain "&amp;&amp; return".
+  %li
+    Be sure to be using either Bash or Zsh. RVM is untested, at best, in other shells.
 
 %a{:href => "#", :name => "sudo"}
 %h2 Multi-User Installs - Using the sudo command
-%p The installation process is similar for both installation methods, however, when installing a multi-user configuration, <strong>do not run the installer directly <em>as</em> root</strong>. Always use the sudo command. This is due to variables that are different between root's environment and a user's that aren't affected by an EUID change, as well as code checks in the install itself. In addition, when you use sudo, it will not load the /etc/profile.d/rvm.sh, and as such will not load RVM. You can prove this to yourself by executing:
+%p The installation process is similar for both installation methods, however, when installing a multi-user configuration, <strong>do not run the installer directly <em>as/from</em> the 'root' account!</strong> Always use the sudo command from a non-privileged user account. This is due to variables that are different between root's environment and a user's that aren't affected by an EUID change, as well as code checks in the install itself. In addition, using sudo will not load the /etc/profile.d/rvm.sh, which exists for current installs, and as such will not load RVM. You can prove this to yourself by executing:
 %pre.code
   :preserve
     sudo printenv | grep -i rvm
 %p
-  Also, you only use the sudo command during the install process. In Multi-User configurations, any operations which require sudo access must use the rvmsudo command which preserves the RVM environment and passes this on to sudo. There are very few cases where rvmsudo is required once the core install is completed, except for when updating RVM itself. There is never a reason to use sudo post-install. Once users added to the 'rvm' group have logged out, then back in to gain rvm group membership, rvmsudo should only be needed for updating RVM itself with
+  Also, you only use the sudo command during the install process. In Multi-User configurations, any operations which require sudo access must use the rvmsudo command which preserves the RVM environment and passes this on to sudo. There are very few cases where rvmsudo is required once the core install is completed, and updating RVM itself is not one of them. Any user in the rvm group can update RVM, rubies, and gemsets. There is 
+  %strong
+    never 
+  a reason to use sudo post-install. 
+ 
+%p
+  Once any user(s) added to the 'rvm' group have logged out then back in to gain rvm group membership, they will be able to execute
 %pre.code
   :preserve
-    rvmsudo rvm get head
+    rvm get head
+
+or
+%pre.code
+  :preserve
+    rvm get stable
+
+to update RVM itself. They will also be able to install any Ruby listed in 
+%pre.code
+  :preserve
+    rvm list known
+
+as well as upgrade existing rubies, and create gemsets. Users 
+%strong
+  not 
+in the rvm group will only be able to make use of, but not be able to modify, RVM.
+
 %p
   Note: Users
   %strong
