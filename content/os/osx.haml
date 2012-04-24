@@ -13,23 +13,27 @@
   Apple OS X
 
 %p
-  Some Rubies have issues when compiled with the recent Xcode on OSX. Its an Xcode compiler chain issue, not an RVM issue.
-  There is no problem with Xcode 4.1 with building the various Rubies and natively compiled gems. From Xcode 4.2 and up, this changes with greater degrees of 'trouble'.
-  The basics of the issue is that Xcode 4.1's compiler is a
+  Some Rubies have issues when compiled with the recent Xcode on OSX. Its an Xcode compiler chain issue, not an RVM
+  issue.  There is no problem with Xcode 4.1 with building the various Rubies and natively compiled gems. From Xcode
+  4.2 and up, this changes with greater degrees of 'trouble'.  The basics of the issue is that Xcode 4.1's compiler
+  is a
   %a{ :href => "http://developer.apple.com/library/mac/#documentation/DeveloperTools/Conceptual/WhatsNewXcode/Articles/xcode_4_1.html#//apple_ref/doc/uid/00100-SW1" }
     LLVM-GCC 4.2
-  backend compiler, which is source-compatible with GCC 4.2, and was removed in Xcode 4.2. Xcode 4.3 uses a different, CLANG-based, compiler front-end for translating 
-  sources before pushing to the LLVM backend compiler. For a bit more information, please see the 
-  following Stack Overflow Q&A about 
+  backend compiler, which is source-compatible with GCC 4.2, and was removed in Xcode 4.2. Xcode 4.3 uses a
+  different, CLANG-based, compiler front-end for translating sources before pushing to the LLVM backend compiler.
+  For a bit more information, please see the following Stack Overflow Q&A about 
   %a{ :href => "http://stackoverflow.com/questions/5708610/llvm-vs-clang-on-mac" }
     LLVM vs. CLANG on Apple Mac OS X.
-  which all translates into various problems building on OSX. (This could be caused by the CLANG front-end itself, changes in Apple's libraries, and a myriad of other
-  potentials.) All in all, it boils down to "There be dragons here"!
+  which all translates into various problems building on OSX. (This could be caused by the CLANG front-end itself,
+  changes in Apple's libraries, and a myriad of other potentials.) All in all, it boils down to "There be dragons
+  here"!
+
 %p
-  The 'easiest' workaround is to install Xcode 4.1, upgrade to Xcode 4.2, then upgrade Xcode 4.2 via Software Update, and 
-  download 4.3 but do not let it remove prior versions when it asks. All Rubies build stabley with GCC-4.2 which is part of Xcode 4.1, 
-  but have issues when compiled with newer Xcode versions. Xcode 4.2 removes this GCC-4.2. If you let Xcode 4.2 upgrade, but not replace, Xcode 4.1 then
-  Xcode 4.2 will leave the Xcode 4.1's GCC-4.2 where it is. It will be available on the system under '/usr/bin' and reports as follows 
+  The 'easiest' workaround is to install Xcode 4.1, upgrade to Xcode 4.2, then upgrade Xcode 4.2 via Software
+  Update, and download 4.3 but do not let it remove prior versions when it asks. All Rubies build stabley with
+  GCC-4.2 which is part of Xcode 4.1, but have issues when compiled with newer Xcode versions. Xcode 4.2 removes
+  this GCC-4.2. If you let Xcode 4.2 upgrade, but not replace, Xcode 4.1 then Xcode 4.2 will leave the Xcode 4.1's
+  GCC-4.2 where it is. It will be available on the system under '/usr/bin' and reports as follows 
   
 %pre.code
   :preserve
@@ -41,29 +45,30 @@
     warranty; not even for MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.
 
 %p
-  Please note that MRI Rubies >= 1.9.3-p125, while they do compile with Xcode 4.3, are known to segfault quite often as do many native-compile gems.
-  They are also the first to specifically support being built with CLANG based compilers. Please note, that this issue is also compounded by the 
-  fact that there are multiple strains of Ruby such as MRI, Rubinius (rbx), MacRuby, Ruby Enterprise Edition (ree), IronRuby, and others. Each respective 
-  Ruby is affected differently internally, or at all as with JRuby (a java based ruby) since it uses 'Ant', as are the various native gems out there.
-  Unfortunately, this is out of the control of the RVM Project, and is directly related to the changes in these compiler chains.
-  RVM is currently working on internalizing a work-around for the various available compiler chains in an effort to preselect the 
-  correct compiler at each Ruby's install time. 
+  Please note that MRI Rubies >= 1.9.3-p125, while they do compile with Xcode 4.3, are known to segfault quite often
+  as do many native-compile gems.  They are also the first to specifically support being built with CLANG based
+  compilers. Please note, that this issue is also compounded by the fact that there are multiple strains of Ruby
+  such as MRI, Rubinius (rbx), MacRuby, Ruby Enterprise Edition (ree), IronRuby, and others. Each respective Ruby is
+  affected differently internally, or at all as with JRuby (a java based ruby) since it uses 'Ant', as are the
+  various native gems out there.  Unfortunately, this is out of the control of the RVM Project, and is directly
+  related to the changes in these compiler chains.  RVM is currently working on internalizing a work-around for the
+  various available compiler chains in an effort to preselect the correct compiler at each Ruby's install time. 
 
 %p
-  However, needless to say, this is not an easy adventure. This is made more difficult 
-  by the fact that users are able to change installation location(s) at Xcode install time. Xcode 4.3 complicates this more because 
-  it is a self-contained package now, which means it can be put in non-standard locations RVM is not aware of making detection near impossible.
-  Please understand that, while the RVM Project will continue to do its best to mitigate the issues caused by the changes to the compiler chain(s), the problem ownership 
-  remains with Apple.
+  However, needless to say, this is not an easy adventure. This is made more difficult by the fact that users are
+  able to change installation location(s) at Xcode install time. Xcode 4.3 complicates this more because it is a
+  self-contained package now, which means it can be put in non-standard locations RVM is not aware of making
+  detection near impossible.  Please understand that, while the RVM Project will continue to do its best to mitigate
+  the issues caused by the changes to the compiler chain(s), the problem ownership remains with Apple.
 
 
 %p
   There are other alternatives such as osx-gcc-installer, put together by 
   %a{ :href => "https://github.com/kennethreitz" }
     Kenneth Reitz.
-  However, Apple won't allow Non-Apple packagers to installer include certain headers, such as the Carbon/Cocoa headers, which are found in 
-  the main Xcode install. This means that some Projects, such as Node.js, won't be able to be compiled as they depend on these headers, 
-  unless you grab the separate header packs from Apple's
+  However, Apple won't allow Non-Apple packagers to installer include certain headers, such as the Carbon/Cocoa
+  headers, which are found in the main Xcode install. This means that some Projects, such as Node.js, won't be able
+  to be compiled as they depend on these headers, unless you grab the separate header packs from Apple's 
   %a{ :href => "https://developer.apple.com/downloads" }
     Developer Downloads
   area. Please note, Apple requires you to be a registered
@@ -75,7 +80,8 @@
   If you don't need to build anything but Ruby based applications, then feel free to check out the
   %a{ :href => "https://github.com/kennethreitz/osx-gcc-installer" }
     osx-gcc-installer
-  which contains the original Xcode 4.1 GCC compiler chain. This compiler chain will build all Rubies and natively compiled gems.
+  which contains the original Xcode 4.1 GCC compiler chain. This compiler chain will build all Rubies and natively
+  compiled gems.
 
 %p
   As always, please be sure to run:
