@@ -5,11 +5,11 @@
 
 %h2
   Use the
-  %a{:href => "https://bdsm.beginrescueend.com/"}
-    BDSM Project
+  %a{:href => "https://smf.sh/"}
+    SM Framework Project
 %p
   %a{:href => "https://github.com/sm"}
-    SM framework
+    SM Framework
   extensions can be used for flexible server-side code deployments.
   The following walkthrough will explain the steps involved for one example.
   This example will be deploying a Ruby on Rails application from GitHub.
@@ -46,7 +46,7 @@
   Now install RVM,
 %pre.code
   :preserve
-    appuser$ bash -s stable < <(curl -s https://raw.github.com/wayneeseguin/rvm/master/binscripts/rvm-installer )
+    appuser$ curl -L get.rvm.io | bash -s stable
 %p
   Once you have RVM installed for the target application user, you are ready to
   setup the deployment!
@@ -113,7 +113,7 @@
   If you use rvm gemset files, do the following:
 %pre.code
   :preserve
-    appuser$ source ~/.bash_profile # load RVM into your current shell
+    appuser$ source ~/.rvm/scripts/rvm # load RVM into your current shell
     appuser$ rvm gemset import ~/current/production.gems
 
 %p

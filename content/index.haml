@@ -15,13 +15,20 @@
 
 %p
   Install RVM:
-  = sh_cmd "bash -s stable < <(curl -s https://raw.github.com/wayneeseguin/rvm/master/binscripts/rvm-installer)"
-  Reload your shell environment:
-  = sh_cmd "source ~/.bash_profile"
+  = sh_cmd "curl -L get.rvm.io | bash -s stable"
+  Load RVM:
+  = sh_cmd "source ~/.rvm/scripts/'rvm'"
   Find the requirements (follow the instructions):
   = sh_cmd "rvm requirements"
   Install ruby:
   = sh_cmd "rvm install 1.9.3"
+  Or guided mode with ruby & rails
+  = sh_cmd "curl -L get.rvm.io | bash -s stable --rails"
+  Or guided mode with rubinius & rails & puma
+  = sh_cmd "curl -L get.rvm.io | bash -s stable --ruby=rbx --gems=rails,puma"
+  For Windows use this
+  %a{ :href => "http://blog.developwithpassion.com/2012/03/30/installing-rvm-with-cygwin-on-windows/"}
+    tutorial
 
 You can also:
 
