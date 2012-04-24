@@ -28,7 +28,8 @@
       :preserve
         rvm get head
   %li
-    Make sure that the sourcing of the RVM file occurs *last* in your shell configuration files (.bash_profile / .bashrc / .zshrc) especially 
+    Make sure that the sourcing of the RVM file occurs *last* in your shell configuration files (.bash_profile /
+    .bashrc / .zshrc) especially 
     after any customizations of your $PATH, functions or aliases.
   %li
     Ensure your files do not contain "&amp;&amp; return".
@@ -37,25 +38,30 @@
 
 %a{:href => "#", :name => "sudo"}
 %h2 Multi-User Installs - Using the sudo command
-%p The installation process is similar for both installation methods, however, when installing a multi-user configuration, 
-<strong>do not run the installer directly <em>as/from</em> the 'root' account!</strong> Always use the sudo command from a non-privileged 
-user account. This is due to variables that are different between root's environment and a user's that aren't affected by an EUID change, 
-as well as code checks in the install itself. In addition, using sudo will not load the /etc/profile.d/rvm.sh, which exists for current installs, 
+%p The installation process is similar for both installation methods, however, when installing a multi-user
+configuration, <strong>do not run the installer directly <em>as/from</em> the 'root' account!</strong> 
+Always use the sudo command from a non-privileged 
+user account. This is due to variables that are different between root's environment and a user's that aren't 
+affected by an EUID change, 
+as well as code checks in the install itself. In addition, using sudo will not load the /etc/profile.d/rvm.sh, 
+which exists for current installs, 
 and as such will not load RVM. You can prove this to yourself by executing:
 %pre.code
   :preserve
     sudo printenv | grep -i rvm
 %p
-  Also, you only use the sudo command during the install process. In Multi-User configurations, any operations which require sudo access must 
-  use the rvmsudo command which preserves the RVM environment and passes this on to sudo. However, please note that are <em>very few cases</em> 
-  where rvmsudo is required <em>at all</em> once the core install is completed! Updating RVM itself is not one of them. 
-  Any user in the rvm group can update RVM, rubies, and gemsets. There is 
+  Also, you only use the sudo command during the install process. In Multi-User configurations, any operations 
+  which require sudo access must use the rvmsudo command which preserves the RVM environment and passes this on to
+  sudo. However, please note that are <em>very few cases</em> where rvmsudo is required <em>at all</em> once the 
+  core install is completed! Updating RVM itself is not one of them. Any user in the rvm group can update RVM, 
+  rubies, and gemsets. There is 
   %strong
     never 
   a reason to use sudo post-install.
  
 %p
-  Once any user(s) added to the 'rvm' group have logged out then back in to gain rvm group membership, they will be able to execute
+  Once any user(s) added to the 'rvm' group have logged out then back in to gain rvm group membership, they will 
+  be able to execute
 %pre.code
   :preserve
     rvm get head
@@ -73,14 +79,16 @@ to update RVM itself. They will also be able to install any Ruby listed in
 as well as upgrade existing rubies, and create gemsets. Users 
 %strong
   not 
-in the rvm group will only be able to make use of, but not be able to modify, RVM. This includes adding or modifying the 'trust' on project .rvmrc
+in the rvm group will only be able to make use of, but not be able to modify, RVM. This includes adding or 
+modifying the 'trust' on project .rvmrc
 files.
 
 %p
   Note: Users
   %strong
     must
-  log out and back in to gain rvm group membership because group memberships are only evaluated by the operating system at initial login time.
+  log out and back in to gain rvm group membership because group memberships are only evaluated by the operating 
+  system at initial login time.
 
 %a{:href => "#", :name => "ruby-debug"}
 %h2 ruby-debug and ruby 1.9
@@ -95,8 +103,8 @@ files.
 %h2
   Segfaults
 %p
-  If you see segfaults in 1.8.7 and 1.9.1 (possibly because of 'spec_fetcher.rb' or some other library), note this is a known bug for both 
-  ruby versions.   Please see the ruby-lang.org issue for details:
+  If you see segfaults in 1.8.7 and 1.9.1 (possibly because of 'spec_fetcher.rb' or some other library), please 
+  note this is a known bug for both ruby versions.   Please see the ruby-lang.org issue for details:
   %a{:href => "http://redmine.ruby-lang.org/issues/show/2597"}
     http://redmine.ruby-lang.org/issues/show/2597
   If you downgrade to 'rvm install 1.8.7-p174' for now the issue had not been introduced at that point.
@@ -119,7 +127,8 @@ files.
     CC=/usr/bin/gcc-4.5
 
 %p
-  to your $rvm_path/environments/[ruby_version_string] file. Most people will find this problem when using ArchLinux.
+  to your $rvm_path/environments/[ruby_version_string] file. Most people will find this problem when using
+  ArchLinux.
   %strong
     NOTE: We do NOT support pre-release compilers of any kind.
 %h2
@@ -176,7 +185,8 @@ files.
 %h2
   Passenger
 %p
-  If you are having issues getting passenger running with an RVM installed ruby, most likely you missed the '.bin/[ruby string]' comment on the
+  If you are having issues getting passenger running with an RVM installed ruby, most likely you missed the 
+  '.bin/[ruby string]' comment on the
   %a{:href => "/integration/passenger/"}
     passenger page.
 
@@ -205,7 +215,8 @@ files.
     curl: Remote file name has no length!
     curl: try 'curl --help' or 'curl --manual' for more information
 %p
-  Then maybe you have aliased or symlinked the 'which' command to the 'type' command, revert this and RVM should work.
+  Then maybe you have aliased or symlinked the 'which' command to the 'type' command, revert this and RVM 
+  should work.
 
 %a{:href => "#", :name => "pg"}
 %h2
@@ -273,8 +284,8 @@ files.
     #!/bin/bash
     /usr/bin/sudo rm -rf $HOME/.rvm $HOME/.rvmrc /etc/rvmrc /etc/profile.d/rvm.sh /usr/local/rvm /usr/local/bin/rvm
     /usr/bin/sudo /usr/sbin/groupdel rvm
-    /bin/echo "RVM is removed. Please check all .bashrc|.bash_profile|.profile|.zshrc for RVM source lines and delete or comment out 
-    if this was a Per-User installation."
+    /bin/echo "RVM is removed. Please check all .bashrc|.bash_profile|.profile|.zshrc for RVM source lines and delete 
+    or comment out if this was a Per-User installation."
 
 %h2
   I'm using zsh+oh-my-zsh and it keeps trying to use the system Ruby for rubygems.
@@ -283,6 +294,6 @@ files.
 %pre.code
   :preserve
     set -x ; cd $some_project ; set -x
-  Look in the output for 'within-bundled-project'. If you see that edit your .zshrc and remove the bundler plugin from the 'plugins=()' line, 
-  then log out of the shell and back in. Should all work now. The bundler plugin in oh-my-zsh overrides RVM's settings related to RubyGems for 
-  some reason.
+  Look in the output for 'within-bundled-project'. If you see that edit your .zshrc and remove the bundler plugin from 
+  the 'plugins=()' line, then log out of the shell and back in. Should all work now. The bundler plugin in oh-my-zsh 
+  overrides RVM's settings related to RubyGems for some reason.
