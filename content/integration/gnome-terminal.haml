@@ -1,18 +1,24 @@
 = breadcrumbs "Integration", "gnome-terminal"
 
 %a{:name => "gnome-terminal"}
-%h1 Integrating rvm with gnome-terminal
+%h1 Integrating RVM with gnome-terminal
 
 %p
-  If you are going to use multi-user rvm installation with gnome-terminal, you'll probably need to change it's default options.
+  If you are going to use RVM installations with gnome-terminal, you'll probably need to change it's 
+  default options.
 
 %p
-  Multi-user rvm creates a script in /etc/profile.d, which is being sourced on startup. By default, gnome-terminal runs bash as usual, non-login shell, therefore skipping /etc/profile* and executing only ~/.bashrc
+  Multi-User RVM creates a script in /etc/profile.d, which is being sourced on startup. Also, most people put 
+  the RVM sourcing line required to load RVM in their ~/.bash_profile for Single-User installs. By default, 
+  gnome-terminal runs Bash as usual, as a non-login shell, therefore skipping /etc/profile* and executing only 
+  the user's ~/.bashrc. This means that RVM doesn't load and you get the infamous 'RVM is not a function' 
+  message.
 
 %p 
-  For rvm to work properly, you have to set 'Run command as login shell' checkbox on Title and Command tab inside of gnome-terminal settings.
+  For RVM to work properly, you have to set the 'Run command as login shell' checkbox on the Title and Command 
+  tab inside of gnome-terminal's Settings page.
 
 %p
-  Read the explanation of what
-  %a{:href=>"/support/faq/#shell_login"} Shell login
-  means if in doubt or advised by other sites to not use it.
+  For more information on what this means, please read the explanation regarding
+  %a{:href=>"/support/faq/#shell_login"} Shell logins
+  especially if you are in doubt, or advised by other sites to not use it.
