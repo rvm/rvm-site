@@ -10,37 +10,22 @@
 %h1.text-center
   Ruby Version Manager (RVM)
 
-%h2
-  Quick Install
-
-%p
-  Install RVM:
-  = sh_cmd "curl -L get.rvm.io | bash -s stable"
-  Load RVM:
-  = sh_cmd "source ~/.rvm/scripts/rvm"
-  Find the requirements (follow the instructions):
-  = sh_cmd "rvm requirements"
-  Install ruby:
-  = sh_cmd "rvm install 1.9.3"
-  Or guided mode with ruby & rails
-  = sh_cmd "curl -L get.rvm.io | bash -s stable --rails"
-  Or guided mode with rubinius & rails & puma
-  = sh_cmd "curl -L get.rvm.io | bash -s stable --ruby=rbx --gems=rails,puma"
-  For Windows use this
-  %a{ :href => "http://blog.developwithpassion.com/2012/03/30/installing-rvm-with-cygwin-on-windows/"}
-    tutorial
-
-You can also:
 
 %ul.square
   %li
     visit the
-    %a{:href => "/rvm/install/#explained"}
+    %a{:href => "/rvm/install/"}
       installation documentation,
   %li
     watch the most accurate (but not official)
     %a{:href => "http://screencasts.org/episodes/how-to-use-rvm", :target=>"_blank"}
-      rvm screencast,
+      rvm screencast
+    ,
+  %li
+    read the most accurate (but not official)
+    %a{:href => "http://cheat.errtheblog.com/s/rvm/", :target=>"_blank"}
+      rvm cheat sheet
+    ,
   %li
     and try the official RVM GUI
     %i (OS X users only):
