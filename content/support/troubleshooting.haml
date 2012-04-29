@@ -38,14 +38,12 @@
 
 %a{:href => "#", :name => "sudo"}
 %h2 Multi-User Installs - Using the sudo command
-%p The installation process is similar for both installation methods, however, when installing a multi-user
+%p The installation process is similar for both installation methods, however, when installing a multi-user 
 configuration, <strong>do not run the installer directly <em>as/from</em> the 'root' account!</strong> 
-Always use the sudo command from a non-privileged 
-user account. This is due to variables that are different between root's environment and a user's that aren't 
-affected by an EUID change, 
-as well as code checks in the install itself. In addition, using sudo will not load the /etc/profile.d/rvm.sh, 
-which exists for current installs, 
-and as such will not load RVM. You can prove this to yourself by executing:
+Always use the sudo command from a non-privileged user account. This is due to variables that are different 
+between root's environment and a user's that aren't affected by an EUID change, as well as code checks in 
+the install itself. In addition, using sudo will not load the /etc/profile.d/rvm.sh, which exists for 
+current installs, and as such will not load RVM. You can prove this to yourself by executing:
 %pre.code
   :preserve
     sudo printenv | grep -i rvm
