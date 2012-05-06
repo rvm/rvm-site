@@ -3,29 +3,49 @@
 %h1#capistrano
   Using RVM rubies with Capistrano
 %p
-  You currently have three options:
-%ol
+  You currently have four options (from newest to oldest):
+%ul(style="list-style: decimal")
   %li
-    If your rvm version on the server and locally are recent enough, use the rvm-capistrano gem.
+    %a(href="#gem") gem:
+    If your rvm version on the server and locally are recent enough
+    (>= 1.11.3), you can use the
+    %code.code rvm-capistrano
+    gem.
   %li
-    Use the capistrano :default_environment setting
+    %a(href="#old-plugin") plugin:
+    If your rvm version is slightly older but still >= 1.0.1,
+    you can use a capistrano plugin (N.B.
+    %em not
+    gem)
+    which ships inside rvm itself.
   %li
-    Enable .ssh environment variables using the PermitUserEnvironment option in your ssh configuration file
+    %a(href="#environment") environment:
+    Use the capistrano
+    %code.code :default_environment
+    setting.
+  %li
+    Enable
+    %code.code .ssh
+    environment variables using the
+    %code.code PermitUserEnvironment
+    option in your ssh configuration file.
+    Unfortunately this is not yet documented.
 
 %p
-  Gem option is preferred as it reduces configuration and does not contain
-  hardcoded paths. Please note that RVM
+  The first (gem) option is preferred as it reduces configuration and
+  does not contain hardcoded paths. Please note that RVM
   %strong will not
   be automatically loaded as a shell function but it will be available as a
-  binary in PATH (for differences between the two versions, please see
-  %a{:href => "/workflow/scripting/"} our scripting page
+  binary in
+  %code.code PATH
+  (for differences between the two versions, please see
+  %a(href="/workflow/scripting/") our scripting page
   for further clarification).
 
 %h2#gem Integration via the rvm-capistrano gem
 
 %p#plugin
-  Starting with RVM 1.11.3 Capistrano integration was extracted to a separate gem.
-  %a{ :href => "#old-plugin" } The old plugin integration.
+  Starting with RVM 1.11.3, Capistrano integration was extracted to a separate gem.
 
 %p
   Installation:
@@ -127,9 +147,12 @@
 %h2#old-plugin Integration via the rvm capistrano plugin (old way)
 
 %p
-  If your rvm installs on both sides are recent enough (&gt;= 1.0.1),
-  rvm has a new plugin available that takes advantage of a different approach.
-  In the new option, you can do the following (adjust to your personal setup):
+  Starting with 1.0.1, RVM includes a built-in plugin (N.B.
+  %em not
+  a gem) for capistrano support.  This is used in a near-identical way to
+  %a(href="#gem") the gem approach above, except that an extra line
+  is required to add RVM's lib directory to the load path so that
+  the plugin can be found:
 
   %pre.code
     :preserve
@@ -139,10 +162,7 @@
       $:.unshift(File.expand_path('./lib', ENV['rvm_path'])) # Add RVM's lib directory to the load path.
       require "rvm/capistrano"                               # Load RVM's capistrano plugin.
 
-  Rest of the integration is the same as for
-  %a{ :href => "#gem" } gem.
-
-%h2#hardcore Integration via :default_environment (hardcore)
+%h2#environment Integration via :default_environment (hardcore)
 
 %p
   For the second option add the following line in your deploy.rb file, adjusting to your particular rvm ruby of course,
