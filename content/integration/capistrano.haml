@@ -50,89 +50,117 @@
 %p
   Installation:
 
-  %pre.code
-    :preserve
-      gem install rvm-capistrano
+%pre.code
+  :preserve
+    gem install rvm-capistrano
 
+%p
   Or add to Gemfile:
 
-  %pre.code
-    :preserve
-      gem 'rvm-capistrano'
+%pre.code
+  :preserve
+    gem 'rvm-capistrano'
 
-  Example Capfile / deploy.rb:
+%p
+  Example
+  %code.code Capfile
+  /
+  %code.code deploy.rb
+  \:
 
-  %pre.code
-    :preserve
-      set :rvm_ruby_string, 'ree@rails3'                     # Or:
-      #set :rvm_ruby_string, ENV['GEM_HOME'].gsub(/.*\//,"") # Read from local system
-      
-      require "rvm/capistrano"                               # Load RVM's capistrano plugin.
+%pre.code
+  :preserve
+    set :rvm_ruby_string, 'ree@rails3'                     # Or:
+    #set :rvm_ruby_string, ENV['GEM_HOME'].gsub(/.*\//,"") # Read from local system
+
+    require "rvm/capistrano"                               # Load RVM's capistrano plugin.
 
 %p
   Please note that this defaults to using a user installation of rvm,
   if you wish to instead set it to use an system wide / root install
-  add the following to your Capfile / deploy.rb:
+  add the following to your
+  %code.code Capfile
+  /
+  %code.code deploy.rb
+  \:
 
-  %pre.code
-    :preserve
-      set :rvm_type, :system  # Copy the exact line. I really mean :system here
+%pre.code
+  :preserve
+    set :rvm_type, :system  # Copy the exact line. I really mean :system here
 
-%h3#automatic_installation Automatic installing RVM / Ruby (starting with rvm 1.11.0)
+%h3#automatic_installation Automatically installing RVM / Ruby (starting with rvm 1.11.0)
 
 %h4#install_rvm
-  RVM can be automatically installed on server, add the following to your Capfile / deploy.rb:
+  Automatically installing RVM on server
 
 %p
-  %pre.code
-    :preserve
-      before 'deploy:setup', 'rvm:install_rvm'
+  Add the following to your
+  %code.code Capfile
+  /
+  %code.code deploy.rb
+  \:
 
+%pre.code
+  :preserve
+    before 'deploy:setup', 'rvm:install_rvm'
+
+%p
   and additionally if you prefer to update rvm on every installation:
 
-  %pre.code
-    :preserve
-      before 'deploy', 'rvm:install_rvm'
-
-  You can control if development / stable(default) version of RVM is installed with:
-
-  %pre.code
-    :preserve
-      set :rvm_install_type, :head # or:
-      #set :rvm_install_type, :stable
-
-%h4#install_ruby
-  RVM can automatically install Ruby on server, add the following to your Capfile / deploy.rb:
+%pre.code
+  :preserve
+     before 'deploy', 'rvm:install_rvm'
 
 %p
-  %pre.code
-    :preserve
-      before 'deploy:setup', 'rvm:install_ruby'
+  You can control if development / stable(default) version of RVM is installed with:
 
+%pre.code
+  :preserve
+    set :rvm_install_type, :head # or:
+    #set :rvm_install_type, :stable
+
+%h4#install_ruby
+  Automatically installing Ruby on the server via RVM
+
+%p
+  Add the following to your
+  %code.code Capfile
+  /
+  %code.code deploy.rb
+  \:
+
+%pre.code
+  :preserve
+    before 'deploy:setup', 'rvm:install_ruby'
+
+%p
   or if you prefer to try to install on every deployment:
 
-  %pre.code
-    :preserve
-      before 'deploy', 'rvm:install_ruby'
+%pre.code
+  :preserve
+    before 'deploy', 'rvm:install_ruby'
 
+%p
   You can control if ruby is only installed if needed(default) or always reinstalled with:
 
-  %pre.code
-    :preserve
-      set :rvm_install_ruby, :install # or:
-      #set :rvm_install_ruby, :reinstall
+%pre.code
+  :preserve
+    set :rvm_install_ruby, :install # or:
+    #set :rvm_install_ruby, :reinstall
 
+%p
   By default ruby will be installed using all CPU cores, you can control this with:
 
-  %pre.code
-    :preserve
-      set :rvm_install_ruby_threads, 4
+%pre.code
+  :preserve
+    set :rvm_install_ruby_threads, 4
 
+%p
   You can control shell selected for installing RVM / Ruby, by default it is Bash:
 
-  %pre.code
-    :preserve
-      set :rvm_install_shell, :zsh
+%pre.code
+  :preserve
+    set :rvm_install_shell, :zsh
 
 %h3#resources Important resources
 
@@ -154,18 +182,21 @@
   is required to add RVM's lib directory to the load path so that
   the plugin can be found:
 
-  %pre.code
-    :preserve
-      set :rvm_ruby_string, 'ree@rails3'                     # Or:
-      #set :rvm_ruby_string, ENV['GEM_HOME'].gsub(/.*\//,"") # Read from local system
-      
-      $:.unshift(File.expand_path('./lib', ENV['rvm_path'])) # Add RVM's lib directory to the load path.
-      require "rvm/capistrano"                               # Load RVM's capistrano plugin.
+%pre.code
+  :preserve
+    set :rvm_ruby_string, 'ree@rails3'                     # Or:
+    #set :rvm_ruby_string, ENV['GEM_HOME'].gsub(/.*\//,"") # Read from local system
+
+    $:.unshift(File.expand_path('./lib', ENV['rvm_path'])) # Add RVM's lib directory to the load path.
+    require "rvm/capistrano"                               # Load RVM's capistrano plugin.
+
 
 %h2#environment Integration via :default_environment (hardcore)
 
 %p
-  For the second option add the following line in your deploy.rb file, adjusting to your particular rvm ruby of course,
+  For this option, add the following line in your
+  %code.code deploy.rb
+  file, adjusting to your particular rvm ruby of course:
 %pre.code
   :preserve
     set :default_environment, {
@@ -176,10 +207,15 @@
       'BUNDLE_PATH'  => '/path/to/.rvm/gems/ree-1.8.7-2010.01'  # If you are using bundler.
     }
 %p
-  To get the accurate locations have a look at cat ~/.rvm/config/default
+  To get the accurate locations have a look inside
+  %code.code ~/.rvm/config/default
 %p
-  Also, in order to have capistrano automatically trust project rvmrc files on deployments, you can do the following.
-  In your 'config/deploy.rb' you can add:
+  Also, in order to have capistrano automatically trust project
+  %code.code rvmrc
+  files on deployments, you can do the following.
+  In your
+  %code.code config/deploy.rb
+  you can add:
   %pre.code
     :preserve
       namespace :rvm do
@@ -188,7 +224,9 @@
         end
       end
 %p
-  And then use capistrano's hooks capabilities, by adding an 'after' hook like the following:
+  And then use capistrano's hooks capabilities, by adding an
+  %code.code after
+  hook like the following:
   %pre.code
     :preserve
       after "deploy", "rvm:trust_rvmrc"
