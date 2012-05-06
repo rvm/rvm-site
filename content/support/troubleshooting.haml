@@ -29,7 +29,7 @@
         rvm get head
   %li
     Make sure that the sourcing of the RVM file occurs *last* in your shell configuration files (.bash_profile /
-    .bashrc / .zshrc) especially 
+    .bash_profile / .zshrc) especially 
     after any customizations of your $PATH, functions or aliases.
   %li
     Ensure your files do not contain "&amp;&amp; return".
@@ -167,14 +167,15 @@ files.
     MySQL page.
 
 %a{:name => "profiles-on-osx"}
-%h2 .bashrc not being loaded on OSX
+%h2 .bash_profile not being loaded on OSX
 
 %p
-  If your .bashrc file isn't being correctly loaded on OSX, you need to do one of
-  two things:
+  If your .bash_profile isn't being correctly loaded on OSX, you need to do one of
+  three things:
 
 %ul
-  %li Add "source ~/.bashrc" to ~/.bash_profile or ~/.profile
+  %li Create a file named ~/.bash_profile and add the RVM source line there
+  %li Add the RVM source line to ~/.profile
   %li
     In your terminal preferences, change the shell from the default
     of /usr/bin/login to /bin/bash.
@@ -236,8 +237,7 @@ files.
   you installed rvm and now it's not, you can enable cd completion from within
   rvm itself.
 %p
-  Add the following to your ~/.bashrc or ~/.profile (~/.bash_profile) as
-  appropriate:
+  Add the following to your ~/.bash_profile or ~/.profile as appropriate:
 %pre.code
   :preserve
     export rvm_cd_complete_flag=1
