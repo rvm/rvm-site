@@ -179,7 +179,10 @@
   Major.Minor version. For example, if you only have 1.9.2-p125 installed, and 1.9.2-p320 is the
   lastest, RVM will attempt to download, install, and set 1.9.2-p320 as your default 1.9.2 for you.
   This behaviour may, or may not, be what you want. If its not, then be sure to include the patch
-  level when you specify which Ruby RVM should use when setting a default.
+  level when you specify which Ruby RVM should use when setting a default. RVM updates the known
+  list ($rvm_path/config/db and $rvm_path/config/known) everytime you update RVM, so the 'current'
+  version of a Major.Minor (eg. 1.9.2) can change on you. RVM does not go by what you have installed
+  for this reason. It goes by what is maintained in those two files.
 
 %p
   The last example above does not use a patch level because you are basically saying use the most
