@@ -76,8 +76,8 @@
     require "rvm/capistrano"                               # Load RVM's capistrano plugin.
 
 %p
-  Please note that this defaults to using a user installation of rvm,
-  if you wish to instead set it to use an system wide / root install
+  Please note that this defaults to using a user installation of rvm.
+  If you wish to instead set it to use an system wide (root) install,
   add the following to your
   %code.code Capfile
   /
@@ -190,6 +190,21 @@
     $:.unshift(File.expand_path('./lib', ENV['rvm_path'])) # Add RVM's lib directory to the load path.
     require "rvm/capistrano"                               # Load RVM's capistrano plugin.
 
+%p
+  Please note that this plugin defaults to using a
+  %em system
+  installation of rvm, which is the exact opposite to the gem's
+  default installation mode.
+  If you wish to instead set it to use a per-user (non-root) install,
+  add the following to your
+  %code.code Capfile
+  /
+  %code.code deploy.rb
+  \:
+
+%pre.code
+  :preserve
+    set :rvm_type, :user  # Copy the exact line. I really mean :user here
 
 %h2#environment Integration via :default_environment (hardcore)
 
