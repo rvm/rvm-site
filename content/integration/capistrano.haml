@@ -1,7 +1,33 @@
 = breadcrumbs "Integration", "Capistrano"
 
 %h1#capistrano
-  Using RVM rubies with Capistrano
+  Using RVM with Capistrano
+
+%h2 Benefits of integration
+
+Why integrate RVM with Capistrano?  Well, if you like the
+normal benefits of RVM, you won't want to lose them when
+operating with the context of Capistrano deployment tasks.
+So integration can achieve the following:
+
+%ul(style="list-style: lower-latin")
+  %li
+    Ensure that all Capistrano tasks use the right
+    Ruby / gems (and gemset, if you are using gemsets).
+  %li
+    %a(href="#install_rvm")
+      Automatically install RVM via Capistrano
+    , and/or
+    %a(href="#install_ruby")
+      a Ruby version via RVM via Capistrano
+    (only available when using the
+    %code.code rvm-capistrano
+    gem - see
+    %a(href="#gem") integration option 1
+    below).
+
+%h2 Integration options
+
 %p
   You currently have four options (from newest to oldest):
 %ul(style="list-style: decimal")
