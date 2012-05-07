@@ -217,3 +217,35 @@ You can also:
 %pre.code
   :preserve
     $ rvm --static install 1.9.2
+
+%h1
+  Generating Documentation
+%p
+  In order to conserve space, RVM does not automatically generate and install
+  each Ruby's ri / rdoc documentation. To generate this documentation for Ruby
+  please execute the following command:
+
+%pre.code
+  :preserve
+    $ rvm docs generate all
+
+%p
+  Please not that this requires the extracted source for the currently selected
+  Ruby version be on the system ($rvm_path/src/<ruby_version>) so the best time
+  to execute this command is immediately after installation of that version.
+
+%p
+  Provided you have not cleaned up the extracted sources for all currently
+  installed Rubies by executing 'rvm cleanup all' then you can install the docs
+  for all currently installed Rubies by executing:
+
+%pre.code
+  :preserve
+    $ rvm all do rvm docs generate all
+
+%p
+  For more information, please see 
+%pre.code
+  :preserve
+    $ rvm help docs
+
