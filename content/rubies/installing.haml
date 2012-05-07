@@ -244,6 +244,17 @@ You can also:
     $ rvm all do rvm docs generate all
 
 %p
+  If you have executed a cleanup, unfortunately, this means to regenerate the
+  documentation you would need to run, for example,:
+
+%pre.code
+  :preserve
+    $ rvm reinstall 1.9.3-p194 && rvm docs generate all
+%p
+  As always, don't forget to pass whatever additional parameters such as --patch
+  to the reinstall portion of the command that you initially used, if any.
+
+%p
   For more information, please see 
 %pre.code
   :preserve
