@@ -48,7 +48,7 @@
   headers installed do the following.
 %pre.code
   :preserve
-    $ cd $HOME/.rvm/src/ruby-1.9.2-p0/ext/readline
+    $ cd $rvm_path/src/ruby-1.9.2-p0/ext/readline
     $ ruby extconf.rb
     $ make install
 
@@ -56,8 +56,8 @@
   If you used 'rvm pkg install readline' then alter the above to:
 %pre.code
   :preserve
-    $ cd $HOME/.rvm/src/ruby-1.9.2-p0/ext/readline
-    $ ruby extconf.rb -- --with-readline-dir="$HOME/.rvm/usr"
+    $ cd $rvm_path/src/ruby-1.9.2-p0/ext/readline
+    $ ruby extconf.rb -- --with-readline-dir="$rvm_path/usr"
     $ make install
 %p
   If you would like to automatically use the RVM default you can override config/db
@@ -65,7 +65,7 @@
 %pre.code
   :preserve
     # ~/.rvm/user/db or /usr/local/rvm/user/db
-    ruby_configure_flags=--enable-shared --disable-install-doc --with-readline-dir=/Users/wayneeseguin/.rvm/usr
+    ruby_configure_flags=--enable-shared --disable-install-doc --with-readline-dir="$rvm_path/usr"
 
 %p
   In case of compilation problems try:
