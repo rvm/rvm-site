@@ -26,7 +26,13 @@
     LLVM vs. CLANG on Apple Mac OS X.
   which all translates into various problems building on OSX. (This could be caused by the CLANG front-end itself,
   changes in Apple's libraries, and a myriad of other potentials.) All in all, it boils down to "There be dragons
-  here"!
+  here"! For the official stance by the Ruby Language group, please see 
+  %a{ :href=> "http://bugs.ruby-lang.org/issues/5883" }
+    this official post.
+  Basically, "Don't use clang with Ruby yet, Ruby code does not compile properly under it." is the short of it.
+  Please bear in mind, an pay particular attention to, the 'Target Version' in the linked-to Issue for an idea
+  of when stable, meaning far less buggy, support for CLANG might be forth coming. Ruby 1.9.3-p125 is the first
+  version to get official support, but also is known to have either compilation or execution issues.
 
 %p
   The 'easiest' workaround is to install Xcode 4.1, upgrade to Xcode 4.2, then upgrade Xcode 4.2 via Software
