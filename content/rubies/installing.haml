@@ -146,13 +146,15 @@ You can also:
     Repository Branches (MRI)
   %p
     To install a specific branch version of ruby from the repository we specify --branch (branch name).
+    Named rubies can help avoid clashes.
   %pre.code
     :preserve
-      $ rvm install ruby-head --branch ruby_1_8 ; rvm ruby-head
-
+      $ rvm install ruby-head -n zombie --branch ruby_1_8 && rvm ruby-head-zombie
       $ ruby -v
-
-      ruby 1.8.8dev (2011-05-25) [i386-darwin10.7.0]
+      ruby 1.8.8dev (2012-05-21) [i386-darwin10.8.0]
+      $ rvm install ruby-head -n newborn && rvm ruby-head-newborn
+      $ ruby -v
+      ruby 2.0.0dev (2012-06-03 trunk 35876) [x86_64-darwin10.8.0]
 
 %p
   You'll find a list of all valid branches in the ruby repository: http://svn.ruby-lang.org/repos/ruby/branches/
