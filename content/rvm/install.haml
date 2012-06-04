@@ -1,59 +1,55 @@
 %h1 Installing RVM
 
+%h2
+  Quick (guided) Install
 %p
-  <strong>Please do not attempt an install until you have read all sub-sections under the
+  <strong>Unless doing guided install you should read all sub-sections under the
   %a{ :href => "/rvm/" }
     RVM Section.
+  </strong>
 
-  This contains important information that affects your installation, and subsequent use.</strong>
+Install RVM with ruby:
+= sh_cmd "curl -L get.rvm.io | bash -s stable --ruby"
+Additionally with rails:
+= sh_cmd "curl -L get.rvm.io | bash -s stable --rails"
+Or with rubinius, rails and puma:
+= sh_cmd "curl -L get.rvm.io | bash -s stable --ruby=rbx --gems=rails,puma"
 
-%h2
-  Quick Install
 %p
-  Install RVM:
-  = sh_cmd "curl -L get.rvm.io | bash -s stable"
-  Load RVM:
-  = sh_cmd "source ~/.rvm/scripts/rvm"
-  Find the requirements (follow the instructions):
-  = sh_cmd "rvm requirements"
-  Install ruby:
-  = sh_cmd "rvm install 1.9.3"
-  Or guided mode with ruby & rails
-  = sh_cmd "curl -L get.rvm.io | bash -s stable --rails"
-  Or guided mode with rubinius & rails & puma
-  = sh_cmd "curl -L get.rvm.io | bash -s stable --ruby=rbx --gems=rails,puma"
-  For Windows use this
-  %a{ :href => "http://blog.developwithpassion.com/2012/03/30/installing-rvm-with-cygwin-on-windows/"}
-    tutorial
+  You can also:
 
-You can also:
-
-%ul.square
-  %li
-    read the
-    %a{:href => "#explained"}
-      installation documentation
-    below,
-  %li
-    watch the most accurate (but not official)
-    %a{:href => "http://screencasts.org/episodes/how-to-use-rvm", :target=>"_blank"}
-      rvm screencast
-    ,
-  %li
-    read the most accurate (but not official)
-    %a{:href => "http://cheat.errtheblog.com/s/rvm/", :target=>"_blank"}
-      rvm cheat sheet
-    ,
-  %li
-    and try the official RVM GUI
-    %i (OS X users only):
-    %a{:href => "http://unfiniti.com/software/mac/jewelrybox", :target=>"_blank"}
-      JewelryBox
-    ,
-  %li
-    starting with Rails? watch the
-    %a{:href => "http://railscasts.com/episodes/310-getting-started-with-rails", :target=>"_blank"}
-      RailsCasts.com on Getting Started with Rails
+  %ul.square
+    %li
+      read the
+      %a{:href => "#explained"}
+        installation documentation
+      below,
+    %li
+      for OS X try using
+      %a{ :href => "http://railsinstaller.org/#osx"}
+        RailsInstaller for OS X
+      or try the official RVM GUI
+      %a{:href => "http://unfiniti.com/software/mac/jewelrybox", :target=>"_blank"}
+        JewelryBox
+      ,
+    %li
+      for Windows use this
+      %a{ :href => "http://blog.developwithpassion.com/2012/03/30/installing-rvm-with-cygwin-on-windows/"}
+        tutorial
+    %li
+      watch the most accurate (but not official)
+      %a{:href => "http://screencasts.org/episodes/how-to-use-rvm", :target=>"_blank"}
+        rvm screencast
+      ,
+    %li
+      read the most accurate (but not official)
+      %a{:href => "http://cheat.errtheblog.com/s/rvm/", :target=>"_blank"}
+        rvm cheat sheet
+      ,
+    %li
+      starting with Rails? watch the
+      %a{:href => "http://railscasts.com/episodes/310-getting-started-with-rails", :target=>"_blank"}
+        RailsCasts.com on Getting Started with Rails
 
 %hr
 %h2#explained
@@ -66,16 +62,16 @@ You can also:
     <strong>Single-User installations</strong> (<span style="color: blue;">recommended</span>) -
     For an isolated install within a user's $HOME
   %li
-    <strong>Multi-User installations</strong> - 
+    <strong>Multi-User installations</strong> -
     For <span style="color: red;">server administrators</span> -
-    For an installation usable by all users on the system - 
-    Please note that Single-User supercedes Multi-User. 
+    For an installation usable by all users on the system -
+    Please note that Single-User supercedes Multi-User.
     This also used to be called the System-Wide Install.
-    <strong style="color: red;">Using this type of installation without 
+    <strong style="color: red;">Using this type of installation without
     knowledge how umask works is a big security risk.</strong>
   %li
-    <strong>Mixed mode installations</strong> - 
-    For an installation usable by all users on the system - 
+    <strong>Mixed mode installations</strong> -
+    For an installation usable by all users on the system -
     with isolated rubies/gemsets within a user's $HOME.
     Installation instructions are exactly the same as for
     Multi-User installations, the difference is in users environment.
@@ -110,23 +106,23 @@ You can also:
     :preserve
       user$ curl -L get.rvm.io | sudo bash -s stable
   %strong
-    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Note: The Multi-User install instructions <i>must</i> be prefixed with the 
+    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Note: The Multi-User install instructions <i>must</i> be prefixed with the
     %a{:href => "/support/troubleshooting/#sudo"}
-      'sudo' command. 
+      'sudo' command.
     However, once the install is complete, and the instructions to add users to the
     rvm group is followed, the use of either sudo or rvmsudo is no longer required. The 'sudo' command
     is only to temporarily elevate privileges so the installer can complete it's work. If you need to
     use 'sudo' or 'rvmsudo' after the install is complete, some part of the install directions were not
     properly followed. This usually is because people execute the install <i>as</i> root, rather than
     executing the installation instructions from a non-privileged user account.
-    
+
 %p
   Installing a specific version:
   %pre.code
     :preserve
       user$ curl -L get.rvm.io | bash -s -- --version latest
       user$ curl -L get.rvm.io | bash -s -- --branch [owner/][repo]
-  Prefix the 'bash' portion with 'sudo', of course, if you wish to apply this to a Multi_user 
+  Prefix the 'bash' portion with 'sudo', of course, if you wish to apply this to a Multi_user
   Install. Please feel free to check out our
   %a{:href => "/rvm/upgrading/"}
     upgrading docs
@@ -199,13 +195,13 @@ You can also:
 %h4 Mixed mode:
 
 %p Above instructions for Multi-User apply, additional configuration is needed for every user (or in /etc/skel)
-  
+
 %p
   Rubies installed in system, gemsets separated per user:
   %pre.code
     :preserve
       user$ rvm user gemsets
-  
+
 %p
   Rubies and gemsets separated per user:
   %pre.code
@@ -222,7 +218,7 @@ You can also:
   :preserve
     user$ source ~/.rvm/scripts/rvm
 
-%p 
+%p
   If installation and configuration were successful, RVM should now load whenever you open a new shell.
   This can be tested by executing the following command which should output <i>'rvm is a function'</i> as shown below.
 
@@ -241,7 +237,7 @@ You can also:
 %p
   %strong NOTE:
   Whenever you upgrade RVM in the future, you should always run <i>'rvm notes'</i> and <i>'rvm requirements'</i> as this is usually where you will find details on any major changes and/or additional requirements to ensure your installation stays working. Also, you should also run the above command on any fresh installs. This is where all your additionals will be noted making it an extremely important stop on your way to RVM bliss!
-  
+
 %h4 Congratulations! You have successfully installed RVM.
 
 %h2 Try out your new RVM installation
