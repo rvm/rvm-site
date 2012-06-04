@@ -192,21 +192,34 @@ Or with rubinius, rails and puma:
     :preserve
       source /etc/profile
 
-%h4 Mixed mode:
+%h4 Mixed mode (user gemsets):
 
-%p Above instructions for Multi-User apply, additional configuration is needed for every user (or in /etc/skel)
-
-%p
-  Rubies installed in system, gemsets separated per user:
+%ul.square
+  %li Above instructions for Multi-User apply, additional configuration is needed for every user (or in /etc/skel)
+  %li Select manager user and add him to rvm group - he will be responsible for installing new rubies.
+  %li For every user (except above manager) run
   %pre.code
     :preserve
-      user$ rvm user gemsets
+      rvm user gemsets
 
 %p
-  Rubies and gemsets separated per user:
+  From this moment any gemset created by this users will be hosted in their HOME not in system, be sure to create gemsets.
+  It's not possible to use global gemsets from system without using tricks like manually linking directories.
+
+%p
+  This mode should also works with passenger, please follow
+  %a{:href=>"/integration/passenger/"} passenger
+  instructions.
+
+%h4 Mixed mode (user rubies and gemsets):
+
+%p
+  It is also possible to separate rubies and gemsets per user:
   %pre.code
     :preserve
       user$ rvm user all
+
+  This gives possibility to install RVM via system but allow users to keep separate installations of rubies and gems.
 
 %h3 3. Reload shell configuration &amp; test
 
