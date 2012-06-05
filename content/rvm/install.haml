@@ -196,15 +196,16 @@ Or with rubinius, rails and puma:
 
 %ul.square
   %li Above instructions for Multi-User apply, additional configuration is needed for every user (or in /etc/skel)
-  %li Select manager user and add him to rvm group - he will be responsible for installing new rubies.
-  %li For every user (except above manager) run
+  %li Select a user as a manager, and add him to rvm group - he will be responsible for installing new rubies.
+  %li For every user (except the manager user identified above) run:
   %pre.code
     :preserve
       rvm user gemsets
 
 %p
-  From this moment any gemset created by this users will be hosted in their HOME not in system, be sure to create gemsets.
+  From this moment any gemset created by these users will be hosted in their HOME directory, not the system install, be sure to create gemsets.
   It's not possible to use global gemsets from system without using tricks like manually linking directories.
+  Please bear in mind that 'system' in this context does not refer to your distribution's ruby packages, but to the RVM Multi-User installation.
 
 %p
   This mode should also works with passenger, please follow
@@ -219,7 +220,7 @@ Or with rubinius, rails and puma:
     :preserve
       user$ rvm user all
 
-  This gives possibility to install RVM via system but allow users to keep separate installations of rubies and gems.
+  This gives the possibility to install RVM system-wide (Multi-User Install) but allow users to keep separate installations of rubies and gems.
 
 %h3 3. Reload shell configuration &amp; test
 
