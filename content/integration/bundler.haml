@@ -27,26 +27,18 @@
       gem install rubygems-bundler
 
 %p
-  And follow onscreen instructions, for more information visit
+  For more information visit
   %a{:href => "https://github.com/mpapis/rubygems-bundler"} rubygems-bundler @ github.
-  If this gem is already installed you missed this instruction:
+  When this gem is already installed here is basic instruction:
   %pre.code
     :preserve
-      First step is to add following line to ~/.gemrc
-
-          custom_shebang: $env ruby_bundler_wrapper
-
       To make all the executables bundler compatible run:
 
           gem regenerate_binstubs # only once
 
-      To always use bundler add the following line to ~/.rvmrc or ~/.bashrc
+      To prevent loading `bundle exec`:
 
-          export USE_BUNDLER=force
-
-      Relogin or call in every open shell:
-
-          export USE_BUNDLER=force
+          NOEXEC=0 rake ...
 
       For more information read:
 
