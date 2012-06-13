@@ -9,11 +9,11 @@
   </strong>
 
 Install RVM with ruby:
-= sh_cmd "curl -L get.rvm.io | bash -s stable --ruby"
+= sh_cmd "curl -L https://get.rvm.io | bash -s stable --ruby"
 Additionally with rails:
-= sh_cmd "curl -L get.rvm.io | bash -s stable --rails"
+= sh_cmd "curl -L https://get.rvm.io | bash -s stable --rails"
 Or with rubinius, rails and puma:
-= sh_cmd "curl -L get.rvm.io | bash -s stable --ruby=rbx --gems=rails,puma"
+= sh_cmd "curl -L https://get.rvm.io | bash -s stable --ruby=rbx --gems=rails,puma"
 
 %p
   You can also:
@@ -77,7 +77,7 @@ Or with rubinius, rails and puma:
     Multi-User installations, the difference is in users environment.
 
 %p
-  %a{ :href => "get.rvm.io" }
+  %a{ :href => "https://get.rvm.io" }
     get.rvm.io
   is a redirect to
   %a{ :href => "https://raw.github.com/wayneeseguin/rvm/master/binscripts/rvm-installer"}
@@ -94,17 +94,17 @@ Or with rubinius, rails and puma:
   Installing the stable release version:
   %pre.code
     :preserve
-      user$ curl -L get.rvm.io | bash -s stable
+      user$ curl -L https://get.rvm.io | bash -s stable
 %p
   To get the latest development state:
   %pre.code
     :preserve
-      user$ curl -L get.rvm.io | bash
+      user$ curl -L https://get.rvm.io | bash
 %p
   For a Multi-User install you would execute the following:
   %pre.code
     :preserve
-      user$ curl -L get.rvm.io | sudo bash -s stable
+      user$ curl -L https://get.rvm.io | sudo bash -s stable
   %strong
     &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Note: The Multi-User install instructions <i>must</i> be prefixed with the
     %a{:href => "/support/troubleshooting/#sudo"}
@@ -120,8 +120,8 @@ Or with rubinius, rails and puma:
   Installing a specific version:
   %pre.code
     :preserve
-      user$ curl -L get.rvm.io | bash -s -- --version latest
-      user$ curl -L get.rvm.io | bash -s -- --branch [owner/][repo]
+      user$ curl -L https://get.rvm.io | bash -s -- --version latest
+      user$ curl -L https://get.rvm.io | bash -s -- --branch [owner/][repo]
   Prefix the 'bash' portion with 'sudo', of course, if you wish to apply this to a Multi_user
   Install. Please feel free to check out our
   %a{:href => "/rvm/upgrading/"}
@@ -132,14 +132,14 @@ Or with rubinius, rails and puma:
   Debugging installation process:
   %pre.code
     :preserve
-      user$ curl -L get.rvm.io | bash -s -- --trace
+      user$ curl -L https://get.rvm.io | bash -s -- --trace
 
 %p
   <strong>If the rvm install script does nothing or complains about certificates</strong>
   you can bypass this by adding a '-k' switch to the curl command:
   %pre.code
     :preserve
-      user$ curl -kL get.rvm.io | bash -s stable
+      user$ curl -kL https://get.rvm.io | bash -s stable
 
 %h4 Single-User Install Location: ~/.rvm/
 %p
@@ -368,10 +368,10 @@ Or with rubinius, rails and puma:
     #!/usr/bin/env bash
 
     # Install git
-    curl -L get-git.rvm.io | bash
+    curl -L https://get-git.rvm.io | bash
 
     # Install RVM
-    curl -L get.rvm.io | bash -s stable
+    curl -L https://get.rvm.io | bash -s stable
 
     # Install some Rubies
     source "$HOME/.rvm/scripts/rvm"
@@ -385,10 +385,10 @@ Or with rubinius, rails and puma:
     #!/usr/bin/env bash
 
     # Install git
-    curl -L get-git.rvm.io | sudo bash
+    curl -L https://get-git.rvm.io | sudo bash
 
     # Install RVM
-    curl -L get.rvm.io | sudo bash -s stable
+    curl -L https://get.rvm.io | sudo bash -s stable
 
     # Install some Rubies
     source "/usr/local/rvm/scripts/rvm"
