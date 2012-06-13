@@ -5,9 +5,9 @@
 %p
   There is no need to do anything to make bundler work with RVM, but there
   is one thing about bundler that makes it harder to use. By default, bundler
-  does not generate wrappers for gem binaries. To make use of the proper version 
+  does not generate wrappers for gem binaries. To make use of the proper version
   of a gem binary, users are forced to prefix every command with `bundle exec`.
-  This makes working in the console rather painful. Fortunately, there are solutions 
+  This makes working in the console rather painful. Fortunately, there are solutions
   that allow us to just write binary names; the binary from 'gem' specified in the
   Gemfile will be used.
 
@@ -15,13 +15,12 @@
 
 %p
   One of the solutions for this problem is a gem which makes bundler and rubygems
-  generate binary wrappers that are aware of bundler. It was discussed with
-  the rubygems and bundler teams, however,they did not really like the solution.
-  Be forewarned, they will most likely not support it although the wrapper is a
-  combination of their wrappers.
+  generate binary wrappers that are aware of bundler. Michal Papis is working with
+  bundler team to integrate this gem to bundler so that no extra actions would be
+  needed to avoid "bundle exec".
 
 %p
-  Starting with 1.11.0 new RVM installations has it enabled by default, 
+  Starting with 1.11.0 new RVM installations has it enabled by default,
   you can still install it with:
   %pre.code
     :preserve
@@ -34,23 +33,23 @@
   %pre.code
     :preserve
       First step is to add following line to ~/.gemrc
-      
+
           custom_shebang: $env ruby_bundler_wrapper
-      
+
       To make all the executables bundler compatible run:
-      
+
           gem regenerate_binstubs # only once
-      
+
       To always use bundler add the following line to ~/.rvmrc or ~/.bashrc
-      
+
           export USE_BUNDLER=force
-      
+
       Relogin or call in every open shell:
-      
+
           export USE_BUNDLER=force
-      
+
       For more information read:
-      
+
           https://github.com/mpapis/rubygems-bundler
 
 %p
