@@ -33,7 +33,15 @@
 
 %p
   Since there are two modes that you can run RVM as, the first option you have is to run
-  as a binary, using rvm do to fire one off commands inside specified environments.
+  as a binary, using
+  %a{ :href => '/set/do' } rvm do
+  to fire one off commands inside specified environments.
+%p
+  For example, to create a gemset in any environment
+%pre.code
+  :preserve
+
+    rvm 1.8.7-p334 do rvm gemset create my_gemset
 
 %p
   The second option (which is likely what you need) is to add a sourceing line,
