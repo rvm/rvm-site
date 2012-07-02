@@ -14,6 +14,8 @@ Additionally with rails:
 = sh_cmd "curl -L https://get.rvm.io | bash -s stable --rails"
 Or with rubinius, rails and puma:
 = sh_cmd "curl -L https://get.rvm.io | bash -s stable --ruby=rbx --gems=rails,puma"
+Finally, to install without the "rubygems-bundler" or "rvm" gems:
+= sh_cmd "curl -L https://get.rvm.io | bash -s stable --without-gems=\"rvm rubygems-bundler\""
 
 %p
   You can also:
