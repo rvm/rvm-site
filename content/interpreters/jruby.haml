@@ -32,7 +32,7 @@
   Choosing the Ruby API
 %p
   Currently, as of this writing, JRuby loads the Ruby 1.8 API and runs as 1.8.7
-  version.
+  version. As of JRuby version  1.7 the default will become 1.9.
 %p
   If you need to run JRuby with the 1.9 Ruby API, you can do so in RVM
   using after_use hooks. You must record the JRUBY configuration
@@ -55,6 +55,16 @@
         JRUBY_OPTS="--1.9" ; export JRUBY_OPTS
       ;;
     esac
+
+%h2
+  Choosing the Ruby API on Install
+%p
+  You can choose which JRuby API to use by default on install or even
+  reinstall it with the desired option:
+%pre.code
+  :preserve
+    rvm install jruby --1.9 # OR
+    rvm install jruby --1.8
 
 %h1
   Community Resources
