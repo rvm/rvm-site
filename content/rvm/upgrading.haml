@@ -14,6 +14,16 @@
   Upgrading RVM
 %p
   RVM supports few ways of upgrading itself.
+%p
+  Every month or two a
+  %b stable
+  release of RVM is created, it includes minor version increase.
+  Between releases only bugfixes and ruby version updates are added
+  to it with teeny version update. Normal development and major changes
+  continue on master branch to install it use
+  %b head
+  version. It's important to use head version before reporting errors as
+  those could be already fixed.
 
 %h3
   To upgrade to the most stable version
@@ -21,15 +31,7 @@
   :preserve
     $ rvm get stable
 %p
-  installs the stable version (latest + fixes).
-
-%h3
-  To upgrade to the most recent release version
-%pre.code
-  :preserve
-    $ rvm get latest
-%p
-  installs the latest released version.
+  installs the stable version.
 
 %h3
   Upgrading to the latest repository source version (the most bugfixes)
@@ -38,6 +40,44 @@
     $ rvm get head
 %p
   obtains the latest RVM repository version.
+
+%h3
+  Installer also will update RVM:
+%pre.code
+  :preserve
+    $ curl -L https://get.rvm.io | bash -s stable # update to stable
+    $ curl -L https://get.rvm.io | bash -s head   # update to head
+    $ rvm reload
+%p
+  It is important to reload after using installer for update.
+
+%h3
+  Auto update sourcing line
+%pre.code
+  :preserve
+    $ rvm get stable --auto
+%p
+  by using the auto flag RVM will know to update the user configuration
+  files to the best known way of sourcing RVM.
+
+%h3
+  Latest
+%p
+  In early days RVM was developed only on master branch, versions were
+  released to RVM server and when version was bug free the
+  %b latest
+  file was updated to point to it. This has changed, as mentioned above
+  RVM stable is released and only bugfixes / ruby version updates are
+  applied to it. The current equivalent of
+  %b latest
+  is
+  %b stable
+  and should be used
+  %b instead.
+  When updating very old versions
+  %b head
+  should be used and can be followed by
+  %b stable.
 
 %h3
   Upgrading to someones else forked branch
