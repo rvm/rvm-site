@@ -48,13 +48,15 @@
 %p
   Then in the rails project, add a new file config/setup_load_paths.rb and add
   Starting with RVM 1.12.0(or head) RVM is installed as a gem in default gemset,
-  there is no need to unshift $LOAD_PATH.
+  there is no need to unshift $LOAD_PATH, but it's required to set GEM_PATH.
   %a{ :href => "#old_setup_load_paths" } config/setup_load_paths.rb.
 
 %pre.code
   :preserve
     if ENV['MY_RUBY_HOME'] && ENV['MY_RUBY_HOME'].include?('rvm')
       begin
+        gems_path = ENV['MY_RUBY_HOME'].split(/@/)[0].sub(/rubies/,'gems')
+        ENV['GEM_PATH'] = "#{gems_path}:#{gems_path}@global"
         require 'rvm'
         RVM.use_from_path! File.dirname(File.dirname(__FILE__))
       rescue LoadError
