@@ -2,61 +2,67 @@
 
 %h1= @item[:title]
 
-%p
-  Like most of the rvm set operations, do lets your perform commands against
-  all installed rubies. Unlike the others, there is a key distinction - do lets
-  you run any command (versus just ruby / gem and the like) and if it is only run
-  against a single ruby, it performs the equivelent of do (e.g. no error message)
-  after setting up the environment. As an example,
-
-= sh_cmd "rvm do bash -c 'echo $GEM_HOME'" # Note this command executes over ALL RVM-controlled rubies in the system!
-
-%p
-  Will iterate over each ruby, calling bash with the given arguments. e.g, showing:
+%h2 Usage
 
 %pre.code
   :preserve
-    info: default (ree-1.8.7-2010.02): ruby 1.8.7 (2010-04-19 patchlevel 253) [i686-darwin10.4.0], MBARI 0x6770, Ruby Enterprise Edition 2010.02
-
-    /Users/sutto/.rvm/gems/ree-1.8.7-2010.02
-
-    info: jruby-1.5.1: jruby 1.5.1 (ruby 1.8.7 patchlevel 249) (2010-06-06 f3a3480) (Java HotSpot(TM) 64-Bit Server VM 1.6.0_20) [x86_64-java]
-
-    /Users/sutto/.rvm/gems/jruby-1.5.1
-
-    info: rbx-1.0.1-20100603: rubinius 1.0.1 (1.8.7 release 2010-06-03 JI) [x86_64-apple-darwin10.3.0]
-
-    /Users/sutto/.rvm/gems/rbx-1.0.1-20100603
-
-    info: ree-1.8.7-20090928: ruby 1.8.7 (2009-06-12 patchlevel 174) [i686-darwin10.3.0], MBARI 0x6770, Ruby Enterprise Edition 20090928
-
-    /Users/sutto/.rvm/gems/ree-1.8.7-20090928
-
-    info: ree-1.8.7-2010.02: ruby 1.8.7 (2010-04-19 patchlevel 253) [i686-darwin10.4.0], MBARI 0x6770, Ruby Enterprise Edition 2010.02
-
-    /Users/sutto/.rvm/gems/ree-1.8.7-2010.02
-
-    info: ruby-1.8.7-head: ruby 1.8.7 (2010-07-17 patchlevel 300) [i686-darwin10.4.0]
-
-    /Users/sutto/.rvm/gems/ruby-1.8.7-headdo
-
-    info: ruby-1.9.2-head: ruby 1.9.2dev (2010-07-01 revision 28513) [x86_64-darwin10.3.0]
-
-    /Users/sutto/.rvm/gems/ruby-1.9.2-head
-
-    info: ruby-1.9.2-preview3: ruby 1.9.2dev (2010-05-31 revision 28117) [x86_64-darwin10.3.0]
-
-    /Users/sutto/.rvm/gems/ruby-1.9.2-preview3
+    ∴ rvm [all|all-gemsets|&lt;ruby&gt;,...|&lt;path&gt;] [--verbose|--summary|--yaml|--json] do &lt;command&gt; ...
+    ∴ rvm in &lt;path> do &lt;some-command&gt; ...
 
 %p
-  Alternatively, calling against a single ruby will perform as such:
+  Executes arbitrary commands against given a set of rvm environments.
+  Without additional flags it will execute the command directly without printing
+  out extra rvm information.
 
-= sh_cmd "rvm ree do bash -c 'echo $GEM_HOME'"
+%h2 Selectors
+
+%ul.square
+  =li_code "all",         "execute command in the default gemset of all rubies"
+  =li_code "all-gemsets", "execute command in the all gemset for all rubies"
+  =li_code "<ruby>,...",  "list of rubies to use, allows short versions or gemsets"
+  =li_code "<path>",      "use ruby from the given path/project"
+
+%h2 Modifiers
+
+%ul.square
+  =li_code "in",        "works with path and will additionally `cd` to the given directory"
+  =li_code "--verbose", "display one line details about ruby/gemset"
+  =li_code "--summary", "hide output and display summary of failures/success list only"
+  =li_code "--yaml",    "hide output and display yaml summary of failures/success list only"
+  =li_code "--json",    "hide output and display json summary of failures/success list only"
+
+%h2 Examples
 
 %p
-  Shows the following, minus the info statements as above:
+  To execute <code>ruby -v</code> against all installed rubies and aliases, you would run:
 
-%pre.code
-  :preserve
-    /Users/sutto/.rvm/gems/ree-1.8.7-2010.02
+  =sh_cmd "rvm all do ruby -v"
+
+  If you want to execute it against a specific ruby (without extra logging
+  / data printed by rvm as is done with normal set operations), you can instead do:
+
+  =sh_cmd "rvm ree do ruby -v"
+
+  Since it is a set operation, normal ruby specifiers will work. As an example, to run
+  it against 1.9.2 and 1.8.7 you would run:
+
+  =sh_cmd "rvm 1.9.2,1.8.7 do ruby -v"
+
+  Or, to execute <code>gem env</code> against all gemsets:
+
+  =sh_cmd "rvm all-gemsets do gem env"
+
+  To execute <code>which ruby</code> in the current directory, loading a .rvmrc:
+
+  =sh_cmd "rvm . do which ruby"
+
+  To execute <code>rake test</code> in the project directory, loading a .rvmrc:
+
+  =sh_cmd "rvm in /path/to/project do rake test"
+
+  To interpret shell variables, or run more complicate programs:
+
+  =sh_cmd "rvm ree do bash -c 'echo $GEM_HOME'"
+
+  Notice the single quotes, this will delay resolving variables till the code is executed.
 

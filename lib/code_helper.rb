@@ -6,6 +6,10 @@ module CodeHelper
     "<pre class='code'>$ #{html_escape command}</pre>"
   end
 
+  def li_code(code, text)
+    "<li><code>#{html_escape code}</code> - #{text}</li>"
+  end
+
 end
 
 include Nanoc3::Helpers::HTMLEscape

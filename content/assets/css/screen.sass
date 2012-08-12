@@ -207,7 +207,7 @@ $title-background: #292929
   text-shadow: 0.1em 0.1em #000
   background: $title-background
 
-@mixin default-box 
+@mixin default-box
   background: $box-background
   float: left
   +shadow
@@ -237,7 +237,7 @@ $title-background: #292929
       color: #E0BABA
       &:hover
         text-decoration: underline
-    
+
 
   #logo
     text-align: center
@@ -246,7 +246,7 @@ $title-background: #292929
     img
       max-width: 100%
       max-height: 170px
-  
+
   #donate
     @include default-box
     @include default-text
@@ -254,7 +254,7 @@ $title-background: #292929
     .pledgie
       text-align: center
       img
-        max-width: 100% 
+        max-width: 100%
         margin-top: 5%
 
   #recommend, #irc
@@ -312,11 +312,16 @@ $title-background: #292929
 
   p
     padding: 5px
+  code
+    margin: 0.09em
+    padding: 0.09em
+    font-weight: bold
+    border: 1px solid maroon
   pre.code
     margin-bottom: 0.5em
+    padding: 0.75em
     background: #fff
     border: 1px solid maroon
-    padding: 0.75em
     overflow: auto
   ul.disk
     list-style: disc
