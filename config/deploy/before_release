@@ -6,5 +6,6 @@ path enter "${stage_path}"
 
 which bundle | grep -v rvm/bin/bundle >/dev/null ||
   gem install bundler
+
 bundle install
 bundle exec nanoc co

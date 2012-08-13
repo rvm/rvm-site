@@ -8,6 +8,5 @@ tags
 *~
 .idea
 .bundle/
-Gemfile*
 vendor/bundle/
 *.swp

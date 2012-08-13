@@ -1,8 +1,5 @@
 rvm:
   - 1.9.3
-before_script:
- - pwd
- - ls -l
 script: bundle exec nanoc3 compile
 language: ruby
 notifications:
