@@ -39,9 +39,15 @@ route "/assets/favicon/" do
   "/favicon.ico"
 end
 
-
 compile '*' do
-  filter :haml
+  case
+    item[:extension]
+  when 'md'
+    filter :rdiscount
+    filter :pre_code
+  when 'haml'
+    filter :haml
+  end
   layout "default"
 end
 

@@ -1,8 +1,6 @@
 rvm:
   - 1.9.3
-install: 'true'
-before_script: rvm gemset import .gems
-script: nanoc3 compile
+script: bundle exec nanoc3 compile
 language: ruby
 notifications:
   irc:

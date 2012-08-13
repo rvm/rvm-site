@@ -4,5 +4,7 @@ source $HOME/.rvm/environments/default
 
 path enter "${stage_path}"
 
-nanoc co
-
+which bundle | grep -v rvm/bin/bundle >/dev/null ||
+  gem install bundler
+bundle install
+bundle exec nanoc co
