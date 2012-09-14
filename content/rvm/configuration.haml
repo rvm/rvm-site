@@ -27,11 +27,11 @@
 %h2
   Overriding Default Settings
 %p
-  In order to override RVM's default settings, place the appropriate key=value
-  entry into the file
+  RVM also has a directory for user overrides located in $rvm_path/user/.
+  In order to override RVM's default settings, place the appropriate key=valuey into the db file of that folder
 %pre.code
   :preserve
-    $rvm_config_path/user
+    $rvm_path/user/db
 %p
   RVM will then use these settings instead of RVM's defaults.
 %h3 Example
