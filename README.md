@@ -2,19 +2,25 @@
 
 You can see the documentation live online at <https://rvm.io/>.
 
+## Quick corrections
+
+For small changes like single wording fixes it is enough to use github builtin editor, 
+navigate to https://github.com/wayneeseguin/rvm-site/, find the page to fix and press the **Edit** button,
+try to give meaningfull description so it is easier to understand why this change is needed.
+
 ## Get the Site Running Locally
 
 If you're going to help you'll first need to get the site running locally. Start by forking the repository and cloning the fork.
 
 ## Requirements
 
-The site requires that you have at least ruby 1.9.2-p136 running in your environment. (Although you can manually use something else, this is what is setup in the `.rvmrc` file currently.)
+The site requires that you have at least ruby 1.9.3-p194 running in your environment, currently used version is listed in Gemfile
 
 You can do this with RVM by typing the following at the command line:
 
-    rvm install 1.9.2
+    rvm use . --install --create
 
-rvm-site requires a few gems that can be found in rvm-site.gems, including:
+rvm-site requires a few gems that can be found in `Gemfile`, including:
 
 - [Compass](http://compass-style.org/)
 - [HAML](http://haml-lang.com/) ([SASS](http://sass-lang.com/) is bundled with this Gem)
@@ -24,7 +30,7 @@ rvm-site requires a few gems that can be found in rvm-site.gems, including:
 
 To install the gemset file, use
 
-    rvm gemset import rvm-site.gems
+    bundle install
 
 
 ## Getting it Running
@@ -37,7 +43,12 @@ hacking away.
 If you would like to view the changes locally as you hack,
 You can use Nanoc's AutoCompile feature:
 
-	nanoc3 aco
+    nanoc3 aco
+
+Validating site links integrity:
+
+    nanoc validate-links
+
 
 ## Update Submission
 
