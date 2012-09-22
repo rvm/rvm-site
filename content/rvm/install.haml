@@ -197,16 +197,18 @@ Finally, to install without the "rubygems-bundler" or "rvm" gems:
 %h4#mixed Mixed mode (user gemsets):
 
 %ul.square
-  %li Above instructions for Multi-User apply, additional configuration is needed for every user (or in /etc/skel)
-  %li Select a user as a manager, and add him to rvm group - he will be responsible for installing new rubies.
-  %li For every user (except the manager user identified above) run:
+  %li After following above instructions for Multi-User, however, you don't need to bother about the rvm group.
+  %li Select a user as a manager - he will be responsible for installing new rubies. This user should never run the command introduced below. If this happens, remove/rename the ${HOME}/.rvmrc, logout and then relogin . Otherwise you won't be able to install/upgrade new rubies correctly.
+  %li You need to comment the line following line in /etc/rvmrc (double check this file each time you update rvm, the line may be back by itself):
+    %pre.code umask g+w
+  %li For each user that want to n additional command needs to be run (once) for each user:
   %pre.code
     :preserve
       rvm user gemsets
 
 %p
-  From this moment any gemset created by these users will be hosted in their HOME directory, not the system install, be sure to create gemsets.
-  It's not possible to use global gemsets from system without using tricks like manually linking directories.
+  Gemsets created by these users will be hosted in their HOME directory.
+  It's not possible to use global gemsets from system without using tricks like manually linking directories and they should not be used in mixed-mode.
   Please bear in mind that 'system' in this context does not refer to your distribution's ruby packages, but to the RVM Multi-User installation.
 
 %p
@@ -217,12 +219,13 @@ Finally, to install without the "rubygems-bundler" or "rvm" gems:
 %h4 Mixed mode (user rubies and gemsets):
 
 %p
-  It is also possible to separate rubies and gemsets per user:
+  It is also possible to separate rubies (in addition to the gemsets) per user:
   %pre.code
     :preserve
       user$ rvm user all
 
   This gives the possibility to install RVM system-wide (Multi-User Install) but allow users to keep separate installations of rubies and gems.
+  In this case, you don't need an RVM manager (each user is responsible of his own ruby installations).
 
 %h3 3. Reload shell configuration &amp; test
 
