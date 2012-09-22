@@ -199,7 +199,8 @@ Finally, to install without the "rubygems-bundler" or "rvm" gems:
 %ul.square
   %li After following above instructions for Multi-User, however, you may ignore the rvm group.
   %li Select a user as a manager - he will be responsible for installing new rubies. This user should never run the command introduced below. If this happens, remove/rename the ${HOME}/.rvmrc, logout and then relogin . Otherwise you won't be able to install/upgrade new rubies correctly.
-  %li You can to comment the following line in /etc/rvmrc (double check this file each time you update rvm, the line may be back by itself):
+  %li
+    You can to comment the following line in /etc/rvmrc (double check this file each time you update rvm, the line may be back by itself):
     %pre.code umask g+w
   %li For each user that want to use RVM, an additional command needs to be run (once) for each user:
   %pre.code
