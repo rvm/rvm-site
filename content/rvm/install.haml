@@ -197,11 +197,11 @@ Finally, to install without the "rubygems-bundler" or "rvm" gems:
 %h4#mixed Mixed mode (user gemsets):
 
 %ul.square
-  %li After following above instructions for Multi-User, however, you don't need to bother about the rvm group.
+  %li After following above instructions for Multi-User, however, you may ignore the rvm group.
   %li Select a user as a manager - he will be responsible for installing new rubies. This user should never run the command introduced below. If this happens, remove/rename the ${HOME}/.rvmrc, logout and then relogin . Otherwise you won't be able to install/upgrade new rubies correctly.
   %li You need to comment the line following line in /etc/rvmrc (double check this file each time you update rvm, the line may be back by itself):
     %pre.code umask g+w
-  %li For each user that want to n additional command needs to be run (once) for each user:
+  %li For each user that want to use RVM, an additional command needs to be run (once) for each user:
   %pre.code
     :preserve
       rvm user gemsets
@@ -210,6 +210,10 @@ Finally, to install without the "rubygems-bundler" or "rvm" gems:
   Gemsets created by these users will be hosted in their HOME directory.
   It's not possible to use global gemsets from system without using tricks like manually linking directories and they should not be used in mixed-mode.
   Please bear in mind that 'system' in this context does not refer to your distribution's ruby packages, but to the RVM Multi-User installation.
+
+%p
+  If you prefer avoiding rvmsudo and privilege escalation, then add the manager(s) to the rvm group and keep the line in /etc/rvmrc uncommented.
+  However, be warned that, just like for the Multi-user installation, this might impact the umask setting for your whole system.
 
 %p
   This mode should also works with passenger, please follow
