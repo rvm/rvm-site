@@ -197,11 +197,8 @@ Finally, to install without the "rubygems-bundler" or "rvm" gems:
 %h4#mixed Mixed mode (user gemsets):
 
 %ul.square
-  %li After following above instructions for Multi-User, however, you may ignore the rvm group.
+  %li After following above instructions for Multi-User.
   %li Select a user as a manager - he will be responsible for installing new rubies. This user should never run the command introduced below. If this happens, remove/rename the ${HOME}/.rvmrc, logout and then relogin . Otherwise you won't be able to install/upgrade new rubies correctly.
-  %li
-    You can to comment the following line in /etc/rvmrc (double check this file each time you update rvm, the line may be back by itself):
-    %pre.code umask g+w
   %li For each user that want to use RVM, an additional command needs to be run (once) for each user:
   %pre.code
     :preserve
@@ -213,8 +210,10 @@ Finally, to install without the "rubygems-bundler" or "rvm" gems:
   Please bear in mind that 'system' in this context does not refer to your distribution's ruby packages, but to the RVM Multi-User installation.
 
 %p
-  If you prefer avoiding rvmsudo and privilege escalation, then add the manager(s) to the rvm group and keep the line in /etc/rvmrc uncommented.
-  However, be warned that, just like for the Multi-user installation, this might impact the umask setting for your whole system.
+  You have two possibilities to manage RVM. The first one is to add managers to the rvm group. The second one is to use rvmsudo and privilege escalation.
+  Both can be mixed without any side-effect. It is however very important to not enable mixed-mode gemsets or rubies for the managers.
+  RVM is using a custom umask (umask u=rwx,g=rwx,o=rx) when installing gemsets, rubies, updating itself, etc.
+  This should not impact your system. But if you prefer to avoind RVM messing around with your umask, you can comment the umask line in /etc/rvmrc.
 
 %p
   This mode should also works with passenger, please follow
