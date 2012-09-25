@@ -36,3 +36,9 @@
   like so:
 
 = sh_cmd "rvm use 1.9.2-head@albinochipmunk --create"
+
+%p
+  If you would like to create gemsets automatically when used, export this flag in your ~/.rvmrc or /etc/rvmrc file:
+%pre.code
+  :preserve
+    rvm_gemset_create_on_use_flag=1
