@@ -36,7 +36,7 @@
 
 %pre.code
   :preserve
-    version="4.3.10" ; mkdir -p ~/.src && cd ~/.src && curl -O -L --create-dirs -C - http://downloads.sourceforge.net/project/zsh/zsh-dev/$version/zsh-$version.tar.bz2?use_mirror=voxel && tar jxf zsh-$version.tar.bz2* && cd zsh-$version && ./configure --prefix=/ && make && sudo make install
+    version="4.3.10" ; mkdir -p ~/.src && cd ~/.src && "curl" -O -L --create-dirs -C - http://downloads.sourceforge.net/project/zsh/zsh-dev/$version/zsh-$version.tar.bz2?use_mirror=voxel && tar jxf zsh-$version.tar.bz2* && cd zsh-$version && ./configure --prefix=/ && make && sudo make install
 
 %p
   If you're using zsh (possibly with oh-my-zsh) and your prompt displays the current directory as "~rvm_rvmrc_cwd",
