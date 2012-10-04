@@ -9,16 +9,16 @@
   </strong>
 
 Install RVM with ruby:
-= sh_cmd "\"curl\" -L https://get.rvm.io | bash -s stable --ruby"
+= sh_cmd "\\curl -L https://get.rvm.io | bash -s stable --ruby"
 Additionally with rails:
-= sh_cmd "\"curl\" -L https://get.rvm.io | bash -s stable --rails"
+= sh_cmd "\\curl -L https://get.rvm.io | bash -s stable --rails"
 Or with rubinius, rails and puma:
-= sh_cmd "\"curl\" -L https://get.rvm.io | bash -s stable --ruby=rbx --gems=rails,puma"
+= sh_cmd "\\curl -L https://get.rvm.io | bash -s stable --ruby=rbx --gems=rails,puma"
 Finally, to install without the "rubygems-bundler" or "rvm" gems:
-= sh_cmd "\"curl\" -L https://get.rvm.io | bash -s stable --without-gems=\"rvm rubygems-bundler\""
+= sh_cmd "\\curl -L https://get.rvm.io | bash -s stable --without-gems=\"rvm rubygems-bundler\""
 
 %p
-  Point to be noted are, there are double quotes around curl. This prevents misbehaving if 
+  Point to be noted is, there is a backslash before <b>curl</b>. This prevents misbehaving if 
   you have aliased it with configuration in your ~/.curlrc file.
 
 %p
@@ -89,7 +89,7 @@ Finally, to install without the "rubygems-bundler" or "rvm" gems:
   %a{ :href => "https://raw.github.com/wayneeseguin/rvm/master/binscripts/rvm-installer"}
     https://raw.github.com/wayneeseguin/rvm/master/binscripts/rvm-installer
   You could also use full path for the installer:
-  = sh_cmd "curl https://raw.github.com/wayneeseguin/rvm/master/binscripts/rvm-installer | bash -s stable"
+  = sh_cmd "\curl https://raw.github.com/wayneeseguin/rvm/master/binscripts/rvm-installer | bash -s stable"
 
 %h2 Installation
 
@@ -100,17 +100,17 @@ Finally, to install without the "rubygems-bundler" or "rvm" gems:
   Installing the stable release version:
   %pre.code
     :preserve
-      user$ "curl" -L https://get.rvm.io | bash -s stable
+      user$ \curl -L https://get.rvm.io | bash -s stable
 %p
   To get the latest development state:
   %pre.code
     :preserve
-      user$ "curl" -L https://get.rvm.io | bash
+      user$ \curl -L https://get.rvm.io | bash
 %p
   For a Multi-User install you would execute the following:
   %pre.code
     :preserve
-      user$ "curl" -L https://get.rvm.io | sudo bash -s stable
+      user$ \curl -L https://get.rvm.io | sudo bash -s stable
   %strong
     &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Note: The Multi-User install instructions <i>must</i> be prefixed with the
     %a{:href => "/support/troubleshooting/#sudo"}
@@ -126,8 +126,8 @@ Finally, to install without the "rubygems-bundler" or "rvm" gems:
   Installing a specific version:
   %pre.code
     :preserve
-      user$ "curl" -L https://get.rvm.io | bash -s -- --version latest
-      user$ "curl" -L https://get.rvm.io | bash -s -- --branch [owner/][repo]
+      user$ \curl -L https://get.rvm.io | bash -s -- --version latest
+      user$ \curl -L https://get.rvm.io | bash -s -- --branch [owner/][repo]
   Prefix the 'bash' portion with 'sudo', of course, if you wish to apply this to a Multi_user
   Install. Please feel free to check out our
   %a{:href => "/rvm/upgrading/"}
@@ -138,14 +138,14 @@ Finally, to install without the "rubygems-bundler" or "rvm" gems:
   Debugging installation process:
   %pre.code
     :preserve
-      user$ "curl" -L https://get.rvm.io | bash -s -- --trace
+      user$ \curl -L https://get.rvm.io | bash -s -- --trace
 
 %p
   <strong>If the rvm install script does nothing or complains about certificates</strong>
   you can bypass this by adding a '-k' switch to the curl command:
   %pre.code
     :preserve
-      user$ "curl" -kL https://get.rvm.io | bash -s stable
+      user$ \curl -kL https://get.rvm.io | bash -s stable
 
 %h4 Single-User Install Location: ~/.rvm/
 %p
@@ -381,10 +381,10 @@ Finally, to install without the "rubygems-bundler" or "rvm" gems:
     #!/usr/bin/env bash
 
     # Install git
-    "curl" -L https://get-git.rvm.io | bash
+    \curl -L https://get-git.rvm.io | bash
 
     # Install RVM
-    "curl" -L https://get.rvm.io | bash -s stable
+    \curl -L https://get.rvm.io | bash -s stable
 
     # Install some Rubies
     source "$HOME/.rvm/scripts/rvm"
@@ -398,10 +398,10 @@ Finally, to install without the "rubygems-bundler" or "rvm" gems:
     #!/usr/bin/env bash
 
     # Install git
-    "curl" -L https://get-git.rvm.io | sudo bash
+    \curl -L https://get-git.rvm.io | sudo bash
 
     # Install RVM
-    "curl" -L https://get.rvm.io | sudo bash -s stable
+    \curl -L https://get.rvm.io | sudo bash -s stable
 
     # Install some Rubies
     source "/usr/local/rvm/scripts/rvm"

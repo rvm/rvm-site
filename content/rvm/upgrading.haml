@@ -45,11 +45,11 @@
   Installer also will update RVM:
 %pre.code
   :preserve
-    $ "curl" -L https://get.rvm.io | bash -s stable # update to stable
-    $ "curl" -L https://get.rvm.io | bash -s head   # update to head
+    $ \curl -L https://get.rvm.io | bash -s stable # update to stable
+    $ \curl -L https://get.rvm.io | bash -s head   # update to head
     $ rvm reload
 %p
-  Yes, there's double quote around the curl. It is important to reload after using installer for update.
+  Yes, there's a backslash before the <b>curl</b>. It is important to reload after using installer for update.
 
 %h3
   Auto update sourcing line

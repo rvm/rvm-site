@@ -46,9 +46,9 @@
   Now install RVM,
 %pre.code
   :preserve
-    appuser$ "curl" -L get.rvm.io | bash -s stable
+    appuser$ \curl -L get.rvm.io | bash -s stable
 %p
-  Please note that curl is quotes in double quotes, this prevents misbehaving if
+  Please note that there is a backslash before <b>curl</b>, this prevents misbehaving if
   you have aliased it with other options or use a .curlrc file for this. Once 
   you have RVM installed for the target application user, you are ready to setup
   the deployment!
