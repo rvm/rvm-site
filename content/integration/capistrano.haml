@@ -25,6 +25,10 @@ So integration can achieve the following:
     gem - see
     %a(href="#gem") integration option 1
     below).
+  %li
+    %a(href="#gemset_management")
+      Manage gemsets via Capistrano
+    , allowing you to install or update project gems as part of your deployment.
 
 %h2 Integration options
 
@@ -149,6 +153,35 @@ So integration can achieve the following:
     set :rvm_install_type, :head # or:
     #set :rvm_install_type, :stable
 
+
+%h4#install_packages
+  Automatically installing RVM packages on the server
+
+%p  
+  Add the following to your
+  %code.code Capfile
+  /
+  %code.code deploy.rb
+  \:
+
+%pre.code
+  :preserve
+    set :rvm_install_pkgs, %w[libyaml openssl]
+    set :rvm_install_ruby_params, '--with-opt-dir=~/.rvm/usr'  # or for system installs:
+    # set :rvm_install_ruby_params, '--with-opt-dir=/usr/local/rvm/usr'
+    before 'deploy:setup', 'rvm:install_pkgs'
+    
+%p
+  You will need to install the packages before Ruby, or you will need to re-install your Ruby.
+
+%p
+  RVM package functionality is 
+  %strong available in versions >= 1.3.0
+  of the
+  %code.code rvm-capistrano
+  gem.
+  
+    
 %h4#install_ruby
   Automatically installing Ruby on the server via RVM
 
@@ -192,6 +225,68 @@ So integration can achieve the following:
   :preserve
     set :rvm_install_shell, :zsh
 
+%h3#gemset_management Managing Gemsets
+
+%p
+  Gemset management functionality is 
+  %strong available in versions >= 1.3.0
+  of the
+  %code.code rvm-capistrano
+  gem.
+  
+%h4#import_gemset
+  Automatically importing Gemsets on server
+
+%p
+  Add the following to your
+  %code.code Capfile
+  /
+  %code.code deploy.rb
+  \:
+
+%pre.code
+  :preserve
+    before 'deploy:setup', 'rvm:import_gemset'
+
+%p
+  The gemset filename must match  and be located in :rvm_gemset_path.
+  will import a gemset from a file called 
+  %code.code :rvm_ruby_string.gems
+  and located in
+  %code.code :rvm_gemset_path
+  (Defaults to
+  %code.code :rvm_path/gemsets
+  )
+
+%h4#export_gemset
+  Automatically exporting Gemsets on server
+
+%p
+  Add the following to your
+  %code.code Capfile
+  /
+  %code.code deploy.rb
+  \:
+
+%pre.code
+  :preserve
+    before 'deploy:setup', 'rvm:export_gemset'
+
+%p
+  If your 
+  %code.code :rvm_ruby_string
+  is set to
+  %code.code ree@rails3
+  then by default the gemset filename will be
+  %code.code ~/.rvm/gemsets/ree@rails3.gems
+  or 
+  %code.code /usr/local/rvm/gemsets/ree@rails3.gems
+  for RVM system installs.
+  
+  Set 
+  %code.code :rvm_gemset_path
+  to set the destination path.
+  
 %h3#resources Important resources
 
 %ul.square
