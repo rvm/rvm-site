@@ -138,9 +138,11 @@
 
 %pre.code
   :preserve
-    #!/bin/bash -e
+    #!/bin/bash
     # Use the correct ruby
     rvm use "ruby@gemset"
+    # Set "fail on error" in bash
+    set -e
     # Do any setup
     # e.g. possibly do 'rake db:migrate db:test:prepare' here
     bundle install
