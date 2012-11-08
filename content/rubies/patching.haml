@@ -23,6 +23,11 @@
   %pre.code
     :preserve
       $ rvm install 1.8.6 --patch /path/to/awesome.patch,/path/to/another.patch
+  %p
+    Starting with RVM 1.17 it is also possible to specify an URL to a patch
+  %pre.code
+    :preserve
+      $ rvm install 1.9.3 --patch https://github.com/ruby/ruby/commit/2741a598ff9e561c71eb39a57bb19c0a3205eaef.patch
 
 %h1 Contributing patches
 %h2 Testing patches
