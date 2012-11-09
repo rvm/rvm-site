@@ -3,6 +3,17 @@
 %a{:name => "best-practices"}
 %h1 Deployment Best Practices
 
+%h2 Warning
+%p
+  This article is outdated and we will be posting an update,
+  below is list of known bugs, please help if you can:
+
+  %ol
+    %li
+      %a{:href => "https://github.com/sm/sm/issues/50"}
+        https://github.com/sm/sm/issues/50
+
+
 %h2
   Use the
   %a{:href => "https://smf.sh/"}
@@ -49,7 +60,7 @@
     appuser$ \curl -L get.rvm.io | bash -s stable
 %p
   Please note that there is a backslash before <b>curl</b>, this prevents misbehaving if
-  you have aliased it with other options or use a .curlrc file for this. Once 
+  you have aliased it with other options or use a .curlrc file for this. Once
   you have RVM installed for the target application user, you are ready to setup
   the deployment!
 %p
