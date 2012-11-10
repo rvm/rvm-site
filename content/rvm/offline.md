@@ -2,7 +2,7 @@
 # RVM in offline mode
 
 This is only rough description of the process, not all the steps need to work right away,
-feel free to propose fixes here: [rvm offline source](https://github.com/wayneeseguin/rvm-site/tree/master/content/rvm/offline.md).
+feel free to propose fixes here: [rvm offline source](https://github.com/rvm/rvm-site/tree/master/content/rvm/offline.md).
 
 
 ## Installing RVM offline
