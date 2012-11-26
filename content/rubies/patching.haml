@@ -28,6 +28,14 @@
   %pre.code
     :preserve
       $ rvm install 1.9.3 --patch https://github.com/ruby/ruby/commit/2741a598ff9e561c71eb39a57bb19c0a3205eaef.patch
+  %p
+    Or to a series of patches in a branch, with the
+    %a{ :href => "https://github.com/blog/612-introducing-github-compare-view"}
+      compare view
+    syntax.
+  %pre.code
+    :preserve
+      $ $ rvm install 1.9.3 --patch
 
 %h1 Contributing patches
 %h2 Testing patches
