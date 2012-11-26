@@ -18,10 +18,10 @@
   To report bugs against RVM, please go to https://github.com/wayneeseguin/rvm/issues/ and open an Issue there.
   %strong
     READ ALL EXISTING REPORTS!
-  Sometimes the problem is already under investigation or has already been solved. Opening a new one for the same issue is a waste of time and resources and may cause your report to be summarily closed. Please use 
+  Sometimes the problem is already under investigation or has already been solved. Opening a new one for the same issue is a waste of time and resources and may cause your report to be summarily closed. Please use
   %a{:href => "https://gist.github.com"}
     https://gist.github.com
-  to store and file supplimentary evidence related to the bug report. Include the returned https (not git) URL in your report. Please provide 
+  to store and file supplimentary evidence related to the bug report. Include the returned https (not git) URL in your report. Please provide
   %ul
     %li
       A) The output from
@@ -36,7 +36,7 @@
     %li
       C) All commands run, any errors / output, and contents of logfiles RVM tells you to look in.
     %li
-      D) The complete output of the following trace / debugging command. 
+      D) The complete output of the following trace / debugging command.
       %pre.code
         :preserve
           set -x ; rvm --trace your_commands_here ; set +x
@@ -55,7 +55,7 @@
     %li
       When you login graphically to your system it will read `~/.profile` so you put there settings like `LANG` which are important for graphical applications
     %li
-      When you open a terminal (except Gnome-terminal & Screen) you open a `login` shell which sources `~/.bash_profile` 
+      When you open a terminal (except Gnome-terminal & Screen) you open a `login` shell which sources `~/.bash_profile`
     %li
       When you execute commands in non login shell like `ssh server command` or `scp file server:~` or `sudo`(without -i) or `su` (without -l) it will execute `~/.bashrc`
 

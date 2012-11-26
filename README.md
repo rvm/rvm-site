@@ -4,7 +4,7 @@ You can see the documentation live online at <https://rvm.io/>.
 
 ## Quick corrections
 
-For small changes like single wording fixes it is enough to use github builtin editor, 
+For small changes like single wording fixes it is enough to use github builtin editor,
 navigate to https://github.com/wayneeseguin/rvm-site/, find the page to fix and press the **Edit** button,
 try to give meaningfull description so it is easier to understand why this change is needed.
 
