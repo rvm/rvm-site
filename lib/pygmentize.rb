@@ -4,7 +4,7 @@ class PygmentizeFilter < Nanoc3::Filter
 
   def run(content, options = {})
     require "hpricot"
-    document = Hpricot(content) 
+    document = Hpricot(content)
     code_blocks = document.search("code").map do |code_block|
       code_block.inner_html = pygmentize(html_unescape(code_block.inner_html), code_block[:lang] || "ruby")
     end

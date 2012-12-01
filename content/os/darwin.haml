@@ -52,7 +52,7 @@
   OS X - RVM Group Membership Management
 %p
   With Multi-User installations, the RVM installer automatically creates an 'rvm' group which, as the RVM documentation explains, administrators must add the users they wish to let use the RVM installation to. The call is made in the installer as:
-  
+
 %pre.code
   :preserve
     sudo dscl . -create /Groups/$rvm_group_name gid $gid
@@ -84,7 +84,7 @@ Please note, the call to
   :preserve
     dsmemberutil flushcache
 
-is required on both removal of the user from the group, and/or removal of the group directly because that membership is still cached locally until either reboot or sync with Directory Services. 
+is required on both removal of the user from the group, and/or removal of the group directly because that membership is still cached locally until either reboot or sync with Directory Services.
 
 %p
   Allowing the group membership to stay in the user's 'groups' output does not mean the user is automatically re-added to the 'rvm' group should the group be subsequently be re-added. This means the user(s) end up erroneously showing they are part of the 'rvm' group even though they actually are not, if the call to 'dsmemberutil' is not made. By this we mean the 'groups' command will still show them a part of the 'rvm' group, even if the user logs out and then back in, due to caching. This applies to Tiger, Leopard, Snow Leopard, and Lion. Previous versions of the OS such as Cheetah/Puma, and Jaguar used 'nicl', a.k.a NetInfo, and not 'dscl'.

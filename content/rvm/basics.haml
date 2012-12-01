@@ -31,14 +31,14 @@
   Post Install Configuration
 
 %p
-  The rvm installation documentation instructs you to put the following line at the very end of your 
+  The rvm installation documentation instructs you to put the following line at the very end of your
   bash profile:
   %pre.code
     :preserve
       [[ -s "$HOME/.rvm/scripts/rvm" ]] && . "$HOME/.rvm/scripts/rvm" # This loads RVM into a shell session.
 
 %p
-  NOTE: This is for a <b>user</b> install. If you installed with sudo then you substitute '$HOME/.rvm' 
+  NOTE: This is for a <b>user</b> install. If you installed with sudo then you substitute '$HOME/.rvm'
   with '/usr/local/rvm'.
 %p
   For those who are not very familiar with bash scripting, I will explain in the next few paragraphs what the line above does.
@@ -48,7 +48,7 @@
     :preserve
       [[ -s "$HOME/.rvm/scripts/rvm" ]]
 
-  looks inside the default rvm scripts folder <i>'~/.rvm/scripts/'</i> for rvm, and returns true or 
+  looks inside the default rvm scripts folder <i>'~/.rvm/scripts/'</i> for rvm, and returns true or
   false based on that criteria.
 
 %p
@@ -85,8 +85,8 @@
       source $(rvm 1.9.3 do rvm env --path)
 
   Then, when you login or spawn a shell this will automatically load RVM regardless of the shell type.
-  Pretty handy, huh? Also, make sure the RVM sourcing line is the <i>last</i> line in your 
-  '$HOME/.bash_profile'. This stops anything else from being able to override it since it will be 
+  Pretty handy, huh? Also, make sure the RVM sourcing line is the <i>last</i> line in your
+  '$HOME/.bash_profile'. This stops anything else from being able to override it since it will be
   the last thing executed from the .bash_profile.
 
   If you are using the ZSH shell then you can place the sourcing line in your  in ~/.zshrc.
@@ -105,7 +105,7 @@
     :preserve
       [ -z "$PS1" ] && return
 
-  The condition 
+  The condition
   %pre.code
     :preserve
       [ -z "$PS1" ]
@@ -141,13 +141,13 @@
       /Users/wayne/.rvm/rubies/ruby-1.9.2-p0/bin/ruby
 
 %p
-  NOTE: There has been some confusion amongst new users as to the proper way to switch between Ruby 
-  versions.  Do not include the 'ruby-' portion of whatever is listed in the output of 
+  NOTE: There has been some confusion amongst new users as to the proper way to switch between Ruby
+  versions.  Do not include the 'ruby-' portion of whatever is listed in the output of
   %pre.code
     :preserve
       rvm list
   for installed rubies. This is just used to indicate the differences between, say, REE rubies, and
-  MRI rubies, etc. However, do note that when you are switching between an MRI or Rubinus, or REE, 
+  MRI rubies, etc. However, do note that when you are switching between an MRI or Rubinus, or REE,
   as an example, <i>then</i> you use the ree|ruby|rbx part. When you want to switch, just use the
   version number and any patch level. If its a -head version use the full string as it will not
   contain numbers. This also applies when setting a default Ruby. Below is an example of what I mean:
@@ -188,13 +188,13 @@
   The last example above does not use a patch level because you are basically saying use the most
   currently released stable version of 1.9.2 which, as of the time of this writing, is 1.9.2-p290.
   Also, please take note that the keyword <i>use</i> above causes RVM to output the version it is
-  switching to. Basically, it makes the change operation verbose. Note that it is <i>not</i> 
+  switching to. Basically, it makes the change operation verbose. Note that it is <i>not</i>
   required in most operations, and is meant solely for console users to be given a visual prompt
   that RVM has, in fact, changed Rubies and to which one.
 
 %p
   <strong>PLEASE NOTE:</strong> RVM is 'hands off' any system ruby that you have installed.
-  To be able to "use" your system ruby you can tell RVM to undo the environment changes that it 
+  To be able to "use" your system ruby you can tell RVM to undo the environment changes that it
   has applied, as follows.
 
 %pre.code

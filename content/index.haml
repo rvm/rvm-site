@@ -40,7 +40,7 @@
 %h2 Introduction
 
 %p
-  RVM is a command-line tool which allows you to easily install, manage, and work with multiple ruby 
+  RVM is a command-line tool which allows you to easily install, manage, and work with multiple ruby
   environments from interpreters to sets of gems.
 
 %hr
@@ -65,14 +65,14 @@
 %h2 Production
 
 %p
-  RVM  lets you deploy each project with its own completely self-contained and dedicated environment, 
-  from the specific version of ruby, all the way down to the precise set of required gems to run your 
-  application. Having a precise set of gems also avoids the issue of version conflicts between 
-  projects, which can cause difficult-to-trace errors and hours of hair loss. With RVM, NO OTHER 
+  RVM  lets you deploy each project with its own completely self-contained and dedicated environment,
+  from the specific version of ruby, all the way down to the precise set of required gems to run your
+  application. Having a precise set of gems also avoids the issue of version conflicts between
+  projects, which can cause difficult-to-trace errors and hours of hair loss. With RVM, NO OTHER
   GEMS than those required are installed. This makes working with multiple complex applications, where
   each has a long list of gem dependencies, much more efficient. RVM let you easily test gem upgrades,
-  by switching to a new clean set of gems to test with, while leaving your original set intact. 
-  It is flexible enough to even let you maintain a set of gems per environment, or per development 
+  by switching to a new clean set of gems to test with, while leaving your original set intact.
+  It is flexible enough to even let you maintain a set of gems per environment, or per development
   branch, or even per individual developer's taste!
 
 %h2 Development
@@ -84,30 +84,30 @@
   No more hidden gotchas: if it works for one of them, it will work in all of them.
   With named gemsets, you can reliably and immediately push changes from one environment to another.
   And, RVM is for Ruby applications, *not just for Rails*!
-  %em Any 
+  %em Any
   Ruby based application will benefit from your use of RVM.
 
 %h2 Testing
 
 %p
-  RVM enables you to easily test both upgrade and escape paths very easily and consistently. 
-  With RVM, you can run a test suite, rake tasks, benchmarks and gem commands against multiple ruby 
+  RVM enables you to easily test both upgrade and escape paths very easily and consistently.
+  With RVM, you can run a test suite, rake tasks, benchmarks and gem commands against multiple ruby
   versions
   %em at the same time.
-  This means that you can easily ensure your applications work in Ruby 1.8.X, REE, MRI 1.9.1, jruby, 
+  This means that you can easily ensure your applications work in Ruby 1.8.X, REE, MRI 1.9.1, jruby,
   etc... and quickly expose any areas in which they do not.
 
 %h2 Gem Management
 %p
-  RVM has an extremely flexible gem management system called Named Gem Sets. RVM's 'gemsets' make 
-  managing gems across multiple versions of Ruby a non-issue. RVM lets you add a small text file to 
-  your application's repository, instead of checking in tons of gems which would needlessly inflate 
-  your repository size. Additionally, RVM's gemset management uses a common cache directory, so only 
+  RVM has an extremely flexible gem management system called Named Gem Sets. RVM's 'gemsets' make
+  managing gems across multiple versions of Ruby a non-issue. RVM lets you add a small text file to
+  your application's repository, instead of checking in tons of gems which would needlessly inflate
+  your repository size. Additionally, RVM's gemset management uses a common cache directory, so only
   one downloaded version of each gem resides on disk rather than several copies.
 
 %p
   RVM helps ensure that all aspects of Ruby are completely contained within user space, strongly
-  encouraging safer, non-root use. Use of RVM rubies thus provides a higher level of system security, 
+  encouraging safer, non-root use. Use of RVM rubies thus provides a higher level of system security,
   and therefore reduces risk and cuts overall system downtime. Additionally, since all processes run at
   the user level, a compromised ruby process cannot compromise the entire system.
 

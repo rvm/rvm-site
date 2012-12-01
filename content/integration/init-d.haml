@@ -10,27 +10,27 @@
 
 %p
   As an example, if you'd installed unicorn without RVM, you might have created an init.d script
-  for it that looks like this one from 
+  for it that looks like this one from
   %a{ :href=>"https://gist.github.com/504875" }
     a gist that ranked highly for the search "init.d script for unicorn"
   at the time of this writing.
 
 %p
-  In that script, the command to start unicorn is given as 
+  In that script, the command to start unicorn is given as
 
 %pre.code
   :preserve
     /usr/bin/unicorn_rails
-    
-%p 
+
+%p
   However, if you are using RVM, you might have installed unicorn under Ruby 1.9.3 p0 in a gemset called
   "rails31" (aka. "ruby-1.9.3-p0@rails31"). In that case, unicorn_rails would not be installed under /usr/bin,
   but would be under ~/.rvm/gems/ruby-1.9.3-p0@rails31/bin, and you would need to set the environment variables
   up correctly to have it run as expected.
 
-%p 
+%p
   Instead of doing it manually, you can create a wrapper script for unicorn using RVM:
-  
+
 %pre.code
   :preserve
     rvm wrapper ruby-1.9.3-p0@rails31 bootup unicorn_rails
@@ -43,5 +43,5 @@
   Thus, when setting up your init files, instead of using the direct path to unicorn_rails, you would
   instead use the path to bootup_unicorn_rails.
 
-%p 
-  Use wrapper scripts for any Ruby gem executable you need to run with init.d. 
+%p
+  Use wrapper scripts for any Ruby gem executable you need to run with init.d.
