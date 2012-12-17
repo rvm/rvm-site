@@ -153,6 +153,15 @@ Finally, to install without the "rubygems-bundler" or "rvm" gems:
 %p
   If the install script is run as a standard, non-root user, RVM will install into the current users's home directory.
 
+%p
+  Modification of user configuration files (*rc / *profile) - RVM by default will modify
+  user startup files, although it is not recommended you can disable automated process
+  and do this manually (RVM version 1.18 / head):
+  %pre.code
+    :preserve
+      user$ \curl -L https://get.rvm.io | bash -s -- --ignore-dotfiles
+      user$ echo "source $HOME/.rvm/scripts/rvm" >> ~/.bash_profile
+
 %h4 Multi-User Install Location: /usr/local/rvm
 %p
   If the install script is run prefixed with sudo, RVM will automatically install into /usr/local/rvm
