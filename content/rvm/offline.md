@@ -28,7 +28,7 @@ feel free to propose fixes here: [rvm offline source](https://github.com/rvm/rvm
 2. Set rubygems version: `echo rubygems_version=1.8.24 >> $rvm_path/user/db`
 3. Clean default gems: `echo "" > ~/.rvm/gemsets/default.gems`
 4. Clean global gems: `echo "" > ~/.rvm/gemsets/global.gems`
-5. Install Ruby: `rvm install 1.9.3-p327`
+5. Install Ruby: `rvm install 1.9.3-p327 --disable-binary`
 
 
 ## Installing gems
