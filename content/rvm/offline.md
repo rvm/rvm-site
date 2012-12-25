@@ -17,7 +17,7 @@ feel free to propose fixes here: [rvm offline source](https://github.com/rvm/rvm
 ## Download Ruby and rubygems
 
 1. Find ruby: http://ftp.ruby-lang.org/pub/ruby/1.9/
-2. Download ruby: `curl -L http://ftp.ruby-lang.org/pub/ruby/1.9/ruby-1.9.3-p286.tar.bz2 -o ruby-1.9.3-p286.tar.bz2`
+2. Download ruby: `curl -L http://ftp.ruby-lang.org/pub/ruby/1.9/ruby-1.9.3-p327.tar.bz2 -o ruby-1.9.3-p327.tar.bz2`
 3. Find rubygems version: https://github.com/rubygems/rubygems/tags
 4. Download rubygems, just replace version in the following URL: `curl -L http://production.cf.rubygems.org/rubygems/rubygems-1.8.24.tgz -o rubygems-1.8.24.tgz`
 
@@ -28,7 +28,7 @@ feel free to propose fixes here: [rvm offline source](https://github.com/rvm/rvm
 2. Set rubygems version: `echo rubygems_version=1.8.24 >> $rvm_path/user/db`
 3. Clean default gems: `echo "" > ~/.rvm/gemsets/default.gems`
 4. Clean global gems: `echo "" > ~/.rvm/gemsets/global.gems`
-5. Install Ruby: `rvm install 1.9.3-p286`
+5. Install Ruby: `rvm install 1.9.3-p327`
 
 
 ## Installing gems
