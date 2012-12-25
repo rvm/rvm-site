@@ -33,7 +33,7 @@ feel free to propose fixes here: [rvm offline source](https://github.com/rvm/rvm
 
 ## Installing gems
 
-There are multiple ways to install gems, you could download the gem files, but the best way seams to be Bundler:
+There are multiple ways to install gems, you could download the gem files, but the best way seems to be Bundler:
 http://gembundler.com/bundle_package.html
 
 Example installing `rails` gem:
