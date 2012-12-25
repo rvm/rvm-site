@@ -8,8 +8,8 @@ feel free to propose fixes here: [rvm offline source](https://github.com/rvm/rvm
 ## Installing RVM offline
 
 1. Find package to download: https://github.com/wayneeseguin/rvm/tags
-2. Download rvm: `curl -L https://github.com/wayneeseguin/rvm/tarball/1.16.13 -o rvm-1.16.13.tar.gz`
-3. Unpack it: `tar --strip-components=1 -xzf rvm-1.16.13.tar.gz`
+2. Download rvm: `curl -L https://github.com/wayneeseguin/rvm/tarball/1.17.5-o rvm-1.17.5.tar.gz`
+3. Unpack it: `tar --strip-components=1 -xzf rvm-1.17.5.tar.gz`
 4. Install rvm: `./install --auto`
 5. Load rvm: `source ~/.rvm/scripts/rvm`
 
