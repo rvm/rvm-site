@@ -31,52 +31,18 @@
   Post Install Configuration
 
 %p
-  The rvm installation documentation instructs you to put the following line at the very end of your
-  bash profile:
-  %pre.code
-    :preserve
-      [[ -s "$HOME/.rvm/scripts/rvm" ]] && . "$HOME/.rvm/scripts/rvm" # This loads RVM into a shell session.
-
-%p
-  NOTE: This is for a <b>user</b> install. If you installed with sudo then you substitute '$HOME/.rvm'
-  with '/usr/local/rvm'.
-%p
-  For those who are not very familiar with bash scripting, I will explain in the next few paragraphs what the line above does.
-%p
-  Here we see that [[ condition ]] evaluates the condition inside the double brackets, and returns true or false. The option -s tells bash to look for the named file, and decide whether it exists and is nonempty. So the line:
-  %pre.code
-    :preserve
-      [[ -s "$HOME/.rvm/scripts/rvm" ]]
-
-  looks inside the default rvm scripts folder <i>'~/.rvm/scripts/'</i> for rvm, and returns true or
-  false based on that criteria.
-
-%p
-  Next, the &amp;&amp; operator (a logical AND with short-circuit) executes the rest of the line if,
-  and only if, the previous test returns true. This means that, in our rvm example, if the file '~/.
-  rvm/scripts/rvm' is not found (or is empty) then bash ignores the rest of the line.
-
-  NOTE: I've seen the &amp;&amp; used a lot when installing software from source in linux for make
-  &amp;&amp; sudo make install -- if make fails, then it doesn't try to install it to your system.
-  This is the joy of command chaining at its finest.
-
-%p
-  Finally, the shell command '.' file is identical to the bash/zsh 'source' command.
-  This command reads the file listed after it and executes each command listed in the currently
-  running shell. This means that:
-  %pre.code
-    :preserve
-      . "$HOME/.rvm/scripts/rvm"
-
-  executes the rvm shell script, which contains the master 'rvm()'
-  function that you will be using to issue RVM commands in your shell.
-  NOTE: Sometimes on OS X, '.' fails to source correctly. If that happens, simply change '.' for
-  'source'.
-%p
-  Note that the '#' is the shell comment character so everything after it is
-  a comment and ignored by the shell when the line is executed.
-%p
   When you log in either via ssh or the local shell account RVM will be loaded as a function.
+  In case of problems use one of following links as reference for configuring your terminal:
+
+  %ul
+    %li
+      %a{:href => "/integration/gnome-terminal/"}
+        Gnome Terminal integration
+    %li
+      %a{:href => "/workflow/screen/"}
+        Screen Workflow
+
+
 %p
   For non-interactive shells RVM will be added to PATH only, not loaded.
   This means using rubies is not possible in this mode, but there are simple methods to load ruby:
@@ -85,20 +51,13 @@
       source $(rvm 1.9.3 do rvm env --path)
 
   Then, when you login or spawn a shell this will automatically load RVM regardless of the shell type.
-  Pretty handy, huh? Also, make sure the RVM sourcing line is the <i>last</i> line in your
-  '$HOME/.bash_profile'. This stops anything else from being able to override it since it will be
-  the last thing executed from the .bash_profile.
+  Pretty handy, huh?
 
-  If you are using the ZSH shell then you can place the sourcing line in your  in ~/.zshrc.
 %p
   You should now open a new shell and start playing with rvm.
 
 %p
   A note about the .bash_profile warning.
-  The
-  %a{:href => "/rvm/install"}
-    rvm install troubleshooting notes
-  explain how to change your bash profile to work with rvm.
   In a few linux distributions, the default .bash_profile (occasionally, the .bashrc) contains the
   following line:
   %pre.code
@@ -112,6 +71,7 @@
   is true if the string "$PS1" has zero length (a non-interactive shell).
   rvm needs to load for both interactive and non-interactive shells which is why it strongly is
   recommended to alter this file.
+
 %p
   First ensure that the previous step was successful and that rvm is loaded correctly.
   To do this, and verify that RVM is loaded *as a shell function*, run:
@@ -142,13 +102,13 @@
 
 %p
   NOTE: There has been some confusion amongst new users as to the proper way to switch between Ruby
-  versions.  Do not include the 'ruby-' portion of whatever is listed in the output of
+  versions.  It is not required to include the 'ruby-' portion of whatever is listed in the output of
   %pre.code
     :preserve
       rvm list
   for installed rubies. This is just used to indicate the differences between, say, REE rubies, and
   MRI rubies, etc. However, do note that when you are switching between an MRI or Rubinus, or REE,
-  as an example, <i>then</i> you use the ree|ruby|rbx part. When you want to switch, just use the
+  as an example, <i>then</i> you need to use the ree|ruby|rbx part. When you want to switch, just use the
   version number and any patch level. If its a -head version use the full string as it will not
   contain numbers. This also applies when setting a default Ruby. Below is an example of what I mean:
 
