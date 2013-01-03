@@ -50,6 +50,17 @@ You can also:
     %a{:href => "http://railscasts.com/episodes/310-getting-started-with-rails", :target=>"_blank"}
       RailsCasts.com on Getting Started with Rails
 
+%h2#scripting Automated installation
+%p
+  RVM allows two basic modes of operation interactive and non interactive.
+  In interactive mode RVM is sourced as a function and is intended to interact with environment.
+  In non interactive mode RVM is only added to PATH and can not interact with the environment.
+  Because the interactive mode is intended mostly for use by users it also will display additional
+  information and dialogs. To avoid this do not source rvm as a function or fallback to using binary
+  with one of the following methods:
+  = sh_cmd "/full/path/to/rvm/bin/rvm install 1.9.3"
+  OR:
+  = sh_cmd "command rvm install 1.9.3"
 
 %h2#patchlevel Patch Levels
 %p
