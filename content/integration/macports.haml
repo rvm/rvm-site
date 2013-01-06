@@ -5,11 +5,27 @@
 %h1 Using MacPorts with RVM
 
 %p
-  In order to use MacPorts GCC,
-  set the following variables in your $HOME/.rvmrc:
-%pre.code
-  :preserve
-    export CC="/usr/bin/gcc-4.2"
+  In order to use MacPorts GCC, ...
+
+%p
+  If the apple-gcc42 MacPorts package is not already installed, then install it:
+  %pre.code
+    :preserve
+      sudo port install apple-gcc42
+%p
+  Ensure that both the gcc-4.2 and g++-4.2 symbolic links are present in the
+  \/usr/bin/ directory. If either or both of those is not present, then create
+  them. For example...
+  %pre.code
+    :preserve
+      sudo ln -s /opt/local/bin/gcc-apple-4.2 /usr/bin/gcc-4.2
+      sudo ln -s /opt/local/bin/g++-apple-4.2 /usr/bin/g++-4.2
+
+%p
+  Set the following variables in your $HOME/.rvmrc:
+  %pre.code
+    :preserve
+      export CC="/usr/bin/gcc-4.2"
 
 %h2 Using MacPorts only libraries
 
