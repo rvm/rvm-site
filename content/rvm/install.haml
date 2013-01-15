@@ -225,7 +225,8 @@ Finally, to install without the "rubygems-bundler" or "rvm" gems:
   Please bear in mind that 'system' in this context does not refer to your distribution's ruby packages, but to the RVM Multi-User installation.
 
 %p
-  You have two possibilities to manage RVM. The first one is to add managers to the rvm group. The second one is to use rvmsudo and privilege escalation.
+  You have two possibilities to manage RVM. The first one is to add managers to the rvm group. The second one is to use separate managers with rvmsudo and privilege escalation.
+  Note that it is not safe to use rvmsudo from mixed mode user.
   Both can be mixed without any side-effect. It is however very important to not enable mixed-mode gemsets or rubies for the managers.
   RVM is using a custom umask (umask u=rwx,g=rwx,o=rx) when installing gemsets, rubies, updating itself, etc.
   This should not impact your system. But if you prefer to avoind RVM messing around with your umask, you can comment the umask line in /etc/rvmrc.
