@@ -37,7 +37,7 @@
     Using /home/mpapis/.rvm/gems/rbx-head-default_19
 
 %p
-  or simply add a suffix to an existing ruby name:
+  or simply add a hyphen and the name as a suffix to a valid ruby version:
 %pre.code
   :preserve
     $ rvm install 1.9.2-named
@@ -49,11 +49,42 @@
 
 %h2 Selecting names for your Rubies
 %p
-  There are strict rules for the names of named rubies. A named ruby must
-  be a valid ruby (non-exhaustive list available by typing 'rvm list known'),
-  followed by a suffix that must not match any other version specifier while
-  also matching this regexp pattern:
+  There are strict rules for the names of named rubies. First, the name of
+  a named ruby must match the following regexp pattern:
 %pre.code
   :preserve
-    -[[:alpha:]][[:alnum:]_]*
+    [[:alpha:]][[:alnum:]_]*
+%p
+  Second, the name must also not match any other version specifier,
+  nor any of the following regexp patterns:
+%pre.code
+  :preserve
+    head
+    system
+    nightly
+    preview.*
+    rc[[:digit:]].*
+    p[[:digit:]].*
+    r[[:digit:]].*
+    s[[:alnum:]].*
+    tv[[:digit:]].*
+    t[[:digit:]].*
+    m[[:digit:]].*
+    u[[:alnum:]].*
+    a[[:digit:]][[:digit:]].*
+    b[[:digit:]].*
+    ruby
+    rbx
+    jruby
+    macruby
+    ree
+    kiji
+    rubinius
+    maglev
+    ironruby
+    goruby
 
+%p
+  If the above list is incomplete or you find exceptions please feel free to
+  %a{ :href => "/development/contributing/" }
+    contribute.
