@@ -29,6 +29,15 @@
     :preserve
       $ rvm install 1.9.3 --patch https://github.com/ruby/ruby/commit/2741a598ff9e561c71eb39a57bb19c0a3205eaef.patch
 
+  %p
+    It is also possible to specially name a patched ruby (see 
+    %a{ :href => "/rubies/named/" }
+      Named Rubies
+    for more details).
+  %pre.code
+    :preserve
+      $ rvm install 1.9.2-myversion --patch /path/to/weird.patch
+
 %h1 Contributing patches
 %h2 Testing patches
 %h3 Functionality improvements
