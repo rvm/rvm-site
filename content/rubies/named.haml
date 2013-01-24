@@ -12,12 +12,22 @@
 %h1 Named Rubies
 %p
   RVM allows you to install the same ruby multiple times using suffixes.
+  This can be useful for a number of purposes, such as making and testing
+  patches for a ruby itself.
+  You may also want to read about 
+  %a{:href => "/rubies/patching/"}
+    how to patch
+  and 
+  %a{:href => "/rubies/alias/"}
+    how to alias
+  rubies.
 
-%h2 Creating Named Ruby
+%h2 Creating a named Ruby
 %p
-  The process is the same as installation, just use
+  The process is the same as installation, just use the
   %strong -n {name}
-  switch
+  
+  switch:
 %pre.code
   :preserve
     $ rvm install rbx -n default_19 -- --default-version=1.9
@@ -26,6 +36,8 @@
     $ rvm use rbx-default_19
     Using /home/mpapis/.rvm/gems/rbx-head-default_19
 
+%p
+  or simply add a hyphen and the name as a suffix to a valid ruby version:
 %pre.code
   :preserve
     $ rvm install 1.9.2-named
@@ -35,19 +47,16 @@
     $ rvm use 1.9.2-named
     Using /home/mpapis/.rvm/gems/ruby-1.9.2-p290-named
 
-%h2 Selecting names for your rubies
+%h2 Selecting names for your Rubies
 %p
-  There are strict rules for creating named rubies, mostly the name can not be
-  name of other ruby, it can not be also any other common version specifier.
-
-%p
-  The name requires to match following patter(regexp):
+  There are strict rules for the names of named rubies. First, the name of
+  a named ruby must match the following regexp pattern:
 %pre.code
   :preserve
     [[:alpha:]][[:alnum:]_]*
-
 %p
-  Here is a list of rules that will match before name(regexp):
+  Second, the name must also not match any other version specifier,
+  nor any of the following regexp patterns:
 %pre.code
   :preserve
     head
@@ -76,6 +85,6 @@
     goruby
 
 %p
-  If the above list is not complete or you found exceptions please feel free to
+  If the above list is incomplete or you find exceptions please feel free to
   %a{ :href => "/development/contributing/" }
     contribute.
