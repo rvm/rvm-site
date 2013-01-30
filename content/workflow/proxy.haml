@@ -17,6 +17,10 @@
   export http_proxy="http://hostname:port" or save it to your shell profile. (i.e. ~/.bash_rc)
 %pre.code
   export http_proxy="http://example.proxy_name.com:80"
+%p
+  For multi-user installs, use sudo -E to preserve the proxy settings in your environment:
+%pre.code
+  curl -L https://get.rvm.io | sudo -E bash -s stable
 
 %h2
   Setting git to use a proxy
