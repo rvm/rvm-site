@@ -19,7 +19,7 @@
 
 %pre.code
   :preserve
-    $ rvm docs generate all
+    $ rvm docs generate
 
 %p
   Please not that this requires the extracted source for the currently selected
@@ -33,7 +33,7 @@
 
 %pre.code
   :preserve
-    $ rvm all do rvm docs generate all
+    $ rvm all do rvm docs generate
 
 %p
   If you have executed a cleanup, unfortunately, this means to regenerate the
@@ -41,7 +41,7 @@
 
 %pre.code
   :preserve
-    $ rvm reinstall 1.9.3-p194 && rvm docs generate all
+    $ rvm reinstall 1.9.3-p194 && rvm docs generate
 %p
   As always, don't forget to pass whatever additional parameters such as --patch
   to the reinstall portion of the command that you initially used, if any.
