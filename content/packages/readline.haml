@@ -12,10 +12,12 @@
 %h2
   Quick fix
 %p
+  Update RVM:
+  = sh_cmd "rvm get head"
   Remove all the manually installed packages:
-  = sh_cmd "rm -rf $rvm_path/usr"
-  Find the requirements (follow the instructions):
-  = sh_cmd "rvm requirements"
+  = sh_cmd "rvm pkg remove"
+  Install the required libraries:
+  = sh_cmd "rvm requirements run"
   Reinstall ruby:
   = sh_cmd "rvm reinstall 1.9.3"
 
