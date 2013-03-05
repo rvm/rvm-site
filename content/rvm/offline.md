@@ -1,4 +1,3 @@
-
 # RVM in offline mode
 
 This is only rough description of the process, not all the steps need to work right away,
@@ -10,25 +9,33 @@ feel free to propose fixes here: [rvm offline source](https://github.com/rvm/rvm
 1. Find package to download: https://github.com/wayneeseguin/rvm/tags
 2. Download rvm: `curl -L https://github.com/wayneeseguin/rvm/tarball/stable -o rvm-stable.tar.gz`
 3. Unpack it: `tar --strip-components=1 -xzf rvm-stable.tar.gz`
-4. Install rvm: `./install --auto`
+4. Install rvm: `./install --auto-dotfiles`
+   * use --help to get the options
+   * sudo may be required depending on the type of [install](https://rvm.io/rvm/install/)
 5. Load rvm: `source ~/.rvm/scripts/rvm`
+   * if --path was specified when instaling rvm, use the specified path rather than '~/.rvm'
 
 
-## Download Ruby and rubygems
+## Download Ruby, rubygems and yaml
 
-1. Find ruby: http://ftp.ruby-lang.org/pub/ruby/1.9/
-2. Download ruby: `curl -L http://ftp.ruby-lang.org/pub/ruby/1.9/ruby-1.9.3-p362.tar.bz2 -o ruby-1.9.3-p362.tar.bz2`
-3. Find rubygems version: https://github.com/rubygems/rubygems/tags
-4. Download rubygems, just replace version in the following URL: `curl -L http://production.cf.rubygems.org/rubygems/rubygems-1.8.24.tgz -o rubygems-1.8.24.tgz`
+1. Download ruby
+   * Find version at: http://ftp.ruby-lang.org/pub/ruby/1.9/
+   * Download with curl: : `curl -L http://ftp.ruby-lang.org/pub/ruby/1.9/ruby-1.9.3-p392.tar.bz2 -o ruby-1.9.3-p392.tar.bz2`
+   * Must use ruby source archive with .tar.bz2 extension!
+2. Download rubygems
+   * Find version at: https://github.com/rubygems/rubygems/tags
+   * Download with curl: `curl -L http://production.cf.rubygems.org/rubygems/rubygems-1.8.25.tgz -o rubygems-1.8.25.tgz`
+3. Download yaml (required by rvm)
+   * Download from rvm.io with curl: `curl -L https://rvm.io/src/yaml-0.1.4.tar.gz -o https://rvm.io/src/yaml-0.1.4.tar.gz`
 
 
 ## Installing Ruby
 
-1. Copy ruby and rubygems to `$rvm_path/archives/`
-2. Set rubygems version: `echo rubygems_version=1.8.24 >> $rvm_path/user/db`
+1. Copy ruby, rubygems and yaml to `$rvm_path/archives/`
+2. Set rubygems version: `echo rubygems_version=1.8.25 >> $rvm_path/user/db`
 3. Clean default gems: `echo "" > ~/.rvm/gemsets/default.gems`
 4. Clean global gems: `echo "" > ~/.rvm/gemsets/global.gems`
-5. Install Ruby: `rvm install 1.9.3-p362 --disable-binary`
+5. Install Ruby: `rvm install 1.9.3-p392 --disable-binary` (this may require sudo)
 
 
 ## Installing gems
