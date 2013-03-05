@@ -9,13 +9,13 @@
   </strong>
 
 Install RVM with ruby:
-= sh_cmd "\\curl -L https://get.rvm.io | bash -s stable --ruby"
+= sh_cmd "\\curl -L https://get.rvm.io | bash -s stable --autolibs=3 --ruby"
 Additionally with rails:
-= sh_cmd "\\curl -L https://get.rvm.io | bash -s stable --rails"
-Or with rubinius, rails and puma:
-= sh_cmd "\\curl -L https://get.rvm.io | bash -s stable --ruby=rbx --gems=rails,puma"
+= sh_cmd "\\curl -L https://get.rvm.io | bash -s stable --autolibs=3 --rails"
+Or with jruby, rails and puma:
+= sh_cmd "\\curl -L https://get.rvm.io | bash -s stable --autolibs=3 --ruby=jruby --gems=rails,puma"
 Finally, to install without the "rubygems-bundler" or "rvm" gems:
-= sh_cmd "\\curl -L https://get.rvm.io | bash -s stable --without-gems=\"rvm rubygems-bundler\""
+= sh_cmd "\\curl -L https://get.rvm.io | bash -s stable --autolibs=3 --without-gems=\"rvm rubygems-bundler\""
 
 %p
   Point to be noted is, there is a backslash before <b>curl</b>. This prevents misbehaving if
