@@ -57,15 +57,14 @@
   Lastly, ensure you remove the lines from ~/.rvm/config/user after you've installed the version you want.
 
 %p
-  NOTE: on any OS, if installation of REE fails and the output file
+  NOTE: On any OS and REE < 2011.01, if the installation fails and the output file
   reports missing readline-devel, zlib-devel, and openssl-devel
   headers AND you are sure that you have read the
   %a{ :href => "/packages/" } packages install instructions -
-  or you are otherwise positive that you have the necessary packages
+  or you are otherwise positive you have the necessary packages
   installed in a known location - check your PATH environment
   variable to make sure something like "/usr/lib" is NOT present.
-  See this
-  %a{ :href=> "http://code.google.com/p/rubyenterpriseedition/issues/detail?id=59&colspec=ID%20Type%20Status%20Priority%20Milestone%20Summary" } REE issue
+  See https://code.google.com/p/rubyenterpriseedition/issues/detail?id=59
   for more information.  If you don't want to change your PATH variable
   then this patch fixes the issue in REE 2010.02
 

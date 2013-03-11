@@ -1,16 +1,19 @@
-= breadcrumbs "Integration", "Hudson"
+= breadcrumbs "Integration", "Jenkins"
 
-%a{:name => "hudson"}
-%h1 Continuous Integration with Hudson
+%a{:name => "jenkins"}
+%h1 Continuous Integration with Jenkins
 
 %p
   Integrating rvm with
-  %a{:href => "http://hudson-ci.org/"} hudson
+  %a{:href => "http://jenkins-ci.org/"} Jenkins
   not only allows you to test multiple projects
   with different gemsets yet it also lets you test varying codebases against
   multiple rubies at the same time. The follow guide is aimed based primarily
   on a Ubuntu install but the instructions should be compatible with
-  any platform. Please note these instructions were based off of Nick Quaranto's
+  any platform.
+
+%p
+  Please note these instructions were based off of Nick Quaranto's
   %a{:href => "http://robots.thoughtbot.com/post/712609699/sailing-down-the-hudson-with-rvm"} excellent blog post
   on the thoughbot blog and adapted for more general purpose use.
 
@@ -20,7 +23,7 @@
   In general, you need to:
 
 %ul
-  %li Have hudson setup on a special user
+  %li Have jenkins setup on a special user
   %li Setup rvm (optionally with rvm settings to automatically install rubies)
   %li Use rvmrc's where possible / bundle install in shell tasks with the -e passed to the shebang.
   %li Source rvm manually if it's not available.
@@ -28,10 +31,10 @@
 %p
   For a more detailed guide, see below:
 
-%h2 Step 1. Getting and Installing Hudson
+%h2 Step 1. Getting and Installing Jenkins
 
 %p
-  The first step is to install hudson on your system of choice. Currently,
+  The first step is to install jenkins on your system of choice. Currently,
   you have several ways of getting it:
 
 %ol
@@ -39,26 +42,26 @@
   %li Downloading and setting it up manually
   %li
     Using
-    %a{:href => "http://github.com/cowboyd/hudson.rb"} hudson.rb
+    %a{:href => "http://github.com/cowboyd/jenkins.rb-history"} jenkins.rb
     (which bundles common plugins etc)
 
 %p
   If you choose method two or three, you'll need to first create a new user
-  for hudson (typically called 'hudson'). In our case, we'll use the first option
+  for jenkins (typically called 'jenkins'). In our case, we'll use the first option
   by following
-  %a{:href => "http://wiki.hudson-ci.org/display/HUDSON/Installing+Hudson+on+Ubuntu"} the instructions
-  on the official hudson website. This approach takes care of automatically setting
-  up init.d for us and also automatically creates the hudson user.
+  %a{:href => "http://wiki.jenkins-ci.org/display/jenkins/Installing+Jenkins+on+Ubuntu"} the instructions
+  on the official jenkins website. This approach takes care of automatically setting
+  up init.d for us and also automatically creates the jenkins user.
 
 %p
-  If setting it up manually, I would suggest installing hudson via hudson.rb for
+  If setting it up manually, I suggest installing jenkins via jenkins.rb for
   the niceties it offers.
 
 %h2 Step 2. Setting up RVM
 
 %p
   The next step is arguably the most important - you need to actually setup rvm for the
-  hudson user added in the last step. First things first, we need to install all the dependencies.
+  jenkins user added in the last step. First things first, we need to install all the dependencies.
   In this case, we'll follow the
   %a{:href => '/os/ubuntu/'} ubuntu page
   and rvm notes by installing the items required to build each ruby.
@@ -72,18 +75,18 @@
   including the jdk - see the ubuntu page linked above for more information.
 
 %p
-  Next, you'll need to login as the ubuntu user, in this case - hudson.
+  Next, you'll need to login as the ubuntu user, in this case - jenkins.
 
 %pre.code
   :preserve
-    sudo -Hiu hudson
+    sudo -Hiu jenkins
 
 %p
   This should put you at a shall with bash loaded. So, now you can run the instructions
   on the
   %a{:href => "/rvm/install/"} rvm installation
   page - We strongly suggest using the rvm-install-head method
-  setting it up only for the hudson user.
+  setting it up only for the jenkins user.
 
 %p
   Next, we need to add rvm to our shell profile - in this case, we'll add the following
@@ -99,7 +102,7 @@
   but the rvm install.
 
 %p
-  Lastly, if we exit and relogin as hudson, rvm should now be loaded. You
+  Lastly, if we exit and relogin as jenkins, rvm should now be loaded. You
   can confirm this by typing:
 
 %pre.code
@@ -110,7 +113,7 @@
   Which should result in 'rvm is a function'.
 
 %p
-  Lastly, we'll add the following lines to ~/.rvmrc as the hudson user
+  Lastly, we'll add the following lines to ~/.rvmrc as the jenkins user
   to make the actual process easier in general:
 
 %pre.code
@@ -127,13 +130,13 @@
   approach is when we first use a ruby / gemset, rvm will automatically
   install the ruby and create a gemset.
 
-%h2 Step 3. Configuring Hudson / Adding projects
+%h2 Step 3. Configuring Jenkins / Adding projects
 
 %p
   For the actual hard work, we will be using the ability to run a shell script
-  with hudson.
+  with jenkins.
 %p
-  Our suggested setup is to use scripts like follows with the hudson
+  Our suggested setup is to use scripts like follows with the jenkins
   option to "Execute Shell Script":
 
 %pre.code
@@ -172,7 +175,7 @@
 
 %p
   And when cloning from git repositories, you'll need to ensure you add a ssh
-  key for the hudson user.
+  key for the jenkins user.
 
 %p
   Lastly, if you wish to use rubies from an rvmrc automatically / handle
@@ -184,11 +187,3 @@
 
 %p
   In place of the rvm use command / associated setup.
-
-%h1 Community Resources
-
-%ul
-  %li
-    Nick Quaranto's
-    %a{:href => "http://robots.thoughtbot.com/post/712609699/sailing-down-the-hudson-with-rvm"} excellent blog post
-    on using rvm with hudson on the thoughtbot blog.
