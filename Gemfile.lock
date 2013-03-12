@@ -14,14 +14,13 @@ GEM
     fssm (0.2.9)
     haml (3.1.7)
     mime-types (1.19)
-    nanoc (3.4.0)
-      cri (~> 2.2)
-    nanoc3 (3.3.0)
-      nanoc (>= 3.3.0)
+    nanoc (3.6.1)
+      cri (~> 2.3)
     nokogiri (1.5.5)
     rack (1.4.1)
+    rake (10.0.3)
     rdiscount (1.6.8)
-    sass (3.2.1)
+    sass (3.2.7)
 
 PLATFORMS
   ruby
@@ -34,8 +33,9 @@ DEPENDENCIES
   fssm
   haml
   mime-types
-  nanoc3
+  nanoc
   nokogiri
   rack
+  rake
   rdiscount
   sass

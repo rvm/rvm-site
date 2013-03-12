@@ -1,6 +1,5 @@
 rvm:
   - 1.9.3
-script: bundle exec nanoc compile
 language: ruby
 notifications:
   irc:
