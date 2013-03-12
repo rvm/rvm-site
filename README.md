@@ -43,11 +43,16 @@ hacking away.
 If you would like to view the changes locally as you hack,
 You can use Nanoc's AutoCompile feature:
 
-    nanoc3 aco
+    nanoc autocompile
 
-Validating site links integrity:
+Validating site links integrity with nanoc:
 
-    nanoc validate-links
+    nanoc check external_links
+    nanoc check internal_links
+
+or, use rake via the default 'test' task, which compiles then checks links:
+
+    rake
 
 
 ## Update Submission
