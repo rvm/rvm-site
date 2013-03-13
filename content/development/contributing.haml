@@ -26,25 +26,34 @@
 
 %ol
   %li
+    Read the
+    %a{:href => "https://github.com/wayneeseguin/rvm/blob/master/HACKING.md"} How to hack on RVM
+    guide.  It explains how to setup a second copy of RVM to allow you to hack without
+    disturbing your primary RVM installation and how to use the RVM test suite.
+
+  %li
     When contributing, either keep patches small and clear, or work on a topic
     branch - this makes it easier for us to merge in discrete changes, and means
     you always keep things separate where needed.
+
   %li
-    The code has to be compatible with bash, and takes an almost git-like design
-    architecturally.
-    Many actions (e.g. aliases) call out to a script in the ~/.rvm/scripts
-    directory. For an example of the new, simplified style for coding these, make
-    sure you check out:
+    The code has to be compatible with bash, and takes an almost git-like
+    design architecturally.  Many actions (e.g. aliases) call out to a script
+    in the ~/.rvm/scripts directory. For an example of the new, simplified
+    style for coding these, make sure you check out:
+
     %ul
       %li scripts/snapshot
       %li scripts/repair
       %li scripts/tools
+
   %li
-    %em Clean
-    code is preferred - if in doubt, take a look back, and refactor.
+    <em>Clean</em> code is preferred - if in doubt, take a look back, and refactor.
+
   %li
-    Drop into the IRC room (#rvm on freenode) and chat to wayneeseguin if you have a task
-    in mind. You may find someone else has already started on it.
+    Visit our IRC channel #rvm on freenode and ask if you have a task in mind.
+    You may find someone else has already started on it.
+
   %li
     If you're interested in helping out, but don't have something specific in
     mind, check out the
@@ -54,15 +63,15 @@
 
 %ol
   %li
-    When you need to test out something on a fresh install, it's simplest to move the
-    \.rvm folder out of the way by renaming it, installing a new copy,
-    and then moving your old copy back when you're finished.
-  %li
-    Generally, working in a clone of the repository is by far the best way
-    to go; from there, you can update your main install / ~/.rvm.
-    All you need to do is change to the root directory for it (e.g. ~/Code/rvm),
-    and run:
-    = sh_cmd "./install"
+    Generally, working in a clone of the repository is by far the best way to go.
+    When you need to test out something on a fresh install, install a new RVM to a separate path,
+    then use `rvm switch ...` to use it.  This is discussed in the
+    %a{:href => "https://github.com/wayneeseguin/rvm/blob/master/HACKING.md"} hacking guide.
+    %pre.code
+      :preserve
+        $ ./install --path $HOME/.rvm-dev
+        $ rvm switch $HOME/.rvm-dev"
+
   %li
     It helps to use bash as your primary shell, but for some features you'll
     want to have zsh installed as well, to ensure compatibility.
