@@ -7,18 +7,15 @@
   RVM will allow you to use any of it's MRI/YARV rubies with passenger very easily.
 
 %h1
-  Passenger
+  Passenger 3
 %p
   Passenger is essentially 'mod_ruby' for both Nginx and Apache.
-  You may select *exactly one* Ruby to run all of your Passenger Ruby applications with.
-  If you need to run more than one Ruby interpreter then you should choose the most common one as Passenger Ruby.
+  You may select *exactly one* Ruby to run all of your Passenger 3 applications.
+  If you need to run more than one Ruby interpreter then you should choose the most common one.
   You then use proxy pass to external application servers such as Passenger Standalone, Unicorn, Thin, Mongrel, Mongrel2, etc... in order to accomplish running different applications under different rubies.
   For a full explanation of this (with pretty pictures!) see the
   %a{:href => "http://blog.phusion.nl/2010/09/21/phusion-passenger-running-multiple-ruby-versions/"}
     post on Phusion's Blog
-
-%h1
-  Passenger *3*
 
 %h2
   Installing Nginx/Apache with Passenger
@@ -90,79 +87,6 @@
 %p
   to your app's main file (before the "require" calls). You won't be able to load any gems that are not in that load path.
 
-%h1
-  Passenger *2* with RVM
-
-%h3
-  Select a Passenger Ruby and Generate Wrapper Scripts
-%p
-  Run RVM using your desired Ruby interpreter, and pass the '--passenger' option.  This will generate wrapper scripts in RVM's bin directory (see Notes below).
-  These wrapper scripts ensure environment variables such as GEM_HOME and GEM_PATH are set correctly for
-  applications run by passenger. E.g:
-
-%pre.code
-  :preserve
-    rvm ree --passenger
-
-%p
-  Alternatively, you can use the rvm wrapper command directly:
-
-%pre.code
-  :preserve
-    rvm wrapper ree@ninjas passenger
-
-%h3
-  Install Passenger
-%pre.code
-  :preserve
-    rvm ree
-    gem install passenger
-    rvmsudo passenger-install-nginx-module
-%p
-  Or if you are forced to use the tomahawk,
-%pre.code
-  :preserve
-    rvmsudo passenger-install-apache2-module
-
-%h3
-  Configure the Web Server
-%p
-  For Nginx users, replace the passenger_ruby line with:
-
-%pre.code
-  :preserve
-    passenger_ruby /home/wayne/.rvm/bin/passenger_ruby;
-%p
-  For apache users, use:
-
-%pre.code
-  :preserve
-    PassengerRuby /home/wayne/.rvm/bin/passenger_ruby
-
-%p
-  Please note that if you installed rvm with sudo, instead of using
-  \/home/wayne/.rvm/bin/passenger_ruby as in the above examples, you will need to use
-  \/usr/local/rvm/bin/passenger_ruby.
-
-%h2 Notes
-%ul
-  %li
-    Add the passenger default user (PassengerDefaultUser/passenger_default_user) to the rvm group. On some systems this is 'www-data' and on others it might be 'http' or 'www'. One telling sign that you forgot to do this would be spending the better part of a day trying to figure out bizarre fork-bomb-like symptoms on passenger spawn (::grin::).
-
-  %li
-    Do no not forget to configure the production environment and/or to set the rails_env/RailsEnv variable to development into nginx.conf/httpd.conf for the virtual server config block.
-    The RAILS_ENV defaults to 'production'.
-  %li
-    Be sure to change '/home/wayne' in the above examples to your own $HOME directory,
-  %li
-    The '.rvm/bin/passenger_ruby' is actually what is known as a 'wrapper script' which sets up the environment for the passenger so that it can find it's gems, etc... and then executes the actual ruby binary."
-  %li
-    passenger_root/PassengerRoot Should be something similar to the following, which
-    is for Passenger 2.2.11 installed under ree-1.8.7-2010.01.
-    %pre.code
-      :preserve
-         passenger_root /home/millisami/.rvm/gems/ree-1.8.7-2010.01/gems/passenger-2.2.11
-
 %h2
   Troubleshooting
 %ul
@@ -170,8 +94,8 @@
     The most common issue is forgetting the /bin/ part of the path to get the proper wrapper script:
   %li
     The next most common issue is listening to the output of the passenger installation script with
-    respect to where passenger_ruby/PassengerRuby are located. Be sure to use the wrapper script location
-    as specified above. To be more clear, see the example below for Nginx config:
+    respect to where the passenger_ruby/PassengerRuby is located. Be sure to use the wrapper script location
+    as specified above. To be more clear, see the nginx example below:
     %pre.code
       :preserve
         passenger_ruby /home/wayne/.rvm/bin/passenger_ruby;
@@ -191,8 +115,8 @@
     %p
       %strong Q: Can I run multiple projects under passenger with each project on a different ruby version?
     %p
-      A: Not at this time. Passenger currently only supports running it's projects under *one* ruby.
-      You can get this behavior using a proxy pass.
+      A: Passenger 3 only supports running under *one* Ruby, but you can get per-site/project behavior
+      using a proxy pass.
   %li
     %p
       %strong Q: How do I use custom gemsets under passenger?
@@ -203,8 +127,8 @@
         ENV["GEM_HOME"]=%x{"source ~/.bash_profile ; rvm ree@pancake ; rvm gemdir"}.strip
     %p
       Or, if you are already using rvmrc's, you can use the rvm ruby api and config/setup_load_paths.rb
-      in recent passenger versions by following the guide
-      %a{:href => "http://blog.ninjahideout.com/posts/the-path-to-better-rvm-and-passenger-integration"} located here.
+      in recent passenger versions by following
+      %a{:href => "http://blog.ninjahideout.com/posts/the-path-to-better-rvm-and-passenger-integration"} this guide.
     %p
       A: With bundler: Install bundler outside any gemset, switch back to the gemset you wish to use and run
       %tt bundle install
@@ -262,6 +186,3 @@
   %li
     %a{:href => "http://blog.phusion.nl/2010/09/21/phusion-passenger-running-multiple-ruby-versions/"}
       Phusion blog post on Passenger 3
-  %li
-    %a{:href => "http://blog.ninjahideout.com/posts/the-path-to-better-rvm-and-passenger-integration"}
-      Darcy's RSOC post on Passenger 2 + RVM Gemsets
