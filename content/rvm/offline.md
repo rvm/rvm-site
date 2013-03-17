@@ -27,7 +27,8 @@ This is only rough description of the process, not all the steps need to work ri
 3. Download yaml (required by rvm)
    * Download from rvm.io with curl: `curl -L https://rvm.io/src/yaml-0.1.4.tar.gz -o https://rvm.io/src/yaml-0.1.4.tar.gz`
 4. Save these packages for offline use by storing them in the rvm archive folder `$rvm_path/archives/` by default
-   * An alternate archive folder can be specified `--archives /path/to/tarballs/`
+   * An alternate archive folder can be specified in the .rvmrc file 
+   * sample usage: `echo rvm_archives_path=/path/to/tarballs/  ~/.rvmrc`
 
 
 ## Installing Ruby
