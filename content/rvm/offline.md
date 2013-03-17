@@ -1,13 +1,12 @@
 # RVM in offline mode
 
-This is only rough description of the process, not all the steps need to work right away,
-feel free to propose fixes here: [rvm offline source](https://github.com/rvm/rvm-site/tree/master/content/rvm/offline.md).
+This is only rough description of the process, not all the steps need to work right away, feel free to propose fixes here: [rvm offline source](https://github.com/rvm/rvm-site/tree/master/content/rvm/offline.md).
 
 
 ## Installing RVM offline
 
-1. Find package to download: https://github.com/wayneeseguin/rvm/tags
-2. Download rvm: `curl -L https://github.com/wayneeseguin/rvm/tarball/stable -o rvm-stable.tar.gz`
+1. Choose the version of RVM you wish to deploy from: https://github.com/wayneeseguin/rvm/tags
+2. Download the rvm tarball: `curl -L https://github.com/wayneeseguin/rvm/tarball/stable -o rvm-stable.tar.gz`
 3. Unpack it: `tar --strip-components=1 -xzf rvm-stable.tar.gz`
 4. Install rvm: `./install --auto-dotfiles`
    * use --help to get the options
@@ -27,6 +26,9 @@ feel free to propose fixes here: [rvm offline source](https://github.com/rvm/rvm
    * Download with curl: `curl -L http://production.cf.rubygems.org/rubygems/rubygems-1.8.25.tgz -o rubygems-1.8.25.tgz`
 3. Download yaml (required by rvm)
    * Download from rvm.io with curl: `curl -L https://rvm.io/src/yaml-0.1.4.tar.gz -o https://rvm.io/src/yaml-0.1.4.tar.gz`
+4. Save these packages for offline use by storing them in the rvm archive folder `$rvm_path/archives/` by default
+   * An alternate archive folder can be specified in the .rvmrc file 
+   * sample usage: `echo rvm_archives_path=/path/to/tarballs/  ~/.rvmrc`
 
 
 ## Installing Ruby
