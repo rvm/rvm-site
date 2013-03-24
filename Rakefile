@@ -2,6 +2,7 @@ require 'nanoc'
 require 'nanoc/cli'
 
 task :default => :test
+task :spec => :test
 
 desc 'Compile the site, then verify internal and external links.'
 task :test do
