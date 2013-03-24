@@ -10,7 +10,7 @@ This is only rough description of the process, not all the steps need to work ri
 3. Unpack it: `tar --strip-components=1 -xzf rvm-stable.tar.gz`
 4. Install rvm: `./install --auto-dotfiles`
    * use --help to get the options
-   * sudo may be required depending on the type of [install](https://rvm.io/rvm/install/)
+   * sudo may be required depending on the type of [install](/rvm/install/)
 5. Load rvm: `source ~/.rvm/scripts/rvm`
    * if --path was specified when instaling rvm, use the specified path rather than '~/.rvm'
 
