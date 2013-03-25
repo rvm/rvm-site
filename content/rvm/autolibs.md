@@ -24,9 +24,8 @@ __*This only applies to OS X users, for non OS X users this will behave like 3*_
 
 RVM can take care of everything for you as an OS X user, this means it will install Homebrew in the `.rvm` folder and manage all it's own dependencies. Typically this would be the best option for new users who do not have their own package manager installed and do not know how to compile their own software.
 
-
-
 Enabling 4:
+
 ```
 rvm autolibs 4
 ```
@@ -36,11 +35,13 @@ rvm autolibs 4
 RVM can also be set to only check for a package manager and install any packages you might need or that might need to be updated.  This is the recommended option for users who do not want to deal with the task of managing their own dependencies.  This option works for both Linux and OS X users.
 
 Enabling 3:
+
 ```
 rvm autolibs 3
 ```
 
 Using 3 only once:
+
 ```
 rvm install --autolibs=3
 ```
