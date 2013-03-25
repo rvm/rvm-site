@@ -1,6 +1,3 @@
-# Copyright 2012 Jordon Bedwell
-# MIT License
-
 require "typhoeus"
 
 Nanoc::Extra::Checking::Checks.send(:remove_const, :ExternalLinks)
@@ -54,8 +51,6 @@ module Nanoc::Extra::Checking::Checks
         hydra.run
 
         if i < self.class.count
-          $stdout.puts "looping again"
-          $stdout.puts hrefs
           (hrefs.empty?) ? break : sleep(i * 5)
         end
       end
