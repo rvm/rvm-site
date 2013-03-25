@@ -36,8 +36,6 @@ task :check_ssl do
   end
 
   if (Time.new + 432000) > cert.not_after
-    abort("expires_soon")
+    abort("There is a imminent problem brewing with SSL, it expires on: #{cert.not_after}")
   end
-
-  $stdout.puts "OK"
 end
