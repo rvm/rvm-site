@@ -13,10 +13,15 @@ end
 
 desc 'Compile the site, then verify internal and external links.'
 task :test do
-  Nanoc::CLI.run %w( compile )
-  Nanoc::CLI.run %w( check stale )
-  Nanoc::CLI.run %w( check internal_links )
-  Nanoc::CLI.run %w( check external_links )
+  Nanoc::CLI.run %w(compile)
+  Nanoc::CLI.run %w(check stale)
+  Nanoc::CLI.run %w(check internal_links)
+  Nanoc::CLI.run %w(check external_links)
+end
+
+desc "Deploy the site"
+task :deploy do
+  Nanoc::CLI.run %w(compile)
 end
 
 desc "Check if our SSL certificate is valid."
