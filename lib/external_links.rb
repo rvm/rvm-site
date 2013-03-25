@@ -1,6 +1,3 @@
-# Copyright 2012 Jordon Bedwell
-# MIT License
-
 require "typhoeus"
 
 Nanoc::Extra::Checking::Checks.send(:remove_const, :ExternalLinks)
