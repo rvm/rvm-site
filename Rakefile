@@ -1,5 +1,6 @@
 require 'nanoc'
 require 'nanoc/cli'
+require "./lib/external_links"
 
 task :default => :test
 task :spec => :test
