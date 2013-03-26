@@ -27,12 +27,8 @@ module Nanoc::Extra::Checking::Checks
       end
     end
 
-    # I could probably thread this out but fuck that noise, I'm not
-    # in the mood to deal with threading and what's the point of it
-    # here? Well I guess to make it faster but fuck that noise.
-
     def find_invalid(hrefs)
-      self.class.count.times do |i|
+      self.count.times do |i|
         hydra = Typhoeus::Hydra.new(max_concurrency: 20)
         hrefs.each do |l|
           hydra.queue(
@@ -50,7 +46,7 @@ module Nanoc::Extra::Checking::Checks
 
         hydra.run
 
-        if i < self.class.count
+        if i < self.count
           (hrefs.empty?) ? break : sleep(i * 5)
         end
       end
