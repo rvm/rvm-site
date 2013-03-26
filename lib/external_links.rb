@@ -28,7 +28,7 @@ module Nanoc::Extra::Checking::Checks
     end
 
     def find_invalid(hrefs)
-      self.count.times do |i|
+      self.class.count.times do |i|
         hydra = Typhoeus::Hydra.new(max_concurrency: 20)
         hrefs.each do |l|
           hydra.queue(
@@ -46,7 +46,7 @@ module Nanoc::Extra::Checking::Checks
 
         hydra.run
 
-        if i < self.count
+        if i < self.class.count
           (hrefs.empty?) ? break : sleep(i * 5)
         end
       end
