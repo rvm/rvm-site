@@ -4,31 +4,28 @@ Nanoc::Extra::Checking::Checks.send(:remove_const, :ExternalLinks)
 module Nanoc::Extra::Checking::Checks
   class ExternalLinks < Nanoc::Extra::Checking::Check
     identifiers :external_links, :elinks
-    @count = 4
-
-    class << self
-      attr_accessor :count
-    end
 
     def run
       hrefs =
         Nanoc::Extra::LinkCollector.new(
-          self.output_filenames.select { |f|
+          output_filenames.select { |f|
             File.extname(f) == ".html"
           }, :external
         ).filenames_per_href
 
       list = hrefs.keys.select { |u| u =~ %r!https?://! }
-      self.find_invalid(list).each do |l|
+      find_invalid(list).each do |l|
         filenames = hrefs[l]
         filenames.map do |f|
-          self.add_issue("#{l} is broken, fix it", subject: f)
+          add_issue("#{l} is broken, fix it", subject: f)
         end
       end
     end
 
     def find_invalid(hrefs)
-      self.class.count.times do |i|
+      count = 4
+
+      count.times do |i|
         hydra = Typhoeus::Hydra.new(max_concurrency: 20)
         hrefs.each do |l|
           hydra.queue(
@@ -46,7 +43,7 @@ module Nanoc::Extra::Checking::Checks
 
         hydra.run
 
-        if i < self.class.count
+        if i < count
           (hrefs.empty?) ? break : sleep(i * 5)
         end
       end
