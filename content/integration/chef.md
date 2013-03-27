@@ -1,3 +1,7 @@
+---
+title: "Chef - RVM integration"
+---
+
 
 ## Using RVM with Chef
 
