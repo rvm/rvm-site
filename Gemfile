@@ -1,6 +1,6 @@
 source "https://rubygems.org"
 #ruby-gemset=rvm-site
-#ruby=2.0.0
+#ruby=1.9.3
 
 gem "adsf"
 gem "chunky_png"
