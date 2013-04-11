@@ -185,7 +185,7 @@ title: RVM Frequently Asked Questions
   I'm using the `ruby` method in my Gemfile to select the ruby version in production - how do I use another ruby version for development?
 %p
   Place a .ruby-version (or .rvmrc if you need scripting) file in the project directory with the version of Ruby to use for development.
-  The .ruby-version file has a higher precendence then the Gemfile and .rvmrc and if you are on Heroku it will be ignored.
+  The .ruby-version file has a higher precendence then the Gemfile but not the .rvmrc file and if you are on Heroku it will be ignored.
 %p
   The .ruby-version file can contain a specific ruby version, or
   be left empty in order to just use the currently selected ruby version.
