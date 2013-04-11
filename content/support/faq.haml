@@ -181,6 +181,15 @@ title: RVM Frequently Asked Questions
   :preserve
     rvm_archflags="-arch x86_64"
 
+%h2
+  I'm using ruby tag for selecting the ruby version in production (heroku), how do I use another ruby version for development?
+%p
+  Place a .ruby-version file in the project directory with the version of ruby to use for development purposes.
+  This file will be found by RVM before the Gemfile, and since .ruby-version is RVM-only, it wont affect heroku.
+%p
+  The .ruby-version file can contain a specific ruby version, or
+  be left empty in order to just use the currently selected ruby version.
+
 %a{:href => "#", :name => "root"}
 %h2
   I want to install for root only!
