@@ -10,4 +10,5 @@ notifications:
     recipients:
       - mpapis@gmail.com
       - envygeeks@gmail.com
+      - healey.rich@gmail.com
     on_failure: change
