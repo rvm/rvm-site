@@ -1,30 +1,30 @@
+RakeRoot = Pathname.new(Rake.application.find_rakefile_location.last)
+
 require "net/https"
 require "nanoc"
 require "nanoc/cli"
 require "./lib/external_links"
 
 task :default => :test
+
+desc "Compile & Test"
 task :spec => :test
-
-desc "Remove the public/ dir"
-task :clean_public do
-  sh "rm -r public"
+task :test => [:check_ssl, :deploy] do
+  Dir.chdir(RakeRoot)
+    Nanoc::CLI.run(%w(check stale))
+    Nanoc::CLI.run(%w(check internal_links))
+    Nanoc::CLI.run(%w(check external_links))
+  end
 end
 
-desc 'Compile the site, then verify internal and external links.'
-task :test do
-  Nanoc::CLI.run %w(compile)
-  Nanoc::CLI.run %w(check stale)
-  Nanoc::CLI.run %w(check internal_links)
-  Nanoc::CLI.run %w(check external_links)
-end
-
-desc "Deploy the site"
+desc "Deploy the Site"
 task :deploy do
-  Nanoc::CLI.run %w(compile)
+  Dir.chdir(RakeRoot) do
+    Nanoc::CLI.run(%w(compile))
+  end
 end
 
-desc "Check if our SSL certificate is valid."
+desc "Check if SSL certificate is valid."
 task :check_ssl do
   http = Net::HTTP.new("rvm.io", 443)
   http.verify_mode = OpenSSL::SSL::VERIFY_NONE
