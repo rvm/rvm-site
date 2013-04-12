@@ -9,4 +9,5 @@ notifications:
   email:
     recipients:
       - mpapis@gmail.com
+      - envygeeks@gmail.com
     on_failure: change
