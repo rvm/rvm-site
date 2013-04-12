@@ -10,7 +10,7 @@ task :default => :test
 desc "Compile & Test"
 task :spec => :test
 task :test => [:check_ssl, :deploy] do
-  Dir.chdir(RakeRoot)
+  Dir.chdir(RakeRoot) do
     Nanoc::CLI.run(%w(check stale))
     Nanoc::CLI.run(%w(check internal_links))
     Nanoc::CLI.run(%w(check external_links))
