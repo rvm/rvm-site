@@ -1,5 +1,3 @@
-# Autolibs
-
 ## Synopsis
 
 `rvm autolibs <flag>` __or__ `rvm install --autolibs=<flag>` __or__ `rvm get [type] --autolibs=<flag>`
