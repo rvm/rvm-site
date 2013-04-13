@@ -3,7 +3,6 @@ RakeRoot = Pathname.new(Rake.application.find_rakefile_location.last)
 require "net/https"
 require "nanoc"
 require "nanoc/cli"
-require "./lib/external_links"
 
 task :default => :test
 
