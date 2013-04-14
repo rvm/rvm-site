@@ -13,16 +13,32 @@ title: "Ubuntu Based Systems"
     Ubuntu
   %hr
 
-%h1
-  Ubuntu
+%h1 Ubuntu
 
 %p
-  If you are running on a version of Ubuntu,
-  you can run:
+  To find out the various dependencies for each Ruby, you can run:
 
 = sh_cmd "rvm notes"
 
-%p
-  To find out the various dependencies for each ruby.
+%h2 Ensure accounts use bash or zsh
 
+%p
+  Currently (Ubuntu 12.04.2 LTS), the default shell for accounts created
+  with the useradd command-line tool is /bin/sh.  As RVM requires bash
+  or zsh, you might need to change the shell of existing accounts, and
+  create new accounts with bash or zsh (avoiding the default, /bin/sh).
+
+%p
+  The following commands will help you inspect defaults and your current
+  shell, change your current shell, and demonstrate account creation
+  using either bash or zsh.  Use /bin/zsh in place of /bin/bash if
+  preferred.
+
+%pre.code
+  :preserve
+    $ useradd -D                      # Display default user attributes.
+    $ echo $SHELL                     # As a user, check your shell.
+    $ chsh -s /bin/bash               # As a user, change your shell.
+    # usermod -s /bin/bash &lt;username&gt; # As root / sudo, change username's shell.
+    # useradd -s /bin/bash &lt;username&gt; # As root / sudo, create username using bash.
 
