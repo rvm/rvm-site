@@ -18,15 +18,16 @@ title: "Ubuntu Based Systems"
 %p
   To find out the various dependencies for each Ruby, you can run:
 
-= sh_cmd "rvm notes"
+= sh_cmd "rvm requirements"
 
 %h2 Ensure accounts use bash or zsh
 
 %p
-  Currently (Ubuntu 12.04.2 LTS), the default shell for accounts created
-  with the useradd command-line tool is /bin/sh.  As RVM requires bash
-  or zsh, you might need to change the shell of existing accounts, and
-  create new accounts with bash or zsh (avoiding the default, /bin/sh).
+  There is a descrepency between useradd and adduser configurations.
+  Users should use the `adduser` command which will default to
+  `/bin/bash` however if you use the `useradd` command the
+  default is `/bin/sh` (which can be changed by editing SHELL in
+  "/etc/default/useradd".
 
 %p
   The following commands will help you inspect defaults and your current
@@ -36,9 +37,7 @@ title: "Ubuntu Based Systems"
 
 %pre.code
   :preserve
-    $ useradd -D                      # Display default user attributes.
-    $ echo $SHELL                     # As a user, check your shell.
-    $ chsh -s /bin/bash               # As a user, change your shell.
-    # usermod -s /bin/bash &lt;username&gt; # As root / sudo, change username's shell.
-    # useradd -s /bin/bash &lt;username&gt; # As root / sudo, create username using bash.
-
+    $ useradd -D                                             # Display defaults for useradd.
+    $ echo $SHELL                                            # As a user, check your shell.
+    $ chsh -s /bin/bash                                      # As a user, change your shell.
+    $ cat /etc/adduser.conf |sed -e 's/#.*$//' -e '/^$/d'    # Display defaults for adduser.
