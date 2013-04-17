@@ -2,6 +2,8 @@
 title: How to fix broken certificates in your operating system.
 ---
 
+## How to fix broken certificates in your operating system.
+
 From time to time people have SSL issues on specific operating systems.  This page
 should serve as a guide to fixing your Curl and OpenSSL issues (with Ruby) if you
 do not have RVM already installed.  If you do have RVM already installed you can
