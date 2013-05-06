@@ -1,95 +1,67 @@
 ---
-title: Passenger - Come on, ride the train, hey, ride it, woo woo...
+title: Phusion Passenger - Come on, ride the train, hey, ride it, woo woo...
 ---
 
-= breadcrumbs "Integration", "Passenger"
+= breadcrumbs "Integration", "Phusion Passenger"
 
 %a{ :name => "passenger" }
 %h1
-  Using RVM rubies with Passenger
+  Using RVM rubies with Phusion Passenger
 %p
-  RVM will allow you to use any of it's MRI/YARV rubies with passenger very easily.
+  %a{:href => "https://www.phusionpassenger.com/"}
+  Phusion Passenger
+  is an application server for Ruby and Python that can integrate into Apache and Nginx, or run standalone. It's currently one of the most popular application servers for Ruby. RVM will allow you to use any of it's MRI/YARV Rubies with Phusion assenger very easily.
 
 %h1
-  Passenger 3
+  Phusion Passenger 4
 %p
-  Passenger is essentially 'mod_ruby' for both Nginx and Apache.
-  You may select *exactly one* Ruby to run all of your Passenger 3 applications.
-  If you need to run more than one Ruby interpreter then you should choose the most common one.
-  You then use proxy pass to external application servers such as Passenger Standalone, Unicorn, Thin, Mongrel, Mongrel2, etc... in order to accomplish running different applications under different rubies.
-  For a full explanation of this (with pretty pictures!) see the
-  %a{:href => "http://blog.phusion.nl/2010/09/21/phusion-passenger-running-multiple-ruby-versions/"}
-    post on Phusion's Blog
+  RVM requires at least Phusion Passenger version 4.0.0. Phusion Passenger 4 has full integration support for RVM and should work out of the box with no configuration. The only thing you need to tell Phusion Passenger is which Ruby you want to use for which app.
 
 %h2
-  Installing Nginx/Apache with Passenger
+  Using RVM with Phusion Passenger for Apache/Nginx
 %p
-  First of all there's passenger-install-apache2-module and passenger-install-nginx-module. At the end of the installation it outputs a PassengerRuby configuration snippet for the web server. Its value is set to the RVM Ruby wrapper script that corresponds with the RVM Ruby and RVM gemset that was used to run the installer. This should be all you need for configuration of Passenger 3!
-
-%p
-  If it's not, here's what you might have to do, almost all of this stolen from
-  %a{:href => "http://blog.ninjahideout.com/posts/the-path-to-better-rvm-and-passenger-integration"} Darcy's Blog Post
-
-%p  In your .rvmrc do:
-
-%pre.code
-  :preserve
-    if [[ -s "/Users/sutto/.rvm/environments/ree-1.8.7-2010.02@my-app-name" ]] ; then
-      . "/Users/sutto/.rvm/environments/ree-1.8.7-2010.02@my-app-name"
-    else
-      rvm --create use  "ree-1.8.7-2010.02@my-app-name"
-    fi
-
-%p Or instead of creating a .rvmrc file use one of the new formats like .ruby-version or .versions.conf:
-
-%pre.code
-  :preserve
-    echo 1.9.3@my-app-name > .ruby-version
+  First of all you need to run
+  %code= passenger-install-apache2-module
+  and
+  %code= passenger-install-nginx-module
+  as documented in the Phusion Passenger manuals.
+  At the end of the installation it outputs a
+  %code= PassengerDefaultRuby
+  (Apache) or
+  %code= passenger_ruby
+  (Nginx) configuration snippet for the web server. Its value is set to the RVM Ruby wrapper script that corresponds with the RVM Ruby and RVM gemset that was used to run the installer. This should be all you need for configuration of Phusion Passenger!
 
 %p
-  Then in the rails project, add a new file config/setup_load_paths.rb and add
-  Starting with RVM 1.12.0(or head) RVM is installed as a gem in default gemset,
-  there is no need to unshift $LOAD_PATH, but it's required to set GEM_PATH.
-  %a{ :href => "#old_setup_load_paths" } config/setup_load_paths.rb.
-
-%pre.code
-  :preserve
-    if ENV['MY_RUBY_HOME'] && ENV['MY_RUBY_HOME'].include?('rvm')
-      begin
-        gems_path = ENV['MY_RUBY_HOME'].split(/@/)[0].sub(/rubies/,'gems')
-        ENV['GEM_PATH'] = "\#{gems_path}:\#{gems_path}@global"
-        require 'rvm'
-        RVM.use_from_path! File.dirname(File.dirname(__FILE__))
-      rescue LoadError
-        raise "RVM gem is currently unavailable."
-      end
-    end
-
-    # If you're not using Bundler at all, remove lines bellow
-    ENV['BUNDLE_GEMFILE'] = File.expand_path('../Gemfile', File.dirname(__FILE__))
-    require 'bundler/setup'
-
-%p
-  Please note that for Passenger 3 you now use the ruby wrapper script directly with no need to use the passenger_ruby wrapper.
+  If you want to run any apps under a different RVM Ruby or RVM gemset, then you need to set a
+  %code= PassengerRuby
+  (Apache) or
+  %code= passenger_ruby
+  (Nginx) configuration option in that app's virtual host. The value must correspond to the desired RVM Ruby or RVM gemset. This is explained in detail in the Phusion Passenger document:
+  %a{:href => "http://www.modrails.com/documentation/Users%20guide%20Apache.html#PassengerRuby"} Apache manual,
+  %a{:href => "http://www.modrails.com/documentation/Users%20guide%20Nginx.html#PassengerRuby"} Nginx manual. There's a section in that manual that covers RVM, and there's even a tool to aid RVM users.
 
 %h2
-  Starting Passenger Standalone
+  Using RVM with Phusion Passenger Standalone
+%p
+  Phusion Passenger Standalone runs standalone, without needing you to install an external web server like Apache or Nginx, although it uses an Nginx core internally. Phusion Passenger Standalone can be invoked with 'passenger start'. It runs the app with the RVM Ruby and RVM gemset that was used to run the 'passenger start' command.
+
+%p
+  If you want to use 'passenger start' with a different RVM Ruby or RVM Gemset then you need to 'gem install passenger' in that Ruby/Gemset first, after which you can invoke 'passenger start'.
+
+%h2
+  Outdated information
+%p
+  Previous versions of this web page stated that you need to create a .rvmrc file for Phusion Passenger. This is no longer necessary. Other than the aforementioned instructions, there's really nothing else you need to follow.
+
+%h2
+  Phusion Passenger Standalone
 %p
   Then there's Passenger Standalone, i.e. 'passenger start'. Passenger Standalone uses Nginx internally, and it writes a passenger_ruby directive to the Nginx configuration file. This directive points to the RVM Ruby wrapper script that corresponds with the RVM Ruby and RVM gemset that was used to run the 'passenger start' command.
 
 %h2
   Bundler Gotcha
 %p
-  When using Bundler in your project, Passenger will try to be smart and only add to your $LOAD_PATH the gems listed in your Gemfile. This can lead to "unable to load" errors for your unlisted gems (this should only happen during development). You can check your run-time load path by adding
-
-%pre.code
-  :preserve
-    f = File.open('/tmp/load_path', 'w')
-    f.write($:)
-    f.close
-
-%p
-  to your app's main file (before the "require" calls). You won't be able to load any gems that are not in that load path.
+  When using Bundler in your project, Passenger will try to be smart and only add to your $LOAD_PATH the gems listed in your Gemfile. This can lead to "unable to load" errors for your unlisted gems (this should only happen during development). You can check your run-time load path by looking in the purple Phusion Passenger error page that it shows. You won't be able to load any gems that are not in that load path.
 
 %h2
   Troubleshooting
@@ -119,74 +91,24 @@ title: Passenger - Come on, ride the train, hey, ride it, woo woo...
     %p
       %strong Q: Can I run multiple projects under passenger with each project on a different ruby version?
     %p
-      A: Passenger 3 only supports running under *one* Ruby, but you can get per-site/project behavior
-      using a proxy pass.
+      A: Yes, since Phusion Passenger 4.
   %li
     %p
       %strong Q: How do I use custom gemsets under passenger?
     %p
-      A: Without bundler you can either set environment variables yourself in your config.ru like:
-    %pre.code
-      :preserve
-        ENV["GEM_HOME"]=%x{"source ~/.bash_profile ; rvm ree@pancake ; rvm gemdir"}.strip
+      A: Switch to that gemset first, then run 'passenger-config --ruby-command' as documented in the Phusion Passenger manual. It'll tell you what 'PasengerRuby'/'passenger_ruby' config option you should put in your virtual host. Edit your virtual host accordingly and restart the web server.
+  %li
     %p
-      Or, if you are already using rvmrc's, you can use the rvm ruby api and config/setup_load_paths.rb
-      in recent passenger versions by following
-      %a{:href => "http://blog.ninjahideout.com/posts/the-path-to-better-rvm-and-passenger-integration"} this guide.
+      %strong Q: How can I use commands like passenger-status in conjunction with a user install but run them as root?
     %p
-      A: With bundler: Install bundler outside any gemset, switch back to the gemset you wish to use and run
-      %tt bundle install
-      and restart the application (by touching tmp/restart.txt). This works becase bundler stores absolute paths inside
-      %tt .bundle/environment.rb
-      which will be loaded by bundler directly.
-      If this doesn't work as expected, try running bundle install like so:
-    %pre.code
-      :preserve
-        bundle install $BUNDLE_PATH
-    %p
-      How can I use commands like passenger-status in conjunction with a user install but run them as root?
-      Mainly the key to this is to use wildcards in the sudoers file as the following examples show.
+      A: Mainly the key to this is to use wildcards in the sudoers file as the following examples show.
       %pre.code
         :preserve
           /usr/bin/env GEM_PATH=* GEM_HOME=* PATH=* passenger-status
-
-%p#old_setup_load_paths
-  This is config/setup_load_paths.rb for RVM versions bellow 1.12.0.
-
-%pre.code
-  :preserve
-    if ENV['MY_RUBY_HOME'] && ENV['MY_RUBY_HOME'].include?('rvm')
-      begin
-        rvm_path     = File.dirname(File.dirname(ENV['MY_RUBY_HOME']))
-        rvm_lib_path = File.join(rvm_path, 'lib')
-        # $LOAD_PATH.unshift rvm_lib_path
-        require 'rvm'
-        RVM.use_from_path! File.dirname(File.dirname(__FILE__))
-      rescue LoadError
-        # RVM is unavailable at this point.
-        raise "RVM ruby lib is currently unavailable."
-      end
-    end
-
-    # Pick the lines for your version of Bundler
-    # If you're not using Bundler at all, remove all of them
-
-    # Require Bundler 1.0
-    ENV['BUNDLE_GEMFILE'] = File.expand_path('../Gemfile', File.dirname(__FILE__))
-    require 'bundler/setup'
-
-    # Require Bundler 0/9
-    # if File.exist?(".bundle/environment.rb")
-    #   require '.bundle/environment'
-    # else
-    #   require 'rubygems'
-    #   require 'bundler'
-    #   Bundler.setup
-    # end
 
 %h2
   Community Resources
 %ul
   %li
-    %a{:href => "http://blog.phusion.nl/2010/09/21/phusion-passenger-running-multiple-ruby-versions/"}
-      Phusion blog post on Passenger 3
+    %a{:href => "https://www.phusionpassenger.com/support"}
+      Phusion Passenger support and documentation resources
