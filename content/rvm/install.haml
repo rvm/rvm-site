@@ -12,16 +12,29 @@ title: Installing RVM
     RVM Section.
   </strong>
 
-Install RVM with ruby (# for pretty output):
-= sh_cmd "\\curl -#L https://get.rvm.io | bash -s stable --autolibs=3 --ruby"
-Additionally with rails:
-= sh_cmd "\\curl -L https://get.rvm.io | bash -s stable --autolibs=3 --rails"
-Or with rubinius, rails and puma:
-= sh_cmd "\\curl -L https://get.rvm.io | bash -s stable --autolibs=3 --ruby=rbx --gems=rails,puma"
+Install RVM:
+= sh_cmd "\\curl -L https://get.rvm.io | bash"
+
+Without
+%a{ :href => "/rvm/autolibs" } autolibs
+= sh_cmd "\\curl -L https://get.rvm.io | bash -s -- --autolibs=read-fail"
+
+Install RVM stable with ruby:
+= sh_cmd "\\curl -L https://get.rvm.io | bash -s stable --ruby"
+
+Additionally with rails (poor man's
+%a{:href => "http://railsinstaller.org"} railsinstaller
+):
+= sh_cmd "\\curl -L https://get.rvm.io | bash -s stable --rails"
+
 Or with jruby, rails and puma:
-= sh_cmd "\\curl -L https://get.rvm.io | bash -s stable --autolibs=3 --ruby=jruby --gems=rails,puma"
+= sh_cmd "\\curl -L https://get.rvm.io | bash -s stable --ruby=jruby --gems=rails,puma"
+
 Finally, to install without the "rubygems-bundler" or "rvm" gems:
-= sh_cmd "\\curl -L https://get.rvm.io | bash -s stable --autolibs=3 --without-gems=\"rvm rubygems-bundler\""
+= sh_cmd "\\curl -L https://get.rvm.io | bash -s stable --without-gems=\"rvm rubygems-bundler\""
+
+For a progress bar when downloading RVM / Rubies:
+= sh_cmd "echo progress-bar >> ~/.curlrc"
 
 %p
   Point to be noted is, there is a backslash before <b>curl</b>. This prevents misbehaving if
