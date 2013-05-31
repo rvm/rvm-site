@@ -97,9 +97,22 @@ title: Textmate Integration with RVM
 
   RVM will also switch out the ruby version and gemset based on each project's .rvmrc file
 
+%h3 Automating the wrapper command
 
+%p
+  If you wish for TextMate's Ruby to switch each time rvm changes the current Ruby, then you can 
+  enable the "after_use_textmate" hook in rvm's hooks directory by making the script file executable:
+  
+  %pre.code
+    :preserve
+      $ cd ~/.rvm/hooks
+      $ chmod +x after_use_textmate
 
-
+%p
+  Now, when you switch into a project directory and rvm auto-switches Ruby, TextMate will be ready to Run
+  with the now current binaries.  Just be mindful of the side-effects of switching to directories of projects
+  other than the principal project you're working on as TextMate's Ruby environment will change accordingly!
+  
 %h3 Making sure TextMate is up to date
 
 %p
