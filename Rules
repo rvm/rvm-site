@@ -39,6 +39,10 @@ route "/assets/favicon/" do
   "/favicon.ico"
 end
 
+route "/robots" do
+  "/robots.txt"
+end
+
 compile '*' do
   case
     item[:extension]
