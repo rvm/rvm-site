@@ -41,7 +41,7 @@ compile "/robots.txt" do
   nil
 end
 
-route "/robots.txt" do
+route "/robots" do
   "/robots.txt"
 end
 
