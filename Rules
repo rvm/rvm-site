@@ -37,7 +37,7 @@ route "/assets/favicon/" do
   "/favicon.ico"
 end
 
-compile "/robots.txt" do
+compile "/robots" do
   nil
 end
 
