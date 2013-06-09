@@ -1,8 +1,6 @@
 #!/usr/bin/env ruby
 
-
 require "compass"
-
 Compass.add_project_configuration('compass_config.rb')
 
 # For compass v0.10 should be:
@@ -39,7 +37,11 @@ route "/assets/favicon/" do
   "/favicon.ico"
 end
 
-route "/robots" do
+compile "/robots.txt" do
+  nil
+end
+
+route "/robots.txt" do
   "/robots.txt"
 end
 
