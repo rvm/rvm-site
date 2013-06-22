@@ -38,6 +38,28 @@ title: Upgrading RVM
   installs the stable version.
 
 %h3
+  To upgrade to the most stable version from VERY OLD versions (e.g. 1.9.2)
+%p
+  Is
+%b rvm get stable
+  not working? Is
+%b rvm get latest
+  telling you
+%b You already have the latest version!
+  , but you know you don't? Try this:
+%pre.code
+  :preserve
+    $ rvm get head
+    $ rvm reload
+    $ rvm get stable
+%p
+  If that does not work for you, you can always use the installer to update:
+%pre.code
+  :preserve
+    $ \curl -L https://get.rvm.io | bash -s stable
+    $ rvm reload
+
+%h3
   Upgrading to the latest repository source version (the most bugfixes)
 %pre.code
   :preserve
