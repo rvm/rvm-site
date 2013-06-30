@@ -18,16 +18,19 @@ title: RVM Ruby Version Manager - Documentation
 %ul.square
   %li
     Install RVM with a Ruby (latest will be Ruby 2, but you may specify):
-    = sh_cmd "\\curl -L https://get.rvm.io | bash -s stable --rails # Or, --ruby=1.9.3"
+    = sh_cmd "\\curl -L https://get.rvm.io | bash -s stable"
+    For all in one installation append
+    %code --rails
+    or
+    %code --ruby=1.9.3
   %li
+    for more details visit the
+    %a{:href => "/rvm/install/"}
+      installation documentation,
   %li
     and read about the new
     %a{:href => "/rvm/autolibs/"}
       autolib features
-  %li
-    and visit the
-    %a{:href => "/rvm/install/"}
-      installation documentation,
   %li
     watch the most accurate (but not official)
     %a{:href => "http://screencasts.org/episodes/how-to-use-rvm", :target=>"_blank"}
