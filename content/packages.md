@@ -4,17 +4,13 @@ title: "Pleas use 'rvm autolibs enable'"
 
 # RVM Packages
 
-This functionality has been deprecated, however if you still need it - it is there.
-
-Users should switch to `autolibs` which uses system package manager:
-
-    rvm autolibs enable
-
+This functionality has been deprecated by `autolibs` which is now enabled by default,
+however if you still need it - it is there.
 
 ## Installing from source
 
 In some rare cases it might be required to install packages via `rvm pkg`,
-if unsure try `rvm autolibs enable` first.
+if unsure try installing ruby first.
 
 RVM can install required packages automatically via `autolibs`:
 
