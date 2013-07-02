@@ -27,4 +27,17 @@ title: "Debian Based Systems"
 %p
   To find out the various dependencies for each ruby.
 
+%h2 Installing without 'sudo'
 
+%p
+  If you don't want to or are not allowed to use 'sudo', you can query the to-be-installed packages by setting 'autolibs' accordingly:
+
+= sh_cmd "rvm autolibs read-fail"
+
+%p
+  and retrigger the requirement check again:
+
+= sh_cmd "rvm requirements"
+
+%p
+  The required packages will now be printed and can be installed manually.
