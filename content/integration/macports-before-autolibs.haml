@@ -1,14 +1,19 @@
 ---
-title: "Using MacPorts with RVM"
+title: "Using MacPorts with older RVM - before autolibs"
 ---
 
-= breadcrumbs "Integration", "MacPorts"
-
-%a{:name => "macports"}
-
-%h1 Using MacPorts with RVM
+%h1
+  Using MacPorts with older RVM - before
+  %a{:href => "/rvm/autolibs"} autolibs
 
 %h2 Using MacPorts libraries
+
+Warning RVM 1.19+ requires autolibs to be disabled:
+
+%pre.code
+  :preserve
+    rvm autolibs disable # OR:
+    rvm --autolibs=disable install ruby
 
 %p
   In order to use MacPorts libraries when installing RVM Rubies,
