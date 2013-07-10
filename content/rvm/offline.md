@@ -43,7 +43,7 @@ This is only rough description of the process, not all the steps need to work ri
 3. Clean default gems: `echo "" > ~/.rvm/gemsets/default.gems`
 4. Clean global gems: `echo "" > ~/.rvm/gemsets/global.gems`
 5. Install Ruby: `rvm install 1.9.3-p392 --disable-binary` (this may require sudo)
-
+6. Set default Ruby version: `rvm use 1.9.3-p392 --default`
 
 ## Installing gems
 
