@@ -21,6 +21,8 @@ Also, please note that any gems you reference in your god configurations that ar
 
     rvm wrapper ruby@gemset [scope] [binary-name]
 
-Where [scope] is the prefix for the executable (e.g. god before and binary-name is the binary to generate a wrapper for. Hence, creating *$rvm_bin_path/[scope]_[binary-name]*, e.g. *~/.rvm/bin/myapp_thin*.
+Where `[scope]` is the prefix for the executable (e.g. god before and binary-name is the binary to generate a wrapper for. Hence, creating 
+`$rvm_bin_path/[scope]_[binary-name]`, 
+e.g. `~/.rvm/bin/myapp_thin`.
 
 Lastly, you would replace all calls to 'thin' or the path to 'thin' in your god configs with the path to the wrapper instead.
