@@ -1,1 +1,1 @@
-deployment/god.md
+/home/mario/Documents/rvm-site/content/deployment/god.md
