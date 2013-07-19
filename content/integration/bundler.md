@@ -14,7 +14,7 @@ There is no need to do anything to make bundler work with RVM, but there is one 
 
 <h2 id="rubygems-bundler">rubygems-bundler gem (default from rvm 1.11.0)</h2>
 
-One of the solutions for this problem is a gem which makes bundler and rubygems generate binary wrappers that are aware of bundler. Michal Papis is working with bundler team to integrate this gem to bundler so that no extra actions would be needed to avoid "bundle exec".
+One of the solutions for this problem is a gem which makes bundler and rubygems generate binary wrappers that are aware of bundler. Michal Papis is working with bundler and rubygems team to integrate this gem so that no extra actions would be needed to avoid `bundle exec`.
 
 Starting with 1.11.0 new RVM installations has it enabled by default, you can still install it with:
 
@@ -64,7 +64,7 @@ Install all executables into single location
 
     bundle config bin ~/.bundler_binstubs --global
 
-And add it to PATH:
+And add it to `PATH`:
 
     export PATH=~/.bundler_binstubs:PATh
 
