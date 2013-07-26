@@ -3,7 +3,7 @@
 module CodeHelper
 
   def sh_cmd(command)
-    "<pre class='code'>$ #{html_escape command}</pre>"
+    "<pre class='code code-shell-cmd' title='triple click to select command'>#{html_escape command}</pre>"
   end
 
   def li_code(code, text)
