@@ -4,11 +4,11 @@ title: RVM Ruby Version Manager - Documentation
 
 .text-center
   %h1
-    Ruby Version Manager (RVM)  
+    Ruby Version Manager (RVM)
   %p
     RVM is a command-line tool which allows you to easily install, manage, and work with multiple ruby
     environments from interpreters to sets of gems.
-    
+
   %a{ :href => "http://www.vgcats.com/comics/?strip_id=285" }
     %img{ :src => "https://img.skitch.com/20090904-fyqnyu8pcr36ahe91er9x28bhi.png", :alt => "w00t!" }
 
@@ -20,10 +20,12 @@ title: RVM Ruby Version Manager - Documentation
 
 %ul.square
   %li
-    Install RVM with a Ruby (latest will be Ruby 2, but you may specify):
+    Install RVM with a Ruby:
     = sh_cmd "\\curl -L https://get.rvm.io | bash -s stable"
     For all in one installation append
     %code --rails
+    or
+    %code --ruby
     or
     %code --ruby=1.9.3
   %li
