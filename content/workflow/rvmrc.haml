@@ -69,187 +69,19 @@ title: rvmrc
   System &amp; user rvmrc files are meant for altering the settings and behavior of RVM.
   The project rvmrc files are intended to be used to setup your project's ruby
   environment when you switch to the project root directory.
-%p
-  If you are using the latest version of RVM (rvm get head) then you can take
-  advantage of a few new features, namely hooks and the new project specific
-  ‘.rvmrc’ file. (Available in RVM 0.0.85+)
+
 %p
   As of RVM 1.8.0, after a survey where greater than 80% of respondants wanted
   the feature on by default,
   %strong
-    project .rvmrc files are opt-out by default (therefore on).
+    automatic loading of project .rvmrc files is opt-out by default (therefore on).
   In order to disable this feature, set the following value in either /etc/rvmrc
   or ~/.rvmrc:
 %pre.code
   :preserve
     rvm_project_rvmrc=0
-%p
-  Note that project .rvmrc files are shell scripts that run when you cd
-  into a directory containing one. You are asked to trust it the first time as
-  well. This means that you can put any commands and code you'd like into
-  them in order to get your environment for a project bootstrapped and ready
-  to use. Be sure to read them before trusting them if you did not write them.
-%p
-  Let’s say I have my project directory as ~/projects/ and in this directory I
-  have three projects 'projecta', 'projectb', and 'projectc'. Project a runs on
-  jruby, project b runs on ree 1.8.7, and project c runs on 1.9.1. The setup:
-
-%pre.code
-  :preserve
-    mkdir -p ~/projects/projecta ~/projects/projectb ~/projects/projectc
-    cd ~/projects/projecta/
-    rvm --rvmrc --create jruby@projecta
-    cd ~/projects/projectb/
-    rvm --rvmrc --create ree@projectb
-    cd ~/projects/projectc/
-    rvm --rvmrc --create 1.9.1@projectc
 
 %p
-  Then if I type this:
-
-%pre.code
-  :preserve
-    cd ~/projects/projecta
-
-    [jruby-1.4.0] $ ruby -v
-
-      jruby 1.4.0 (ruby 1.8.7 patchlevel 174) (2009-11-02 69fbfa3) (Java HotSpot(TM) 64-Bit Server VM 1.6.0_15) [x86_64-java]
-
-    [jruby-1.4.0] $ gem env gemdir
-
-      /Users/wayne/.rvm/gems/jruby/1.4.0@projecta
-
-%p
-  I will then be running jruby with 'projecta' gemset and we see that the prompt is now prefixed with '[jruby-1.4.0]'.
-%p
-  Now if we change to project b's directory.
-
-%pre.code
-  :preserve
-    cd ~/projects/projectb
-
-    [ree-1.8.7-2009.10] $ ruby -v
-
-      ruby 1.8.7 (2009-06-12 patchlevel 174) [i686-darwin10.2.0], MBARI 0x6770, Ruby Enterprise Edition 2009.10
-
-    [ree-1.8.7-2009.10] $ gem env gemdir
-
-      /Users/wayne/.rvm/gems/ree/1.8.7@projectb
-%p
-  We see that we are now running ree with a 'projectb' gemset and we see that the prompt is now prefixed with '[ree-1.8.7-2009.10]'.
-
-%p
-  Finally we change to project c's directory.
-%pre.code
-  :preserve
-    cd ~/projects/projectc
-
-    [ruby-1.9.1-p243] (0) $ ruby -v
-
-      ruby 1.9.1p243 (2009-07-16 revision 24175) [i686-darwin10.2.0]
-
-    [ruby-1.9.1-p243] (0) $ gem env gemdir
-
-      /Users/wayne/.rvm/gems/ruby/1.9.1@projectc
-%p
-  We see that we are now running ree with a 'projectc' gemset and we see that the prompt is now prefixed with '[ruby-1.9.1-p243]'.
-
-%p
-  Note that the project .rvmrc file is actually a shell script and may contain
-  any valid shell commands in order for you to initialize your project's
-  environment. Be sure to read them before trusting them if you did not write them.
-
-%p
-  To turn off the project specific rvmrc functionality in your $HOME/.rvmrc set
-%pre.code
-  :preserve
-    rvm_project_rvmrc=0
-%p
-  To enable switching to default / system when leaving a directory in your $HOME/.rvmrc set
-
-%pre.code
-  :preserve
-    rvm_project_rvmrc_default=1
-
-%p NOTE: As of RVM v1.8.0, the $rvm_project_rvmrc_default is set to OFF by default. However, rvm_project_rvmrc is set to ON.
-
-%h2 Warning
-%p
-  Do NOT use shell commands in the System and User rvmrc files.
-  For example do not put 'rvm ree' or any other such commands in these two rvmrc files.
-  They are for setting environment variables only to modify RVM's behavior and settings.
-
-%h2
-  More Examples
-%p
-  If you use gemset export/import then you can have this be automatically run
-  when you cd into a project directory as follows.
-%pre.code
-  :preserve
-    if [[ -s "projectname.gems" ]] ; then
-      rvm gemset import projectname.gems | grep -v already | grep -v listed | grep -v complete | sed '/^$/d'
-    fi
-%p
-  If you use Bundler you can add in an automatic bundler install like so:
-
-%pre.code
-  :preserve
-    if ! command -v bundle ; then
-      gem install bundler
-    fi
-
-%p
-  If you would like to auto bundle when you cd to a project directory you may
-  do the following (note that I am filtering success output to reduce noise).
-%pre.code
-  :preserve
-      bundle | grep -v 'Using' | grep -v 'complete' | sed '/^$/d'
-
-%p
-  A complete example with the above techniques would look like the following.
-  In addition I have abstracted the ruby string and gemset name out for easy
-  updates to the .rvmrc file when you decide to change either.
-%p
-  I also show here how you check if the desired interpreter is installed and
-  if not print an error message to the user stating this fact.
-
-%pre.code
-  :preserve
-    #!/usr/bin/env bash
-
-    ruby_string="ruby-1.9.2-p136"
-    gemset_name="projectname"
-
-    if rvm list strings | grep -q "${ruby_string}" ; then
-
-      # Load or create the specified environment
-      if [[ -d "${rvm_path:-$HOME/.rvm}/environments" \
-        && -s "${rvm_path:-$HOME/.rvm}/environments/${ruby_string}@${gemset_name}" ]] ; then
-        \. "${rvm_path:-$HOME/.rvm}/environments/${ruby_string}@${gemset_name}"
-      else
-        rvm --create  "${ruby_string}@${gemset_name}"
-      fi
-
-      (
-        # Ensure that Bundler is installed, install it if it is not.
-        if ! command -v bundle ; then
-          gem install bundler
-        fi
-
-        # Bundle while redcing excess noise.
-        bundle | grep -v 'Using' | grep -v 'complete' | sed '/^$/d'
-      )&
-
-    else
-
-      # Notify the user to install the desired interpreter before proceeding.
-      echo "${ruby_string} was not found, please run 'rvm install ${ruby_string}' and then cd back into the project directory."
-
-    fi
-
-
-%h1
-  Community Resources
-%ul
-  %li
-
+  As of 1.11.0 RVM supports multiple files to configure project, more details here:
+  %a{ :href => "/workflow/projects/" }
+    Project workflow
