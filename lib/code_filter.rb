@@ -9,3 +9,25 @@ class PreCodeFilter < Nanoc3::Filter
       end
   end
 end
+class AutoIdsFilter < Nanoc3::Filter
+  identifier :auto_ids
+  type :text
+  def run(content, params={})
+    content.
+      gsub(/(<h[123]>)(.*?)(<\/h[123]>)/m) do |match|
+        __start = $1
+        __content = $2
+        __end = $3
+        __id = create_id(__content)
+        "#{__start}<a class=\"anchor\" href=\"##{__id}\" name=\"#{__id}\">&infin;</a>#{__content}#{__end}"
+      end
+  end
+  def create_id(content)
+    content
+      .downcase           # small leters
+      .gsub(/<\/?code>/,'')      # remove <code></code> tags
+      .gsub(/[^[:alnum:] -]/,"") # only chars, numbers, spaces and dash
+      .gsub(/[ ]/, "-")          # convert spaces to dashes
+      .gsub(/-+/, "-")           # convert multiple dashes to single
+  end
+end

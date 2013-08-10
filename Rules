@@ -50,6 +50,7 @@ compile '*' do
     item[:extension]
   when 'md'
     filter :rdiscount
+    filter :auto_ids
     filter :pre_code
   when 'haml'
     filter :haml
