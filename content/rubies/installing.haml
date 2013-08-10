@@ -32,9 +32,7 @@ title: "'./install' - Installing RVM."
 %h2
   Quick Install
 %p
-  Find the requirements (follow the instructions):
-  = sh_cmd "rvm requirements"
-  Install ruby:
+  Install ruby (follow the instructions):
   = sh_cmd "rvm install 1.9.3"
 
 You can also:
@@ -223,7 +221,7 @@ You can also:
   As an example, to enable gdb for ruby 1.9.1:
 %pre.code
   :preserve
-    $ export optflags="-O0 -ggdb" 
+    $ export optflags="-O0 -ggdb"
     $ rvm install 1.9.1
 
 %h1
