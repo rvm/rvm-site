@@ -17,13 +17,9 @@ Install
 Setup
 -----
 
-Download the fish functions from GitHub, the first a utility function to capture the changes to environment variables, the second a wrapper around RVM for fish.
+Download the fish functions from GitHub.
 
-    set -l GITHUB https://raw.github.com/lunks/fish-nuggets/master/functions
-    \curl --create-dirs -o ~/.config/fish/functions/rvm.fish $GITHUB/rvm.fish
-    \curl -o ~/.config/fish/functions/cd.fish $GITHUB/cd.fish
-
-Note the backslash before **curl**.
+    curl --create-dirs -o ~/.config/fish/functions/rvm.fish https://raw.github.com/lunks/fish-nuggets/master/functions/rvm.fish
 
 Usage
 -----
