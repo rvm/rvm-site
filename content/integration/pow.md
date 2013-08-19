@@ -32,6 +32,8 @@ it should not be checked in to source control (unless all team members agree on 
       echo "RVM project not found at: $PWD"
     fi
 
+It is important to run `touch tmp/restart.txt` after creating `.powenv`.
+
 ## Resources
 
 * [Pow `.rvmrc` example](http://pow.cx/manual.html#section_2.3.2)
