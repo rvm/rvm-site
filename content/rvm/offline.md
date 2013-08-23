@@ -36,14 +36,27 @@ This is only rough description of the process, not all the steps need to work ri
    * sample usage: `echo rvm_archives_path=/path/to/tarballs/ >> ~/.rvmrc`
 
 
+## Install dependencies
+
+1. Disable automatic dependencies ("requirements") fetching: `rvm autolibs 1`
+2. Manually download and install dependencies
+   * Get the list of dependencies: `rvm requirements`
+   * For each item on the list:
+     * Download the source to `$rvm_path/archives/` (or somewhere else), see the yaml instructions above for example.
+     * Unpack the result: `tar -xzf $rvm_path/archives/this_pkg.tar.gz $rvm_path/src`
+     * Configure and install: `cd $rvm_path/src/this_pkg && configure --prefix="$rvm_prefix/usr" && make install`
+   * These instructions depend on the conventional configure/install process.  You may need to adapt them for some packages.
+3. Install Rubygems -- how?
+
+
 ## Installing Ruby
 
-1. Copy ruby, rubygems and yaml to `$rvm_path/archives/`
-2. Set rubygems version: `echo rubygems_version=1.8.25 >> $rvm_path/user/db`
-3. Clean default gems: `echo "" > ~/.rvm/gemsets/default.gems`
-4. Clean global gems: `echo "" > ~/.rvm/gemsets/global.gems`
-5. Install Ruby: `rvm install 1.9.3-p392 --disable-binary` (this may require sudo)
-6. Set default Ruby version: `rvm use 1.9.3-p392 --default`
+1. Set rubygems version: `echo rubygems_version=1.8.25 >> $rvm_path/user/db`
+2. Clean default gems: `echo "" > ~/.rvm/gemsets/default.gems`
+3. Clean global gems: `echo "" > ~/.rvm/gemsets/global.gems`
+4. Install Ruby: `rvm install 1.9.3-p392 --disable-binary` (this may require sudo)
+5. Set default Ruby version: `rvm use 1.9.3-p392 --default`
+
 
 ## Installing gems
 
