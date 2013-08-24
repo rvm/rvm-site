@@ -36,14 +36,30 @@ This is only rough description of the process, not all the steps need to work ri
    * sample usage: `echo rvm_archives_path=/path/to/tarballs/ >> ~/.rvmrc`
 
 
+## Install dependencies
+
+1. Disable automatic dependencies ("requirements") fetching: `rvm autolibs 1`
+2. Manually download and install dependencies
+   * Get the list of dependencies: `rvm requirements`
+   * For each item on the list:
+     * Download the source to `$rvm_path/archives/` (or somewhere else), see the yaml instructions above for example.
+     * Unpack the result: `cd $rvm_path/src && tar -xzf $rvm_path/archives/this_pkg.tar.gz`
+     * Configure and install: `cd $rvm_path/src/this_pkg && ./configure --prefix="$rvm_prefix/usr" && make install`
+   * These instructions depend on the conventional configure/install process.  You may need to adapt them for some packages.
+
+
 ## Installing Ruby
 
-1. Copy ruby, rubygems and yaml to `$rvm_path/archives/`
-2. Set rubygems version: `echo rubygems_version=1.8.25 >> $rvm_path/user/db`
-3. Clean default gems: `echo "" > ~/.rvm/gemsets/default.gems`
-4. Clean global gems: `echo "" > ~/.rvm/gemsets/global.gems`
-5. Install Ruby: `rvm install 1.9.3-p392 --disable-binary` (this may require sudo)
-6. Set default Ruby version: `rvm use 1.9.3-p392 --default`
+1. Set rubygems version: `echo rubygems_version=1.8.25 >> $rvm_path/user/db`
+   * You may need to add the rubygems checksum if it is newer than your RVM install: `echo "$rvm_path/archives/rubygems-1.8.25.tar.gz=$(_fred=$(md5sum rubygems-1.8.25.tgz) && echo ${_fred% *})" >> $rvm_path/config/md5`
+   * Rubygems should be installed as a part of the ruby install process
+   * You can install rubygems manually if needed: `rvm rubygems 1.8.25`
+2. Clean default gems: `echo "" > ~/.rvm/gemsets/default.gems`
+3. Clean global gems: `echo "" > ~/.rvm/gemsets/global.gems`
+4. Install Ruby: `rvm install 1.9.3-p392 --disable-binary` (this may require sudo)
+   * Install any other Ruby versions you want similarly
+5. Set default Ruby version: `rvm use 1.9.3-p392 --default`
+
 
 ## Installing gems
 
