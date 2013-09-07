@@ -25,7 +25,7 @@ class AutoIdsFilter < Nanoc3::Filter
   def create_id(content)
     content
       .downcase           # small leters
-      .gsub(/<\/?code>/,'')      # remove <code></code> tags
+      .gsub(/<.*?>/,'')          # remove tags
       .gsub(/[^[:alnum:] -]/,"") # only chars, numbers, spaces and dash
       .gsub(/[ ]/, "-")          # convert spaces to dashes
       .gsub(/-+/, "-")           # convert multiple dashes to single

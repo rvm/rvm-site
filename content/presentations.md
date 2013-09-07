@@ -2,7 +2,7 @@
 title: "RVM Presentations"
 ---
 
-## [Presentations](/presentations/)
+## Presentations
 
 - [MWRC 2010 Presentation Video](http://www.confreaks.com/videos/3-mwrc2010-managing-ruby-projects-with-rvm)
 - [Interview at RailsConf 2010](http://blip.tv/file/3766138)
