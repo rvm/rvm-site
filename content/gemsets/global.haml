@@ -23,3 +23,8 @@ title: "Global gemsets"
   Gems you install to the @global gemset for a given ruby are available to all other gemsets you create in association with that ruby.
 %p
   This is a good way to allow all of your projects to share the same installed gem for a specific ruby interpreter installation.
+%p
+  To install a gem in the global gemset
+
+%code
+  rvm @global do gem install ...
