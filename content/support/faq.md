@@ -32,7 +32,7 @@ RVM by default adds itself currently to `~/.bash_profile` file, and the recommen
 
 To fix the configuration files automatically run: 
 
-    rvm get [head|stable] --auto
+    rvm get [head|stable] --auto-dotfiles
 
 ##I noticed some incorrect information on the RVM website. How do I submit a patch or Issue?
 
