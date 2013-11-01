@@ -29,20 +29,18 @@ end
   end
 end
 
-compile "/assets/favicon" do
-  nil
-end
+{
+  "/robots"                 => "/robots.txt",
+  "/assets/favicon"         => "/favicon.ico",
+  "/google0e4a57f3096204a2" => "/google0e4a57f3096204a2.html",
+}.each do |file, url|
+  compile file do
+    nil
+  end
 
-route "/assets/favicon/" do
-  "/favicon.ico"
-end
-
-compile "/robots" do
-  nil
-end
-
-route "/robots" do
-  "/robots.txt"
+  route file do
+    url
+  end
 end
 
 compile '*' do
