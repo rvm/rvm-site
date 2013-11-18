@@ -6,7 +6,7 @@ RVM Best Practices
 ==================
 
 Want to use RVM the way Wayne E. Seguin intended? The following is a collection of tips and best practices that have proven to be effective in making development easier while using rvm.
- 
+
 The List
 --------
 
@@ -19,8 +19,6 @@ A [project-specific rvmrc](/workflow/rvmrc/) makes it easy to automate your gene
 By checking the project's' rvmrc into source control along side your app, you're ensuring all users have a consistent environment when they're using your project and RVM.
 
 By also automating gemset installs and the like (e.g. check out the rvmrc in the [rvm-site](http://github.com/rvm/rvm-site) repository or the [TEDxPerth](http://github.com/YouthTree/TEDxPerth) repostory's rvmrc) you also make bootstrapping a project happen via cd'ing into the project directory, provided you have `export rvm_project_rvmrc=1` in your `$HOME/.rvmrc`.
-
-**NOTE:** The aforementioned knob makes use of RVM's *cd* bash function overriding. Please be aware of this.
 
 On top of this, you can also automatically make your deployments set up your application-specific environment even if you're using [passenger](/integration/passenger/).
 
