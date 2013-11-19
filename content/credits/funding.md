@@ -7,7 +7,7 @@ title: Who Funds RVM?
 Initially the vast majority of RVM development, including speaking about it at events,
 has happened on Wayne and Michal own personal time and budget.
 
-With time Engineyard started supporting project by employing Michal in years 2012-2014.
+With time Engineyard started supporting project by employing Michal in years 2013-2014.
 
 After that a [fundraiser was started to support full time development of RVM 2.0](https://www.bountysource.com/fundraisers/489-rvm-2-0).
 
