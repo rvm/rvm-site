@@ -30,7 +30,7 @@ then if your system does not source  `~/.bashrc` by default via `/etc/profile` y
 
 RVM by default adds itself currently to `~/.bash_profile` file, and the recommended way is to enable login shell in gnome-terminal (and screen).
 
-To fix the configuration files automatically run: 
+To fix the configuration files automatically run:
 
     rvm get [head|stable] --auto-dotfiles
 
@@ -51,7 +51,10 @@ RVM must be included at the bottom of the profile files. Otherwise your settings
 
 ##Does RVM work on windows? Will it in the future?
 
-NO. If you would like to manage multiple versions of ruby on windows please use pik which is an excellent tool by Gordon Thiesfeld. You can find it on [GitHub](http://github.com/vertiginous/pik/).
+NO. If you would like to manage multiple versions of ruby on windows please use pik which is an
+excellent tool by Gordon Thiesfeld. You can find it on [GitHub](http://github.com/vertiginous/pik/).
+There are plans to include windows support in RVM 2.0 =>
+<https://www.bountysource.com/fundraisers/489-rvm-2-0>.
 
 ##Can I use a path with spaces?
 
