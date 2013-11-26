@@ -9,5 +9,5 @@ Deploying Ruby Apps with RVM
 - [Chef](/deployment/chef/)
 - [Cron](/deployment/cron/)
 - [God](/deployment/god/)
-- [init.d Services](/deployment/init-d/)
+- [init.d / upstart](/deployment/init-d/)
 - [Best Practices](/deployment/best-practices/) (outdated)
