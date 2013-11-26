@@ -24,6 +24,7 @@ Where:
 - `my_app`         - is the alias name
 - `unicorn_rails`  - is the command that is being wrapped
 
-[Example `init.d` script](https://github.com/wayneeseguin/rvm/blob/master/contrib/unicorn_init.sh)
+Example scripts:
 
-[example `upstart` script](https://github.com/rvm/rvm-site-setup/blob/master/conf/smfbot.conf)
+- [`init.d`](https://github.com/wayneeseguin/rvm/blob/master/contrib/unicorn_init.sh)
+- [`upstart`](https://github.com/rvm/rvm-site-setup/blob/master/conf/smfbot.conf)
