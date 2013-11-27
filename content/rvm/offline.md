@@ -11,7 +11,7 @@ This is only rough description of the process, not all the steps need to work ri
 
 1. Choose the version of RVM you wish to deploy from: https://github.com/wayneeseguin/rvm/tags
 2. Download the rvm tarball: `curl -L https://github.com/wayneeseguin/rvm/tarball/stable -o rvm-stable.tar.gz`
-3. Create and enter rvm directory: `mkdir rvm && cd rvm`
+3. Create and enter rvm directory: `mkdir .rvm && cd .rvm`
 4. Unpack it: `tar --strip-components=1 -xzf ../rvm-stable.tar.gz`
 5. Install rvm: `./install --auto-dotfiles`
    * use --help to get the options
