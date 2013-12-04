@@ -56,7 +56,7 @@ title: Upgrading RVM
   If that does not work for you, you can always use the installer to update:
 %pre.code
   :preserve
-    $ \curl -L https://get.rvm.io | bash -s stable
+    $ \curl -sSL https://get.rvm.io | bash -s stable
     $ rvm reload
 
 %h3
@@ -71,8 +71,8 @@ title: Upgrading RVM
   Installer also will update RVM:
 %pre.code
   :preserve
-    $ \curl -L https://get.rvm.io | bash -s stable # update to stable
-    $ \curl -L https://get.rvm.io | bash -s head   # update to head
+    $ \curl -sSL https://get.rvm.io | bash -s stable # update to stable
+    $ \curl -sSL https://get.rvm.io | bash -s head   # update to head
     $ rvm reload
 %p
   Yes, there's a backslash before the <b>curl</b>. It is important to reload after using installer for update.

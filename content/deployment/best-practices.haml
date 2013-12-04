@@ -61,7 +61,7 @@ title: "Deployment best practices"
   Now install RVM,
 %pre.code
   :preserve
-    appuser$ \curl -L get.rvm.io | bash -s stable
+    appuser$ \curl -sSL get.rvm.io | bash -s stable
 %p
   Please note that there is a backslash before <b>curl</b>, this prevents misbehaving if
   you have aliased it with other options or use a .curlrc file for this. Once

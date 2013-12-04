@@ -55,7 +55,7 @@ You can also optionally enforce a package manager by using one of the following 
 
 Or with the installer including homebrew, ruby and rails:
 
-    \curl -L https://get.rvm.io | bash -s stable --autolibs=homebrew --rails
+    \curl -sSL https://get.rvm.io | bash -s stable --autolibs=homebrew --rails
 
 
 ## Letting RVM take care of packages (3)
@@ -87,4 +87,4 @@ Using 3 only once:
 
 Install RVM with Ruby and Ruby on Rails with all required libraries:
 
-    \curl -L https://get.rvm.io | bash -s stable --rails
+    \curl -sSL https://get.rvm.io | bash -s stable --rails

@@ -14,7 +14,7 @@ Follow instructions for chruby project: https://github.com/postmodern/chruby#ins
 
 ## Install RVM
 
-    curl -L https://get.rvm.io | bash -s -- --ignore-dotfiles
+    curl -sSL https://get.rvm.io | bash -s -- --ignore-dotfiles
 
 ## Integrate RVM
 

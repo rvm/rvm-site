@@ -10,7 +10,7 @@ This is only rough description of the process, not all the steps need to work ri
 ## Installing RVM offline
 
 1. Choose the version of RVM you wish to deploy from: https://github.com/wayneeseguin/rvm/tags
-2. Download the rvm tarball: `curl -L https://github.com/wayneeseguin/rvm/tarball/stable -o rvm-stable.tar.gz`
+2. Download the rvm tarball: `curl -sSL https://github.com/wayneeseguin/rvm/tarball/stable -o rvm-stable.tar.gz`
 3. Create and enter rvm directory: `mkdir rvm && cd rvm`
 4. Unpack it: `tar --strip-components=1 -xzf ../rvm-stable.tar.gz`
 5. Install rvm: `./install --auto-dotfiles`
@@ -24,13 +24,13 @@ This is only rough description of the process, not all the steps need to work ri
 
 1. Download ruby
    * Find version at: http://ftp.ruby-lang.org/pub/ruby/1.9/
-   * Download with curl: : `curl -L http://ftp.ruby-lang.org/pub/ruby/1.9/ruby-1.9.3-p392.tar.bz2 -o ruby-1.9.3-p392.tar.bz2`
+   * Download with curl: : `curl -sSL http://ftp.ruby-lang.org/pub/ruby/1.9/ruby-1.9.3-p392.tar.bz2 -o ruby-1.9.3-p392.tar.bz2`
    * Must use ruby source archive with .tar.bz2 extension!
 2. Download rubygems
    * Find version at: https://github.com/rubygems/rubygems/tags
-   * Download with curl: `curl -L http://production.cf.rubygems.org/rubygems/rubygems-1.8.25.tgz -o rubygems-1.8.25.tgz`
+   * Download with curl: `curl -sSL http://production.cf.rubygems.org/rubygems/rubygems-1.8.25.tgz -o rubygems-1.8.25.tgz`
 3. Download yaml (required by rvm)
-   * Download from rvm.io with curl: `curl -L https://rvm.io/src/yaml-0.1.4.tar.gz -o yaml-0.1.4.tar.gz`
+   * Download from rvm.io with curl: `curl -sSL https://rvm.io/src/yaml-0.1.4.tar.gz -o yaml-0.1.4.tar.gz`
 4. Save these packages for offline use by storing them in the rvm archive folder `$rvm_path/archives/` by default
    * An alternate archive folder can be specified in the `.rvmrc` file
    * sample usage: `echo rvm_archives_path=/path/to/tarballs/ >> ~/.rvmrc`
