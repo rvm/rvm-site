@@ -15,7 +15,7 @@ This is only rough description of the process, not all the steps need to work ri
 4. Unpack it: `tar --strip-components=1 -xzf ../rvm-stable.tar.gz`
 5. Install rvm: `./install --auto-dotfiles`
    * use --help to get the options
-   * sudo may be required depending on the type of [install](/rvm/install/)
+   * sudo password may be required depending on the type of [install](/rvm/install/)
 6. Load rvm: `source ~/.rvm/scripts/rvm`
    * if --path was specified when instaling rvm, use the specified path rather than '~/.rvm'
 
@@ -23,9 +23,10 @@ This is only rough description of the process, not all the steps need to work ri
 ## Download Ruby, rubygems and yaml
 
 1. Download ruby
-   * Find version at: http://ftp.ruby-lang.org/pub/ruby/1.9/
+   * Find `tar.bz2` version at: http://ftp.ruby-lang.org/pub/ruby/ (check sub-directories)
    * Download with curl: : `curl -sSL http://ftp.ruby-lang.org/pub/ruby/1.9/ruby-1.9.3-p392.tar.bz2 -o ruby-1.9.3-p392.tar.bz2`
-   * Must use ruby source archive with .tar.bz2 extension!
+   * Must use ruby source archive with .tar.bz2 extension! The versions at
+     https://www.ruby-lang.org/en/downloads/ are `tar.gz`, change it `tar.bz2` before downloading.
 2. Download rubygems
    * Find version at: https://github.com/rubygems/rubygems/tags
    * Download with curl: `curl -sSL http://production.cf.rubygems.org/rubygems/rubygems-1.8.25.tgz -o rubygems-1.8.25.tgz`
@@ -38,25 +39,17 @@ This is only rough description of the process, not all the steps need to work ri
 
 ## Install dependencies
 
-1. Disable automatic dependencies ("requirements") fetching: `rvm autolibs 1`
+1. Disable automatic dependencies ("requirements") fetching: `rvm autolibs read-fail`
 2. Manually download and install dependencies
    * Get the list of dependencies: `rvm requirements`
-   * For each item on the list:
-     * Download the source to `$rvm_path/archives/` (or somewhere else), see the yaml instructions above for example.
-     * Unpack the result: `cd $rvm_path/src && tar -xzf $rvm_path/archives/this_pkg.tar.gz`
-     * Configure and install: `cd $rvm_path/src/this_pkg && ./configure --prefix="$rvm_prefix/usr" && make install`
-   * These instructions depend on the conventional configure/install process.  You may need to adapt them for some packages.
-
+   * Consult your system manual how to manually download and install the required software
 
 ## Installing Ruby
 
-1. Set rubygems version: `echo rubygems_version=1.8.25 >> $rvm_path/user/db`
-   * You may need to add the rubygems checksum if it is newer than your RVM install: `echo "$rvm_path/archives/rubygems-1.8.25.tar.gz=$(_fred=$(md5sum rubygems-1.8.25.tgz) && echo ${_fred% *})" >> $rvm_path/config/md5`
-   * Rubygems should be installed as a part of the ruby install process
-   * You can install rubygems manually if needed: `rvm rubygems 1.8.25`
-2. Clean default gems: `echo "" > ~/.rvm/gemsets/default.gems`
-3. Clean global gems: `echo "" > ~/.rvm/gemsets/global.gems`
-4. Install Ruby: `rvm install 1.9.3-p392` (this may require sudo)
+1. Clean default gems: `echo "" > ~/.rvm/gemsets/default.gems`
+2. Clean global gems: `echo "" > ~/.rvm/gemsets/global.gems`
+3. Disable automatic dependencies ("requirements") fetching: `rvm autolibs read-fail`
+4. Install Ruby: `rvm install 1.9.3-p392 --rubygems=1.8.25` (this may require sudo password for autolibs)
    * Install any other Ruby versions you want similarly
 5. Set default Ruby version: `rvm use 1.9.3-p392 --default`
 
