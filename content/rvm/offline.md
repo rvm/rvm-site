@@ -49,7 +49,7 @@ This is only rough description of the process, not all the steps need to work ri
 1. Clean default gems: `echo "" > ~/.rvm/gemsets/default.gems`
 2. Clean global gems: `echo "" > ~/.rvm/gemsets/global.gems`
 3. Disable automatic dependencies ("requirements") fetching: `rvm autolibs read-fail`
-4. Install Ruby: `rvm install 1.9.3-p392 --rubygems=1.8.25` (this may require sudo password for autolibs)
+4. Install Ruby: `rvm install 1.9.3-p392 --rubygems 1.8.25` (this may require sudo password for autolibs)
    * Install any other Ruby versions you want similarly
 5. Set default Ruby version: `rvm use 1.9.3-p392 --default`
 
