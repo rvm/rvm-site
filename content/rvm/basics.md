@@ -18,10 +18,11 @@ First, you must ensure that you [install RVM](/rvm/install/).
 When you log in either via ssh or the local shell account RVM will be loaded as a function. In case of problems use one of following links as reference for configuring your terminal:
 
 * [Gnome Terminal integration](/integration/gnome-terminal/)
+* [LXTerminal integration](/integration/lxterminal/)
 * [Screen Workflow](/workflow/screen/)
 
 For non-interactive shells RVM will be added to PATH only, not loaded. This means using rubies is not possible in this mode, but there are simple methods to load ruby:
-  
+
     source $(rvm 1.9.3 do rvm env --path)
 
 Then, when you login or spawn a shell this will automatically load RVM regardless of the shell type. Pretty handy, huh?
@@ -29,7 +30,7 @@ Then, when you login or spawn a shell this will automatically load RVM regardles
 You should now open a new shell and start playing with rvm.
 
 A note about the .bash_profile warning. In a few linux distributions, the default .bash_profile (occasionally, the .bashrc) contains the following line:
-  
+
     [ -z "$PS1" ] && return
 
 The condition `[ -z "$PS1" ]` is true if the string "$PS1" has zero length (a non-interactive shell). rvm needs to load for both interactive and non-interactive shells which is why it strongly is recommended to alter this file.
@@ -41,7 +42,7 @@ Assuming this shows "rvm is a function", you're good to go. As an example, to in
     $ rvm install 1.9.2
 
 Once you have installed a Ruby interpreter with RVM successfully you may then use it by executing the following command:
-  
+
     $ rvm use 1.9.2
     $ ruby -v
     ruby 1.9.2p0 (2010-08-18 revision 29036) [x86_64-darwin10.4.0]
@@ -54,18 +55,18 @@ MRI rubies, etc. However, do note that when you are switching between an MRI or 
 as an example, *then* you need to use the ree|ruby|rbx part. When you want to switch, just use the
 version number and any patch level. If its a -head version use the full string as it will not
 contain numbers. This also applies when setting a default Ruby. Below is an example of what I mean:
-  
+
     # This changes to MRI Ruby 1.9.2-p180 and sets it as your default.
     $ rvm use 1.9.2-p180 --default
-    
+
     # The following changes to ruby-head (MRI Ruby) but does _not_
     # set it as your default Ruby.
     $ rvm use ruby-head
-    
+
     # This changes to ree-head and _does_ set it as
     # your default ruby
     $ rvm use ree-head --default
-    
+
     # You use the following full form if, for example,
     # you previously had an MRI or Rubinus ruby selected.
     $ rvm use ree-1.8.7-2011
