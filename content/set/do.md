@@ -7,6 +7,7 @@ title: "The do set operation"
 
     ∴ rvm [all|all-gemsets|<ruby>,...|<path>] [--verbose|--summary|--yaml|--json] do <command> ...
     ∴ rvm in <path> do <some-command> ...
+    ∴ rvm-exec [all|all-gemsets|<ruby>,...|<path>] [--verbose|--summary|--yaml|--json] <command> ...
 
 Executes arbitrary commands against given a set of rvm environments.
 Without additional flags it will exec the command directly without printing
@@ -26,6 +27,10 @@ out extra rvm information.
 - `--summary` - hide output and display summary of failures/success list only
 - `--yaml`    - hide output and display yaml summary of failures/success list only
 - `--json`    - hide output and display json summary of failures/success list only
+
+## Caveats
+
+If using the set do operation when scripting, use rvm-exec (usually installed to `~/.rvm/bin/rvm-exec`). Using `~/.rvm/bin/rvm` instead will cause RVM to spawn a bash shell, which is undesireable in the context of process monitoring.
 
 ## Examples:
 
