@@ -22,7 +22,7 @@ There are sites that describe this how it was 10 years ago like [here](http://as
 2. When you open a terminal (except Gnome-terminal & Screen) you open a `login` shell which sources `~/.bash_profile`
 3. When you execute commands in non login shell like `ssh server command` or `scp file server:~` or `sudo`(without -i) or `su` (without -l) it will execute `~/.bashrc`
 
-`~/.bashrc` is meant for non login invocations, you should not print there any output - it makes tools like `scp` to fail
+`~/.bashrc` is meant for non login invocations, you should not print there any output - it makes tools like `scp` fail
 
 it is good idea to put environment variables in `~/.bashrc`, things that you depend upon in your scripts (for `ssh server script`)
 
