@@ -105,6 +105,11 @@ version is required following comments will take precedence over the directive:
     #ruby-gemset=my_app
     #ruby-env-JRUBY_OPTS=--1.9
 
+Another example, using MRI Ruby at a specific patch level:
+
+    #ruby=ruby-1.9.3-p194
+    #ruby-gemset=my_app
+
 Comments are preferred as older versions of `bundler` did not support the directive.
 
 ## RVM configuration
