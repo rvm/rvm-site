@@ -62,4 +62,10 @@ title: "Gemset initialization in RVM"
 %h2 Warning
 
 %p
-  default.gems and global.gems files are usually overriten during `rvm update`.
+  default.gems and global.gems files are usually overwritten during update of rvm (`rvm get ...`).
+%p
+  It is however possible to override this behavior by either
+  %a{ :href => "/workflow/hooks/" } using after_install hook
+  or
+  %a{ :href => "/rubies/upgrading/" } overriding with `--with-default-gems`/`--with-gems` flags during install/update
+  .
