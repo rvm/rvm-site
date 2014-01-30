@@ -59,13 +59,14 @@ title: "Gemset initialization in RVM"
 %p
   By default, rvm uses these gemsets to install common libraries (such as rake, and in the case of jruby, jruby-openssl.)
 
-%h2 Warning
-
+%h3
+  Warning
 %p
-  default.gems and global.gems files are usually overwritten during update of rvm (`rvm get ...`).
+  default.gems and global.gems files are usually overwritten during update of rvm (rvm get ...).
 %p
   It is however possible to override this behavior by either
-  %a{ :href => "/workflow/hooks/" } using after_install hook
-  or
-  %a{ :href => "/rvm/install/" } overriding with `--with-default-gems`/`--with-gems` flags during install/update
-  .
+  %a{:href => "/workflow/hooks/"} using after_install hook
+  or overriding with --with-default-gems/--with-gems flags during
+  %a{:href => "/rvm/install/"} install
+  \/
+  %a{:href => "/rvm/upgrading/"} upgrade.
