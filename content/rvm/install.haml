@@ -30,8 +30,14 @@ Additionally with rails (poor man's
 Or with jruby, rails and puma:
 = sh_cmd "\\curl -sSL https://get.rvm.io | bash -s stable --ruby=jruby --gems=rails,puma"
 
-Finally, to install without the "rubygems-bundler" or "rvm" gems:
+To install without rubygems-bundler and rvm gems (and also remove those gems from both global.gems and default.gems):
 = sh_cmd "\\curl -sSL https://get.rvm.io | bash -s stable --without-gems=\"rvm rubygems-bundler\""
+
+To install with hirb gem (and also add it to global.gems):
+= sh_cmd "\\curl -sSL https://get.rvm.io | bash -s stable --with-gems=\"hirb\""
+
+To install with rails and haml gems (and also add them to default.gems):
+= sh_cmd "\\curl -sSL https://get.rvm.io | bash -s stable --with-default-gems=\"rails haml\""
 
 For a progress bar when downloading RVM / Rubies:
 = sh_cmd "echo progress-bar >> ~/.curlrc"

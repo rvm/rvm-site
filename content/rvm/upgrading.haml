@@ -118,6 +118,14 @@ title: Upgrading RVM
     $ rvm get branch mpapis/      # master branch from mpapis rvm repository
     $ rvm get branch mpapis/shoes # shoes  branch from mpapis rvm repository
 
+%h3
+  Overriding default and global gemsets
+%pre.code
+  :preserve
+    rvm get head --without-gems="rvm bundler rubygems-bundler" --with-gems="hirb" --with-default-gems="rails haml"
+%p
+  will remove the gems rvm, bundler and rubygems-bundler from global.gems, will add hirb to global gems and will add rails and haml to default.gems.
+
 %p
   After updating RVM, you may be also interested in
   %a{ :href => "/rubies/upgrading/" } Upgrading Rubies.
