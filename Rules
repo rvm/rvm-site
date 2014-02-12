@@ -43,6 +43,19 @@ end
   end
 end
 
+Dir['content/license/*.txt'].each do |file|
+  file = file.gsub(/^content/, "")
+  path = file.gsub(/\.[^\.]+$/, "")
+
+  compile path do
+    nil
+  end
+
+  route path do
+    file
+  end
+end
+
 compile '*' do
   case
     item[:extension]
