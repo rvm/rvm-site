@@ -18,4 +18,4 @@ RVM 2 is set of gems, so far all the gems are licensed under
 ![RVM 2 Logo by Michele Gerarduzzi](/images/rvm-logo-gerarduzzi.png)
 
 RVM2 Logo by Michele Gerarduzzi is licensed under a
-[Creative Commons Attribution-ShareAlike 4.0 International License](/license/CC_BY-SA_4.0.txt).
+[Creative Commons Attribution-ShareAlike 4.0 International License](/license/CC_BY-SA_40.txt).
