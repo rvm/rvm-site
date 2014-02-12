@@ -40,7 +40,7 @@ title: Hooks
   %li rvm_ruby_tag - The currently selected ruby tag (if any)
 
 %p
-  For `after_use` and `after_cd` hooks, multiple hook files are processed.
+  For `after_use`, `after_cd` and `after_install` hooks, multiple hook files are processed.
   RVM provides the main hook file for each of these, which loads other files
   within the hooks directory that are prefixed with `[hook name]_`.
   Each prefixed hook file which has it's executable flag set will be loaded in alphabetical order.
