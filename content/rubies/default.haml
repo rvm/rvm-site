@@ -50,7 +50,7 @@ title: "'rvm default' - setting default ruby for new terminals"
     ruby 1.9.2p0 (2010-08-18 revision 29036) [x86_64-darwin10.4.0]
 
 %p
-  To show what ruby is currently the selected default, if any, do
+  To show what ruby is currently the selected default, if any, do:
   %pre.code
     :preserve
       $ rvm list default
@@ -67,3 +67,16 @@ title: "'rvm default' - setting default ruby for new terminals"
   %pre.code
     :preserve
       $ rvm reset
+
+%p
+  Note that "default" is merely implemented as an
+  %a{ :href => "/rubies/alias/" } alias
+  with an especially significant name.
+%p
+  If you encounter an error such as "RVM is not a function, selecting rubies
+  with 'rvm use ...' will not work.", try using the
+  %a{ :href => "/rubies/alias/" } alias
+  action instead:
+  %pre.code
+    :preserve
+      $ rvm alias create default 1.9.2
