@@ -73,12 +73,10 @@ title: "ZSH Integration with RVM."
   zsh + iTerm2
 
 %p
-  If you are using iTerm2's feature allowing you to open new tabs / windows and
-  %strong
-    "Reuse Previous Tab's Directory"
-  then you will want to add the following line to the bottom of your .zshrc
-%pre.code
-  __rvm_project_rvmrc
+  Make sure in iTerm2 Preferences: 
+  %strong 
+    Login shell
+  option is set (do not use Command option). This is required for RVM to work.
 
 %h2
   zsh + oh my zsh
