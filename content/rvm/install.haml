@@ -304,58 +304,51 @@ For a progress bar when downloading RVM / Rubies:
   :preserve
     user$ rvm list known
     # MRI Rubies
-    ...
-    [ruby-]1.8.7[-p334]
-    [ruby-]1.8.7-head
-    ...
-    [ruby-]1.9.2[-p180]
-    [ruby-]1.9.2-head
+    [ruby-]1.8.6[-p420]
+    [ruby-]1.8.7[-p374]
+    [ruby-]1.9.1[-p431]
+    [ruby-]1.9.2[-p320]
+    [ruby-]1.9.3[-p545]
+    [ruby-]2.0.0-p353
+    [ruby-]2.0.0[-p451]
+    [ruby-]2.1[.1]
+    [ruby-]2.1-head
     ruby-head
-
-    # JRuby
-    jruby-1.2.0
-
     ...
 
-%p Install a version of Ruby (eg 1.9.2):
+%p Install a version of Ruby (eg 2.1.1):
 
 %pre.code
   :preserve
-    user$ rvm install 1.9.2
-    Installing Ruby from source to: /Users/user/.rvm/rubies/ruby-1.9.2-p180, this may take a while depending on your cpu(s)...
-
-    ruby-1.9.2-p180 - #fetching
-    ruby-1.9.2-p180 - #downloading ruby-1.9.2-p180, this may take a while depending on your connection...
+    user$ rvm install 2.1
+    Checking requirements for opensuse.
+    Requirements installation successful.
+    Installing Ruby from source to: /home/mpapis/.rvm/rubies/ruby-2.1.1, this may take a while depending on your cpu(s)...
     ...
-    ruby-1.9.2-p180 - #extracting ruby-1.9.2-p180 to /Users/user/.rvm/src/ruby-1.9.2-p180
-    ruby-1.9.2-p180 - #extracted to /Users/user/.rvm/src/ruby-1.9.2-p180
-    ruby-1.9.2-p180 - #configuring
-    ruby-1.9.2-p180 - #compiling
-    ruby-1.9.2-p180 - #installing
-    ...
-    Install of ruby-1.9.2-p180 - #complete
+    Install of ruby-2.1.1 - #complete
+    Using /home/mpapis/.rvm/gems/ruby-2.1.1
 
 %p Use the newly installed Ruby:
 
 %pre.code
   :preserve
-    user$ rvm use 1.9.2
-    Using /Users/user/.rvm/gems/ruby-1.9.2-p180
+    user$ rvm use 2.1
+    Using /home/mpapis/.rvm/gems/ruby-2.1.1
 
 %p Check this worked correctly:
 %pre.code
   :preserve
     user$ ruby -v
-    ruby 1.9.2p180 (2011-02-18 revision 30909) [i386-darwin9.8.0]
+    ruby 2.1.1p76 (2014-02-24 revision 45161) [x86_64-linux]
 
     user$ which ruby
-    Using /Users/user/.rvm/gems/ruby-1.9.2-p180/bin/ruby
+    /home/mpapis/.rvm/rubies/ruby-2.1.1/bin/ruby
 
 %p Optionally, you can set a version of Ruby to use as the default for new shells. Note that this overrides the 'system' ruby:
 
 %pre.code
   :preserve
-    user$ rvm use 1.9.2 --default
+    user$ rvm use 2.1 --default
 
 %h2 Enjoy using RVM!
 
