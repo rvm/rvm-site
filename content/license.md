@@ -10,8 +10,9 @@ RVM 1 is licensed under the
 
 ## RVM 2
 
-RVM 2 is set of gems, so far all the gems are licensed under
-[Apache 2 License](/license/Apache_2.txt).
+RVM 2 is set of gems, the gems will be / are licensed under
+[GNU LESSER GENERAL PUBLIC LICENSE Version 3](/license/lgpl3.txt)
+(which builds on top of [GNU GENERAL PUBLIC LICENSE Version 3](/license/gpl3.txt)).
 
 ## RVM 2 Logo by Michele Gerarduzzi
 
