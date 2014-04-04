@@ -1,8 +1,3 @@
----
-title: RVM Frequently Asked Questions
----
-
-
 #RVM FAQ & Notes
 
 ##I have found a bug in RVM. How do I submit an issue or a patch to get this fixed?
@@ -18,13 +13,14 @@ D. The complete output of the following trace / debugging command. `set -x ; rvm
 
 There are sites that describe this how it was 10 years ago like [here](http://askubuntu.com/questions/40287/etc-profile-not-being-sourced) or [here](http://superuser.com/questions/183870/difference-between-bashrc-and-bash-profile/183980#183980) so read to see how it works in current world:
 
-1. When you login graphically to your system it will read `~/.profile` so you put there settings like `LANG` which are important for graphical applications
+1. When you login graphically to your system it will read `~/.profile` so you put there settings like `LANG` which are important for graphical applications.
 2. When you open a terminal (except Gnome-terminal & Screen) you open a `login` shell which sources `~/.bash_profile`
 3. When you execute commands in non login shell like `ssh server command` or `scp file server:~` or `sudo`(without -i) or `su` (without -l) it will execute `~/.bashrc`
 
-`~/.bashrc` is meant for non login invocations, you should not print there any output - it makes tools like `scp` fail
+4. `~/.bashrc` is meant for non login invocations, you should not print there any output - it makes tools like `scp` fail.
+5. If the shell of the user is set to `/bin/sh`, you will need to edit `/etc/passwd` and set it to `/bin/bash`
 
-it is good idea to put environment variables in `~/.bashrc`, things that you depend upon in your scripts (for `ssh server script`)
+It is good idea to put environment variables in `~/.bashrc`, things that you depend upon in your scripts (for `ssh server script`)
 
 then if your system does not source  `~/.bashrc` by default via `/etc/profile` you should source it in `~/.bash_profile` file so any login shell will have access also to the same environment like non login sessions.
 
