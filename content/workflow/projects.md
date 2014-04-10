@@ -60,7 +60,7 @@ Another file might be used to specify gemset without breaking compatibility - `.
 
 Generating `.ruby-gemset`:
 
-    echo my_app > .ruby-version         # OR:
+    echo my_app > .ruby-gemset   # OR:
     rvm --ruby-version use 1.9.3@my_app
 
 The second form will create both `.ruby-version` and `.ruby-gemset`.
