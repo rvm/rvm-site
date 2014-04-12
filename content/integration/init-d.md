@@ -10,7 +10,7 @@ Namely, you need to set it up so that there is an alternative executable that
 loads the correct ruby and gems environment:
 
     rvm alias create my_app ruby-2.0.0-p247@my_app
-    rvm wrapper my_app --no-links unicorn_rails
+    # rvm wrapper my_app --no-links unicorn_rails # only for RVM 1.24 and older
 
 This will generate a wrapper that can be simply referenced in the `init.d` script or
 in `upstart` configuration:
