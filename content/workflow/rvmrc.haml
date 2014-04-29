@@ -15,22 +15,21 @@ title: rvmrc
 
 %h1 rvmrc files
 %p
-  There are 3 types of rvmrc files, system user and project.
-  They are discussed in detail below.
+  There are 3 types of rvmrc files: system, user, and project.
 
 %a{:name => "system"}
-%h2 System /etc/rvmrc
+%h2 System (/etc/rvmrc)
 %p
   The system rvmrc file is loaded before RVM initializes and before the user's ~/.rvmrc.
   \/etc/rvmrc settings are applied to all users on the system.
 
 %a{:name => "user"}
-%h2 User $HOME/.rvmrc
+%h2 User ($HOME/.rvmrc)
 %p
   The users rvmrc file overwrites settings in /etc/rvmrc and is loaded before RVM initializes.
   $HOME/.rvmrc settings are applied only for the user belonging to $HOME.
 
-%h2 System / User rvmrc examples
+%h2 System and User rvmrc examples
 %p
   Have RVM install rubies when used instead of only displaying a warning and exiting.
 %pre.code
@@ -63,10 +62,10 @@ title: rvmrc
   More examples may be found in ~/.rvm/examples/rvmrc.
 
 %a{:name => "project"}
-%h2 Project .rvmrc
+%h2 Project (project_directory/.rvmrc)
 %p
   The project .rvmrc file is different than the system & user.
-  System &amp; user rvmrc files are meant for altering the settings and behavior of RVM.
+  System &amp; user rvmrc files are meant for altering the settings and behavior of RVM as a whole.
   The project rvmrc files are intended to be used to setup your project's ruby
   environment when you switch to the project root directory.
 
