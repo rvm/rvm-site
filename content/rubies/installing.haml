@@ -33,7 +33,7 @@ title: "'./install' - Installing RVM."
   Quick Install
 %p
   Install ruby (follow the instructions):
-  = sh_cmd "rvm install 1.9.3"
+  = sh_cmd "rvm install 2.1.1"
 
 You can also:
 
@@ -60,9 +60,9 @@ You can also:
   Because the interactive mode is intended mostly for use by users it also will display additional
   information and dialogs. To avoid this do not source rvm as a function or fallback to using binary
   with one of the following methods:
-  = sh_cmd "/full/path/to/rvm/bin/rvm install 1.9.3"
+  = sh_cmd "/full/path/to/rvm/bin/rvm install 2.1.1"
   OR:
-  = sh_cmd "command rvm install 1.9.3"
+  = sh_cmd "command rvm install 2.1.1"
 
 %h2#patchlevel Patch Levels
 %p
@@ -78,111 +78,32 @@ You can also:
 
   %pre.code
     :preserve
-      $ rvm  install ruby-1.8.7-p160
+      $ rvm install 2.1.1
 
       Installing Ruby from source to: ...
 
       $ ruby -v
 
-      ruby 1.8.7 (2009-04-08 patchlevel 160) [i686-darwin9.8.0]
+      ruby 2.1.1p76 (2014-02-24 revision 45161) [x86_64-darwin12.0]
   %p
-    which will download, compile and install ruby-1.8.7-p160 and then set it to current.
+    which will download, compile and install ruby-2.1.1 and then set it to current.
     Switching between patchlevels is very easy:
   %pre.code
     :preserve
-      $ rvm  ruby-1.8.7-p160
+      $ rvm ruby-2.0.0-p451
 
-      Switching to ruby 1.8.7 160 ...
+      Switching to ruby 2.0.0-p451 ...
 
-      $ ruby -v
+      $ rvm ruby-2.0.0-p481
 
-      ruby 1.8.7 (2009-04-08 patchlevel 160) [i686-darwin9.8.0]
+      Switching to ruby 2.0.0-p481 ...
 
-      $ rvm  ruby-1.8.7-p352
-
-      Switching to ruby 1.8.7 174 ...
-
-      $ ruby -v
-
-      ruby 1.8.7 (2009-06-12 patchlevel 174) [i686-darwin9.8.0]
   %p
     Don't forget about the shorthand due to defaults. The above is equivalent to
   %pre.code
     :preserve
-      $ rvm 1.8.7-p160    # same as: rvm ruby-1.8.7-p160
-      $ rvm 1.8.7-p352    # same as: rvm ruby-1.8.7-p352
-
-%h2#revision
-  Repository Revisions (MRI)
-%p
-  Installing specific ruby repository revisions
-
-  %h1
-    Specifying repository revisions
-  %p
-    Moving beyond official patch levels and tags we can also use any arbitrary revision for 1.8.X and 1.9.X
-  %pre.code
-    :preserve
-      $ rvm install 1.8.6-r24700 ;  rvm 1.8.6-r24700
-
-      $ ruby -v
-
-      ruby 1.8.6 (2009-08-26 patchlevel 387) [i686-darwin10.0.0]
-
-      $ which ruby
-
-      /Users/wayne/.rvm/ruby-1.8.6-24700/bin/ruby
-
-
-%h2#tag Tags (MRI)
-%p
-  Installing specific ruby tags
-  %h1
-    Repository Tags (MRI)
-  %p
-    To install a specific tagged version of ruby from the repository we specify -t(tag name).
-  %pre.code
-    :preserve
-      $ rvm install 1.8.6-tv1_8_6_111 ; rvm 1.8.6-tv1_8_6_111
-
-      $ which ruby
-
-      /Users/wayne/.rvm/ruby-1.8.6-v1_8_6_111/bin/ruby
-
-%p
-  A list of all valid tags can be found in the ruby repository: http://svn.ruby-lang.org/repos/ruby/tags/
-
-%h2#branch Branches (MRI)
-%p
-  Installing specific ruby branches
-  %h1
-    Repository Branches (MRI)
-  %p
-    To install a specific branch version of ruby from the repository we specify --branch (branch name).
-    Named rubies can help avoid clashes.
-  %pre.code
-    :preserve
-      $ rvm install ruby-head -n zombie --branch ruby_1_8 && rvm ruby-head-zombie
-      $ ruby -v
-      ruby 1.8.8dev (2012-05-21) [i386-darwin10.8.0]
-      $ rvm install ruby-head -n newborn && rvm ruby-head-newborn
-      $ ruby -v
-      ruby 2.0.0dev (2012-06-03 trunk 35876) [x86_64-darwin10.8.0]
-
-%p
-  You'll find a list of all valid branches in the ruby repository: http://svn.ruby-lang.org/repos/ruby/branches/
-
-%h2#patch Custom Patches (MRI)
-%p
-  Installing specific rubies with custom ruby source patches
-  %pre.code
-    :preserve
-      $ rvm install 1.8.6 --patch /path/to/awesome.patch
-  %p
-    Alternatively you can specify more than one patch; they are applied in the order given.
-  %pre.code
-    :preserve
-      $ rvm install 1.8.6 --patch /path/to/awesome.patch,/path/to/another.patch
+      $ rvm 2.0.0-p451    # same as: rvm ruby-2.0.0-p451
+      $ rvm 2.0.0-p481    # same as: rvm ruby-2.0.0-p481
 
 %h2 Getting the Latest and Greatest
 %p
@@ -190,11 +111,11 @@ You can also:
 %p
   For any interpreter which has '-head' support, postfix '-head' after the
   interpreter name. For example, in order to install the latest development
-  trunk for ruby 1.9.2:
+  trunk for ruby 2.1:
 %pre.code
   :preserve
-    $ rvm install ruby-1.9.2-head
-    $ rvm use ruby-1.9.2-head
+    $ rvm install ruby-2.1-head
+    $ rvm use ruby-2.1-head
 
 %h1 Install on Use
 %p
@@ -211,28 +132,28 @@ You can also:
   Configure script flags can be passed by a comma-separated list with no spaces after -C, like so:
 %pre.code
   :preserve
-    $ rvm install 1.9.1 -C --enable-shared,--with-readline-dir=$HOME/.rvm/usr
+    $ rvm install 2.1.1 -C --enable-shared,--with-readline-dir=$HOME/.rvm/usr
 
 %h1 Compile Flags
 %p
   If you need to pass compile flags for the compile process, just set the
   corresponding environment variables.
 %p
-  As an example, to enable gdb for ruby 1.9.1:
+  As an example, to enable gdb for ruby 2.1.1:
 %pre.code
   :preserve
     $ export optflags="-O0 -ggdb"
-    $ rvm install 1.9.1
+    $ rvm install 2.1.1
 
 %h1
   Static MRI
 %p
-  If you wish to compile an MRI Ruby (1.8 / 1.9) as statically-linked instead
+  If you wish to compile an MRI Ruby (1.9/2.0/2.1) as statically-linked instead
   of dynamically, then pass the --static flag like so:
 
 %pre.code
   :preserve
-    $ rvm --static install 1.9.2
+    $ rvm --static install 2.1.1
 
 %h1
   Generating Documentation
@@ -265,7 +186,7 @@ You can also:
 
 %pre.code
   :preserve
-    $ rvm reinstall 1.9.3-p194 && rvm docs generate all
+    $ rvm reinstall 2.1.1 && rvm docs generate all
 %p
   As always, don't forget to pass whatever additional parameters such as --patch
   to the reinstall portion of the command that you initially used, if any.

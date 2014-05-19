@@ -17,40 +17,40 @@ title: "'rvm gemset use' - Using gemsets"
   Before you can use a gemset, you must first create it.
 %pre.code
   :preserve
-    $ rvm 1.9.2-head
-    $ rvm gemset create albinochipmunk
+    $ rvm 2.1.1
+    $ rvm gemset create teddy
 
 %p
   To use a gemset
 %pre.code
   :preserve
-    $ rvm gemset use albinochipmunk
+    $ rvm gemset use teddy
 
 %p
   You can switch to a gemset as you start to use a ruby, by appending @gemsetname to the end of the ruby selector string:
 %pre.code
   :preserve
-    $ rvm use 1.9.2-head@albinochipmunk
+    $ rvm use 2.1.1@teddy
 
 %p
   You can also specify a *default* gemset for a given ruby interpreter, by doing:
 %pre.code
   :preserve
-    $ rvm use 1.9.2-head@albinochipmunk --default
+    $ rvm use 2.1.1@teddy --default
 
 
 %p
   To use a named gemset with an RVM 'do' action, append it to the ruby selector string using a '@'
 %pre.code
   :preserve
-    rvm 1.9.2-head@albinochipmunk,ree@albinochipmunk,jruby@albinochipmunk do rake test
+    rvm 2.1.1@teddy,ree@teddy,jruby@teddy do rake test
 
 %p
   If you are aware of where you are at, and wish to fix the gemset, you can do:
 %pre.code
   :preserve
-    rvm gemset use albinochipmunk
-    rvm 1.9.2-head,ree,jruby do rake --sticky test
+    rvm gemset use teddy
+    rvm 2.1.1,ree,jruby do rake --sticky test
 
 %p
   If you would like to create gemsets automatically when used, export this flag in your ~/.rvmrc file:

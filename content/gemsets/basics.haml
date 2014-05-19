@@ -21,20 +21,20 @@ title: Gemset Basics
 %p
   You may even have separate named gemsets.
 %p
-  Let's say, for example, that you are testing two versions of a gem, with ruby 1.9.2-head.
-  You can install one to the default 1.9.2-head, then create a named gemset for the other version, and switch between them easily.
+  Let's say, for example, that you are testing two versions of a gem, with ruby 2.1.1.
+  You can install one to the default 2.1.1, then create a named gemset for the other version, and switch between them easily.
 %h3
   Example: testing gems
 %pre.code
   :preserve
-    $ rvm 1.9.2-head@testing
+    $ rvm 2.1.1@testing
 %p
-  will use a '1.9.2-head@testing' GEM_HOME (be sure to create it first), whereas:
+  will use a '2.1.1@testing' GEM_HOME (be sure to create it first), whereas:
 %pre.code
   :preserve
-    $ rvm 1.9.2-head
+    $ rvm 2.1.1
 %p
-  will use the default 1.9.2-head GEM_HOME :)
+  will use the default 2.1.1 GEM_HOME
 %h3
   Example: Rails versions & upgrading apps
 %p
@@ -42,21 +42,18 @@ title: Gemset Basics
 %pre.code
   :preserve
 
-    $ rvm 1.9.2-head
-    $ gem install rails -v 2.3.3
+    $ rvm 2.1.1
+    $ gem install rails -v 4.1.0
 
-    $ rvm gemset create rails222 rails126
-    Gemset 'rails222' created.
-    Gemset 'rails126' created.
+    $ rvm gemset create rails410 rails320
+    Gemset 'rails410' created.
+    Gemset 'rails320' created.
 
-    $ rvm 1.9.2-head@rails222
-    $ gem install rails -v 2.2.2
+    $ rvm 2.1.1@rails410
+    $ gem install rails -v 4.1.0
 
-    $ rvm 1.9.2-head@rails126
-    $ gem install rails -v 1.2.6
-
-    $ rvm 1.8.7
-    $ gem install rails -v 1.2.3
+    $ rvm 2.1.1@rails320
+    $ gem install rails -v 3.2.0
 %p
   Note that, for each of the ruby installs above,
   you can have completely separate versions!
@@ -65,21 +62,13 @@ title: Gemset Basics
   and Ruby versions as follows.
 %pre.code
   :preserve
-    $ rvm 1.9.2-head@rails126 ; rails --version
+    $ rvm 2.1.1@rails410 ; rails --version
 
-    Rails 1.2.6
+    Rails 4.1.0
 
-    $ rvm 1.8.7 ; rails --version
+    $ rvm 2.1.1@rails320 ; rails --version
 
-    Rails 1.2.3
-
-    $ rvm 1.9.2-head@rails220 ; rails --version
-
-    Rails 2.2.0
-
-    $ rvm 1.9.2-head ; rails --version
-
-    Rails 2.3.3
+    Rails 3.2.0
 %p
   If you are deploying to a server, or you do not want to wait around for rdoc and ri to install for each gem, you can disable them for gem installs and updates.  Just add these two lines to your ~/.gemrc or /etc/gemrc:
 %pre.code

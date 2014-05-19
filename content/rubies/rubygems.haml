@@ -33,19 +33,19 @@ title: "'rvm gemdir' - RubyGems and RVM"
   You can see the gem directory of the currently selected ruby using the gemdir action:
 %pre.code
   :preserve
-    $ rvm 1.9.2
+    $ rvm 2.1.1
     $ rvm gemdir
 
-    /Users/wayne/.rvm/gems/ruby-1.9.2-p378
+    /Users/rys/.rvm/gems/ruby-2.1.1
 %p
   To change to the currently selected Ruby's gem directory, use a subshell:
 %pre.code
   :preserve
-    $ rvm 1.9.2
+    $ rvm 2.1.1
     $ cd $(rvm gemdir)
     $ pwd
 
-    /Users/wayne/.rvm/gems/ruby-1.9.2-p378
+    /Users/rys/.rvm/gems/ruby-2.1.1
 
 %p
   If this is something you do frequently you can put the following bash function in your ~/.bash_profile or ~/.zshrc:
@@ -66,21 +66,13 @@ title: "'rvm gemdir' - RubyGems and RVM"
   Then switching to individual RVM Ruby gem directories can be done as follows.
 %pre.code
   :preserve
-    $ gemdir 1.8.6
+    $ gemdir 2.1.1
 
-    /Users/wayne/.rvm/gems/ruby-1.8.6-p399
-
-    $ pwd
-
-    /Users/wayne/.rvm/gems/ruby-1.8.6-p399
-
-    $ gemdir 1.9.2
-
-    /Users/wayne/.rvm/gems/ruby-1.9.2-p378
+    /Users/rys/.rvm/gems/ruby-2.1.1
 
     $ pwd
 
-    /Users/wayne/.rvm/gems/ruby-1.9.2-p378
+    /Users/rys/.rvm/gems/ruby-2.1.1
 
 %h2
   RubyGems CLI API
@@ -103,7 +95,7 @@ title: "'rvm gemdir' - RubyGems and RVM"
     $ rvm rubygems 1.5.2
 
 %p
-  In the case of MRI 1.9.X a version of RubyGems comes built in. If you install a different RubyGems via the 'rvm rubygems' API and decide to go back to the built in then you can run the following command to remove the different version installed.
+  In the case of MRI 1.9.X+ a version of RubyGems comes built in. If you install a different RubyGems via the 'rvm rubygems' API and decide to go back to the built in then you can run the following command to remove the different version installed.
 %pre.code
   :preserve
     $ rvm rubygems remove
@@ -129,18 +121,3 @@ title: "'rvm gemdir' - RubyGems and RVM"
     $ gem --version
     1.5.2
 
-%p
-  And to have same version of Ruby with packeged/latest RubyGems.
-
-%pre.code
-  :preserve
-    $ rvm install ree
-    $ rvm use ree
-    $ gem --version
-    1.8.10
-    $ rvm list
-
-    rvm rubies
-
-    => ree-1.8.7-2011.03 [ i386 ]
-       ree-1.8.7-2011.03-rg152 [ i386 ]

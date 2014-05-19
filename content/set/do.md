@@ -44,9 +44,9 @@ printed by rvm as is done with normal set operations), you can instead do:
     ∴ rvm ree do ruby -v
 
 Since it is a set operation, normal ruby specifiers will work. As an example, to run
-`gem list` against **1.9.2** and **1.8.7** and prefix with ruby name, you would run:
+`gem list` against **2.0.0** and **2.1.1** and prefix with ruby name, you would run:
 
-    ∴ rvm 1.9.2,1.8.7 --verbose do gem list
+    ∴ rvm 2.1.1,2.0.0 --verbose do gem list
 
 Or, to execute `gem env` against all gemsets:
 
