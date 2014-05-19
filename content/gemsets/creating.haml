@@ -21,25 +21,25 @@ title: "'rvm gemset create' - Creating gemsets"
 
 %pre.code
   :preserve
-    $ rvm 1.9.2-head
-    $ rvm gemset create albinochipmunk
-    Gemset 'albinochipmunk' created.
+    $ rvm 2.1.1
+    $ rvm gemset create teddy
+    Gemset 'teddy' created.
 %p
   You can also create multiple gemsets in a single command.
 
 %pre.code
   :preserve
-    $ rvm 1.9.2-head
-    $ rvm gemset create albinochipmunk redsquirrel
-    Gemset 'albinochipmunk' created.
-    Gemset 'redsquirrel' created.
+    $ rvm 2.1.1
+    $ rvm gemset create teddy rosie
+    Gemset 'teddy' created.
+    Gemset 'rosie' created.
 
 %p
   Alternatively, if you prefer the shorthand syntax
   offered by rvm use, employ the --create option
   like so:
 
-= sh_cmd "rvm use 1.9.2-head@albinochipmunk --create"
+= sh_cmd "rvm use 2.1.1@teddy --create"
 
 %p
   If you would like to create gemsets automatically when used, export this flag in your ~/.rvmrc or /etc/rvmrc file:

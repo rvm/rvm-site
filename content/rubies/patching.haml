@@ -21,17 +21,17 @@ title: "'./patching' - Patching Rubies."
     Installing specific rubies with custom ruby source patches
   %pre.code
     :preserve
-      $ rvm install 1.8.6 --patch /path/to/awesome.patch
+      $ rvm install 2.1.1 --patch /path/to/awesome.patch
   %p
     Alternatively you can specify more than one patch, they are applied in the order given.
   %pre.code
     :preserve
-      $ rvm install 1.8.6 --patch /path/to/awesome.patch,/path/to/another.patch
+      $ rvm install 2.1.1 --patch /path/to/awesome.patch,/path/to/another.patch
   %p
     Starting with RVM 1.17 it is also possible to specify an URL to a patch
   %pre.code
     :preserve
-      $ rvm install 1.9.3 --patch https://github.com/ruby/ruby/commit/2741a598ff9e561c71eb39a57bb19c0a3205eaef.patch
+      $ rvm install 2.1.1 --patch https://url.to.your/fancy.patch
 
   %p
     It is also possible to specially name a patched ruby (see 
@@ -40,7 +40,7 @@ title: "'./patching' - Patching Rubies."
     for more details).
   %pre.code
     :preserve
-      $ rvm install 1.9.2-myversion --patch /path/to/weird.patch
+      $ rvm install 2.1.1-named --patch /path/to/weird.patch
 
 %h1 Contributing patches
 %h2 Testing patches
@@ -51,7 +51,7 @@ title: "'./patching' - Patching Rubies."
     Test ruby before patching
   %pre.code
     :preserve
-      $ rvm install 1.8.7
+      $ rvm install 2.1.1
       $ ruby your_test.rb #or
       $ ruby -e "puts 'your one line test'"
 
@@ -59,13 +59,13 @@ title: "'./patching' - Patching Rubies."
     Uninstall previous version before installing with patch
   %pre.code
     :preserve
-      $ rvm remove 1.8.7
+      $ rvm remove 2.1.1
 
   %p
     Test ruby after patching
   %pre.code
     :preserve
-      $ rvm install 1.8.7 --patch /path/to/awesome.patch
+      $ rvm install 2.1.1 --patch /path/to/awesome.patch
       $ ruby your_test.rb #or
       $ ruby -e "puts 'your one line test'"
 
@@ -76,12 +76,12 @@ title: "'./patching' - Patching Rubies."
     Test ruby after patching
   %pre.code
     :preserve
-      $ rvm install 1.8.6 --patch /path/to/compilation.patch
+      $ rvm install 2.1.1 --patch /path/to/compilation.patch
       $ ruby -v
 
 %h2 Contributing patches
 %p
-  If your patch fixes important issues on old branches like 1.8.6 it can be contributed to RVM.
+  If your patch fixes important issues on old branches like 2.0.0 it can be contributed to RVM.
   But first talk with somebody, before you start preparing your contribution check out what other think about it,
   some changes aren't right for everybody and shouldn't be contributed.
   Best way is to use
@@ -99,7 +99,7 @@ title: "'./patching' - Patching Rubies."
   To start you need to fork
   %a{:href => "http://github.com/wayneeseguin/rvm"} wayneeseguin/rvm
   clone your fork to disk, and add your patch to right directory like:
-  %strong patches/ruby/1.8.6/
+  %strong patches/ruby/2.0.0/
 
 %p
   Install your version of RVM into system
@@ -119,7 +119,7 @@ title: "'./patching' - Patching Rubies."
     Install ruby which should be automatically patched, test as needed
   %pre.code
     :preserve
-      $ rvm install 1.8.7
+      $ rvm install 2.1.1
       $ ruby -v #or
       $ ruby your_test.rb #or
       $ ruby -e "puts 'your one line test'"

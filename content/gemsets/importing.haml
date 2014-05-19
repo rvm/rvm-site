@@ -16,24 +16,24 @@ title: "'rvm gemset import' - Importing gemsets."
 %h3
   Importing a gemset
 %p
-  To import a gemset file called 'albinochipmunk.gems' to the albinochipmunk gemset of 1.9.2-head do
+  To import a gemset file called 'teddy.gems' to the teddy gemset of 2.1.1 do
 %pre.code
   :preserve
-    $ rvm --create 1.9.2-head@albinochipmunk # The --create creates the gemset if it does not exist
-    $ rvm gemset import albinochipmunk
+    $ rvm --create 2.1.1@teddy # The --create creates the gemset if it does not exist
+    $ rvm gemset import teddy
 %p
   Note that you can use any gemset name to import into.
 %p
   You can specify the gemset filename prefix also
 %pre.code
   :preserve
-    $ rvm gemset use albinochipmunk
-    $ rvm gemset import albinochipmunk
+    $ rvm gemset use teddy
+    $ rvm gemset import teddy
 %p
   Alternatively, if you already have a ruby and/or gemset selected:
 %pre.code
   :preserve
-    $ rvm 1.9.2-head@albinochipmunk
+    $ rvm 2.1.1@teddy
     $ rvm gemset import
 %p
   Importing without arguments will check for gemset files in the following order:
@@ -51,7 +51,7 @@ title: "'rvm gemset import' - Importing gemsets."
 %pre.code
   :preserve
     fastercsv
-    rails -v2.3.2
+    rails -v4.1.0
     rake
     tzinfo -v0.3.27
 %p

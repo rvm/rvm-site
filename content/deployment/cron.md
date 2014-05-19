@@ -46,14 +46,14 @@ files. You can find them by running:
 
     rvm env --path -- ruby-version[@gemset-name]
 
-Assuming the the project ruby@gemset is `1.9.2-p290@projectX` then
+Assuming the the project ruby@gemset is `2.1.1@projectX` then
 calling:
 
-    rvm env --path -- 1.9.2-p290@projectX
+    rvm env --path -- 2.1.1@projectX
 
 will return
 
-    /usr/local/rvm/environments/ruby-1.9.2-p290@projectX
+    /usr/local/rvm/environments/ruby-2.1.1@projectX
 
 ### Example script
 
@@ -63,7 +63,7 @@ like this:
     #!/usr/bin/env bash
 
     # load rvm ruby
-    source /usr/local/rvm/environments/ruby-1.9.2-p290@projectX
+    source /usr/local/rvm/environments/ruby-2.1.1@projectX
 
     bundle install
     ruby /path/to/script.rb
