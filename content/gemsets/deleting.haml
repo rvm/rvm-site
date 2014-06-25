@@ -17,17 +17,17 @@ title: "'rvm gemset delete' - Deleting gemsets"
   When you delete a gemset, rvm will prompt you to confirm the deletion.
 %pre.code
   :preserve
-    $ rvm gemset use albinochipmunk
-    $ rvm gemset delete albinochipmunk
+    $ rvm gemset use teddy
+    $ rvm gemset delete teddy
 
 %p
   To skip confirmation, pass the --force flag:
 %pre.code
   :preserve
-    $ rvm gemset use albinochipmunk
-    $ rvm --force gemset delete albinochipmunk
+    $ rvm gemset use teddy
+    $ rvm --force gemset delete teddy
 %p
-  By default, rvm deletes gemsets from the currently selected Ruby interpreter. To delete a gemset from a different interpreter, say 1.9.2, run your command this way:
+  By default, rvm deletes gemsets from the currently selected Ruby interpreter. To delete a gemset from a different interpreter, say 2.0.0, run your command this way:
 %pre.code
   :preserve
-    $ rvm 1.9.2 do gemset delete albinochipmunk
+    $ rvm 2.0.0 do gemset delete teddy

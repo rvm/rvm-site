@@ -37,17 +37,17 @@ The condition `[ -z "$PS1" ]` is true if the string "$PS1" has zero length (a no
 
 First ensure that the previous step was successful and that rvm is loaded correctly. To do this, and verify that RVM is loaded *as a shell function*, run: `type rvm | head -1`
 
-Assuming this shows "rvm is a function", you're good to go. As an example, to install and use Ruby 1.9.2 you may do:
+Assuming this shows "rvm is a function", you're good to go. As an example, to install and use Ruby 2.1.1 you may do:
 
-    $ rvm install 1.9.2
+    $ rvm install 2.1.1
 
-Once you have installed a Ruby interpreter with RVM successfully you may then use it by executing the following command:
+Once you have installed a Ruby interpreter with RVM successfully you may then use it by executing the use command. For example, for Ruby 2.1.1:
 
-    $ rvm use 1.9.2
+    $ rvm use 2.1.1
     $ ruby -v
-    ruby 1.9.2p0 (2010-08-18 revision 29036) [x86_64-darwin10.4.0]
+    ruby 2.1.1p76 (2014-02-24 revision 45161) [x86_64-darwin12.0] 
     $ which ruby
-    /Users/wayne/.rvm/rubies/ruby-1.9.2-p0/bin/ruby
+    /Users/rys/.rvm/rubies/ruby-2.1.1/bin/ruby
 
 NOTE: There has been some confusion amongst new users as to the proper way to switch between Ruby
 versions.  It is not required to include the 'ruby-' portion of whatever is listed in the output of `rvm list` for installed rubies. This is just used to indicate the differences between, say, REE rubies, and
@@ -56,34 +56,34 @@ as an example, *then* you need to use the ree|ruby|rbx part. When you want to sw
 version number and any patch level. If its a -head version use the full string as it will not
 contain numbers. This also applies when setting a default Ruby. Below is an example of what I mean:
 
-    # This changes to MRI Ruby 1.9.2-p180 and sets it as your default.
-    $ rvm use 1.9.2-p180 --default
+    # This changes to MRI Ruby 2.1.1 and sets it as your default.
+    $ rvm --default use 2.1.1
 
     # The following changes to ruby-head (MRI Ruby) but does _not_
     # set it as your default Ruby.
     $ rvm use ruby-head
 
-    # This changes to ree-head and _does_ set it as
+    # This changes to jruby-head and _does_ set it as
     # your default ruby
-    $ rvm use ree-head --default
+    $ rvm --default use jruby-head
 
     # You use the following full form if, for example,
-    # you previously had an MRI or Rubinus ruby selected.
-    $ rvm use ree-1.8.7-2011
+    # you previously had a different Ruby selected (maybe JRuby)
+    $ rvm use ruby-2.1.1
 
     # This changes to whatever RVM recognizes as the most current
-    # MRI Ruby 1.9.2, and sets it as default.
-    $ rvm use 1.9.2 --default
+    # MRI Ruby 2.1.1, and sets it as default.
+    $ rvm --default use 2.1.1
 
-**NOTE:** If you use *just* the Major.Minor version numbers, RVM checks for, and uses, what is the most current patchlevel in its $rvm_path/config/db for that Major.Minor version. For example, if you only have 1.9.2-p125 installed, and 1.9.2-p320 is the lastest, RVM will attempt to download, install, and set 1.9.2-p320 as your default 1.9.2 for you. This behaviour may, or may not, be what you want. If its not, then be sure to include the patch level when you specify which Ruby RVM should use when setting a default. RVM updates the known list ($rvm_path/config/db and $rvm_path/config/known) everytime you update RVM, so the 'current' version of a Major.Minor (eg. 1.9.2) can change on you. RVM does not go by what you have installed for this reason. It goes by what is maintained in those two files.
+**NOTE:** If you use *just* the Major.Minor version numbers, RVM checks for, and uses, what is the most current patchlevel in its $rvm_path/config/db for that Major.Minor version. For example, if you only have 2.0.0-p451 installed, and 2.0.0-p481 is the lastest, RVM will attempt to download, install, and set 2.0.0-p481 as your default 2.0.0 for you. This behaviour may, or may not, be what you want. If its not, then be sure to include the patch level when you specify which Ruby RVM should use when setting a default. RVM updates the known list ($rvm_path/config/db and $rvm_path/config/known) everytime you update RVM, so the 'current' version of a Major.Minor (e.g. 2.1.2 at the time of writing) can change on you. RVM does not go by what you have installed for this reason. It goes by what is maintained in those two files.
 
-The last example above does not use a patch level because you are basically saying use the most currently released stable version of 1.9.2 which, as of the time of this writing, is 1.9.2-p290. Also, please take note that the keyword *use* above causes RVM to output the version it is switching to. Basically, it makes the change operation verbose. Note that it is *not* required in most operations, and is meant solely for console users to be given a visual prompt that RVM has, in fact, changed Rubies and to which one.
+**NOTE:** Ruby switched to a Semantic Versioning scheme as of Ruby 2.1.1, which might affect your use of rvm to manage it. [Ruby Semantic Versioning](https://www.ruby-lang.org/en/news/2013/12/21/semantic-versioning-after-2-1-0/)
 
 **PLEASE NOTE:** RVM is 'hands off' any system ruby that you have installed. To be able to "use" your system ruby you can tell RVM to undo the environment changes that it has applied, as follows.
 
     $ rvm use system
     $ ruby -v
-    ruby 1.8.7 (2009-06-12 patchlevel 174) [universal-darwin10.0]
+    ruby 2.0.0p451 (2014-02-24 revision 45167) [universal.x86_64-darwin13]
     $ which ruby
     /usr/bin/ruby
 

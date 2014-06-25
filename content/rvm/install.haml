@@ -101,7 +101,7 @@ For a progress bar when downloading RVM / Rubies:
     <strong>Multi-User installations</strong> -
     For <span style="color: red;">server administrators</span> -
     For an installation usable by all users on the system -
-    Please note that Single-User supercedes Multi-User.
+    Please note that Single-User supersedes Multi-User.
     This also used to be called the System-Wide Install.
     <strong style="color: red;">Using this type of installation without
     knowledge how umask works is a big security risk.</strong>
@@ -153,7 +153,7 @@ For a progress bar when downloading RVM / Rubies:
       'sudo' command.
     However, once the install is complete, and the instructions to add users to the
     rvm group is followed, the use of either sudo or rvmsudo is no longer required. The 'sudo' command
-    is only to temporarily elevate privileges so the installer can complete it's work. If you need to
+    is only to temporarily elevate privileges so the installer can complete its work. If you need to
     use 'sudo' or 'rvmsudo' after the install is complete, some part of the install directions were not
     properly followed. This usually is because people execute the install <i>as</i> root, rather than
     executing the installation instructions from a non-privileged user account.
@@ -187,7 +187,7 @@ For a progress bar when downloading RVM / Rubies:
 %p
   Modification of user configuration files (*rc / *profile) - RVM by default will modify
   user startup files, although it is not recommended you can disable automated process
-  and do this manually (RVM version 1.18 / head):
+  and do this manually:
   %pre.code
     :preserve
       user$ \curl -sSL https://get.rvm.io | bash -s -- --ignore-dotfiles
@@ -204,7 +204,7 @@ For a progress bar when downloading RVM / Rubies:
   %a{:href => "/support/faq/#root"}
     important note regarding
     %strong
-      root only installs
+      root only installs.
 
 %h4 External tutorials
 %p
@@ -233,7 +233,7 @@ For a progress bar when downloading RVM / Rubies:
   The rvm function will be automatically configured for every user on the system if you install with sudo.
   This is accomplished by loading /etc/profile.d/rvm.sh on login.
   Most Linux distributions default to parsing /etc/profile which contains the logic to load all files residing in the /etc/profile.d/ directory.
-  Once you have added the users you want to be able to use RVM to the rvm grou p, those users MUST log out and back in
+  Once you have added the users you want to be able to use RVM to the rvm group, those users MUST log out and back in
   to gain rvm group membership because group memberships are only evaluated by the operating system at initial login time.
   %em Zsh not always sources /etc/profile so you might need to add this in /etc/**/zprofile:
   %pre.code
@@ -260,7 +260,7 @@ For a progress bar when downloading RVM / Rubies:
   Note that it is not safe to use rvmsudo from mixed mode user.
   Both can be mixed without any side-effect. It is however very important to not enable mixed-mode gemsets or rubies for the managers.
   RVM is using a custom umask (umask u=rwx,g=rwx,o=rx) when installing gemsets, rubies, updating itself, etc.
-  This should not impact your system. But if you prefer to avoind RVM messing around with your umask, you can comment the umask line in /etc/rvmrc.
+  This should not impact your system. But if you prefer to avoid RVM messing around with your umask, you can comment the umask line in /etc/rvmrc.
 
 %p
   This mode should also works with passenger, please follow
@@ -391,7 +391,7 @@ For a progress bar when downloading RVM / Rubies:
 %h3 Example RVM bootstrap script
 
 %p
-  The following script will boostrap git + RVM, assuming that you have curl and sudo installed.
+  The following script will bootstrap git + RVM, assuming that you have curl and sudo installed.
   The last line of the script will also install several commonly used Rubies for you.
 
 %pre.code
@@ -406,7 +406,7 @@ For a progress bar when downloading RVM / Rubies:
 
     # Install some Rubies
     source "$HOME/.rvm/scripts/rvm"
-    command rvm install 1.9.2,rbx,jruby
+    command rvm install 2.1.2,rbx,jruby
 
 %p
   For a Multi-User install you would use:
@@ -423,4 +423,5 @@ For a progress bar when downloading RVM / Rubies:
 
     # Install some Rubies
     source "/usr/local/rvm/scripts/rvm"
-    command rvm install 1.9.2,rbx,jruby
+    command rvm install 2.1.2,rbx,jruby
+

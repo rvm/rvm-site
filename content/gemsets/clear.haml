@@ -14,11 +14,11 @@ title: "'rvm gemset clear' - Clear any currently selected gemset."
   %hr
 
 %p
-  Assume that you are already using the albinochipmunk gemset.
+  Assume that you are already using the teddy gemset.
 %pre.code
   :preserve
-    $ rvm gemset use albinochipmunk
-    Now using gemset 'albinochipmunk'
+    $ rvm gemset use teddy
+    Now using gemset 'teddy'
 %p
   And that you now wish to switch back to using the default gems directory for the currently selected ruby.
 %p
@@ -26,11 +26,11 @@ title: "'rvm gemset clear' - Clear any currently selected gemset."
 %pre.code
   :preserve
     $ rvm gemdir
-    /Users/wayne/.rvm/gems/1.9.2-head@albinochipmunk
+    /Users/rys/.rvm/gems/2.1.1@teddy
     $ rvm gemset clear
     gemset cleared.
     $ rvm gemdir
-    /Users/wayne/.rvm/gems/1.9.2-head
+    /Users/rys/.rvm/gems/2.1.1
 
 %h1
   Community Resources

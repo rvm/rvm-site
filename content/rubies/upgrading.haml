@@ -26,8 +26,7 @@ title: "Upgrading RVM."
 %h3 Examples
 %pre.code
   :preserve
-    $ rvm upgrade 1.9.2-p136 1.9.2-p180
-    $ rvm upgrade ree-2011.01 ree-2011-03
+    $ rvm upgrade 2.1.1 2.1.2
 
 %p
   Upgrade is easy, but it does all at once, if you need to do it once at a time check out following instructions.
@@ -38,7 +37,7 @@ title: "Upgrading RVM."
 %h3 Examples
 %pre.code
   :preserve
-    $ rvm gemset copy 1.8.6-p420@myapplication rbx-1.2.3@myapplication
+    $ rvm gemset copy 2.1.1@myapplication 2.1.2@myapplication
 
 %h2 Manual migration of all gemsets
 %p
@@ -48,7 +47,7 @@ title: "Upgrading RVM."
 %h3 Examples
 %pre.code
   :preserve
-    $ rvm migrate 1.8.6-p420 rbx-1.2.3
+    $ rvm migrate 2.1.1 jruby-1.7.12
 
 %h2 Updating all gemsets
 %p
