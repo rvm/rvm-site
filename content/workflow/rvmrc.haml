@@ -36,10 +36,10 @@ title: rvmrc
   :preserve
     rvm_install_on_use_flag=1
 %p
-  Have RVM compile using say, 3, compile threads.
+  Have RVM compile using say, 3, compile threads (note that rvm uses all CPU threads by default).
 %pre.code
   :preserve
-    rvm_make_flags="-j 3"
+    rvm_make_flags=( -j 3 )
 
 %p
   Have RVM install to a different location (notice that it ends with /rvm).
