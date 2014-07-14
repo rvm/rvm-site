@@ -6,7 +6,7 @@ You can see the documentation live online at <https://rvm.io/>.
 
 For small changes like single wording fixes it is enough to use Github builtin editor,
 navigate to https://github.com/rvm/rvm-site/tree/master/content, find the page to fix
-and press the **Edit** button, try to give meaningfull description so it is easier to
+and press the **Edit** button, try to give meaningful description so it is easier to
 understand why this change is needed.
 
 ## Get the Site Running Locally
