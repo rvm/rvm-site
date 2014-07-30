@@ -10,7 +10,8 @@ Integrating RVM with gnome-terminal
 ===================================
 
 If you are going to use RVM installations with gnome-terminal, you'll
-probably need to change it's  default options.
+probably need to change its default options.  Note that Ubuntu's Terminal
+application is actually gnome-terminal.
 
 Multi-User RVM creates a script in `/etc/profile.d`, which is being
 sourced on startup. Also, most people put the RVM sourcing line required
@@ -20,9 +21,9 @@ therefore skipping `/etc/profile*` and executing only the user's
 `~/.bashrc`. This means that RVM doesn't load and you get the infamous
 **'RVM is not a function'** message.
 
-For RVM to work properly, you have to set the **'Run command as login
-shell'** checkbox on the Title and Command tab inside of
-gnome-terminal's Settings page. Like this:
+For RVM to work properly, you have to check the **'Run command as login
+shell'** checkbox on the Title and Command tab of
+gnome-terminal's Edit ▸ Profile Preferences dialog. Like this:
 
 ![Gnome Screenshot](/images/Title_and_Command.jpg)
 
