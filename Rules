@@ -29,6 +29,20 @@ end
   end
 end
 
+compile '/blog/*' do
+  filter :erb
+  filter :rdiscount
+  filter :auto_ids
+  filter :pre_code
+  layout 'blog'
+end
+
+route '/blog/*' do
+  y,m,d,slug = /([0-9]+)\-([0-9]+)\-([0-9]+)\-([^\/]+)/.match(item.identifier)
+
+  "/blog/#{y}/#{m}/#{slug}/index.html"
+end
+
 {
   "/robots"                 => "/robots.txt",
   "/assets/favicon"         => "/favicon.ico",

@@ -15,7 +15,7 @@ gem "typhoeus"
 gem "nokogiri"
 gem "rdiscount"
 gem "mime-types"
-gem "nanoc", github: "nanoc/nanoc"
+gem "nanoc"
 
 group :development, :test do
   gem "rake"
