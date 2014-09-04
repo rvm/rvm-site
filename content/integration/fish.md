@@ -32,3 +32,9 @@ Usage
 Use RVM just as you would in bash or zsh as per the instructions on the
 website, converting any bashisms to fish as needed.
 
+Alternative
+===========
+Code: https://gist.github.com/eggegg/6077153
+
+Insert the first one into your own `config.fish`, then copy `rvm.fish`
+to `~/.config/fish/functions/` will do the tricks.
