@@ -19,4 +19,5 @@ gem "nanoc"
 
 group :development, :test do
   gem "rake"
+  gem 'guard-nanoc'
 end
