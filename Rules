@@ -37,8 +37,9 @@ compile '/blog/*' do
   layout 'blog'
 end
 
-route '/blog/*' do
-  y,m,d,slug = /([0-9]+)\-([0-9]+)\-([0-9]+)\-([^\/]+)/.match(item.identifier)
+blog_regexp = %r</blog/([0-9]+)\-([0-9]+)\-([0-9]+)\-([^\/]+)>
+route blog_regexp do
+  y,m,d,slug = blog_regexp.match(item.identifier)[1..-1]
 
   "/blog/#{y}/#{m}/#{slug}/index.html"
 end
