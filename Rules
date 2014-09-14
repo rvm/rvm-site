@@ -37,10 +37,19 @@ compile '/blog/*' do
   layout 'blog'
 end
 
+compile '/blog/*/' do
+  filter :erb
+  filter :rdiscount
+  filter :auto_ids
+  filter :pre_code
+  layout 'blog'
+end
+
+# TODO for nanoc 3.8:
+# route %r</blog/([0-9]+)\-([0-9]+)\-([0-9]+)\-([^\/]+)> do |y, m, d, slug|
 blog_regexp = %r</blog/([0-9]+)\-([0-9]+)\-([0-9]+)\-([^\/]+)>
 route blog_regexp do
-  y,m,d,slug = blog_regexp.match(item.identifier)[1..-1]
-
+  y, m, d, slug = blog_regexp.match(item.identifier).captures
   "/blog/#{y}/#{m}/#{slug}/index.html"
 end
 

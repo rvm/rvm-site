@@ -13,9 +13,15 @@
 
       #content
         %a{ :name => "top" }
-        =yield
+        %h1
+          = item[:title]
+        %aside
+          Posted at:
+          = item[:created_at]
+        %article
+          =yield
         %a{ :name => "bottom" }
 
-      =render "shared/blog"
+      =render "shared/blog_menu"
 
     =render "shared/footer"
