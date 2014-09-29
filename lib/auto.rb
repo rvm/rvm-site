@@ -40,7 +40,7 @@ class AutoHelper
   end
 
   def create_tag_feed(feed_page, tag)
-    #TODO
+    write_file(feed_page, render_layout("templates/feed", type: 'tag', filter: tag))
   end
 
   def ensure_tag_page(tags_dir, tag)
@@ -65,7 +65,7 @@ class AutoHelper
   end
 
   def create_author_feed(feed_page,   author, author_full)
-    #TODO
+    write_file(feed_page, render_layout("templates/feed", type: 'author', filter: author))
   end
 
   def ensure_author_page(authors_dir, author, author_full)

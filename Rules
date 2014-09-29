@@ -61,6 +61,19 @@ compile '/blog/*/' do
   filter :auto_ids
 end
 
+# TODO for nanoc 3.8:
+# route %r</(authors|tags)/(.*)_feed> do |type,filter|
+news_regexp = %r</(authors|tags)/(.*)_feed/>
+
+compile news_regexp do
+  filter :haml
+end
+
+route news_regexp do
+  type,filter =  news_regexp.match(item.identifier).captures
+  "/#{type}/#{filter}/feed.xml"
+end
+
 compile '/(authors|tags)/*/' do
   filter :haml
   filter :pre_code

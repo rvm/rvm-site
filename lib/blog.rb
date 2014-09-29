@@ -42,12 +42,16 @@ module BlogHelper
   end
 
   def links_for_articles(options = {})
+    articles_for(options).map{|post| "<li>#{get_post_link(post, options)}</li>" }.join("\n")
+  end
+
+  def articles_for(options = {})
     tag = options[:tag]
     author = options[:author]
     items = sorted_articles
     items.select! { |item| item[:tags] and item[:tags].include?(tag) } if tag
     items.select! { |item| item[:author] and item[:author] == author } if author
-    items.map{|post| "<li>#{get_post_link(post, options)}</li>" }.join("\n")
+    items
   end
 
 end
