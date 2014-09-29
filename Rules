@@ -2,9 +2,19 @@
 
 require "compass"
 Compass.add_project_configuration('compass_config.rb')
-
 # For compass v0.10 should be:
 # Compass.add_configuration "#{File.dirname(__FILE__)}/compass_config.rb"
+
+preprocess do
+  AutoHelper.new(File.dirname(__FILE__), self).auto
+
+  # TODO see https://github.com/nanoc/nanoc/pull/481
+  # force reload of items, does the damn warning about defining
+  # preprocess second time - not a problem, no loop here
+  self.site.instance_variable_set(:@loaded, false)
+  self.site.instance_variable_set(:@items_loaded, false)
+  self.site.load
+end
 
 compile "/assets/css/*/" do
   filter :sass, Compass.sass_engine_options
@@ -27,6 +37,56 @@ end
   route "/#{asset_dir}/*" do
     item.identifier.chop.sub(%r{^/assets}, '') + "." + item[:extension]
   end
+end
+
+compile '/blog/feed' do
+  filter :haml
+end
+
+route '/blog/feed' do
+  '/blog/feed.xml'
+end
+
+compile '/blog/' do
+  filter :haml
+  filter :auto_ids
+  filter :pre_code
+  layout 'default'
+end
+
+compile '/blog/*/' do
+  filter :rdiscount
+  filter :pre_code
+  layout 'blog'
+  filter :auto_ids
+end
+
+# TODO for nanoc 3.8:
+# route %r</(authors|tags)/(.*)_feed> do |type,filter|
+news_regexp = %r</(authors|tags)/(.*)_feed/>
+
+compile news_regexp do
+  filter :haml
+end
+
+route news_regexp do
+  type,filter =  news_regexp.match(item.identifier).captures
+  "/#{type}/#{filter}/feed.xml"
+end
+
+compile '/(authors|tags)/*/' do
+  filter :haml
+  filter :pre_code
+  layout 'blog'
+  filter :auto_ids
+end
+
+# TODO for nanoc 3.8:
+# route %r</blog/([0-9]+)\-([0-9]+)\-([0-9]+)\-([^\/]+)> do |y, m, d, slug|
+blog_regexp = %r</blog/([0-9]+)\-([0-9]+)\-([0-9]+)\-([^\/]+)>
+route blog_regexp do
+  y, m, d, slug = blog_regexp.match(item.identifier).captures
+  "/blog/#{y}/#{m}/#{slug}/index.html"
 end
 
 {

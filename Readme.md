@@ -41,10 +41,14 @@ If you are in RVM and have 2.0.0 already running, simply clone this repository a
 the directory. The project `.rvmrc` will be loaded and you can open in your editor and
 start hacking away.
 
-If you would like to view the changes locally as you hack, you can use Nanoc's
-AutoCompile feature:
+If you would like to view the changes locally as you hack, use nanoc-guard:
 
-    nanoc autocompile
+    # in window/tab 1
+    guard
+    # in window/tab 2
+    nanoc view
+
+I tis required to reload page after changing code.
 
 Validating site links integrity with Nanoc:
 

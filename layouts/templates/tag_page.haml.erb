@@ -1,0 +1,10 @@
+---
+---
+---
+title: Tag <%= tag %>
+created_at: <%= Time.new %>
+---
+%h2 Articles
+
+%ul
+  = links_for_articles(:tag => "<%= tag %>")

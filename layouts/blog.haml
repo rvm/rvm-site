@@ -13,9 +13,15 @@
 
       #content
         %a{ :name => "top" }
-        =yield
+        %h1
+          = item[:title]
+        %hr.medium
+        %aside
+          = get_post_meta(item)
+        %article
+          =yield
         %a{ :name => "bottom" }
 
-      =render "shared/doc_menu"
+      =render "shared/blog_menu"
 
     =render "shared/footer"
