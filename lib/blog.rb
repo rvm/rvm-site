@@ -4,8 +4,12 @@ module BlogHelper
     attribute_to_time(post[:created_at]).strftime('%B %-d, %Y')
   end
 
-  def get_post_link(post)
-    link_to("#{post.attributes[:title]}", post)
+  def get_post_link(post, options = {})
+    options_with = Array(options[:with])
+    link_name = []
+    link_name << get_pretty_date(post) if options_with.include?(:date)
+    link_name << post.attributes[:title]
+    link_to("#{link_name.join(" - ")}", post)
   end
 
   def get_author_link(post)
@@ -43,7 +47,7 @@ module BlogHelper
     items = sorted_articles
     items.select! { |item| item[:tags] and item[:tags].include?(tag) } if tag
     items.select! { |item| item[:author] and item[:author] == author } if author
-    items.map{|post| "<li>#{get_post_link(post)}</li>" }.join("\n")
+    items.map{|post| "<li>#{get_post_link(post, options)}</li>" }.join("\n")
   end
 
 end
