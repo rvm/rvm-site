@@ -15,7 +15,7 @@ gem "typhoeus"
 gem "nokogiri"
 gem "rdiscount"
 gem "mime-types"
-gem "nanoc"
+gem "nanoc", :git => "https://github.com/mpapis/nanoc.git", :branch => "features/increasing_timeout_for_external_links_check"
 gem "builder"
 
 group :development, :test do
