@@ -2,9 +2,12 @@
 
 require "compass"
 Compass.add_project_configuration('compass_config.rb')
-
 # For compass v0.10 should be:
 # Compass.add_configuration "#{File.dirname(__FILE__)}/compass_config.rb"
+
+preprocess do
+  AutoHelper.new(File.dirname(__FILE__), self).auto
+end
 
 compile "/assets/css/*/" do
   filter :sass, Compass.sass_engine_options
@@ -29,20 +32,33 @@ end
   end
 end
 
-compile '/blog/*' do
-  filter :erb
-  filter :rdiscount
+compile '/blog/feed' do
+  filter :haml
+end
+
+route '/blog/feed' do
+  '/blog/feed.xml'
+end
+
+compile '/blog/' do
+  filter :haml
   filter :auto_ids
   filter :pre_code
-  layout 'blog'
+  layout 'default'
 end
 
 compile '/blog/*/' do
-  filter :erb
   filter :rdiscount
-  filter :auto_ids
   filter :pre_code
   layout 'blog'
+  filter :auto_ids
+end
+
+compile '/(authors|tags)/*/' do
+  filter :haml
+  filter :pre_code
+  layout 'blog'
+  filter :auto_ids
 end
 
 # TODO for nanoc 3.8:

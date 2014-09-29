@@ -1,0 +1,10 @@
+---
+---
+---
+title: Author <%= author_full %>
+created_at: <%= Time.new %>
+---
+%h2 Articles
+
+%ul
+  = links_for_articles(:author => "<%= author %>")

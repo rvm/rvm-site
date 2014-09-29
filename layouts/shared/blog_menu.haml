@@ -5,4 +5,4 @@
     |
     = link_to 'RVM Blog', '/blog/', style: "color: red;"
   %ul
-    = sorted_articles.map{|post| "<li>#{link_to("#{post.attributes[:created_at].to_s} #{post.attributes[:title]}", post)}</li>" }.join("\n")
+    = links_for_articles

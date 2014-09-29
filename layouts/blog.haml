@@ -15,9 +15,9 @@
         %a{ :name => "top" }
         %h1
           = item[:title]
+        %hr.medium
         %aside
-          Posted at:
-          = item[:created_at]
+          = get_post_meta(item)
         %article
           =yield
         %a{ :name => "bottom" }

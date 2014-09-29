@@ -1,0 +1,51 @@
+module BlogHelper
+
+  def get_pretty_date(post)
+    attribute_to_time(post[:created_at]).strftime('%B %-d, %Y')
+  end
+
+  def get_post_link(post)
+    link_to("#{post.attributes[:title]}", post)
+  end
+
+  def get_author_link(post)
+    link_to(post[:author_full]||post[:author], "/authors/#{post[:author]}")
+  end
+
+  def get_post_start(post)
+    content = post.compiled_content
+    if content =~ /<!-- more -->/
+      content = content.partition('<!-- more -->').first.strip +
+      "<a href='#{post.path}' class='read-more'>Continue reading &rsaquo;</a>"
+    end
+    return content
+  end
+
+  def get_tag_link(tag)
+    link_to(tag, "/tags/#{tag}")
+  end
+
+  def get_tag_links(post)
+    "tags: #{post[:tags].map { |tag| get_tag_link(tag) }.join(", ")}"
+  end
+
+  def get_post_meta(post)
+    meta = []
+    meta << "Posted at #{get_pretty_date(post)}" if post[:created_at]
+    meta << "by #{get_author_link(post)}" if post[:author]
+    meta << get_tag_links(post) if post[:tags] && !post[:tags].empty?
+    meta.join(" ")
+  end
+
+  def links_for_articles(options = {})
+    tag = options[:tag]
+    author = options[:author]
+    items = sorted_articles
+    items.select! { |item| item[:tags] and item[:tags].include?(tag) } if tag
+    items.select! { |item| item[:author] and item[:author] == author } if author
+    items.map{|post| "<li>#{get_post_link(post)}</li>" }.join("\n")
+  end
+
+end
+
+include BlogHelper

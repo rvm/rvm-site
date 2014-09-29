@@ -16,6 +16,7 @@ gem "nokogiri"
 gem "rdiscount"
 gem "mime-types"
 gem "nanoc"
+gem "builder"
 
 group :development, :test do
   gem "rake"

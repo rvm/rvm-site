@@ -4,3 +4,4 @@ data_sources:
 - type: filesystem_unified
   items_root: /
   layouts_root: /
+base_url: http://rvm.io

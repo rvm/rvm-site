@@ -1,4 +1,5 @@
 require 'nanoc3'
+
 class PreCodeFilter < Nanoc3::Filter
   identifier :pre_code
   type :text
@@ -9,6 +10,7 @@ class PreCodeFilter < Nanoc3::Filter
       end
   end
 end
+
 class AutoIdsFilter < Nanoc3::Filter
   identifier :auto_ids
   type :text
@@ -16,10 +18,16 @@ class AutoIdsFilter < Nanoc3::Filter
     content.
       gsub(/(<h[123]>)(.*?)(<\/h[123]>)/m) do |match|
         __start = $1
-        __content = $2
+        __content = $2.strip
         __end = $3
-        __id = create_id(__content)
-        "#{__start}<a class=\"anchor\" href=\"##{__id}\" name=\"#{__id}\">&infin;</a>#{__content}#{__end}"
+        if
+          __content =~ /^(<a href=".*">)(.*<\/a>)$/m
+        then
+          "#{__start}#{$1}&infin;#{$2}#{__end}"
+        else
+          __id = create_id(__content)
+          "#{__start}<a class=\"anchor\" href=\"##{__id}\" name=\"#{__id}\">&infin;</a>#{__content}#{__end}"
+        end
       end
   end
   def create_id(content)

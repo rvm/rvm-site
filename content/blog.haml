@@ -1,0 +1,9 @@
+- sorted_articles.each_with_index do |item, index|
+  - if index>0
+    %hr.medium
+  %h1
+    = get_post_link(item)
+  %aside
+    = get_post_meta(item)
+  %article
+    = get_post_start(item)
