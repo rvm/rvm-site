@@ -7,6 +7,9 @@ Compass.add_project_configuration('compass_config.rb')
 
 preprocess do
   AutoHelper.new(File.dirname(__FILE__), self).auto
+
+  # force reload of items, does the damn warning about defining
+  # preprocess second time - not a problem, no loop here
   self.site.instance_variable_set(:@loaded, false)
   self.site.instance_variable_set(:@items_loaded, false)
   self.site.load
