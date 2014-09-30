@@ -11,9 +11,9 @@ preprocess do
   # TODO see https://github.com/nanoc/nanoc/pull/481
   # force reload of items, does the damn warning about defining
   # preprocess second time - not a problem, no loop here
-  self.site.instance_variable_set(:@loaded, false)
-  self.site.instance_variable_set(:@items_loaded, false)
-  self.site.load
+  #self.site.instance_variable_set(:@loaded, false)
+  #self.site.instance_variable_set(:@items_loaded, false)
+  #self.site.load
 end
 
 compile "/assets/css/*/" do
