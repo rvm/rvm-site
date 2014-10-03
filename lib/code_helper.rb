@@ -20,14 +20,14 @@ module CodeHelper
   end
 
   def link_in_menu(item)
-    #if
-    #  item.attributes[:title]
-    #then
-    #  name = item.attributes[:title].split(" - ").last
-    #else
+    if
+      item.attributes[:menu_title]
+    then
+      name = item.attributes[:menu_title]
+    else
       name = (item.path || item.identifier).split("/").last
       name = name.gsub(/-/, " ").gsub(/\w+/) { |w| w.capitalize }
-    #end
+    end
     link_to(name, item)
   end
 
