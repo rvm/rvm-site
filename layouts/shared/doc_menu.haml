@@ -5,32 +5,7 @@
     |
     = link_to 'RVM Blog', '/blog/'
   .column
-    %a{:href => "/rvm/"} RVM
-    %ul
-      %li
-        %a{:href => "/rvm/autolibs/" } Autolibs
-      %li
-        %a{:href => "/rvm/basics/"} Basics
-      %li
-        %a{:href => "/rvm/best-practices/"} Best Practices
-      %li
-        %a{:href => "/rvm/prerequisites/"} Prerequisites
-      %li
-        %a{:href => "/rvm/install/"} Installation
-      %li
-        %a{:href => "/rvm/configuration/"} Configuration
-      %li
-        %a{:href => "/rvm/upgrading/"} Upgrading
-      %li
-        %a{:href => "/rvm/cli/"} CLI
-      %li
-        %a{:href => "/rvm/info/"} Info
-      %li
-        %a{:href => "/rvm/about/"} About
-      %li
-        %a{:href => "/rvm/myths/"} Myths
-      %li
-        %a{:href => "/rvm/offline/"} Offline
+    = menu_for("/rvm/")
 
     %a{:href => "/interpreters/"} Interpreters
     %ul
@@ -44,60 +19,11 @@
         %a{:href => "/interpreters/maglev/"} MagLev (maglev)
       %li
         %a{:href => "/interpreters/macruby/"} MacRuby (macruby)
-    %a{:href => "/rubies/"} Rubies
-    %ul
-      %li
-        %a{:href => "/rubies/installing/"} Installing Rubies
-      %li
-        %a{:href => "/rubies/patching/"} Patching Rubies
-      %li
-        %a{:href => "/rubies/upgrading/"} Upgrading Rubies
-      %li
-        %a{:href => "/rubies/default/"} Setting Default
-      %li
-        %a{:href => "/rubies/rubygems/"} RubyGems
-      %li
-        %a{:href => "/rubies/info/"} Info
-      %li
-        %a{:href => "/rubies/removing/"} Removing
-      %li
-        %a{:href => "/rubies/list/"} List
-      %li
-        %a{:href => "/rubies/strings/"} Strings
-      %li
-        %a{:href => "/rubies/docs/"} Docs
-      %li
-        %a{:href => "/rubies/alias/"} Alias
-      %li
-        %a{:href => "/rubies/named/"} Named Rubies
+
+    = menu_for("/rubies/")
 
   .column
-    %a{:href => "/gemsets/"} gemsets
-    %ul
-      %li
-        %a{:href => "/gemsets/basics/"} Basics
-      %li
-        %a{:href => "/gemsets/initial/"} Initial
-      %li
-        %a{:href => "/gemsets/creating/"} Creating
-      %li
-        %a{:href => "/gemsets/using/"} Using
-      %li
-        %a{:href => "/gemsets/listing/"} Listing
-      %li
-        %a{:href => "/gemsets/deleting/"} Deleting
-      %li
-        %a{:href => "/gemsets/emptying/"} Emptying
-      %li
-        %a{:href => "/gemsets/exporting/"} Exporting (dumping)
-      %li
-        %a{:href => "/gemsets/importing/"} Importing (loading)
-      %li
-        %a{:href => "/gemsets/copying/"} Copying
-      %li
-        %a{:href => "/gemsets/global/"} Global
-      %li
-        %a{:href => "/gemsets/ignoring/"} Ignoring
+    = menu_for("/gemsets/")
 
     %a{:href => "/set/"} Set Actions
     %ul
@@ -108,32 +34,7 @@
       %li
         %a{:href => "/set/benchmark/"} benchmark
 
-    %a{:href => "/workflow/"} Workflow
-    %ul
-      %li
-        %a{:href => "/workflow/scripting/"} Scripting with RVM
-      %li
-        %a{:href => "/workflow/rvmrc/"} rvmrc
-      %li
-        %a{:href => "/workflow/projects/"} Project Workflow
-      %li
-        %a{:href => "/workflow/prompt/"} Prompt
-      %li
-        %a{:href => "/workflow/irbrc/"} IRBRC
-      %li
-        %a{:href => "/workflow/hooks/"} Hooks
-      %li
-        %a{:href => "/workflow/completion/"} Completion
-      %li
-        %a{:href => "/workflow/subshells/"} Subshells
-      %li
-        %a{:href => "/workflow/examples/"} Examples
-      %li
-        %a{:href => "/workflow/proxy/"} Proxy
-      %li
-        %a{:href => "/workflow/screen/"} GNU Screen
-      %li
-        %a{:href => "/workflow/chruby/"} chruby
+    = menu_for("/workflow/")
 
   .column
     %a{:href => "/integration/"} Integration
@@ -183,10 +84,6 @@
       %li
         %a{:href => "/integration/konsole/"} Konsole
 
-    %a{:href => "/os/"} Operating Systems
-    %ul
-    %a{:href => "/packages/"} Packages
-    %ul
     %a{:href => "/deployment/"} Deployment
     %ul
       %li
@@ -206,6 +103,8 @@
 
   .column
 
+    %a{:href => "/os/"} Operating Systems
+    %a{:href => "/packages/"} Packages
     %a{:href => "/presentations/"} Presentations
     %ul
       %li
@@ -237,18 +136,8 @@
       %li
         %a{:href => "/qa/software_testing/"} Software Testing
 
-    %a{:href => "/development/"} Development
-    %ul
-      %li
-        %a{:href => "/development/list"} Mailing List
-      %li
-        %a{:href => "/development/github/"} Git (GitHub)
-      %li
-        %a{:href => "/development/tracker/"} Pivotal Tracker Project
-      %li
-        %a{:href => "/development/contributing/"} Contributing
-      %li
-        %a{:href => "/development/debugging/"} Debugging
+
+    = menu_for("/development/")
 
     %a{:href => "/credits/"} Credits
     %ul
