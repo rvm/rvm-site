@@ -1,10 +1,10 @@
 #docindex
   %a{:name => "docindex"}
-  .headline
-    = link_to 'RVM Documentation Index', '/', style: "color: red;"
+  %h2
+    = link_to 'RVM Documentation Index', '/'
     |
     = link_to 'RVM Blog', '/blog/'
-  .column
+  %section
     %a{:href => "/rvm/"} RVM
     %ul
       %li
@@ -30,8 +30,8 @@
       %li
         %a{:href => "/rvm/myths/"} Myths
       %li
-        %a{:href => "/rvm/offline/"} Offline
-
+        %a{:href => "/rvm/offline/"} Offline  
+  %section
     %a{:href => "/interpreters/"} Interpreters
     %ul
       %li
@@ -44,6 +44,7 @@
         %a{:href => "/interpreters/maglev/"} MagLev (maglev)
       %li
         %a{:href => "/interpreters/macruby/"} MacRuby (macruby)
+  %section
     %a{:href => "/rubies/"} Rubies
     %ul
       %li
@@ -70,8 +71,7 @@
         %a{:href => "/rubies/alias/"} Alias
       %li
         %a{:href => "/rubies/named/"} Named Rubies
-
-  .column
+  %section
     %a{:href => "/gemsets/"} gemsets
     %ul
       %li
@@ -98,7 +98,7 @@
         %a{:href => "/gemsets/global/"} Global
       %li
         %a{:href => "/gemsets/ignoring/"} Ignoring
-
+  %section
     %a{:href => "/set/"} Set Actions
     %ul
       %li
@@ -107,7 +107,7 @@
         %a{:href => "/set/tests/"} tests
       %li
         %a{:href => "/set/benchmark/"} benchmark
-
+  %section
     %a{:href => "/workflow/"} Workflow
     %ul
       %li
@@ -134,8 +134,7 @@
         %a{:href => "/workflow/screen/"} GNU Screen
       %li
         %a{:href => "/workflow/chruby/"} chruby
-
-  .column
+  %section
     %a{:href => "/integration/"} Integration
     %ul
       %li
@@ -182,11 +181,13 @@
         %a{:href => "/integration/xterm/"} XTerm
       %li
         %a{:href => "/integration/konsole/"} Konsole
-
+  %section
     %a{:href => "/os/"} Operating Systems
     %ul
+  %section
     %a{:href => "/packages/"} Packages
     %ul
+  %section
     %a{:href => "/deployment/"} Deployment
     %ul
       %li
@@ -203,9 +204,7 @@
         %a{:href => "/integration/init-d/"} init.d / upstart
       %li
         %a{:href => "/deployment/best-practices/"} Best Practices
-
-  .column
-
+  %section
     %a{:href => "/presentations/"} Presentations
     %ul
       %li
@@ -220,7 +219,7 @@
         %a{:href => "http://www.youtube.com/watch?v=gYNht8H24ZQ"} RVM 2: Python Version Manager
       %li
         %a{:href => "http://thechangelog.com/102/"} Changelog 102 with Michal
-
+  %section
     %a{:href => "/support/"} Help &amp; Support
     %ul
       %li
@@ -231,12 +230,12 @@
         %a{:href => "/support/fixing-broken-ssl-certificates/"} Fixing Broken SSL Certificates
       %li
         %a{:href => "/support/irc/"} IRC
-
+  %section
     %a{:href => "/qa/"} Quality Assurance
     %ul
       %li
         %a{:href => "/qa/software_testing/"} Software Testing
-
+  %section
     %a{:href => "/development/"} Development
     %ul
       %li
@@ -249,7 +248,7 @@
         %a{:href => "/development/contributing/"} Contributing
       %li
         %a{:href => "/development/debugging/"} Debugging
-
+  %section
     %a{:href => "/credits/"} Credits
     %ul
       %li
@@ -258,5 +257,3 @@
         %a{:href => "/credits/donations/"} Donations
       %li
         %a{:href => "/credits/funding/"} Funding
-
-  .clear
