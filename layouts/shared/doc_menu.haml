@@ -84,22 +84,7 @@
       %li
         %a{:href => "/integration/konsole/"} Konsole
 
-    %a{:href => "/deployment/"} Deployment
-    %ul
-      %li
-        %a{:href => "/deployment/capistrano/"} Capistrano
-      %li
-        %a{:href => "/integration/passenger/"} Passenger
-      %li
-        %a{:href => "/integration/chef/"} Chef
-      %li
-        %a{:href => "/integration/cron/"} Cron
-      %li
-        %a{:href => "/deployment/god/"} God
-      %li
-        %a{:href => "/integration/init-d/"} init.d / upstart
-      %li
-        %a{:href => "/deployment/best-practices/"} Best Practices
+    = menu_for("/deployment/")
 
   .column
 

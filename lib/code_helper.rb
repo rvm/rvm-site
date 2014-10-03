@@ -10,8 +10,9 @@ module CodeHelper
     "<li><code>#{html_escape code}</code> - #{text}</li>"
   end
 
-  def items_for(path)
+  def items_for(path, options)
     @items.select { |item|
+      (! item[:menu_ignore] || options[:show_ignored] )  &&
       Regexp.new("^#{path}.+").match(item.path || item.identifier)
     }.sort_by{ |item|
       (item.path || item.identifier)
@@ -19,8 +20,14 @@ module CodeHelper
   end
 
   def link_in_menu(item)
-    name = (item.path || item.identifier).split("/").last
-    name = name.gsub(/-/, " ").gsub(/\w+/) { |w| w.capitalize }
+    #if
+    #  item.attributes[:title]
+    #then
+    #  name = item.attributes[:title].split(" - ").last
+    #else
+      name = (item.path || item.identifier).split("/").last
+      name = name.gsub(/-/, " ").gsub(/\w+/) { |w| w.capitalize }
+    #end
     link_to(name, item)
   end
 
@@ -28,12 +35,13 @@ module CodeHelper
     @items.find { |item| item.path == path }
   end
 
-  def menu_for(path, wrapper = nil)
+  def menu_for(path, options = {})
+    wrapper = options[:wrapper]
     content = link_in_menu(find_item(path))
     content = "<#{wrapper}>#{content}</#{wrapper}>" if wrapper
     content += "\n"
     content +=
-    "<ul>#{items_for(path).map { |item| "<li>#{link_in_menu(item)}</li>" }.join("\n")}</ul>"
+    "<ul>#{items_for(path, options).map { |item| "<li>#{link_in_menu(item)}</li>" }.join("\n")}</ul>"
     content
   end
 
