@@ -69,15 +69,25 @@ title: "ZSH Integration with RVM."
 %p
   The latest RVM HEAD properly escapes the sourcing '.' so this should no longer be an issue. Update (rvm get head) if you see this issue related to RVM scripts.
 
+%a{ :name => "zsh-iterm" }
 %h2
-  zsh + iTerm2
+  zsh + iTerm
 
 %p
-  Make sure in iTerm2 Preferences: 
-  %strong 
+  Open iTerm Preferences
+  %strong
+    ⌘,
+%p
+  Navigate to preferences
+%p
+  If there is no profile for ZSH, create one.
+%p
+  Set Command: to
+  %strong
     Login shell
-  option is set (do not use Command option). This is required for RVM to work.
-  
+%p
+  Reload iTerm
+
 %p
   If you are still getting
   %strong
