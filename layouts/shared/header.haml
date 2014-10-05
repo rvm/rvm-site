@@ -1,9 +1,11 @@
 %header
-  #logo
+  #logo.flex-item
     %a{ :href => "/" }
-      %img{ :src => "/images/logo.svg", :alt => "RVM Logo"}
+      %img{ :src => "/images/logo.svg", :alt => "RVM Logo", :class => "logo"}
+    %p
+      RVM
 
-  #irc
+  #irc.flex-item
     .title Online Help
     .text
       You can find the RVM team:
@@ -15,7 +17,7 @@
         \#rvm on irc.freenode.net
       .more If we do not respond right away, leave a message and a contact to you like email or twitter.
 
-  #donate
+  #donate.flex-item
     .title Donation
     .text Love RVM? Help us maintain RVM, a donation can help with it.
     %a{ :href => "https://www.bountysource.com/cart?amount=5&currency=USD&team_id=rvm", :target => "_blank" }
@@ -30,17 +32,17 @@
   -#    %a{ :href => "http://pledgie.com/campaigns/9822" }
   -#      %img{ :src => "https://pledgie.com/campaigns/9822.png?skin_name=chrome", :border => "0", :alt => "Click here to lend your support to: RVM and make a donation at www.pledgie.com !"
 
-  #recommend
+  #recommend.flex-item
     .title Sponsors
-    .logo.long
+    .logos
       %a{ :href => "https://www.paymill.com" }
         %img{ :src => "/images/paymill-logo.png", :alt => "Paymill"}
       %a{ :href => "https://www.linode.com" }
         %img{ :src => "/images/linode_logo_gray.png", :alt => "Linode"}
 
-  #sponsors
+  #sponsors.flex-item
     .title Small Sponsors
-    .logo
+    .logos
       %a{ :href => "http://teamtreehouse.com/", :class => "square" }
         %img{ :src => "/images/treehouse.png", :alt => "Treehouse"}
       %a{ :href => "https://www.digitalocean.com/", :class => "square" }
