@@ -1,0 +1,186 @@
+body
+	background: #fff url('/images/logo.svg') top center no-repeat fixed
+	font-family: 'Open Sans', sans-serif
+	line-height: 1.4em
+	word-wrap: break-word
+
+img
+	width: 100%
+
+header
+	background-color: #fff
+	background-color: rgba(255,255,255,0.8)
+	margin-bottom: 10px
+	img
+		width: auto
+	.logo
+		width: 100px
+
+#content
+	background-color: #fafaf2
+	background-color: rgba(250,250,242,0.9)
+	margin-bottom: 10px
+	width: 100%
+
+#docindex
+	background-color: #fafaf2
+	background-color: rgba(250,250,242,0.9)
+	margin-bottom: 10px
+	width: 100%
+	a
+		line-height: 2em
+	ul
+		list-style: none
+		margin: 0
+		padding-left: 15px
+	section
+		background-color: #fafaf2
+		background-color: rgba(250,250,242,0.3)
+		margin: 10px
+	section > a
+		color: #fff
+		background-color: #999
+		background-color: rgba(153,153,153,0.9)
+		position: -webkit-sticky
+		position: -moz-sticky
+		position: -o-sticky
+		position: -ms-sticky
+		position: sticky
+		top: 0
+		z-index: 1
+		text-align: center
+		display: block
+		width: 100%	
+		border-radius: 5px
+
+footer
+	color: #fff
+	background-color: #999
+	background-color: rgba(153,153,153,0.9)
+	img
+		width: auto
+
+header, section, #content, #docindex, footer
+	padding: 15px
+	border-radius: 5px
+
+#container
+	padding: 0
+	margin: 0
+	list-style: none
+	display: -webkit-box
+	display: -webkit-flex
+	-webkit-flex-flow: row wrap
+	display: flex
+	flex-flow: row wrap 
+	justify-content: center
+	-webkit-justify-content: space-around
+	justify-content: space-around
+
+.flex-item 
+	background-color: #3d3d3d
+	background-color: rgba(0,0,0,0.6)
+	width: 100%
+	margin-bottom: 10px
+	text-align: center
+	color: white
+	.title
+		background-color: #000
+		background-color: rgba(0,0,0,0.9)
+	a
+		color: #E0BABA
+		text-decoration: none
+		&:hover
+			text-decoration: underline
+	img
+		padding: 5px
+
+.logos
+	display: -webkit-flex
+	display: flex
+	-webkit-flex-flow: row wrap
+	flex-flow: row wrap
+	a
+		padding: 5px
+		-webkit-flex: 1 auto
+		flex: 1 auto
+
+h1
+	text-align: center
+
+a
+	text-decoration: none
+	font-weight: bold
+	color: maroon
+	&:visited
+		color: #710000
+	&:hover
+		text-decoration: none
+		color: blue
+	img
+		border: none
+
+#logo 
+	position: relative
+	p
+		position: absolute
+		top: 0
+		left: 0
+		font-size: 290%
+		-webkit-transform: rotate(-90deg)
+		-moz-transform: rotate(-90deg)
+
+code
+	margin: 0.09em
+	padding: 0.09em
+	font-weight: bold
+	background-color: lighten(#F0F0E9, 10)
+	border: 1px solid maroon
+
+pre.code
+	margin-bottom: 0.5em
+	padding: 0.75em
+	background: #fff
+	border: 1px solid maroon
+	overflow: scroll
+
+pre.code-shell-cmd:before
+	content: '$\00A0'
+
+@media screen and (min-width: 600px)
+	header
+		display: -webkit-flex
+		display: flex
+		-webkit-flex-flow: row wrap
+		flex-flow: row wrap
+		.flex-item
+			margin: 5px
+			-webkit-flex: 1 0 200px
+			flex: 1 0 200px
+		#sponsors
+			-webkit-flex: 1 0 90%
+			flex: 1 0 90%
+		#logo
+			-webkit-flex: 1 0 100px
+			flex: 1 0 100px
+			p
+				top: 65px
+				width: 100%
+				tect-align: center
+				-webkit-transform: rotate(0deg)
+				-moz-transform: rotate(0deg)
+
+	#docindex
+		display: -webkit-flex
+		display: flex
+		-webkit-flex-flow: row wrap
+		flex-flow: row wrap
+		h2
+			width: 100%
+		section
+			background-color: #fafaf2
+			background-color: rgba(250,250,242,0.9)
+		section > a
+			width: auto
+			-webkit-flex: 1 0 500px
+			flex: 1 0 500px
