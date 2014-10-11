@@ -1,12 +1,21 @@
-#docindex
-  %a{:name => "docindex"}
-  .headline
-    = link_to 'RVM Documentation Index', '/', style: "color: red;"
+%section#docindex
+  %h2
+    = link_to 'RVM Documentation Index', '/'
     |
     = link_to 'RVM Blog', '/blog/'
-  .column
+  %section
     = menu_for("/rvm/")
 
+  %section
+    = menu_for("/workflow/")
+
+  %section
+    = menu_for("/rubies/")
+
+  %section
+    = menu_for("/gemsets/")
+
+  %section
     %a{:href => "/interpreters/"} Interpreters
     %ul
       %li
@@ -16,23 +25,9 @@
       %li
         %a{:href => "/interpreters/rbx/"} Rubinius (rbx)
 
-    = menu_for("/rubies/")
+    = menu_for("/deployment/")
 
-  .column
-    = menu_for("/gemsets/")
-
-    %a{:href => "/set/"} Set Actions
-    %ul
-      %li
-        %a{:href => "/set/do/"} do
-      %li
-        %a{:href => "/set/tests/"} tests
-      %li
-        %a{:href => "/set/benchmark/"} benchmark
-
-    = menu_for("/workflow/")
-
-  .column
+  %section
     %a{:href => "/integration/"} Integration
     %ul
       %li
@@ -80,12 +75,21 @@
       %li
         %a{:href => "/integration/konsole/"} Konsole
 
-    = menu_for("/deployment/")
-
-  .column
+  %section
+    %a{:href => "/set/"} Set Actions
+    %ul
+      %li
+        %a{:href => "/set/do/"} do
+      %li
+        %a{:href => "/set/tests/"} tests
+      %li
+        %a{:href => "/set/benchmark/"} benchmark
 
     %a{:href => "/os/"} Operating Systems
+
     %a{:href => "/packages/"} Packages
+
+  %section
     %a{:href => "/presentations/"} Presentations
     %ul
       %li
@@ -100,7 +104,7 @@
         %a{:href => "http://www.youtube.com/watch?v=gYNht8H24ZQ"} RVM 2: Python Version Manager
       %li
         %a{:href => "http://thechangelog.com/102/"} Changelog 102 with Michal
-
+  %section
     %a{:href => "/support/"} Help &amp; Support
     %ul
       %li
@@ -112,9 +116,11 @@
       %li
         %a{:href => "/support/irc/"} IRC
 
-    = menu_for("/qa/")
-
+  %section
     = menu_for("/development/")
+
+  %section
+    = menu_for("/qa/")
 
     %a{:href => "/credits/"} Credits
     %ul
@@ -124,5 +130,3 @@
         %a{:href => "/credits/donations/"} Donations
       %li
         %a{:href => "/credits/funding/"} Funding
-
-  .clear
