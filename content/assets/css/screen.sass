@@ -52,6 +52,7 @@ header
 		display: block
 		width: 100%	
 		border-radius: 5px
+		padding: 0 15px
 
 footer
 	color: #fff
@@ -105,9 +106,6 @@ header, section, #content, #docindex, footer
 		-webkit-flex: 1 auto
 		flex: 1 auto
 
-h1
-	text-align: center
-
 a
 	text-decoration: none
 	font-weight: bold
@@ -122,13 +120,6 @@ a
 
 #logo 
 	position: relative
-	p
-		position: absolute
-		top: 0
-		left: 0
-		font-size: 290%
-		-webkit-transform: rotate(-90deg)
-		-moz-transform: rotate(-90deg)
 
 code
 	margin: 0.09em
@@ -147,6 +138,13 @@ pre.code
 pre.code-shell-cmd:before
 	content: '$\00A0'
 
+ul
+	list-style-type: none
+
+.funding_logo
+	width: auto
+	display: block
+
 @media screen and (min-width: 600px)
 	header
 		display: -webkit-flex
@@ -163,12 +161,6 @@ pre.code-shell-cmd:before
 		#logo
 			-webkit-flex: 1 0 100px
 			flex: 1 0 100px
-			p
-				top: 65px
-				width: 100%
-				tect-align: center
-				-webkit-transform: rotate(0deg)
-				-moz-transform: rotate(0deg)
 
 	#docindex
 		display: -webkit-flex
@@ -179,7 +171,8 @@ pre.code-shell-cmd:before
 			width: 100%
 		section
 			background-color: #fafaf2
-			background-color: rgba(250,250,242,0.9)
+			background-color: rgba(250,250,242,0.4)
+			width: 300px
 		section > a
 			width: auto
 			-webkit-flex: 1 0 500px
