@@ -13,21 +13,21 @@ After that a [fundraiser was started to support full time development of RVM 2.0
 
 There is a [list of awesome people](/credits/donations/) who have donated to the project in early stages.
 
-We also have 'official sponsors':
+### We also have 'official sponsors':
 
-- [<img src="/images/linode_logo_gray.png" alt="Linode, LLC"/>Linode, LLC](https://www.linode.com)
+- [<img src="/images/linode_logo_gray.png" alt="Linode, LLC" class="funding_logo"/>Linode, LLC](https://www.linode.com)
   Donates a VPS in order to run RVM's website since end of 2013.
 
-- [<img src="/images/paymill-logo.png" alt="Paymill"/>Paymill](https://www.paymill.com)
+- [<img src="/images/paymill-logo.png" alt="Paymill" class="funding_logo"/>Paymill](https://www.paymill.com)
   Sponsored Michal work in the last two months of 2013.
 
-Previous sponsors:
+#### Previous sponsors:
 
-- [<img src="/images/logo-engineyard.png" alt="EngineYard, Inc."/>EngineYard, Inc](http://engineyard.com/)
+- [<img src="/images/logo-engineyard.png" alt="EngineYard, Inc." class="funding_logo"/>EngineYard, Inc](http://engineyard.com/)
   Donated a top of the line MacPro workstation and an MacBookAir for testing RVM.
 
-- [<img src="/images/bbg_logo.png" alt="Blue Box Group, LLC"/>Blue Box Group, LLC](http://www.blueboxgrp.com/)
+- [<img src="/images/bbg_logo.png" alt="Blue Box Group, LLC" class="funding_logo"/>Blue Box Group, LLC](http://www.blueboxgrp.com/)
   Donates a VPS in order to run RVM's website till end of 2013.
 
-- [<img src="/images/nuxos_logo.png" alt="Nuxos Group">Nuxos Group](http://nuxos.fr/)
+- [<img src="/images/nuxos_logo.png" alt="Nuxos Group" class="funding_logo">Nuxos Group](http://nuxos.fr/)
   Donated as an official sponsor of RVM.
