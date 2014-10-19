@@ -107,6 +107,14 @@ header, section, #content, #docindex, footer
 		-webkit-flex: 1 auto
 		flex: 1 auto
 
+#sponsors
+	a
+		-webkit-flex: 1 auto
+		flex: 1 auto
+		img
+			width: auto
+			max-width: 150px
+
 a
 	text-decoration: none
 	font-weight: bold
@@ -184,4 +192,14 @@ ul
 		width: 45%
 
 	#docindex
+		justify-content: center
 		width: 45%
+		section
+			font-size: 70%
+			width: 35%
+			background-color: #ff0
+
+		section > a
+			margin-top: 20px
+		section > a:first-child
+			margin-top: 0
