@@ -5,7 +5,7 @@ title: How to fix broken certificates in your operating system.
 ## How to fix broken certificates in your operating system.
 
 From time to time people have SSL issues on specific operating systems.  This page
-should serve as a guide to fixing your Curl and OpenSSL issues (with Ruby) if you
+should serve as a guide to fixing your cURL and OpenSSL issues (with Ruby) if you
 do not have RVM already installed.  If you do have RVM already installed you can
 simply run the [RVM command to do this automatically](https://github.com/wayneeseguin/rvm/blob/master/help/osx-ssl-certs.md): `rvm osx-ssl-certs update all`.
 
@@ -26,4 +26,4 @@ Curl “77” Error (E77): Replace `cert_file=”...”` with displayed `CAfile`
 
 (Exchange `<package-manager>` for `yum`, `apt-get` or `zypper`)
 
-    <package-manger> install ca-certificates
+    <package-manager> install ca-certificates
