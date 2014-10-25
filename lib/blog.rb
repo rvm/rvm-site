@@ -1,3 +1,14 @@
+class RvmIssuesFilter < Nanoc3::Filter
+  identifier :rvm_issues
+  type :text
+  def run(content, params={})
+    content.
+      gsub(/RVM#([0-9]+) (.*)$/) do
+        "<a href=\"https://github.com/wayneeseguin/rvm/issues/#{$1}\">RVM##{$1} #{$2}</a>"
+      end
+  end
+end
+
 module BlogHelper
 
   def get_pretty_date(post)

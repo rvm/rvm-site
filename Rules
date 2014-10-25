@@ -51,12 +51,14 @@ compile '/blog/' do
   filter :haml
   filter :auto_ids
   filter :pre_code
+  filter :rvm_issues
   layout 'default'
 end
 
 compile '/blog/*/' do
   filter :rdiscount
   filter :pre_code
+  filter :rvm_issues
   layout 'blog'
   filter :auto_ids
 end
