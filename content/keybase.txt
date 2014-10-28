@@ -1,0 +1,69 @@
+==================================================================
+https://keybase.io/mpapis
+--------------------------------------------------------------------
+
+I hereby claim:
+
+  * I am an admin of https://rvm.io
+  * I am mpapis (https://keybase.io/mpapis) on keybase.
+  * I have a public key with fingerprint 409B 6B17 96C2 7546 2A17  0311 3804 BB82 D39D C0E3
+
+To claim this, I am signing this object:
+
+{
+    "body": {
+        "key": {
+            "fingerprint": "409b6b1796c275462a1703113804bb82d39dc0e3",
+            "host": "keybase.io",
+            "key_id": "3804bb82d39dc0e3",
+            "uid": "43e4c80a36ab43bb4b9b060b6e86fc00",
+            "username": "mpapis"
+        },
+        "service": {
+            "hostname": "rvm.io",
+            "protocol": "https:"
+        },
+        "type": "web_service_binding",
+        "version": 1
+    },
+    "ctime": 1414539054,
+    "expire_in": 157680000,
+    "prev": "c47dbd51a18661f5da0458e27e0308bd3d65135cd5a489b5c708c1316af7498b",
+    "seqno": 5,
+    "tag": "signature"
+}
+
+with the aforementioned key, yielding the PGP signature:
+
+-----BEGIN PGP MESSAGE-----
+Version: GnuPG v2
+
+owGbwMvMwMT4iO3Q/P0s/8UZTx94ncQQEqDuXq2UlJ9SqWRVrZSdCqbSMvPSU4sK
+ijLzSpSslEwMLJPMkgzNLc2SjcxNTcyMEg3NDYwNDY0tDEySkiyMUowtU5INUo2V
+dJQy8otBOoDGJCUWp+pl5gPFgJz4zBSgKBb1pWAJE+NUk2QLg0Rjs8QkE+OkJJMk
+yyQDM4Mks1QLs7RkAwOQwuLUorzE3FSg6tyCxILMYqVaHSWgWFlmcirIxSCLofJF
+ZbkQiwuK8kvyk/NzgGIZJSUFxVYgPSWVBSBF5alJ8VDt8UmZeSlADwN1lKUWFWfm
+5ylZGQJVJpdkgswzNDE0MTW2NDA10VFKrSjILEqNzwSpMDU3szAAApA9qWVAI5NN
+zFOSUkwNEw0tzMwM00xTEg1MTC1SjcxTDYwNLJJSjFPMTA2NTZNTTBNNLCyTTJPN
+DSySDY0NzRLTzE0sLZKUQB4qzMtXsjIFOjMxHWhkcWZ6XmJJaVGqUi1XJ5MMCwMj
+EwMbKxMozhi4OAVgMTnRhf9/6MnCk6p3Li6yO/r0g4vcLjHBtaf6dCd4TDmy3PBg
+0frFtR482Y8T2IvSP29p/LG599bBuWwzrOvu55+frxp5Zt3XghZdSfN52U7s1odv
+pv8+XW+XlsV4WlnT7EOg6IFFoZ5bfF/+FoxyORg5X2hhn7GlT8GX6BPRq66Z3Xv6
+d9da9Xq7Y9539SbnfuJ1va7xfYfE1p4gZa93L25n75Pc/022bOEVk38KBos+ftSX
++HBo7aK1Fn/f7thmK7k6iF3AapKPpUfyk8umNzSk/BbcfPfk1uaVt9h5JvLxvdAp
+uh3iv9Xh6G5mZUnnQ9nbRMK9Y099nMrn6H1Betsabs7LXPUzF1jF3hYSsG2sniPF
+ujX8Us8P9yLTR7bdnZ+PKey+HOY0r8P+j7Fno0K4sG7yqh9LLi86LbkiQc/876O3
+G1QM2q59/7ipNWGqupdtcuX3G+xhE55e+aiReOR88/7XUx1Ept2JDJgmGsJz12Fz
+5o1LT67c/rNf3dVf5a7RLr+osIBVHb72J/6sKj35518jx9GZ1wJ8OD58ifVMSygT
+MrxqwKWfNduGi/1CWeuKWYKM7zZN5FP/MLHhWklC170zPzfIL/ix777G0YcthSya
+Int0Srw8Lt84XHlpE0/Gin0Rf93llc1XMHgcK/mtcX/hz/2PH7n2CMksv2LQ3Kez
+mZux+IF86OT5MqxtIS/M9WPnq9ya8efgHImlKSd+bQIA
+=JZRS
+-----END PGP MESSAGE-----
+
+And finally, I am proving ownership of this host by posting or
+appending to this document.
+
+View my publicly-auditable identity here: https://keybase.io/mpapis
+
+==================================================================
