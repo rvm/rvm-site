@@ -19,7 +19,7 @@ verifying the `rvm-installer` was signed by the given key:
     # Run the installer
     bash rvm-installer stable
 
-In rare cases the `gpg --import` is failing, use this instead:
+In rare cases the `gpg --keyserver` is failing, use this instead:
 
     curl -sSL https://rvm.io/mpapis.asc | gpg --import -
 
