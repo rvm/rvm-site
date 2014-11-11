@@ -6,7 +6,7 @@ class PreCodeFilter < Nanoc3::Filter
   def run(content, params={})
     content.
       gsub(/<pre><code>(.*?)(\n?)<\/code><\/pre>/m) do |match|
-        "<pre class=\"code\">#{$1.gsub(/\n/,"&#x000A;")}</pre>"
+        "<pre class=\"code\" title=\"triple click to select command\">#{$1.gsub(/\n/,"&#x000A;")}</pre>"
       end
   end
 end
