@@ -1,7 +1,7 @@
 # Licenses
 
-We are leaving in a world where things have to be explicitly set open.
-So here it is we will gather here are resources around RVM that are open sourced.
+We are living in a world where things have to be explicitly set open.
+Therefore we will list all resources around RVM that are open sourced.
 
 ## RVM 1
 
