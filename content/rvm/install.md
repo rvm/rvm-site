@@ -6,15 +6,15 @@ title: Installing RVM
 
 ## Quick (guided) Install
 
+Before any other step install [mpapis](/authors/mpapis/) [public key](https://keybase.io/mpapis) (might need `gpg2`) (see [security](/rvm/security/))
+
+    gpg --keyserver hkp://keys.gnupg.net --recv-keys D39DC0E3
+
 **Unless doing guided install you should read all sub-sections under the [RVM Section](/rvm/).**
 
 Install RVM (development version):
 
     \curl -sSL https://get.rvm.io | bash
-
-Without [autolibs](/rvm/autolibs):
-
-    \curl -sSL https://get.rvm.io | bash -s -- --autolibs=read-fail
 
 Install RVM stable with ruby:
 
@@ -40,9 +40,13 @@ To install with rails and haml gems (and also add them to default.gems):
 
     \curl -sSL https://get.rvm.io | bash -s stable --with-default-gems="rails haml"
 
+Without [autolibs](/rvm/autolibs):
+
+    \curl -sSL https://get.rvm.io | bash -s -- --autolibs=read-fail
+
 For a progress bar when downloading RVM / Rubies:
 
-   echo progress-bar >> ~/.curlrc
+    echo progress-bar >> ~/.curlrc
 
 
 Point to be noted is, there is a backslash before <b>curl</b>.
@@ -53,7 +57,7 @@ If you're an existing RVM user and you don't want RVM to attempt to setup
 your shell to load RVM, you can opt out of this at install time by exporting
 rvm_ignore_dotfiles=yes, or opt out permanently by setting this in your rvmrc.
 
-You can also:
+### You can also:
 
 - read the [installation documentation](#explained) below,
 - for Windows use this [tutorial](http://blog.developwithpassion.com/2012/03/30/installing-rvm-with-cygwin-on-windows/),
@@ -83,10 +87,10 @@ There are three different ways to install and configure RVM.
   Multi-User installations, the difference is in users environment.
 
 [get.rvm.io](https://get.rvm.io) is a redirect to
-<https://raw.github.com/wayneeseguin/rvm/master/binscripts/rvm-installer>
+<https://raw.githubusercontent.com/wayneeseguin/rvm/master/binscripts/rvm-installer>
 You could also use full path for the installer:
 
-    \curl https://raw.github.com/wayneeseguin/rvm/master/binscripts/rvm-installer | bash -s stable
+    \curl https://raw.githubusercontent.com/wayneeseguin/rvm/master/binscripts/rvm-installer | bash -s stable
 
 
 ## Installation
