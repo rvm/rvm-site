@@ -16,7 +16,7 @@ gem "nokogiri"
 gem "rdiscount"
 gem "mime-types"
 gem "builder"
-gem "nanoc", :github => "nanoc/nanoc", :branch => "release-3.7.x"
+gem "nanoc", ">=3.7.4"
 
 group :development, :test do
   gem "rake"
