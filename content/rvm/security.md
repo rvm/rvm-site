@@ -10,8 +10,8 @@ verifying the `rvm-installer` was signed by the given key:
     gpg --keyserver hkp://keys.gnupg.net --recv-keys D39DC0E3
 
     # Download the installer
-    \curl https://raw.githubusercontent.com/wayneeseguin/rvm/master/binscripts/rvm-installer
-    \curl https://raw.githubusercontent.com/wayneeseguin/rvm/master/binscripts/rvm-installer.asc
+    \curl -O https://raw.githubusercontent.com/wayneeseguin/rvm/master/binscripts/rvm-installer
+    \curl -O https://raw.githubusercontent.com/wayneeseguin/rvm/master/binscripts/rvm-installer.asc
 
     # Verify the installer signature (might need `gpg2`)
     gpg --verify rvm-installer.asc
