@@ -1,441 +1,217 @@
-@font-face
-  font-family: 'Open Sans'
-  font-style: normal
-  font-weight: 400
-  src: local("Open Sans"), local("OpenSans"), url(http://themes.googleusercontent.com/static/fonts/opensans/v6/cJZKeOuBrn4kERxqtaUH3T8E0i7KZn-EPnyo3HZu7kw.woff) format("woff")
-
-@import compass/reset
-@import compass/css3
-@import compass/layout/sticky-footer
-
-@import base.sass
-@import default.sass
-@import text.sass
-
-@include sticky-footer(80px, "#container", "#layout-footer", "#footer")
-
-*
-  margin: 0
-  padding: 0
-  font-size: 1em
-
 body
-  background: #8b1417 url("/images/bottom-gradient.gif") repeat-x fixed center bottom
-  font-family: 'Open Sans', sans-serif !important
+  background: #8b1417 url('/images/logo.svg') top center no-repeat fixed
+  background-size: contain
+  font-family: 'Open Sans', sans-serif
   line-height: 1.4em
-  .relative
-    position: relative
-  .clear
-    clear: both
-  .center
-    margin-left: auto
-    margin-right: auto
-  .box
-    margin-top: 1em
-    padding: 0.8em
-  /* Not used */
-  .container
-    margin: 4em auto
-    width: auto
-    clear: both
+  word-wrap: break-word
 
-  #cse
-    width: 100%
-    text-align: left
-    margin-bottom: 10px
-    .gsc-adBlock
-      display: none
-    .gsc-control-cse
-      background: transparent
-      border: 0px
-    a.gs-title
-      color: #a00
-
-  h2
-    font-weight: bold
-    padding:
-      bottom: 10px
-    color: #9c1f1f
-    border:
-      style: solid
-      top: none
-      left: none
-      right: none
-      bottom:
-        width: 1px
-        color: #CCCCCC
-
-  a
-    text-decoration: none
-    font-weight: bold
-    /* 871E05
-    color: maroon
-    &:visited
-      color: #710000
-    &:hover
-      text-decoration: none
-      color: blue
-    img
-      border: none
-
-    table.header
-      background: #eee
-      margin-top: 1em
-      width: 100%
-      font-size: small
-      thead
-        tr
-          th
-            text-shadow: 1px 1px 1px #fff
-            text-transform: uppercase
-            letter-spacing: 0em
-            width: 20%
-            color: maroon
-            padding: 0
-      tbody
-        tr
-          td
-            width: 25%
-            vertical-align: top
-            text-align: justify
-            padding-right: 1em
-            padding-left: 0.8em
-            p
-              font-size: 0.9em
-              color: #555
-              line-height: 1.5em
-              padding: 0em
-              a
-                img
-                  float: right
-                  padding: 0
-                  padding-bottom: 0.5em
-                  padding-left: 1em
-
-
-
-
-/************* Design update 2011-06-21 **************/
-
-center
-  margin: 0
-
-.clear
-  clear: both
-
-h5
-  font-size: 0.8em
-  color: black
-  font-weight: normal
-  margin-bottom: 0.5em
-  margin-top: 0.5em
-
-h6
-  font-size: 0.7em
-  font-weight: normal
-  text-transform: uppercase
-  color: #a1a1a1
-  letter-spacing: 0.3em
-  text-align: center
-  margin: 0.3em 0 0 0
-
-
-//container-width
-$container-width: 90%
-
-// content width
-$width: 80%
-
-// height of support box on the very top
-$height: 190px
-
-=backgroundtex
-  background: #fafaf2 url('/images/bgtex.jpg') repeat
-
-=roundcorners
-  -moz-border-radius: 10px
-  -webkit-border-radius: 10px
-  -khtml-border-radius: 10px
-  border-radius: 10px
-
-@mixin round_border($topleft,$topright,$bottomleft,$bottomright)
-  border-top-left-radius: $topleft
-  border-top-right-radius: $topright
-  border-bottom-left-radius: $bottomleft
-  border-bottom-right-radius: $bottomright
-  -moz-border-radius-topleft: $topleft
-  -moz-border-radius-topright: $topright
-  -moz-border-radius-bottomleft: $bottomleft
-  -moz-border-radius-bottomright: $bottomright
-  -webkit-border-top-left-radius: $topleft
-  -webkit-border-top-right-radius: $topright
-  -webkit-border-bottom-left-radius: $bottomleft
-  -webkit-border-bottom-right-radius: $bottomright
-  -o-border-radius-topleft: $topleft
-  -o-border-radius-topright: $topright
-  -o-border-radius-bottomleft: $bottomleft
-  -o-border-radius-bottomright: $bottomright
-
-=topcorners
-  -moz-border-radius-topleft: 10px
-  -webkit-border-top-left-radius: 10px
-  -khtml-border-radius-topleft: 10px
-  -o-border-radius-topleft: 10px
-  border-top-left-radius: 10px
-  -moz-border-radius-topright: 10px
-  -webkit-border-top-right-radius: 10px
-  -khtml-border-radius-topright: 10px
-  -o-border-radius-topright: 10px
-  border-top-right-radius: 10px
-
-
-=centered($width)
-  margin-left: auto
-  margin-right: auto
-  width: $width
-
-=shadow
-  -webkit-box-shadow: 0px 2px 5px rgba(0,0,0,0.2)
-  -moz-box-shadow: 0px 2px 5px rgba(0,0,0,0.2)
-  -khtml-box-shadow: 0px 2px 5px rgba(0,0,0,0.2)
-  box-shadow: 0px 2px 5px rgba(0,0,0,0.2)
-
-
-$box-background: #3D3D3D
-$title-background: #292929
-
-.title
-  font-size: 80%
-  text-align: center
-  text-transform: uppercase
-  letter-spacing: 0.1em
-  color: #5C5C5C
-  text-shadow: 0.1em 0.1em #000
-  background: $title-background
-
-@mixin default-box
-  background: $box-background
-  float: left
-  +shadow
-  +round_border(0, 0, 5px, 5px)
-  width: 18%
-  margin-right: 0.7%
-
-@mixin default-text
-  .text
-    font-size: 70%
-    padding: 3%
-    color: #E0E0E0
-
-#heaven
-  height: 1%
-  @include sticky-footer(80px)
+img
   width: 100%
-  +box-shadow
-  background: $title-background
 
-#container
-  +centered($container-width)
-  margin-bottom: 2%
+img.shepard
+  margin-top: -10px
+  height: 200px
+  width: 200px
+  float: right
 
-  #donate, #recommend, #irc
-    a
-      color: #E0BABA
-      &:hover
-        text-decoration: underline
-
-
-  #logo
-    text-align: center
-    @include default-box
-    background: $title-background
-    img
-      max-width: 100%
-      max-height: 170px
-
-  #donate
-    @include default-box
-    @include default-text
-    height: auto
-    .pledgie
-      text-align: center
-      img
-        max-width: 90%
-        margin-top: 5%
-
-  #recommend, #irc
-    @include default-box
-    @include default-text
-
-  #recommend
-    .logo
-      text-align: center
-      padding: 3%
-      img
-        max-height: 13%
-        max-width: 100%
-        margin: 0 auto
-        margin-top: 10%
-
-  #sponsors
-    float: right
-    width: 25%
-    background: $box-background
-    +round_border(0, 0, 5px, 5px)
-    +shadow
-    height: auto
-    .logo
-      padding: 1%
-      text-align: center
-      font-size: 80%
-      vertical-align: middle
-      img
-        vertical-align: middle
-        max-height: 70px
-        margin: 0 auto
-        margin-top: 3%
-    .long
-      img
-        max-width: 40%
+header
+  background-color: #fff
+  background-color: rgba(255,255,255,0.8)
+  margin-bottom: 10px
+  img
+    width: auto
+  .logo
+    width: 100px
 
 #content
-  +shadow
-  +backgroundtex
-  padding: 1em
-  margin-top: 2%
-  font-size: 0.9em
-  +round_border(5px, 5px, 5px, 5px)
-  aside
-    font-style: italic
-    font-size: 80%
-  #article
-    p
-      padding: 1px
-      text-indent: 5px
-    hr.medium
-      margin: 0
-      height: 2px
-      background-color: #8b1417
-
-  h1, h2, h3
-    a.anchor
-      opacity: 0.3
-      cursor: pointer
-
-    a.anchor:hover
-      opacity: 0.7
-
-
-  img
-    max-width: 100%
-  div
-    font-size: medium
-    &.title
-      margin-left: 130px
-      line-height: 1em
-      color: #871E05
-      font-weight: bold
-      font-size: 600%
-    &.tagline
-      margin-left: 133px
-      font-size: 120%
-      line-height: 1em
-
-  p
-    padding: 5px
-  code
-    margin: 0.09em
-    padding: 0.09em
-    font-weight: bold
-    background-color: lighten(#F0F0E9, 10)
-    border: 1px solid maroon
-  pre.code
-    margin-bottom: 0.5em
-    padding: 0.75em
-    background: #fff
-    border: 1px solid maroon
-    overflow: auto
-  pre.code-shell-cmd:before
-    content: '$\00A0'
-  ul.disk
-    list-style: disc
-  ul, ul.circle
-    list-style: circle
-  ul.square
-    list-style: square
+  background-color: #fafaf2
+  background-color: rgba(250,250,242,0.9)
+  margin-bottom: 10px
+  width: 100%
 
 #docindex
-  +shadow
-  +backgroundtex
-  padding: 1em
-  margin-top: 2%
-  font-size: 0.9em
-  +round_border(5px, 5px, 5px, 5px)
-  .headline
-    font-size: small
-    font-weight: bold
-    text-shadow: 1px 1px 1px #fff
-    color: maroon
-  .column
-    width: 22%
-    float: left
-    margin-top: 1em
-    margin-left: 1em
-  ul
-    font-size: 0.7em
-    list-style-type: none
-    margin: 0
-    a
-      padding: 2px
-      color: #555658
-      &:visited
-        color: #303030
-      &:hover
-        text-decoration: none
-        color: blue
-      &:active
-        color: #009bdb
-
-  li
-    margin-left: 0.5em
-    margin-top: -0.3em
-
-
-@media screen and (max-width: 768px)
-  #logo, #donate, #recommend, #irc, #sponsors
-    min-height: 120px
-  #sponsors
-    .logo .title
-      display: none
-  #donate .text, .more
-    display: none
-
-@media screen and (min-width: 768px)
-  #logo, #donate, #recommend, #irc, #sponsors
-    min-height: 200px
-
-@media screen and (min-width: 1200px)
-  #content
-    width: 48%
-    float: left
-    margin-bottom: 1%
-  #docindex
-    width: 44%
-    float: right
-  a.docindex
-    display: none
-
-
-#footer
-  height: 80px
-  @include sticky-footer(80px)
+  background-color: #fafaf2
+  background-color: rgba(250,250,242,0.9)
+  margin-bottom: 10px
   width: 100%
-  +box-shadow
-  background: $box-background
-  #footer-container
-    +centered($container-width)
+  a
+    line-height: 2em
+  ul
+    list-style: none
+    margin: 0
+    padding-left: 15px
+  section
+    background-color: #fafaf2
+    background-color: rgba(250,250,242,0.3)
+    margin: 10px
+  section > a
+    color: #fff
+    background-color: #999
+    background-color: rgba(153,153,153,0.9)
+    position: -webkit-sticky
+    position: -moz-sticky
+    position: -o-sticky
+    position: -ms-sticky
+    position: sticky
+    top: 0
+    z-index: 1
     text-align: center
-    font-size: 0.7em
-    color: #CFC2B5
-    a
-      color: #CFC2B5
+    display: block
+    width: 100%
+    border-radius: 5px
+    padding: 0 15px
+
+footer
+  color: #fff
+  background-color: #999
+  background-color: rgba(153,153,153,0.9)
+  img
+    width: auto
+
+header, section, #content, #docindex, footer
+  padding: 15px
+  border-radius: 5px
+
+#container
+  padding: 0
+  margin: 0
+  list-style: none
+  display: -webkit-box
+  display: -webkit-flex
+  -webkit-flex-flow: row wrap
+  display: flex
+  flex-flow: row wrap
+  justify-content: center
+  -webkit-justify-content: space-around
+  justify-content: space-around
+
+.flex-item
+  background-color: #3d3d3d
+  background-color: rgba(0,0,0,0.6)
+  width: 100%
+  margin-bottom: 10px
+  text-align: center
+  color: white
+  .title
+    background-color: #000
+    background-color: rgba(0,0,0,0.9)
+  a
+    color: #E0BABA
+    text-decoration: none
+    &:hover
+      text-decoration: underline
+  img
+    padding: 5px
+
+.logos
+  display: -webkit-flex
+  display: flex
+  -webkit-flex-flow: row wrap
+  flex-flow: row wrap
+  a
+    padding: 5px
+    -webkit-flex: 1 auto
+    flex: 1 auto
+
+#sponsors
+  a
+    -webkit-flex: 1 auto
+    flex: 1 auto
+    img
+      width: auto
+      max-width: 150px
+
+a
+  text-decoration: none
+  font-weight: bold
+  color: maroon
+  &:visited
+    color: #710000
+  &:hover
+    text-decoration: none
+    color: blue
+  img
+    border: none
+
+#logo
+  position: relative
+
+code
+  margin: 0.09em
+  padding: 0.09em
+  font-weight: bold
+  background-color: lighten(#F0F0E9, 10)
+  border: 1px solid maroon
+
+pre.code
+  margin-bottom: 0.5em
+  padding: 0.75em
+  background: #fff
+  border: 1px solid maroon
+  overflow: scroll
+
+pre.code-shell-cmd:before
+  content: '$\00A0'
+
+ul
+  list-style-type: none
+
+.funding_logo
+  width: auto
+  display: block
+
+@media screen and (min-width: 600px)
+  header
+    display: -webkit-flex
+    display: flex
+    -webkit-flex-flow: row wrap
+    flex-flow: row wrap
+    .flex-item
+      margin: 5px
+      -webkit-flex: 1 0 200px
+      flex: 1 0 200px
+    #sponsors
+      -webkit-flex: 1 0 90%
+      flex: 1 0 90%
+    #logo
+      -webkit-flex: 1 0 100px
+      flex: 1 0 100px
+
+  #docindex
+    display: -webkit-flex
+    display: flex
+    justify-content: center
+    -webkit-justify-content: center
+    -webkit-flex-flow: row wrap
+    flex-flow: row wrap
+    h2
+      width: 100%
+    section
+      background-color: #fafaf2
+      background-color: rgba(250,250,242,0.4)
+      width: 300px
+    section > a
+      width: auto
+      padding: 0
+      -webkit-flex: 1 0 500px
+      flex: 1 0 500px
+
+@media screen and (min-width: 800px)
+  #content
+    width: 45%
+    -webkit-align-self: flex-start
+    align-self: flex-start
+
+  #docindex
+    -webkit-align-self: flex-start
+    align-self: flex-start
+    width: 45%
+    section
+      padding: 0
+      font-size: 0.7em
+      width: 20%
+
+    section > a
+      margin-top: 20px
+    section > a:first-child
+      margin-top: 0

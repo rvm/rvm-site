@@ -5,13 +5,11 @@
 
   %body
 
-    #heaven
-
     #container
 
       =render "shared/header"
 
-      #content
+      %section#content
         %a{ :name => "top" }
         =yield
         %a{ :name => "bottom" }
