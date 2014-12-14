@@ -17,7 +17,8 @@ title: RVM Ruby Version Manager - Documentation
 
 %ul.square
   %li
-    Install RVM with a Ruby:
+    Install RVM:
+    = sh_cmd "gpg --keyserver hkp://keys.gnupg.net --recv-keys D39DC0E3"
     = sh_cmd "\\curl -sSL https://get.rvm.io | bash -s stable"
     For all in one installation append
     %code --rails
@@ -25,6 +26,10 @@ title: RVM Ruby Version Manager - Documentation
     %code --ruby
     or
     %code --ruby=1.9.3
+  %li
+    more
+    %a{:href => "/rvm/security"}
+      secure installation
   %li
     for more details visit the
     %a{:href => "/rvm/install/"}
