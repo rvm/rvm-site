@@ -95,6 +95,7 @@ end
   "/robots"                 => "/robots.txt",
   "/assets/favicon"         => "/favicon.ico",
   "/google0e4a57f3096204a2" => "/google0e4a57f3096204a2.html",
+  "/digicert/verify"        => "/digicert/verify.html",
 }.each do |file, url|
   compile file do
     nil
