@@ -29,6 +29,7 @@ header
 #docindex
   margin-bottom: 10px
   width: 100%
+  background: burlywood
   a
     line-height: 2em
   ul
@@ -36,7 +37,7 @@ header
     margin: 0
     padding-left: 15px
   section
-    border: #ccc thin solid
+    border: #676 thin solid
     margin: 10px
     padding: 0
   section > a
@@ -182,12 +183,17 @@ ul
     flex-flow: row wrap
     h2
       width: 100%
+      margin-left: 22px
    
     section > a
       width: auto
       padding: 0
       -webkit-flex: 1 0 500px
       flex: 1 0 500px
+      background: maroon
+      padding-left: 8px
+    section > ul > li
+      margin: 8px 0
 
 @media screen and (min-width: 1000px)
   #content
@@ -200,14 +206,20 @@ ul
     align-self: flex-start
     width: 45%
     section
-      padding: 5px
+      padding: 0
       font-size: 0.7em
       width: 44%
       font-size: 12px
+      background: #f7f7f7
     section > a
       margin-top: 20px
+    section ul+a, section ul+a+a
+      color: #fff
     section > a:first-child
       margin-top: 0
+      color: #fff
+      font-weight: bold
+      font-size: 14px
 
 @media screen and (min-width: 1100px)
   #sponsors
