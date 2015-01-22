@@ -66,7 +66,7 @@ Install all executables into single location
 
 And add it to `PATH`:
 
-    export PATH=~/.bundler_binstubs:PATh
+    export PATH="~/.bundler_binstubs:$PATH"
 
 ### Community Resources
 
