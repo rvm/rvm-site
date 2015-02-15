@@ -18,6 +18,8 @@ This leads to multiple open source projects that will need help,
 I'm still doing minimal work on them, but it will not be enough to keep
 them running for longer time. So I need help in maintaining this projects.
 
+<!-- more -->
+
 **I'm looking for people willing to help with handling tickets, building
 binaries, supporting the community, if you are interested please mail me
 at [mpapis@gmail.com](mailto:mpapis@gmail.com)**.
