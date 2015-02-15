@@ -7,12 +7,13 @@ author_full: Michal Papis
 tags:
   - news
   - rvm1
+  - rvm2
 ---
 
 # Maintainers needed for RVM 1
 
 I have started changes in my life, you can read more here:
-[Changes in my open source life](http://niczsoft.com/2015/02/changes-in-my-open-source-life/).
+[Changes in my open source life (and RVM 2)](http://niczsoft.com/2015/02/changes-in-my-open-source-life/).
 This leads to multiple open source projects that will need help,
 I'm still doing minimal work on them, but it will not be enough to keep
 them running for longer time. So I need help in maintaining this projects.
