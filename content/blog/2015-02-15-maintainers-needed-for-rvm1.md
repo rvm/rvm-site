@@ -1,6 +1,6 @@
 ---
 title: Maintainers needed for RVM 1
-created_at: 2015-02-15 17:00:00 +0200
+created_at: 2015-02-15 21:00:00 +0200
 kind: article
 author: mpapis
 author_full: Michal Papis
@@ -21,7 +21,7 @@ them running for longer time. So I need help in maintaining this projects.
 binaries, supporting the community, if you are interested please mail me
 at [mpapis@gmail.com](mailto:mpapis@gmail.com)**.
 
-# RVM 1 projects
+## RVM 1 projects
 
 Here are all projects related to RVM 1:
 
