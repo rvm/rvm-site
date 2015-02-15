@@ -31,7 +31,7 @@ This is only rough description of the process, not all the steps need to work ri
    * Find version at: https://github.com/rubygems/rubygems/tags
    * Download with curl: `curl -sSL http://production.cf.rubygems.org/rubygems/rubygems-1.8.25.tgz -o rubygems-1.8.25.tgz`
 3. Download yaml (required by rvm)
-   * Download from rvm.io with curl: `curl -sSL https://rvm.io/src/yaml-0.1.4.tar.gz -o yaml-0.1.4.tar.gz`
+   * Download from rvm.io with curl: `curl -sSL http://pyyaml.org/download/libyaml/yaml-0.1.4.tar.gz -o yaml-0.1.4.tar.gz`
 4. Save these packages for offline use by storing them in the rvm archive folder `$rvm_path/archives/` by default
    * An alternate archive folder can be specified in the `.rvmrc` file
    * sample usage: `echo rvm_archives_path=/path/to/tarballs/ >> ~/.rvmrc`
