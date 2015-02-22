@@ -25,11 +25,11 @@ You can do this with RVM by typing the following at the command line:
 
 rvm-site requires a few gems that can be found in `Gemfile`, including:
 
-- [Mime-type](http://rubyforge.org/projects/mime-types/)
+- [MIME::Types](https://github.com/halostatue/mime-types#readme)
 - [Compass](http://compass-style.org/)
-- [Nanoc3](http://nanoc.stoneship.org/)
-- [Rack](http://guides.rubyonrails.org/rails_on_rack.html)
-- - [HAML](http://haml-lang.com/) ([SASS](http://sass-lang.com/) is bundled with this Gem)
+- [Nanoc](https://nanoc.ws/)
+- [Rack](https://rack.github.io/)
+- [Haml](http://haml.info/) ([Sass](http://sass-lang.com/) is bundled with this Gem)
 
 To install the gemset file, use
 
