@@ -31,7 +31,7 @@ Here are all projects related to RVM 1:
 1. [RVM 1][1] - the core a shell project that requires attention in fixing compatibility for new ruby releases, new operating systems, fixing bugs.
 2. [rvm-capistrano](https://github.com/wayneeseguin/rvm-capistrano) - RVM 1 + Capistrano 2 integration, mostly bug fixing
 3. [rvm1-capistrano3](https://github.com/rvm/rvm1-capistrano3) - RVM 1 + Capistrano 3 integration, mostly bug fixing
-4. [rvm-site](https://github.com/rvm/rvm-site) - http://rvm.io - updating docs, getting into the layout discussions, writing blog posts for version releases
+4. [rvm-site](https://github.com/rvm/rvm-site) - https://rvm.io - updating docs, getting into the layout discussions, writing blog posts for version releases
 5. [rvm-binary](https://github.com/rvm/rvm-binary) - building of CRuby binaries - this uses [veewee](https://github.com/jedi4ever/veewee) - which also requires maintainer / contributors
 6. [rvm-binary-osx](https://github.com/rvm/rvm-binary-osx) - building of binaries for OSX - this usually just works but might require tweaking for new Ruby / OSX versions
 
