@@ -23,15 +23,15 @@ This is only rough description of the process, not all the steps need to work ri
 ## Download Ruby, rubygems and yaml
 
 1. Download ruby
-   * Find `tar.bz2` version at: http://ftp.ruby-lang.org/pub/ruby/ (check sub-directories)
-   * Download with curl: : `curl -sSL http://ftp.ruby-lang.org/pub/ruby/1.9/ruby-1.9.3-p392.tar.bz2 -o ruby-1.9.3-p392.tar.bz2`
+   * Find `tar.bz2` version at: https://ftp.ruby-lang.org/pub/ruby/ (check sub-directories)
+   * Download with curl: : `curl -sSL https://ftp.ruby-lang.org/pub/ruby/ruby-2.2.0.tar.bz2 -o ruby-2.2.0.tar.bz2`
    * Must use ruby source archive with .tar.bz2 extension! The versions at
      https://www.ruby-lang.org/en/downloads/ are `tar.gz`, change it `tar.bz2` before downloading.
 2. Download rubygems
    * Find version at: https://github.com/rubygems/rubygems/tags
-   * Download with curl: `curl -sSL http://production.cf.rubygems.org/rubygems/rubygems-1.8.25.tgz -o rubygems-1.8.25.tgz`
+   * Download with curl: `curl -sSL http://production.cf.rubygems.org/rubygems/rubygems-2.4.6.tgz -o rubygems-2.4.6.tgz`
 3. Download yaml (required by rvm)
-   * Download from rvm.io with curl: `curl -sSL http://pyyaml.org/download/libyaml/yaml-0.1.4.tar.gz -o yaml-0.1.4.tar.gz`
+   * Download from rvm.io with curl: `curl -sSL http://pyyaml.org/download/libyaml/yaml-0.1.6.tar.gz -o yaml-0.1.6.tar.gz`
 4. Save these packages for offline use by storing them in the rvm archive folder `$rvm_path/archives/` by default
    * An alternate archive folder can be specified in the `.rvmrc` file
    * sample usage: `echo rvm_archives_path=/path/to/tarballs/ >> ~/.rvmrc`
@@ -48,16 +48,15 @@ This is only rough description of the process, not all the steps need to work ri
 
 1. Clean default gems: `echo "" > ~/.rvm/gemsets/default.gems`
 2. Clean global gems: `echo "" > ~/.rvm/gemsets/global.gems`
-3. Disable automatic dependencies ("requirements") fetching: `rvm autolibs read-fail`
-4. Install Ruby: `rvm install 1.9.3-p392 --rubygems 1.8.25` (this may require sudo password for autolibs)
+3. Install Ruby: `rvm install 2.2.0 --rubygems 2.4.6` (this may require sudo password for autolibs)
    * Install any other Ruby versions you want similarly
-5. Set default Ruby version: `rvm use 1.9.3-p392 --default`
+4. Set default Ruby version: `rvm use 2.2.0 --default`
 
 
 ## Installing gems
 
 There are multiple ways to install gems, you could download the gem files, but the best way seems to be Bundler:
-http://gembundler.com/bundle_package.html
+http://bundler.io/bundle_package.html
 
 Example installing `rails` gem:
 
@@ -78,5 +77,5 @@ Example installing `rails` gem:
 
 1. Create a (fake) project directory: `mkdir gems; cd gems`
 2. Unpack gems: `tar xzf gems.tgz`
-3. Install bundler: `gem install bundler-1.2.1.gem`
+3. Install bundler: `gem install bundler-1.8.3.gem`
 4. Install gems: `bundle install --local`
