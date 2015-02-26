@@ -102,7 +102,3 @@ After you get the hang of dealing with Ruby Interpreters, next up is starting to
 If you would like to know which Ruby RVM has selected and made active at any time, if any, you can add this information to your [shell prompt.](/workflow/prompt/)
 
 If you use tab completion in your shell also see the documentation on using [shell completion.](/workflow/completion/)
-
-### Community Resources
-
-* Check here for an [excellent post](http://rubylearning.com/blog/2010/12/20/how-do-i-keep-multiple-ruby-projects-separate/) introducting the why of RVM, written by Steve Klabnik.
