@@ -1,5 +1,5 @@
 ---
-title: "Pleas use 'rvm autolibs enable'"
+title: "Please use 'rvm autolibs enable'"
 ---
 
 # RVM Packages
