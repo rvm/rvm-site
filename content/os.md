@@ -1,5 +1,5 @@
 ---
-title: "Pleas use 'rvm autolibs enable'"
+title: "Supported Operating Systems"
 ---
 
 # Operating systems
