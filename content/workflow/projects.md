@@ -4,7 +4,7 @@ title: "Typical RVM Project Workflow"
 
 # Typical RVM Project Workflow
 
-RVM supports multiple files allowing to configure a project for automated ruby switching.
+RVM supports multiple types of files to allow configuring a project for automated ruby switching.
 In any case make sure to add those files to your version control systems
 as it is part of the project configuration.
 
@@ -15,11 +15,11 @@ Listed in order of precedence:
 - `.rvmrc`         - shell script allowing full customization of the environment,
 - `.versions.conf` - `key=value` configuration file
 - `.ruby-version`  - single line `ruby-version` only
-- `Gemfile`"       - comment: `#ruby=1.9.3` and directive: `ruby "1.9.3"`
+- `Gemfile`        - comment: `#ruby=1.9.3` and directive: `ruby "1.9.3"`
 
 Notes:
 
-- only `.rvmrc` will work in all RVM versions, the other files were introduced in RVM `1.11.0`,
+- only `.rvmrc` will work in all RVM versions; the other files were introduced in RVM `1.11.0`,
 - environment switching is supported since RVM `1.22.0`.
 
 ## Project file `.rvmrc`
@@ -29,7 +29,7 @@ This is the first supported format and it has precedence over any other files.
 which makes it hard to use and complicates deployment to production.
 In cases where scripting is not required, use of other project files is encouraged.
 
-Generating simple `.rvmrc`:
+Generating a simple `.rvmrc`:
 
     echo 'rvm --create use ree@tedxperth' > .rvmrc
 
@@ -65,7 +65,7 @@ Generating `.ruby-gemset`:
 
 The second form will create both `.ruby-version` and `.ruby-gemset`.
 
-Some projects require extra configuration in environment, this is supported by using the `.ruby-env` file:
+Some projects require extra configuration in environment; this is supported by using the `.ruby-env` file:
 
     echo "JRUBY_OPTS=--1.9" >> .ruby-env
 
@@ -91,7 +91,7 @@ Example `.versions.conf`:
 
 ## Project file `Gemfile`
 
-`Gemfile`s `ruby` directive is supported and will be read by RVM.
+`Gemfile`'s `ruby` directive is supported and will be read by RVM.
 
 Example `Gemfile`:
 
