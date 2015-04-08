@@ -5,6 +5,10 @@ title: Bundler Integration with RVM
 Bundler
 =======
 
+Install the bundler gem:
+
+    gem install bundler
+
 There is no need to do anything to make bundler work with RVM, but there is one thing about bundler that makes it harder to use. By default, bundler does not generate wrappers for gem binaries. To make use of the proper version of a gem binary, users are forced to prefix every command with `bundle exec`. This makes working in the console rather painful. Fortunately, there are solutions that allow us to just write binary names; the binary from 'gem' specified in the Gemfile will be used.
 
 1. [rubygems-bundler gem](#rubygems-bundler)
