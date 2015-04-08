@@ -2,7 +2,7 @@
 
 ##I have found a bug in RVM. How do I submit an issue or a patch to get this fixed?
 
-To report bugs against RVM, please go to https://github.com/wayneeseguin/rvm/issues/ and open an Issue there. **READ ALL EXISTING REPORTS!** Sometimes the problem is already under investigation or has already been solved. Opening a new one for the same issue is a waste of time and resources and may cause your report to be summarily closed. Please use https://gist.github.com to store and file supplimentary evidence related to the bug report. Include the returned https (not git) URL in your report. Please provide
+To report bugs against RVM, please go to https://github.com/rvm/rvm/issues/ and open an Issue there. **READ ALL EXISTING REPORTS!** Sometimes the problem is already under investigation or has already been solved. Opening a new one for the same issue is a waste of time and resources and may cause your report to be summarily closed. Please use https://gist.github.com to store and file supplimentary evidence related to the bug report. Include the returned https (not git) URL in your report. Please provide
 
 A. The output from `rvm info`
 B. If you are using gemsets, the output from `gem list -dl`

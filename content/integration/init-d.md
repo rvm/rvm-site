@@ -26,5 +26,5 @@ Where:
 
 Example scripts:
 
-- [`init.d unicorn`](https://github.com/wayneeseguin/rvm/blob/master/contrib/unicorn_init.sh)
+- [`init.d unicorn`](https://github.com/rvm/rvm/blob/master/contrib/unicorn_init.sh)
 - [`init.d smfbot`](https://github.com/rvm/rvm-site-setup/blob/master/conf/smfbot.rc)

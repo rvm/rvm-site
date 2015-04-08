@@ -6,7 +6,7 @@ title: Integration with chruby
 
 One of basic RVM functionalities is to install rubies - chruby does not provide this function.
 Users can use [chruby](https://github.com/postmodern/chruby) for switching rubies and
-[RVM](https://github.com/wayneeseguin/rvm) for installing rubies.
+[RVM](https://github.com/rvm/rvm) for installing rubies.
 
 ## Install chruby
 
@@ -40,4 +40,4 @@ The differences between `rvm` and `mrvm` are:
 
 ## Issues
 
-Please report bugs / problems / issues to https://github.com/wayneeseguin/rvm/issues
+Please report bugs / problems / issues to https://github.com/rvm/rvm/issues

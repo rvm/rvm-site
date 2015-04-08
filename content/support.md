@@ -15,4 +15,4 @@ There is a great [rvm cheatsheet](http://cheat.errtheblog.com/s/rvm);
 it takes only few minutes to read/watch them.
 
 Finally if you think it might be RVM bug or missing feature -
-[open a new ticket](https://github.com/wayneeseguin/rvm/issues).
+[open a new ticket](https://github.com/rvm/rvm/issues).

@@ -25,4 +25,4 @@ There is **no need** to specify any extra `--with-*` flags, RVM will figure them
 
 This functionality is one of least used and those least tested, it can include bugs or issues.
 Please take your time and try to help solve them, we are open for pull requests and issues:
-https://github.com/wayneeseguin/rvm/issues
+https://github.com/rvm/rvm/issues

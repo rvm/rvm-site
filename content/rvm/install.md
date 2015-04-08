@@ -87,16 +87,16 @@ There are three different ways to install and configure RVM.
   Multi-User installations, the difference is in users environment.
 
 [get.rvm.io](https://get.rvm.io) is a redirect to
-<https://raw.githubusercontent.com/wayneeseguin/rvm/master/binscripts/rvm-installer>
+<https://raw.githubusercontent.com/rvm/rvm/master/binscripts/rvm-installer>
 You could also use full path for the installer:
 
-    \curl https://raw.githubusercontent.com/wayneeseguin/rvm/master/binscripts/rvm-installer | bash -s stable
+    \curl https://raw.githubusercontent.com/rvm/rvm/master/binscripts/rvm-installer | bash -s stable
 
 
 ## Installation
 
 I recommend you
-[read the installation script](https://github.com/wayneeseguin/rvm/blob/master/binscripts/rvm-installer)
+[read the installation script](https://github.com/rvm/rvm/blob/master/binscripts/rvm-installer)
 yourself. This will give you a chance to understand what it is doing _before_
 installing, and allow you to feel more comfortable running it if you do so.
 

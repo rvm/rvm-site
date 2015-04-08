@@ -11,6 +11,6 @@ As of November 7, 2011, RVM now has a working RVM Testing Suite, backed by a 5 n
   
 The test cluster *only* runs the official stable release, which is our 'master' branch. The [United Way of Bruce Grey](http://www.osaic.com/index.cfm?member=unitedway) (Canada), and the [Bruce-Grey Linux Users Group](http://bglug.ca) (Canada) deserve a special thanks for donation of the equipment for the test cluster.
 
-RVM Test Suite is a ruby-based testing suite, and is [available here](https://github.com/wayneeseguin/rvm-test/). Please see the link for installation and usage information.
+RVM Test Suite is a ruby-based testing suite, and is [available here](https://github.com/rvm/rvm-test/). Please see the link for installation and usage information.
 
 From all of us here at the RVM Project, we would like to say **Thank You!** to everyone who helped us get this show on the road!

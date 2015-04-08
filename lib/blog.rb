@@ -4,7 +4,7 @@ class RvmIssuesFilter < Nanoc3::Filter
   def run(content, params={})
     content.
       gsub(/RVM#([0-9]+) (.*)$/) do
-        "<a href=\"https://github.com/wayneeseguin/rvm/issues/#{$1}\">RVM##{$1} #{$2}</a>"
+        "<a href=\"https://github.com/rvm/rvm/issues/#{$1}\">RVM##{$1} #{$2}</a>"
       end
   end
 end
