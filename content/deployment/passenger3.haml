@@ -30,20 +30,7 @@ menu_ignore: true
   First of all there's passenger-install-apache2-module and passenger-install-nginx-module. At the end of the installation it outputs a PassengerRuby configuration snippet for the web server. Its value is set to the RVM Ruby wrapper script that corresponds with the RVM Ruby and RVM gemset that was used to run the installer. This should be all you need for configuration of Passenger 3!
 
 %p
-  If it's not, here's what you might have to do, almost all of this stolen from
-  %a{:href => "http://blog.ninjahideout.com/posts/the-path-to-better-rvm-and-passenger-integration"} Darcy's Blog Post
-
-%p  In your .rvmrc do:
-
-%pre.code
-  :preserve
-    if [[ -s "/Users/sutto/.rvm/environments/ree-1.8.7-2010.02@my-app-name" ]] ; then
-      . "/Users/sutto/.rvm/environments/ree-1.8.7-2010.02@my-app-name"
-    else
-      rvm --create use  "ree-1.8.7-2010.02@my-app-name"
-    fi
-
-%p Or instead of creating a .rvmrc file use one of the new formats like .ruby-version or .versions.conf:
+  If you're still running into trouble instead of creating a .rvmrc file use one of the new formats like .ruby-version or .versions.conf:
 
 %pre.code
   :preserve
@@ -132,10 +119,6 @@ menu_ignore: true
     %pre.code
       :preserve
         ENV["GEM_HOME"]=%x{"source ~/.bash_profile ; rvm ree@pancake ; rvm gemdir"}.strip
-    %p
-      Or, if you are already using rvmrc's, you can use the rvm ruby api and config/setup_load_paths.rb
-      in recent passenger versions by following
-      %a{:href => "http://blog.ninjahideout.com/posts/the-path-to-better-rvm-and-passenger-integration"} this guide.
     %p
       A: With bundler: Install bundler outside any gemset, switch back to the gemset you wish to use and run
       %tt bundle install
