@@ -27,6 +27,10 @@ Download the fish functions from GitHub.
 
     curl -L --create-dirs -o ~/.config/fish/functions/rvm.fish https://raw.github.com/lunks/fish-nuggets/master/functions/rvm.fish
 
+And activate the default Ruby manually in your config.fish file:
+
+    echo "rvm default" >> ~/.config/fish/config.fish
+
 Usage
 -----
 Use RVM just as you would in bash or zsh as per the instructions on the
