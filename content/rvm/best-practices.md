@@ -51,8 +51,8 @@ in the same place as bundler places its gems.
 
 ### No. 4 - Deploy with rvm when possible.
 
-Not only is *developing with RVM a good idea, when possible, it is also
-a good idea to *deploy* your application using RVM. This brings about
+Not only is developing with RVM a good idea, when possible, it is also
+a good idea to deploy your application using RVM. This brings about
 the usual advantages of an application-specific environment, but also
 makes it easier to track down version-specific bugs that occur in
 production later on in development. This is primarily since it ensures
