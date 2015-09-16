@@ -202,6 +202,7 @@ $height: 190px
 
 
 $box-background: #3D3D3D
+$footer-background: #3C0002
 $title-background: #292929
 
 .title
@@ -431,11 +432,19 @@ $title-background: #292929
   @include sticky-footer(80px)
   width: 100%
   +box-shadow
-  background: $box-background
+  background: $footer-background
   #footer-container
     +centered($container-width)
-    text-align: center
     font-size: 0.7em
     color: #CFC2B5
     a
       color: #CFC2B5
+    #footer-logos
+      float: right
+      #hosted-by
+        float: left
+        margin-right: 5em
+      #tested-with
+        float: right
+    #copyright
+      padding-top: 50px
