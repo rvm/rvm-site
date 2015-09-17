@@ -8,7 +8,7 @@ title: Upgrading RVM
     Documentation
   &nbsp;>&nbsp;
   %a{ :href => "/rvm/" }
-    rvm
+    RVM
   &nbsp;>&nbsp;
   %a{ :href => "/rvm/upgrading/" }
     Upgrading
@@ -24,7 +24,7 @@ title: Upgrading RVM
   release of RVM is created, it includes minor version increase.
   Between releases only bugfixes and ruby version updates are added
   to it with teeny version update. Normal development and major changes
-  continue on master branch to install it use
+  continue on the master branch to install it use
   %b head
   version. It's important to use head version before reporting errors as
   those could be already fixed.
@@ -45,7 +45,7 @@ title: Upgrading RVM
   not working? Is
   %b rvm get latest
   telling you
-  %b You already have the latest version!
+  %b "You already have the latest version!"
   , but you know you don't? Try this:
 %pre.code
   :preserve
@@ -68,7 +68,7 @@ title: Upgrading RVM
   obtains the latest RVM repository version.
 
 %h3
-  Installer also will update RVM:
+  The installer is also able to update RVM
 %pre.code
   :preserve
     $ \curl -sSL https://get.rvm.io | bash -s stable # update to stable

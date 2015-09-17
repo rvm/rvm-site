@@ -17,15 +17,14 @@ title: Culerity Integration with RVM
   Before you can start, you need to install jruby and celerity. In a nutshell, you need to:
 
 %ol
-  %li
-    Install jruby -
-    = sh_cmd "rvm install jruby"
-  %li
-    Create a celerity gemset and use it -
-    = sh_cmd "rvm use jruby@celerity --create"
-  %li
-    Install the celerity gem in this gemset -
-    = sh_cmd "gem install celerity culerity"
+  %li Install jruby:
+  = sh_cmd "rvm install jruby"
+
+  %li Create a celerity gemset and use it:
+  = sh_cmd "rvm use jruby@celerity --create"
+
+  %li Install the celerity gem in this gemset:
+  = sh_cmd "gem install celerity culerity"
 
 %p
   Which this done, you should be able to confirm that you have celerity by doing:
