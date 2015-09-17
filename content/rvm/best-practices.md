@@ -21,16 +21,14 @@ automatically bootstrap environments.
 
 ### No. 2 - Check your rvmrc into source control.
 
-By checking the project's' rvmrc into source control along side your
+By checking the project's rvmrc into source control along side your
 app, you're ensuring all users have a consistent environment when
-they're using your project and RVM.
+they're using your project and RVM, by also automating gemset installs and the like.
 
-By also automating gemset installs and the like (e.g. check out the
-rvmrc in the [rvm-site](http://github.com/rvm/rvm-site) repository or
-the [TEDxPerth](http://github.com/YouthTree/TEDxPerth) repostory's
-rvmrc) you also make bootstrapping a project happen via cd'ing into the
-project directory, provided you have `export rvm_project_rvmrc=1` in
-your `$HOME/.rvmrc`.
+Check out the example rvmrc file in the [rvm](https://github.com/rvm/rvm/blob/master/examples/rvmrc)
+repository or the [TEDxPerth](http://github.com/YouthTree/TEDxPerth) repository. You can also make
+bootstrapping a project happen via cd'ing into the project directory,
+provided you have `export rvm_project_rvmrc=1` in your `$HOME/.rvmrc`.
 
 On top of this, you can also automatically make your deployments set up
 your application-specific environment even if you're using
