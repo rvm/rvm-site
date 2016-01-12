@@ -65,6 +65,12 @@ module BlogHelper
     items
   end
 
+  def add_feed_link
+    file1 = File.exist?("#{Dir.pwd}/content#{@item.identifier}feed.haml")
+    file2 = File.exist?("#{Dir.pwd}/content#{@item.identifier.sub(/\/$/,"_")}feed.haml")
+    "<link href=\"#{feed_url}feed.xml\" rel=\"alternate\" title=\"#{@item.identifier} atom feed\" type=\"application/atom+xml\">" if file1 || file2
+  end
+
 end
 
 include BlogHelper
