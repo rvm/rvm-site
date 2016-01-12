@@ -26,7 +26,7 @@ Previous sponsors:
 - [<img src="/images/logo-engineyard.png" alt="EngineYard, Inc." height="80px"/>EngineYard, Inc](http://engineyard.com/)
   Donated a top of the line MacPro workstation and an MacBookAir for testing RVM.
 
-- [<img src="/images/bbg_logo.png" alt="Blue Box Group, LLC" height="55px"/>Blue Box Group, LLC](http://www.blueboxgrp.com/)
+- [<img src="/images/bbg_logo.png" alt="Blue Box Group, LLC" height="55px"/>Blue Box Group, LLC](https://www.blueboxcloud.com/)
   Donates a VPS in order to run RVM's website till end of 2013.
 
 - [<img src="/images/nuxos_logo.png" alt="Nuxos Group" height="80px">Nuxos Group](http://nuxos.fr/)
