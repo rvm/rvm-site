@@ -1,6 +1,6 @@
 source "https://rubygems.org"
 #ruby-gemset=rvm-site
-ruby '2.2.3'
+ruby '2.3.0'
 
 gem "chunky_png"
 gem "compass"
@@ -16,7 +16,7 @@ gem "nokogiri"
 gem "rdiscount"
 gem "mime-types"
 gem "builder"
-gem "nanoc", ">=3.7.4"
+gem "nanoc", ">=3.7.4", "< 4"
 
 group :development, :test do
   gem "rake"
