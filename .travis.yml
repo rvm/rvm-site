@@ -1,5 +1,5 @@
 rvm:
-  - .
+  - "--install ."
 language: ruby
 notifications:
   irc:
