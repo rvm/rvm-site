@@ -1,6 +1,4 @@
 source "https://rubygems.org"
-#ruby-gemset=rvm-site
-ruby '2.3.0'
 
 gem "chunky_png"
 gem "compass"
