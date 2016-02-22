@@ -238,7 +238,7 @@ $title-background: #292929
   +centered($container-width)
   margin-bottom: 2%
 
-  #donate, #recommend, #irc
+  #donate, #sponsors, #irc
     a
       color: #E0BABA
       &:hover
@@ -256,6 +256,7 @@ $title-background: #292929
   #donate
     @include default-box
     @include default-text
+    width: 24%
     height: auto
     .pledgie
       text-align: center
@@ -263,11 +264,11 @@ $title-background: #292929
         max-width: 90%
         margin-top: 5%
 
-  #recommend, #irc
+  #sponsors, #irc
     @include default-box
     @include default-text
 
-  #recommend
+  #sponsors
     .logo
       text-align: center
       padding: 3%
@@ -276,9 +277,9 @@ $title-background: #292929
         max-width: 100%
         margin: 0 auto
 
-  #sponsors
+  #carbon_ads_box
     float: right
-    width: 25%
+    @include default-box
     background: $box-background
     +round_border(0, 0, 5px, 5px)
     +shadow
@@ -296,6 +297,17 @@ $title-background: #292929
     .long
       img
         max-width: 40%
+    #carbonads
+      padding: 5px
+      a
+        color: #E0BABA
+        font-size: 70%
+      .carbon-wrap
+        float: right
+        .carbon-img
+          float: right
+      .carbon-poweredby
+        float: right
 
 #content
   +shadow
@@ -401,16 +413,13 @@ $title-background: #292929
 
 
 @media screen and (max-width: 768px)
-  #logo, #donate, #recommend, #irc, #sponsors
+  #logo, #donate, #sponsors, #irc, #carbon_ads_box
     min-height: 120px
-  #sponsors
-    .logo .title
-      display: none
-  #donate .text, .more
+  #irc .more, #donate .more, #carbon_ads_box .carbon-poweredby
     display: none
 
 @media screen and (min-width: 768px)
-  #logo, #donate, #recommend, #irc, #sponsors
+  #logo, #donate, #sponsors, #irc, #carbon_ads_box
     min-height: 200px
 
 @media screen and (min-width: 1200px)

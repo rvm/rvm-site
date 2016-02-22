@@ -13,21 +13,23 @@
 
 #donate
   .title Donation
-  .text Love RVM? Help us maintain RVM, a donation can help with it.
-  %a{ :href => "https://www.bountysource.com/cart?amount=5&currency=USD&team_id=rvm", :target => "_blank" }
-    %img{ :src => "//img.shields.io/badge/donate-$5-brightgreen.svg", :border => "0", :alt => "Click here to donate $5" }
-  %a{ :href => "https://www.bountysource.com/cart?amount=20&currency=USD&team_id=rvm", :target => "_blank" }
-    %img{ :src => "//img.shields.io/badge/donate-$20-brightgreen.svg", :border => "0", :alt => "Click here to donate $20" }
-  %a{ :href => "https://www.bountysource.com/cart?amount=100&currency=USD&team_id=rvm", :target => "_blank" }
-    %img{ :src => "//img.shields.io/badge/donate-$100-brightgreen.svg", :border => "0", :alt => "Click here to donate $100" }
   .text
-    Want to help in other way, want to be a sponsor?
+    Love RVM? Help us maintain RVM, a donation can help with it.
     %br
-    contact:
-    %a{ :href => "mailto:mpapis@gmail.com" }
-      Michal Papis
+    %a{ :href => "https://www.bountysource.com/cart?amount=5&currency=USD&team_id=rvm", :target => "_blank" }
+      %img{ :src => "//img.shields.io/badge/donate-$5-brightgreen.svg", :border => "0", :alt => "Click here to donate $5" }
+    %a{ :href => "https://www.bountysource.com/cart?amount=20&currency=USD&team_id=rvm", :target => "_blank" }
+      %img{ :src => "//img.shields.io/badge/donate-$20-brightgreen.svg", :border => "0", :alt => "Click here to donate $20" }
+    %a{ :href => "https://www.bountysource.com/cart?amount=100&currency=USD&team_id=rvm", :target => "_blank" }
+      %img{ :src => "//img.shields.io/badge/donate-$100-brightgreen.svg", :border => "0", :alt => "Click here to donate $100" }
+    .more
+      Want to help in other way, want to be a sponsor?
+      %br
+      contact:
+      %a{ :href => "mailto:mpapis@gmail.com" }
+        Michal Papis
 
-#recommend
+#sponsors
   .title Sponsors
   .logo.long
     %a{ :href => "https://www.linode.com" }
@@ -36,8 +38,8 @@
     %a{ :href => "https://www.fastly.com/" }
       %img{ :src => "/images/fastly_logo-01.png", :alt => "Fastly", :height => "50px"}
 
-#sponsors
+#carbon_ads_box
   .title Carbon Ads
-  %script{ :type => "text/javascript", :src => "https://cdn.carbonads.com/carbon.js?zoneid=1673&serve=C6AILKT&placement=rvmio", :async => "true", :id => "_carbonads_js" }
+  %script{ type: "text/javascript", src: "https://cdn.carbonads.com/carbon.js?zoneid=1673&serve=C6AILKT&placement=rvmio", id: "_carbonads_js", async: "async" }
 
 .clear
