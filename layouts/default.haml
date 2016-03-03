@@ -12,9 +12,11 @@
       =render "shared/header"
 
       #content
-        %a{ :name => "top" }
-        =yield
-        %a{ :name => "bottom" }
+        #top
+          %a
+            =yield
+        #bottom
+          %a
 
       =render "shared/doc_menu"
 
