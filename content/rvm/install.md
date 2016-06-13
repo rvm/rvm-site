@@ -9,6 +9,9 @@ title: Installing RVM
 Before any other step install [mpapis](/authors/mpapis/) [public key](https://keybase.io/mpapis) (might need `gpg2`) (see [security](/rvm/security/))
 
     gpg --keyserver hkp://keys.gnupg.net --recv-keys 409B6B1796C275462A1703113804BB82D39DC0E3
+    
+**Note: hkp://keys.gnupg.net can sometimes timeout you may want to use different keyserver
+- hkp://pgp.mit.edu
 
 **Unless doing guided install you should read all sub-sections under the [RVM Section](/rvm/).**
 
