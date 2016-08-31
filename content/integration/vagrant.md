@@ -21,6 +21,7 @@ If you want to perform a multi-user installation then you will need to:
 2. `install-rvm.sh`:
 
         #!/usr/bin/env bash
+        
         gpg --keyserver hkp://keys.gnupg.net --recv-keys 409B6B1796C275462A1703113804BB82D39DC0E3
         curl -sSL https://get.rvm.io | bash -s $1
 
@@ -30,7 +31,7 @@ This will automatically install RVM (update if already installed).
 
         #!/usr/bin/env bash
 
-        source $HOME/.rvm/scripts/rvm
+        source $HOME/.rvm/scripts/rvm || source /etc/profile.d/rvm.sh
 
         rvm use --default --install $1
 
