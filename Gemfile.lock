@@ -89,7 +89,7 @@ DEPENDENCIES
   guard-nanoc
   haml
   mime-types
-  nanoc (>= 3.7.4, < 4)
+  nanoc (~> 3.8.0)
   nokogiri
   pry
   rack
@@ -97,3 +97,6 @@ DEPENDENCIES
   rdiscount
   sass
   typhoeus
+
+BUNDLED WITH
+   1.12.5
