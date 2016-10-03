@@ -14,9 +14,9 @@ gem "nokogiri"
 gem "rdiscount"
 gem "mime-types"
 gem "builder"
-gem "nanoc", ">=3.7.4", "< 4"
+gem "nanoc", "~> 3.8.0"
 
 group :development, :test do
   gem "rake"
-  gem 'guard-nanoc'
+  gem "guard-nanoc"
 end

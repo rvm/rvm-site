@@ -9,7 +9,6 @@ Run and read:
     rvm notes
 
 Talk to us - please join [#rvm on irc.freenode.net](http://webchat.freenode.net/?channels=rvm)
-([Nick not registered problems](http://freenode.net/faq.shtml#plusr)).
 
 There is a great [rvm cheatsheet](http://cheat.errtheblog.com/s/rvm);
 it takes only few minutes to read/watch them.
