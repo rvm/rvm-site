@@ -7,7 +7,7 @@ The Basics of RVM
 
 Wondering why you should [use RVM?](/rvm/) For a start, not only does RVM make installing multiple ruby interpreters / runtimes easy and consistent, it provides features such as gemsets that aren't typically supported out of the box on most ruby installs.
 
-RVM also lets you use different rubies in a manner that wont mess with your existing ruby install (unless you tell it to) as well as letting you run multiple different rubies in seperate terminals concurrently!
+RVM also lets you use different rubies in a manner that won't mess with your existing ruby install (unless you tell it to) as well as letting you run multiple different rubies in separate terminals concurrently!
 
 ### Getting started
 
@@ -75,7 +75,7 @@ contain numbers. This also applies when setting a default Ruby. Below is an exam
     # MRI Ruby 2.1.1, and sets it as default.
     $ rvm --default use 2.1.1
 
-**NOTE:** If you use *just* the Major.Minor version numbers, RVM checks for, and uses, what is the most current patchlevel in its $rvm_path/config/db for that Major.Minor version. For example, if you only have 2.0.0-p451 installed, and 2.0.0-p481 is the lastest, RVM will attempt to download, install, and set 2.0.0-p481 as your default 2.0.0 for you. This behaviour may, or may not, be what you want. If its not, then be sure to include the patch level when you specify which Ruby RVM should use when setting a default. RVM updates the known list ($rvm_path/config/db and $rvm_path/config/known) everytime you update RVM, so the 'current' version of a Major.Minor (e.g. 2.1.2 at the time of writing) can change on you. RVM does not go by what you have installed for this reason. It goes by what is maintained in those two files.
+**NOTE:** If you use *just* the Major.Minor version numbers, RVM checks for, and uses, what is the most current patchlevel in its $rvm_path/config/db for that Major.Minor version. For example, if you only have 2.0.0-p451 installed, and 2.0.0-p481 is the latest, RVM will attempt to download, install, and set 2.0.0-p481 as your default 2.0.0 for you. This behaviour may, or may not, be what you want. If its not, then be sure to include the patch level when you specify which Ruby RVM should use when setting a default. RVM updates the known list ($rvm_path/config/db and $rvm_path/config/known) every time you update RVM, so the 'current' version of a Major.Minor (e.g. 2.1.2 at the time of writing) can change on you. RVM does not go by what you have installed for this reason. It goes by what is maintained in those two files.
 
 **NOTE:** Ruby switched to a Semantic Versioning scheme as of Ruby 2.1.1, which might affect your use of rvm to manage it. [Ruby Semantic Versioning](https://www.ruby-lang.org/en/news/2013/12/21/semantic-versioning-after-2-1-0/)
 

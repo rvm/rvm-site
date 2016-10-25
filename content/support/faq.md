@@ -2,7 +2,7 @@
 
 ##I have found a bug in RVM. How do I submit an issue or a patch to get this fixed?
 
-To report bugs against RVM, please go to https://github.com/rvm/rvm/issues/ and open an Issue there. **READ ALL EXISTING REPORTS!** Sometimes the problem is already under investigation or has already been solved. Opening a new one for the same issue is a waste of time and resources and may cause your report to be summarily closed. Please use https://gist.github.com to store and file supplimentary evidence related to the bug report. Include the returned https (not git) URL in your report. Please provide
+To report bugs against RVM, please go to https://github.com/rvm/rvm/issues/ and open an Issue there. **READ ALL EXISTING REPORTS!** Sometimes the problem is already under investigation or has already been solved. Opening a new one for the same issue is a waste of time and resources and may cause your report to be summarily closed. Please use https://gist.github.com to store and file supplementary evidence related to the bug report. Include the returned https (not git) URL in your report. Please provide
 
 A. The output from `rvm info`
 B. If you are using gemsets, the output from `gem list -dl`
@@ -89,7 +89,7 @@ RVM compiles to your current running kernel's architecture. This means that if y
 
 Place a .ruby-version (or .rvmrc if you need scripting) file in the project directory with the version of Ruby to use for development.
 
-The .ruby-version file has a higher precendence then the Gemfile but not the .rvmrc file and if you are on Heroku it will be ignored.
+The .ruby-version file has a higher precedence then the Gemfile but not the .rvmrc file and if you are on Heroku it will be ignored.
 
 The .ruby-version file can contain a specific ruby version, or  be left empty in order to just use the currently selected ruby version.
 
@@ -100,6 +100,6 @@ Please note that if you want to install for root only, using a per-user install,
     echo 'export rvm_prefix="$HOME"' > /root/.rvmrc
     echo 'export rvm_path="$HOME/.rvm"' >> /root/.rvmrc
 
-to override the checking done that assumes that if root is executing the install it must be a Multi-User installation type, and that RVM must go into /usr/local/rvm. This also negates the need to use sudo, as the combination of all these factors effeccively turns it into a Per-User installation type specifically for the root user only.
+to override the checking done that assumes that if root is executing the install it must be a Multi-User installation type, and that RVM must go into /usr/local/rvm. This also negates the need to use sudo, as the combination of all these factors effectively turns it into a Per-User installation type specifically for the root user only.
 
 **Please note that this is *not* a typical, or generally supported installation type.**
