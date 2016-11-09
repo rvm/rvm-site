@@ -16,10 +16,8 @@ forking the repository and cloning the fork.
 
 ## Requirements
 
-The site requires that you have at least ruby 2.0.0-p0 running in your environment,
-currently used version is listed in Gemfile
-
-You can do this with RVM by typing the following at the command line:
+The site relies on a specific verion of Ruby, which is listed in the Gemfile.
+You can run install it with:
 
     rvm use . --install --create
 
@@ -37,7 +35,8 @@ To install the gemset file, use
 
 ## Getting it Running
 
-If you are in RVM and have 2.0.0 already running, simply clone this repository and cd to
+If you are in RVM and have the proper version of Ruby running already,
+simply clone this repository and cd to
 the directory. The project `.rvmrc` will be loaded and you can open in your editor and
 start hacking away.
 
@@ -48,7 +47,7 @@ If you would like to view the changes locally as you hack, use nanoc-guard:
     # in window/tab 2
     nanoc view
 
-I tis required to reload page after changing code.
+It's required to reload page after changing code.
 
 Validating site links integrity with Nanoc:
 
