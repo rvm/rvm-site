@@ -66,7 +66,7 @@ From now on, any project which was generated this way will automatically add `$P
 
 Install all executables into single location
 
-    bundle config bin ~/.bundler_binstubs --global
+    bundle config --global bin ~/.bundler_binstubs
 
 And add it to `PATH`:
 
