@@ -12,7 +12,8 @@ notifications:
       - healey.rich@gmail.com
     on_failure: change
   slack:
-    secure: ymbDlD3DmDDBE5F+Yur4Zv8j5cVk1+DL7vtoedwuryOx919kftwVEytTjeZm6nCc4t1o4u8WNfhbN5nHBgK8g50u2rAl+NmKgPEpwsMu6T3ymKwGWqJAuUOze4iEHK/EyDRZ5XC407H2SBgkjfqeuSBVaBiISCheruntzZSzRCs=
+    rooms:
+      secure: uIHPEuHGWDxG2nXP0Fq6lK3s8GVK7/v+VX5nUC+KU06Es465z++W551TZc9A5GBAqsKx3k9ulD53dvfKsmIEarpehwugWNc0XVDShY1HyofP852Sz2mkssQPkq/KbZBV/M2GDHzdK0BuIl0R5sZkWyyMgnlqDNAtnydFFJB73II=
     on_success: change
     on_failure: always
     on_pull_requests: false
