@@ -308,6 +308,18 @@ If you are new to RVM I recommend that you read the
 [basics page](/rvm/basics/). At the end of the basics page there are
 further links for getting started.
 
+You might also want to check dedicated instructions for integrating with some of the terminal clients:
+
+<!-- TODO: move following pages from /integration to subsection of /install -->
+
+* [Ubuntu on Windows](/integration/ubuntu-on-windows)
+* [Gnome terminal](/integration/gnome-terminal)
+* [LXTerminal](/integration/lxterminal/)
+* [XTerm](/integration/xterm/)
+* [Konsole](/integration/konsole/)
+* [Zsh + iTerm](/integration/zsh/#zsh-iterm)
+
+
 ## Troubleshooting Your Install
 
 - When you run
