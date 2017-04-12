@@ -310,13 +310,27 @@ further links for getting started.
 
 ## Troubleshooting Your Install
 
+- When you run
+
+        curl -sSL https://get.rvm.io | bash -s stable
+  
+    and got the notice
+  
+        curl: (60) SSL certificate problem: unable to get local issuer certificate
+        More details here: http://curl.haxx.se/docs/sslcerts.html
+        
+    `ca-certificates` need to be installed:
+    
+        apt-get install ca-certificates 
+
+
 - If you open a new shell and running:
 
         type rvm | head -1
 
     does **not** show `rvm is a function`, RVM isn't being sourced correctly.
 
-- Ensure that RVM is sourced after any path settings as RVM and manipulates the path.
+- Ensure that RVM is sourced after any path settings as RVM manipulates the path.
   If you don't do this, RVM may not work as expected.
 
 - If you are using GNOME on Red Hat, CentOS or Fedora, ensure that the
