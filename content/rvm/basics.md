@@ -13,7 +13,7 @@ RVM also lets you use different rubies in a manner that won't mess with your exi
 
 First, you must ensure that you [install RVM](/rvm/install/).
 
-### Post Install Configuration
+### Post install configuration
 
 When you log in either via ssh or the local shell account RVM will be loaded as a function. In case of problems use one of following links as reference for configuring your terminal:
 
@@ -36,6 +36,18 @@ A note about the .bash_profile warning. In a few linux distributions, the defaul
 The condition `[ -z "$PS1" ]` is true if the string "$PS1" has zero length (a non-interactive shell). rvm needs to load for both interactive and non-interactive shells which is why it strongly is recommended to alter this file.
 
 First ensure that the previous step was successful and that rvm is loaded correctly. To do this, and verify that RVM is loaded *as a shell function*, run: `type rvm | head -1`
+
+### Automatic dependencies installation
+
+When installing rubies, RVM might need to use `sudo` to install dependencies. Make sure that user, who calls RVM commands, especially `rvm install`, have `sudo` rights. 
+
+If you want to be able to run RVM commands by the user who does not have `sudo` rights, you would need to turn off automatic dependency installation:
+
+    rvm autolibs disable
+    
+It would mean though, that you have to manage dependencies manually.
+
+### Installing rubies
 
 Assuming this shows "rvm is a function", you're good to go. As an example, to install and use Ruby 2.1.1 you may do:
 
@@ -91,7 +103,7 @@ contain numbers. This also applies when setting a default Ruby. Below is an exam
 
 **We can not stress this enough! RVM does not control the system Ruby or its gems. Only Rubies and gems installed by RVM are under it's control!**
 
-### Where To Now?
+### What's next?
 
 For further explanation, look around the rest of the site. In particular, make sure you check out the workflow [examples.](/workflow/examples/)
 

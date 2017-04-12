@@ -29,6 +29,17 @@ title: "'./install' - Installing RVM."
 %p
   Please note that RVM is not limited to simply this list.
 
+%h2 Automatic dependencies installation
+
+%p
+  When installing rubies, RVM might need to use sudo to install dependencies. Make sure that user, who calls RVM commands, have sudo rights.
+%p
+  If you want to be able to run RVM commands by the user who does not have sudo rights, you would need to turn off automatic dependency installation:
+%pre.code
+  rvm autolibs disable
+%p
+  It would mean though, that you have to manage dependencies manually.
+
 %h2
   Quick Install
 %p
