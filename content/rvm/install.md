@@ -4,7 +4,7 @@ title: Installing RVM
 
 # Installing RVM
 
-RVM supports most UNIX like systems and Windows (with Cygwin). The basic requirements are `bash`, `curl`, `gpg2` and overall GNU version of tools - but RVM tries to autodetect it and install anything that is needed.
+RVM supports most UNIX like systems and Windows (with [Cygwin](https://cygwin.com) or [Bash on Ubuntu on Windows](https://msdn.microsoft.com/en-us/commandline/wsl/about)). The basic requirements are `bash`, `curl`, `gpg2` and overall GNU version of tools - but RVM tries to autodetect it and install anything that is needed.
 
 ## Install GPG keys
 
