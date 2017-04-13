@@ -4,16 +4,27 @@ title: Installing RVM
 
 # Installing RVM
 
-## Quick (guided) Install
+RVM supports most UNIX like systems and Windows (with [Cygwin](https://cygwin.com) or [Bash on Ubuntu on Windows](https://msdn.microsoft.com/en-us/commandline/wsl/about)). The basic requirements are `bash`, `curl`, `gpg2` and overall GNU version of tools - but RVM tries to autodetect it and install anything that is needed.
 
-Before any other step install [mpapis](/authors/mpapis/) [public key](https://keybase.io/mpapis) (might need `gpg2`) (see [security](/rvm/security/))
+## Install GPG keys
+
+As a first step install [mpapis](/authors/mpapis/) [public key](https://keybase.io/mpapis) used to verify installation package to ensure [security](/rvm/security/).
 
     gpg --keyserver hkp://keys.gnupg.net --recv-keys 409B6B1796C275462A1703113804BB82D39DC0E3
     
-**Note: hkp://keys.gnupg.net can sometimes timeout you may want to use different keyserver
-- hkp://pgp.mit.edu
+***Note:*** *hkp://keys.gnupg.net can sometimes timeout you may want to use different keyserver, for example:*
 
-**Unless doing guided install you should read all sub-sections under the [RVM Section](/rvm/).**
+* hkp://pgp.mit.edu
+
+## Basic install
+
+### Ubuntu
+
+RVM have dedicated Ubuntu package, so please follow instructions posted here: https://github.com/rvm/ubuntu_rvm
+ 
+If you need a different (newer) version of RVM, after installing base version of RVM check the [Upgrading](/rvm/upgrading) section. 
+
+### Any other system
 
 Install RVM (development version):
 
