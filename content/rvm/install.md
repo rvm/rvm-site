@@ -74,7 +74,6 @@ rvm_ignore_dotfiles=yes, or opt out permanently by setting this in your rvmrc.
 ### You can also:
 
 - read the [installation documentation](#explained) below.
-- for Windows use this [tutorial](http://blog.developwithpassion.com/2012/03/30/installing-rvm-with-cygwin-on-windows/).
 - watch the most accurate (but not official) [rvm screencast](https://www.youtube.com/watch?v=cQVb7fHFjSM).
 - read the most accurate (but not official) [rvm cheat sheet](http://cheat.errtheblog.com/s/rvm).
 - starting with Rails? watch the [RailsCasts.com on Getting Started with Rails](http://railscasts.com/episodes/310-getting-started-with-rails).
