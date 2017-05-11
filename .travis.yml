@@ -6,14 +6,10 @@ notifications:
     channels:
       - "irc.freenode.org#rvm-test"
       - "irc.freenode.org#rvm"
-  email:
-    recipients:
-      - mpapis@gmail.com
-      - healey.rich@gmail.com
-    on_failure: change
+  email: false
   slack:
     rooms:
-      secure: "On6pWKbXoqul6b7/Ye17oVNFMIrkmAojrDtGzF6xgHrTPw2fdQQh6i0EskEZUL0ibDPF1oR0C7MJwGkEPhF7Tc3la/TFKnBIHoH+5c8TWt08f2mof6o8eGbx8HfsHMrG+DwHUjVqOHPiTd8AzeogLyZ2UrM3wBm9Bo7f9obYzRQ="
+      secure: qvIc4p+dMcKp6g0uBln2O3ZhhMt+FFRpWyUC0MIaYN0gfhEmqN9kkDzbjouQSWfDTBWRRwFFt4j5G2VziSlYFxp8OJPiQMi7DVMKJAJAzLzIlm/P984A8pa95J8q2ZBJxs8KEdZy1xaVQUyywQ+NavLHxqr9dSPc+mwkdeHwPK8=
     on_success: change
     on_failure: always
-    on_pull_requests: false
+    on_pull_requests: true
