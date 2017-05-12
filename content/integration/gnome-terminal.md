@@ -1,11 +1,6 @@
 ---
-title: "Using gnome-terminal with rvm"
+title: "Using gnome-terminal with RVM"
 ---
-
-Other terminals: [LXTerminal](/integration/lxterminal/),
-[XTerm](/integration/xterm/), [Konsole](/integration/konsole/),
-[Zsh + iTerm](/integration/zsh/#zsh-iterm) and
-[anything else](/integration/).
 
 Integrating RVM with gnome-terminal
 ===================================

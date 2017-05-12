@@ -17,8 +17,14 @@ First, you must ensure that you [install RVM](/rvm/install/).
 
 When you log in either via ssh or the local shell account RVM will be loaded as a function. In case of problems use one of following links as reference for configuring your terminal:
 
-* [Gnome Terminal integration](/integration/gnome-terminal/)
-* [LXTerminal integration](/integration/lxterminal/)
+<!-- TODO: move following pages from /integration to subsection of /install -->
+
+* [Gnome terminal](/integration/gnome-terminal)
+* [Konsole](/integration/konsole/)
+* [LXTerminal](/integration/lxterminal/)
+* [Ubuntu on Windows](/integration/ubuntu-on-windows)
+* [XTerm](/integration/xterm/)
+* [Zsh + iTerm](/integration/zsh/#zsh-iterm)
 * [Screen Workflow](/workflow/screen/)
 
 For non-interactive shells RVM will be added to PATH only, not loaded. This means using rubies is not possible in this mode, but there are simple methods to load ruby:
