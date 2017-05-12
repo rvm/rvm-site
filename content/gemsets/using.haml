@@ -27,6 +27,13 @@ title: "'rvm gemset use' - Using gemsets"
     $ rvm gemset use teddy
 
 %p
+  To stop using the custom gemset (and switch to the default one) use one of the following:
+%pre.code
+  :preserve
+    $ rvm gemset use default # OR:
+    $ rvm use @default
+
+%p
   You can switch to a gemset as you start to use a ruby, by appending @gemsetname to the end of the ruby selector string:
 %pre.code
   :preserve
@@ -37,7 +44,6 @@ title: "'rvm gemset use' - Using gemsets"
 %pre.code
   :preserve
     $ rvm use 2.1.1@teddy --default
-
 
 %p
   To use a named gemset with an RVM 'do' action, append it to the ruby selector string using a '@'
