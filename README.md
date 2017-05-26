@@ -16,7 +16,7 @@ forking the repository and cloning the fork.
 
 ## Requirements
 
-The site relies on a specific verion of Ruby, which is listed in the Gemfile.
+The site relies on a specific version of Ruby, which is listed in the Gemfile.
 You can run install it with:
 
     rvm use . --install --create
