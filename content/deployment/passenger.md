@@ -12,7 +12,7 @@ RVM also works with Phusion Passenger 3.x, although later versions have much bet
 
 ## Using RVM with Phusion Passenger
 
-Follow [excelent documentation on Passenger site](https://www.phusionpassenger.com/library/walkthroughs/deploy/ruby/).
+Follow the [excellent documentation on the Passenger site](https://www.phusionpassenger.com/library/walkthroughs/deploy/ruby/).
 
 ## FAQ
 
