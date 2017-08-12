@@ -299,16 +299,35 @@ $title-background: #292929
       img
         max-width: 40%
     #carbonads
-      padding: 5px
+      display: block
+      overflow: hidden
+      padding: 0 1em
+      text-align: center
+      font-size: 11px
+      font-family: Verdana, "Helvetica Neue", Helvetica, sans-serif
+      line-height: 1.5
       a
-        color: #E0BABA
-        font-size: 70%
-      .carbon-wrap
-        float: right
-        .carbon-img
-          float: right
+        color: #fff
+        font-weight: 400
+      a:hover
+        color: inherit
+      span
+        display: block
+        overflow: hidden
+      .carbon-img
+        display: block
+        margin: 0 auto 6px
+        line-height: 1
+      .carbon-text
+        display: block
+        margin-bottom: 6px
+
       .carbon-poweredby
-        float: right
+        display: block
+        text-transform: uppercase
+        letter-spacing: 1px
+        font-size: 8px
+        line-height: 1
 
 #content
   +shadow
