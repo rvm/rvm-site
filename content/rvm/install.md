@@ -20,7 +20,7 @@ As a first step install [mpapis](/authors/mpapis/) [public key](https://keybase.
 
 ### Ubuntu
 
-RVM have dedicated Ubuntu package, so please follow instructions posted here: https://github.com/rvm/ubuntu_rvm
+RVM have dedicated Ubuntu package, so please follow instructions posted here: [https://github.com/rvm/ubuntu_rvm](https://github.com/rvm/ubuntu_rvm)
  
 If you need a different (newer) version of RVM, after installing base version of RVM check the [Upgrading](/rvm/upgrading) section. 
 
