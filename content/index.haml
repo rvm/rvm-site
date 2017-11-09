@@ -18,10 +18,15 @@ title: RVM Ruby Version Manager - Documentation
 %ul.square
   %li
     Install GPG keys:
-    = sh_cmd "gpg --keyserver hkp://keys.gnupg.net --recv-keys 409B6B1796C275462A1703113804BB82D39DC0E3"
-    In case you encounter an issue with fetching keys from above key server, use a different one, for example:
+    = sh_cmd "gpg2 --recv-keys 409B6B1796C275462A1703113804BB82D39DC0E3"
+    In case you encounter an issue with fetching keys, you might want to specify key server manually:
+    = sh_cmd "gpg2 --keyserver hkp://keys.gnupg.net --recv-keys 409B6B1796C275462A1703113804BB82D39DC0E3"
+
+    You can try one of the alternative servers:
 
     %ul
+      %li
+        hkp://keys.gnupg.net
       %li
         hkp://pgp.mit.edu
 
