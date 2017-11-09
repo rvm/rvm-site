@@ -29,12 +29,14 @@ title: RVM Ruby Version Manager - Documentation
         hkp://keys.gnupg.net
       %li
         hkp://pgp.mit.edu
-
   %li
     Install RVM:
     = sh_cmd "\\curl -sSL https://get.rvm.io | bash -s stable"
   %li
-    for more details and troubleshooting visit the
+    For installing RVM with default Ruby and Rails in one command, run:
+    = sh_cmd "\\curl -sSL https://get.rvm.io | bash -s stable --rails"
+  %li
+    For more details and troubleshooting visit the
     %a{:href => "/rvm/install/"}
       installation documentation,
   %li
