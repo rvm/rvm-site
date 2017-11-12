@@ -10,7 +10,7 @@ RVM supports most UNIX like systems and Windows (with [Cygwin](https://cygwin.co
 
 As a first step install [mpapis](/authors/mpapis/) [public key](https://keybase.io/mpapis) used to verify installation package to ensure [security](/rvm/security/).
 
-    gpg --keyserver hkp://keys.gnupg.net --recv-keys 409B6B1796C275462A1703113804BB82D39DC0E3
+    gpg --keyserver hkp://keys.gnupg.net --recv-keys 409B6B1796C275462A1703113804BB82D39DC0E3 7D2BAF1CF37B13E2069D6956105BD0E739499BDB
     
 ***Note:*** *hkp://keys.gnupg.net can sometimes timeout you may want to use different keyserver, for example:*
 
@@ -20,7 +20,7 @@ As a first step install [mpapis](/authors/mpapis/) [public key](https://keybase.
 
 ### Ubuntu
 
-RVM have dedicated Ubuntu package, so please follow instructions posted here: https://github.com/rvm/ubuntu_rvm
+RVM have dedicated Ubuntu package, so please follow instructions posted here: [https://github.com/rvm/ubuntu_rvm](https://github.com/rvm/ubuntu_rvm)
  
 If you need a different (newer) version of RVM, after installing base version of RVM check the [Upgrading](/rvm/upgrading) section. 
 
