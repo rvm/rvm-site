@@ -40,3 +40,13 @@
     ga('send', 'pageview');
     ga('create', 'UA-45354940-1', 'rvm.io', {'name': 'ga_mpapis'}); // owner mpapis@gmail.com
     ga('ga_mpapis.send', 'pageview');
+
+  :preserve
+    <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/docsearch.js@2/dist/cdn/docsearch.min.js"></script>
+  :javascript
+    docsearch({
+    apiKey: '511953e6f628103639db56a6f0f96977',
+    indexName: 'rvm',
+    inputSelector: '#docsearch-input',
+    debug: false // Set debug to true if you want to inspect the dropdown
+    });
