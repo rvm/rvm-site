@@ -16,6 +16,8 @@ As a first step install [mpapis](/authors/mpapis/) [public key](https://keybase.
 
 * hkp://pgp.mit.edu
 
+***OR*** Visit the [Security](/rvm/security/)  page for additional options
+
 ## Basic install
 
 ### Ubuntu

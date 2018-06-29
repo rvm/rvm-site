@@ -9,6 +9,13 @@ verifying the `rvm-installer` was signed by the given key:
     # Install mpapis public key (might need `gpg2` and or `sudo`)
     gpg --keyserver hkp://keys.gnupg.net --recv-keys 409B6B1796C275462A1703113804BB82D39DC0E3 7D2BAF1CF37B13E2069D6956105BD0E739499BDB
 
+    In rare cases the `gpg --keyserver` is failing, use this instead:
+
+        curl -sSL https://rvm.io/mpapis.asc | gpg --import -
+
+    Identity of [mpapis](/authors/mpapis/) can be confirmed with
+    [mpapis public key on keybase.io](https://keybase.io/mpapis).
+
     # Download the installer
     \curl -O https://raw.githubusercontent.com/rvm/rvm/master/binscripts/rvm-installer
     \curl -O https://raw.githubusercontent.com/rvm/rvm/master/binscripts/rvm-installer.asc
@@ -18,10 +25,3 @@ verifying the `rvm-installer` was signed by the given key:
 
     # Run the installer
     bash rvm-installer stable
-
-In rare cases the `gpg --keyserver` is failing, use this instead:
-
-    curl -sSL https://rvm.io/mpapis.asc | gpg --import -
-
-Identity of [mpapis](/authors/mpapis/) can be confirmed with
-[mpapis public key on keybase.io](https://keybase.io/mpapis).
