@@ -11,7 +11,7 @@ RVM supports most UNIX like systems and Windows (with [Cygwin](https://cygwin.co
 As a first step install [mpapis](/authors/mpapis/) [public key](https://keybase.io/mpapis) used to verify installation package to ensure [security](/rvm/security/).
 
     gpg --keyserver hkp://keys.gnupg.net --recv-keys 409B6B1796C275462A1703113804BB82D39DC0E3 7D2BAF1CF37B13E2069D6956105BD0E739499BDB
-    
+
 ***Note:*** *hkp://keys.gnupg.net can sometimes timeout you may want to use different keyserver, for example:*
 
 * hkp://pgp.mit.edu
@@ -21,8 +21,8 @@ As a first step install [mpapis](/authors/mpapis/) [public key](https://keybase.
 ### Ubuntu
 
 RVM have dedicated Ubuntu package, so please follow instructions posted here: [https://github.com/rvm/ubuntu_rvm](https://github.com/rvm/ubuntu_rvm)
- 
-If you need a different (newer) version of RVM, after installing base version of RVM check the [Upgrading](/rvm/upgrading) section. 
+
+If you need a different (newer) version of RVM, after installing base version of RVM check the [Upgrading](/rvm/upgrading) section.
 
 ### Any other system
 
@@ -34,7 +34,7 @@ Install RVM stable with ruby:
 
     \curl -sSL https://get.rvm.io | bash -s stable --ruby
 
-Additionally with rails (poor man's [railsinstaller](http://railsinstaller.org)):
+Additionally with rails (poor man's [railsinstaller](http://railsinstaller.org/en)):
 
     \curl -sSL https://get.rvm.io | bash -s stable --rails
 
@@ -323,15 +323,15 @@ further links for getting started.
 - When you run
 
         curl -sSL https://get.rvm.io | bash -s stable
-  
+
     and got the notice
-  
+
         curl: (60) SSL certificate problem: unable to get local issuer certificate
         More details here: http://curl.haxx.se/docs/sslcerts.html
-        
+
     `ca-certificates` need to be installed:
-    
-        apt-get install ca-certificates 
+
+        apt-get install ca-certificates
 
 
 - If you open a new shell and running:
