@@ -13,11 +13,9 @@ verifying the `rvm-installer` was signed by the given key:
     \curl -O https://raw.githubusercontent.com/rvm/rvm/master/binscripts/rvm-installer
     \curl -O https://raw.githubusercontent.com/rvm/rvm/master/binscripts/rvm-installer.asc
 
-    # Verify the installer signature (might need `gpg2`), and if it validates...
-    gpg --verify rvm-installer.asc &&
-
-    # Run the installer
-    bash rvm-installer stable
+    # Verify the installer signature (might need `gpg2`), and if it validates, run the installer.
+    gpg --verify rvm-installer.asc && \
+      bash rvm-installer stable
 
 In rare cases the `gpg --keyserver` is failing, use this instead:
 
