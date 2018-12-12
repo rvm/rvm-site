@@ -107,9 +107,9 @@ end
 end
 
 Dir[
-  'content/license/*.txt',
+  "content/license/*.txt",
   "content/keybase.txt",
-  "content/mpapis.asc",
+  "content/*.asc"
 ].each do |file|
   file = file.gsub(/^content/, "")
   path = file.gsub(/\.[^\.]+$/, "")
