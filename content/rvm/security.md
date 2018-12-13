@@ -20,6 +20,7 @@ verifying the `rvm-installer` was signed by the given key:
 In rare cases the `gpg --keyserver` is failing, use this instead:
 
     curl -sSL https://rvm.io/mpapis.asc | gpg --import -
+    curl -sSL https://rvm.io/pkuczynski.asc | gpg --import -
 
 Identity of [mpapis](/authors/mpapis/) can be confirmed with
 [mpapis public key on keybase.io](https://keybase.io/mpapis).
