@@ -1,26 +1,28 @@
 # Security
 
-RVM `1.26.0` signs and verifies all releases and the `rvm-installer`
-script. In most cases it's all automated and the installer will check
-if the downloaded releases signature matches the public key imported by
-user. But there is the first step that would need to be done manually -
-verifying the `rvm-installer` was signed by the given key:
+RVM `1.26.0` signs all releases and the `rvm-installer` script. Verification procedure is automatic and it will fail to install new version. We are using following keys from our main maintainers:
 
-    # Install mpapis public key (might need `gpg2` and or `sudo`)
+    409B6B1796C275462A1703113804BB82D39DC0E3 # mpapis
+    7D2BAF1CF37B13E2069D6956105BD0E739499BDB # pkuczynski
+
+It is important first step, before attempting RVM install, to install `gpg2` and import those keys:
+
     gpg --keyserver hkp://keys.gnupg.net --recv-keys 409B6B1796C275462A1703113804BB82D39DC0E3 7D2BAF1CF37B13E2069D6956105BD0E739499BDB
 
-    # Download the installer
-    \curl -O https://raw.githubusercontent.com/rvm/rvm/master/binscripts/rvm-installer
-    \curl -O https://raw.githubusercontent.com/rvm/rvm/master/binscripts/rvm-installer.asc
+If it fails you might want to try with `gpg2` and/or `sudo`.
 
-    # Verify the installer signature (might need `gpg2`), and if it validates, run the installer.
-    gpg --verify rvm-installer.asc && \
-      bash rvm-installer stable
+If you encounter problem with the key server above, you can try a different one. Some alternatives are presented below.
 
-In rare cases the `gpg --keyserver` is failing, use this instead:
+* hkp://ipv4.pool.sks-keyservers.net
+* hkp://pgp.mit.edu
+* hkp://keyserver.pgp.com
+
+It is known issue that if your host does not have IPv6 enabled (often happening in docker containers) some key servers will fail. Alternatively you might want to import keys directly from our web server:
 
     curl -sSL https://rvm.io/mpapis.asc | gpg --import -
     curl -sSL https://rvm.io/pkuczynski.asc | gpg --import -
 
-Identity of [mpapis](/authors/mpapis/) can be confirmed with
-[mpapis public key on keybase.io](https://keybase.io/mpapis).
+Identity of our keys can be also confirmed at https://keybase.io:
+
+* [mpapis](https://keybase.io/mpapis)
+* [pkuczynski](https://keybase.io/piotrkuczynski)
