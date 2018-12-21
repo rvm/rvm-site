@@ -11,13 +11,13 @@ It is important first step, before attempting RVM install, to install `gpg2` and
 
 If it fails you might want to try with `gpg2` and/or `sudo`.
 
-If you encounter problem with the key server above, you can try a different one. Some alternatives are presented below.
+If you encounter problem with the key server above, you can try a different one. Some alternatives are presented below. It is known issue that if your host does not have IPv6 enabled (often happening in docker containers) some key servers will fail.
 
 * hkp://ipv4.pool.sks-keyservers.net
 * hkp://pgp.mit.edu
 * hkp://keyserver.pgp.com
 
-It is known issue that if your host does not have IPv6 enabled (often happening in docker containers) some key servers will fail. Alternatively you might want to import keys directly from our web server:
+Alternatively you might want to import keys directly from our web server:
 
     curl -sSL https://rvm.io/mpapis.asc | gpg --import -
     curl -sSL https://rvm.io/pkuczynski.asc | gpg --import -
