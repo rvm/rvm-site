@@ -20,18 +20,32 @@ As a first step, before attempting RVM install, you should install `gpg2` and im
 
     gpg --keyserver hkp://keys.gnupg.net --recv-keys 409B6B1796C275462A1703113804BB82D39DC0E3 7D2BAF1CF37B13E2069D6956105BD0E739499BDB
 
-If you encounter problem with the key server above, try a different one. Some alternatives are presented below. It is known issue that if your host does not have IPv6 enabled (often happening in docker containers) some key servers might fail to connect.
+If you encounter problem with the key server above, try a different one. Some alternatives are presented below:
 
 * hkp://ipv4.pool.sks-keyservers.net
 * hkp://pgp.mit.edu
 * hkp://keyserver.pgp.com
 
-Alternatively you might want to import keys directly from our web server, although this is less secure way:
+### IPv6 issues
+
+It is known issue that if your host does not have IPv6 enabled (often happening in docker containers) some key servers might fail to connect. You can forbid gpg's internal `dirmngr` from using IPv6 by add the following line to `~/.gnupg/dirmngr.conf`:
+
+    disable-ipv6
+    
+Make sure no existing `dirmngr` processes are still running (and kill them if they are), and then try `gpg --recv-keys` command again as specified originally, and it should work.
+
+Note that the risk here is that if you really do need IPv6 later at some point, you may forget about this setting, but for most people this is unlikely.
+
+### Alternatives
+
+Alternatively you might want to import keys directly from our web server, although this is a less secure way:
 
     curl -sSL https://rvm.io/mpapis.asc | gpg --import -
     curl -sSL https://rvm.io/pkuczynski.asc | gpg --import -
 
-Identity of our keys can be also confirmed at https://keybase.io:
+### Keybase
+
+Identity of our keys can be confirmed at [keybase.io](https://keybase.io):
 
 * [mpapis](https://keybase.io/mpapis)
 * [pkuczynski](https://keybase.io/piotrkuczynski)
