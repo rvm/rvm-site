@@ -1,6 +1,7 @@
 require "net/https"
 
-nanoc_checks = %w[ stale internal_links external_links ]
+#nanoc_checks = %w[ stale internal_links external_links ]
+nanoc_checks = %w[ stale internal_links ]
 
 desc "Run nanoc checks"
 task :checks => (nanoc_checks+[:ssl]).map{|c| :"check_#{c}"}
