@@ -26,6 +26,10 @@ If you encounter problem with the key server above, try a different one. Some al
 * hkp://pgp.mit.edu
 * hkp://keyserver.pgp.com
 
+### Firewall issues
+
+In case importing gpg keys hangs forever, it might be that's a firewall issue. If you are behind a firewall, make sure you open outgoing port 11371 (TCP).
+
 ### IPv6 issues
 
 It is known issue that if your host does not have IPv6 enabled (often happening in docker containers) some key servers might fail to connect. You can forbid gpg's internal `dirmngr` from using IPv6 by add the following line to `~/.gnupg/dirmngr.conf`:
