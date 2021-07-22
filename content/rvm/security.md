@@ -18,13 +18,13 @@ run our code - trust our keys. Here are the keys from our maintainers:
 
 As a first step, before attempting RVM install, you should install `gpg2` and import those keys:
 
-    gpg --keyserver hkp://pool.sks-keyservers.net --recv-keys 409B6B1796C275462A1703113804BB82D39DC0E3 7D2BAF1CF37B13E2069D6956105BD0E739499BDB
+    gpg --keyserver hkp://keys.openpgp.org --recv-keys 409B6B1796C275462A1703113804BB82D39DC0E3 7D2BAF1CF37B13E2069D6956105BD0E739499BDB
 
 If you encounter problem with the key server above, try a different one. Some alternatives are presented below:
 
-* hkp://ipv4.pool.sks-keyservers.net
 * hkp://pgp.mit.edu
 * hkp://keyserver.pgp.com
+* hkp://keyserver.ubuntu.com
 
 ### Firewall issues
 
