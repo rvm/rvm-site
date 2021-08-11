@@ -22,7 +22,7 @@ If you want to perform a multi-user installation then you will need to:
 
         #!/usr/bin/env bash
 
-        gpg --keyserver hkp://pool.sks-keyservers.net --recv-keys 409B6B1796C275462A1703113804BB82D39DC0E3 7D2BAF1CF37B13E2069D6956105BD0E739499BDB
+        gpg --keyserver hkp://keys.openpgp.org --recv-keys 409B6B1796C275462A1703113804BB82D39DC0E3 7D2BAF1CF37B13E2069D6956105BD0E739499BDB
         curl -sSL https://get.rvm.io | bash -s $1
 
 This will automatically install RVM (update if already installed). In case you encounter an issues with importing gpg keys, check [security](/rvm/security).
