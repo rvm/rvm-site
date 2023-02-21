@@ -10,7 +10,7 @@ RVM supports most UNIX like systems and Windows (with [Cygwin](https://cygwin.co
 
 As a first step install GPG keys used to verify installation package:
 
-    gpg --keyserver hkp://keys.openpgp.org --recv-keys 409B6B1796C275462A1703113804BB82D39DC0E3 7D2BAF1CF37B13E2069D6956105BD0E739499BDB
+    gpg --keyserver keyserver.ubuntu.com --recv-keys 409B6B1796C275462A1703113804BB82D39DC0E3 7D2BAF1CF37B13E2069D6956105BD0E739499BDB
 
 In case you encounter an issues check [security](/rvm/security)
 
