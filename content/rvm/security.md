@@ -4,13 +4,13 @@ At RVM we treat security very serious and cryptographically sign (since version 
 
 ## GPG
 
-We use GPG for signing. Both `gpg` and `gpg2` should be fine. 
+We use GPG for signing. Both `gpg` and `gpg2` should be fine.
 
 Sometimes `gpg` has problems downloading keys from remote server, it might be better to work with `gpg2` if it's available for your system. However it has been reported that `gpg2` in version 2.1.17 is also affected by such issue. We recommend you to downgrade or upgrade it to a newer version.
 
 ## Install our keys
 
-Make sure to only trust the keys of people you trust - if you trust to 
+Make sure to only trust the keys of people you trust - if you trust to
 run our code - trust our keys. Here are the keys from our maintainers:
 
     409B6B1796C275462A1703113804BB82D39DC0E3 # mpapis
@@ -18,7 +18,7 @@ run our code - trust our keys. Here are the keys from our maintainers:
 
 As a first step, before attempting RVM install, you should install `gpg2` and import those keys:
 
-    gpg --keyserver hkp://keys.openpgp.org --recv-keys 409B6B1796C275462A1703113804BB82D39DC0E3 7D2BAF1CF37B13E2069D6956105BD0E739499BDB
+    gpg --keyserver keyserver.ubuntu.com --recv-keys 409B6B1796C275462A1703113804BB82D39DC0E3 7D2BAF1CF37B13E2069D6956105BD0E739499BDB
 
 If you encounter problem with the key server above, try a different one. Some alternatives are presented below:
 
@@ -35,7 +35,7 @@ In case importing gpg keys hangs forever, it might be that's a firewall issue. I
 It is known issue that if your host does not have IPv6 enabled (often happening in docker containers) some key servers might fail to connect. You can forbid gpg's internal `dirmngr` from using IPv6 by add the following line to `~/.gnupg/dirmngr.conf`:
 
     disable-ipv6
-    
+
 Make sure no existing `dirmngr` processes are still running (and kill them if they are), and then try `gpg --recv-keys` command again as specified originally, and it should work.
 
 Note that the risk here is that if you really do need IPv6 later at some point, you may forget about this setting, but for most people this is unlikely.
@@ -72,7 +72,7 @@ This should be pretty secure, but in case you want to ensure the installer comes
     \gpg2 --verify rvm-installer.asc rvm-installer &&
     \bash rvm-installer
 
-Verification procedure is automatic for updates and it will fail to install new version with invalid signature. 
+Verification procedure is automatic for updates and it will fail to install new version with invalid signature.
 
 ## Periodically refresh keys
 
