@@ -4,7 +4,7 @@ title: "Typical RVM Project Workflow"
 
 # Typical RVM Project Workflow
 
-RVM supports multiple types of files to allow configuring a project for automated ruby switching.
+RVM supports multiple types of files to configure automated ruby switching for a project.
 In any case make sure to add those files to your version control systems
 as it is part of the project configuration.
 
@@ -53,6 +53,10 @@ Generating `.ruby-version`:
 
     echo 1.9.3 > .ruby-version   # OR:
     rvm --ruby-version use 1.9.3
+
+RVM won't install specified version of Ruby automatically, so you need to do this manually.
+
+    rvm install $(<.ruby-version)
 
 When in RVM, `.ruby-version` also supports gemsets in the form of `ruby@gemset`
 but this is not compatible with other Ruby Versions Managers.
