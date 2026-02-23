@@ -1,0 +1,564 @@
+---
+title: "Awesome People"
+---
+
+# THANK YOU!!!
+
+The following people have so kindly donated to the RVM cause.
+I very much appreciate their kind generosity.
+
+- Blue Box Group
+- Richard Piacentini @ Nuxos Group
+- Moov Corporation
+- Mark Hoffman
+- [Ryan Bates (several times!)](https://railscasts.com/)
+- Dougal MacPherson
+- Catlin Software, LLC
+- Fernand Galiana
+- John Mettraux
+- Anders Ottoson
+- [Webvanta Inc.](http://www.webvanta.com/)
+- Blazing Cloud, Inc
+- Noctivity Inc.
+- Luis Lavena
+- Marc-Andre Cournoyer
+- Rolf Bjaanes ( 3 times!?! )
+- Byron Bowerman
+- Jordan Byron
+- Prakash Murthy
+- Lockbin.com
+- David Body
+- Claudio Beffa
+- Andrew Eberbach
+- Justin Weiss
+- Brandon Dewitt
+- Christian Szardenings
+- Philip Darnowsky
+- Steedman Bass
+- Steven Stewart
+- Robert Revels
+- Jeff Felchner
+- Lawrence Hitchon
+- Mark Essel
+- Rodriguez Collins
+- Kaspar Schiess
+- William Caputo
+- Keith Gautreaux
+- Fernando Guillen
+- Naava Yoga
+- Duane Tharp
+- Rich Downie
+- Vicente Bosch Campos
+- Jerome Giudicelli
+- Scott Vesely
+- Marcelo Alves
+- GroceryPORT
+- Amal Chaudhuri
+- Philippe Lang
+- Desi McAdam
+- Stirling Olson
+- Keith M
+- David Wormuth
+- Ryan Bigg
+- Java Dragon Inc.
+- Carson McDonald
+- David Chelimsky
+- Dave Thomas @ Pragmatic Programmers, LLC
+- Vicente Bosch Campos
+- Aaron Starr
+- Chris Thorn
+- Shahrier Akram
+- Jordan Ritter
+- Semantic Leap
+- Steedman Bass
+- Daniel Lichty
+- Cameron Dykes
+- Leigh Daniels
+- Chris Kimpton
+- Tekin Suleyman
+- Tracy Sweat
+- Matthew Di Pasquale
+- Lenny Miller
+- Mike Howard
+- Yulian Tarkhanov
+- Nicolai Constantin Reuschling
+- Peter Skeide
+- Michael Hartl
+- John Ryan
+- Andrew Hodges
+- Vladimir Chizhov
+- Jeff Casimir
+- Michael Mangino
+- Denis Ivanov
+- Livrenoir Ltd
+- Max Cantor
+- Bryan Stearns
+- Jean-Dominique
+- Francesco Canessa
+- Max De Marzi
+- Michael Richardson
+- Robert Hunter
+- Rolf Bjaanes (several times!)
+- Accentuate.Me LLC
+- JK Tech, LLC
+- Don Smith
+- Zane Pavlica
+- Jon Gillies
+- Arve Knudsen
+- Francois ?
+- SuperSaaS
+- Erik Hansson
+- Konstantin Haase
+- Fear of Fish
+- Thibaut Barrere
+- Justin Smestad
+- Jamie Flournoy
+- Thomas Porter
+- Brian Hogan
+- Laust Rud Jensen
+- Marc Lee
+- Luis Lavena
+- Ryan Bates
+- Seth Morabito
+- rbazinet
+- Gerhard Lazu
+- Vladimir Sizikov
+- Joshua Black
+- Dennis Major
+- The Hardfocus Media Group
+- Dayne Broderson
+- Aleksander Modzelewski
+- Garrett Conaty
+- Morphatic
+- Scott A Clausen
+- Thomas Kern
+- Rogelio Samour
+- Jack Dempsey
+- Gordon Thiesfeld
+- Robert Rees
+- Christian Kyony
+- Kristen Hazard
+- Robert Sterner
+- Richard Morin
+- Sean Grove
+- Stephen Downie
+- Joshua Nichols
+- Ryan Richards
+- Jaime Iniesta
+- William Roe
+- Mark Orr
+- Drew Blas
+- Morgan Currie
+- Matt Lins
+- John Labovitz
+- Andrew Stone
+- Shih-gian Lee
+- Miles Forrest
+- Joey E Beninghove
+- Matthew Smith
+- Victor Costan
+- Peter Marreck
+- Douglas Seifert
+- Pete Nicholls
+- Christopher Roach
+- Ryan Sandridge
+- Dirk Bergmann
+- Martin Stannard
+- Tyler_Arrigoni
+- Morgan Schweers
+- Michael Bleigh
+- Stanislas Mazurek
+- Bill Barnett
+- Aaron Gibralter
+- Istvan Hoka
+- Jenny Hudler
+- Tate Johnson
+- Navin Keswani
+- Ricard Forniol Agusti
+- Tammam Kbeili
+- Jon Kinney
+- Sean Watson
+- Dirk Johnson
+- Jonathan Palardy
+- Juergen Walter
+- Bruno Michel
+- Mark Daggett
+- Matt Remsik
+- Robert Pitts
+- Hani Elabed
+- Attila Györffy
+- Michael Jackson
+- Tuomas Kareinen
+- David Albert
+- Wilker Silva
+- Jason Wrench
+- Jason Torres
+- John Lannon
+- Ken Mayer
+- Brian Mitchell
+- Florian Breisch
+- Jacob Tjornholm
+- Roelandt Winter
+- Dale Ackerman
+- Karol Bucek
+- Stephen Ogden
+- Jan Wikholm
+- Adam Shackleford
+- Chris Kimpton
+- Gerald Hilts
+- Edward Lyons
+- Christopher Mear
+- Galen Taylor
+- Jon Seidel
+- Asif Sheikh
+- Benjamin Moss
+- Terry Schmidt
+- Chthonic
+- Scott Anderson
+- Jonathan Cran
+- Sherman Tsang
+- Brian Laska
+- Aaron Royer
+- Jay McGavren
+- Carlos Antonio de Oliveira
+- Jeremy Hageman
+- Elizabeth Sadler
+- Ryan Waldron
+- Christian Williams
+- Jerry G Anning
+- Matthias Möller
+- SFWare LLC
+- Anthony Byram
+- Pete Bevin
+- Richard Sneed
+- Jeff Whitmire
+- Dylan Markow
+- Alexander Hansen
+- Matthew Schultz
+- Bernard Duchesne
+- Aaron Gough
+- Kenneth Collins
+- Kyle N Banker
+- John Ferguson
+- W3matter.com
+- Chris Kimpton
+- Rob Heittman
+- Aihui Ong
+- Anne Ogborn
+- Bryan Liles
+- Russell Jones
+- Michael Stok
+- Niall Mullally
+- Matthew Scott
+- Christoph Lupprich
+- Steve Whittaker
+- Jean-Michel Garnier
+- Robert Kuzel
+- Michel Martens
+- Scott Messinger
+- Dan Buettner
+- Brad Majewski
+- Chris Sherbak
+- Ioannis Deligiannis
+- George Lippert
+- Mike Oligny
+- Craig Williams
+- Sascha Winter
+- Cassio Marques da Cruz
+- Julian Raschke
+- Jagdish Adusumalli
+- Steven Chanin
+- Manuel Kniep
+- Robert Gustafson
+- Jim Hughes
+- jim neundorf
+- Radim Marek
+- Mark Evans
+- Eirik Dentz Sinclair
+- Jason Emanuel
+- Dudley Flanders
+- Stefan Keller
+- Zeke Templin
+- Nicholas Stowe
+- Miika Pihlaja
+- Richard Metzler
+- Kev at Mopac Media
+- Wisdom Group
+- Trung Le
+- Rahul Trikha
+- Raphael Randschau
+- Susan Petersen
+- Raphael Borowiecki
+- James White
+- Amal Chaudhuri
+- Lucian Holland
+- Chip Castle
+- Dieter Komendera
+- Rudi Engelbrecht
+- iBoard.cc - Andreas Altendorfer
+- Nickolas Means
+- Frisco Del Rosario
+- Federico Galassi
+- Daniela van der Heijden
+- Vincent Cima
+- Tim Holahan
+- Jon Gillies
+- Kelly Felkins
+- Scott Moe
+- Virginia A Hendry
+- Ian Levesque
+- David Irvine
+- Kris Forbes
+- Steven Koppelman
+- Ed Mcmanus
+- Samuel Johnson
+- Rob Bazinet
+- Michael Vargo
+- Konstantin Bender
+- Timeless Beauty Photography
+- Jimmi Westerberg
+- Richard Morin
+- Ray Fleischmann
+- Samuel Beam
+- Jonathan Boston
+- Johnny Nguyen
+- Michael O'Brien
+- Colin Davis
+- Levin Alexander
+- Oleksandr Petrov
+- Katsuji Ishikawa
+- Jon Gillies
+- Preston Lee
+- Edvard Majakari
+- Nguyen Nguyen
+- Jonathan Austin
+- Peter Nixey
+- Walter Davis Studio
+- Mike Moore
+- O'Design
+- Eliot Shepard
+- Omar Qureshi
+- Travis Roberts
+- Michael Cohen
+- Martin Boswell
+- Taoweb Assessoria e Desenvolvimento de Software Ltda
+- Altair S.n.c di Chiggiato Davide & C.
+- Logical Cobwebs
+- Joe VanOverberghe
+- Roscommom Pty Ltd
+- Nathaniel Westheimer
+- Sernin Van de Krol
+- Nicholas B McCoy
+- Bridge Ventures
+- [willj.net](http://willj.net/)
+- Rafi Dudekula
+- Ligang Du
+- Matthew Thompson
+- Petros Amiridis
+- Vladislav Gorodetskiy
+- Jonas Grimfelt
+- Peter Truog
+- Joel Hayhurst
+- Stuart Spencer
+- Yuriy Lichman
+- Felix Bohmann
+- Jochen Hartz
+- Joe Alba
+- David Frey
+- Sasa Ebach
+- Thomas Corbin
+- James Whinfrey
+- Andrew Culver
+- Jason Seifer
+- Mark Evans
+- Elfi Korfmann
+- Steve Woolley
+- Nadezda Mihajlova
+- Christopher McGrath
+- Stephen Ogden
+- Robert Carpenter
+- Gavin Stark
+- Michael Hix
+- Lars Brillert
+- Ashish Dixit
+- Anis Kadri
+- Bruce Hobbs
+- Jakub Suder
+- Mark Nunnikhoven
+- Cheng Wei Chien
+- Yaroslav Markin
+- entropy|one
+- Peter Wagenet
+- Srikanth P S
+- David Dossot
+- Alex Sergeyev
+- Judd Lillestrand
+- Michael Düll
+- Northworld LLC
+- Jason Garber
+- [Kevin Colyar](http://kevin.colyar.net/)
+- Tobias Pfeiffer
+- Luca Belmondo
+- Ignition Industries Inc.
+- Gabriel Anzelini
+- Nathaniel Wharton
+- Bryan Donovan
+- Carlos OKieffe
+- Florent Guileux
+- Leandro Santos
+- Carsten Nielsen
+- Peter Morelli
+- Charles Walden
+- Matthew McMahand
+- Sheldon Harkness
+- I Trompert
+- David Moulton
+- Ethan Setnik
+- Vesa Nieminen
+- David Strock
+- Hassan Schroeder
+- Nirdhar Khazanie
+- Sophy Ung
+- Marcos Hernandez
+- Damien Le Berrigaud
+- Marcus Brito
+- Oliver Eilhard
+- Zoltan Szugyi
+- Randy Schmidt
+- Gregor Schmidt
+- Olivier Lacan
+- Chen Zhijie
+- Nicholas Stowe
+- Brian Cooke
+- Daniel Huckstep
+- Mark Holton
+- Andrew McMIllan
+- Steve Whittaker
+- Acceletron Corporation
+- Dustin Friel
+- Hadi Samadi
+- Wizewerx Ltd.
+- Stephen Smithstone
+- Ross Ashley
+- Rounders Consulting, Inc
+- Anil Kumar Peechara
+- Merul Patel
+- Vladimir Radestky
+- Benedikt Heinen
+- Brandon Hays
+- Andrea Longobardi
+- Michael Boone
+- Orange Room Software
+- Popularity Dialer
+- Mark Watson Consulting Services
+- Ted Xidas
+- Ryan Donahue
+- Lucas Di Pentima
+- Adrian Gheorghe
+- Guillermo Iguaran
+- Raphael Jacoby
+- James Martin
+- Noah Hendrix
+- Jared Fine
+- Ted Roche
+- Eric Lubow
+- TJRM, Inc
+- Brandon Christensen
+- Donald Ball
+- Adam Duke
+- Grant Hutchins
+- Mateus Armando
+- Webtypes
+- John McCaffrey
+- Bryan Brunetti
+- Samuel Cochran
+- Martin Schweizer
+- Anthony Green
+- Zachary F Poley
+- Felix Dominguez
+- Wayne Schroer
+- Ian Anderson
+- Bernd Homuth
+- Lucas Chan
+- Adam Ochonicki
+- Evgenij Pirogov
+- Luiz F S Goncalves
+- Remi Gagnon
+- Jason Dew
+- Cindy Studebaker
+- Aaron Mcleod
+- Hakon Lerring
+- Scott Olmsted
+- Kevin's Software Consulting
+- David Salgado
+- Vojtech Hyza
+- Timothy Sabat
+- Derek Prior
+- Jacob Tjoernholm
+- Daniel Hölbling
+- Joseph Ku
+- Robert Warner
+- Mark Whelan
+- Laura Harper
+- Nick Clark
+- Burned Media
+- Robert Roberts
+- Michael Klein
+- Sheldon Hearn
+- Christopher Sexton
+- Yinchuan Song
+- Daniel Maher
+- James Davis
+- Rufo Sanchez
+- Joseph DeVenuta
+- Braulio Carreno
+- Benjamin Cohen
+- Nathaniel Budin
+- Alain Ravet
+- Daniel Dorman
+- Steven Chanin
+- Janos Mucsi
+- Bosco So
+- Thijs de Vries
+- Emerson Lackey
+- Shevaun Ryan
+- Lachlan Pitts
+- Brandon Faloona
+- Eric Salczynski
+- Leader Media
+- Ethan Michaels
+- Edward Ruder
+- Anderson B Nogueira Brandao
+- Mark Cornelissen
+- Donald Ball
+- David Krupinski
+- Mircea Chirea
+- Interkonect Services
+- Sam Bauer
+- Nathaniel Smith
+- Milan Iliev
+- Luke Cowell
+- Awegen
+- Jonathan Mukai
+- Matthias-Christian Ott
+- Brian Reath
+- Caleb Cornman
+- Liborio Francesco Maria Cannici
+- Nils Haldenwang
+- Alistair Holt
+- Kurt Heinrich
+- Arik Fraimovich
+- Philipp Drössler
+- Bart Kamphorst
+- Sergio Oliveira Junior
+- Michel Pigassou
+- Lennart Fridén
+- Ceilingfish
+- Gonçalo Silva
+- Mark Oleson
+- BetterBilling LLC
+- Egbert Veenstra
+- Marcin Ciunelis
+- Internet WorkShop
+- Theros Consulting Ltda
+- Lee Reilly

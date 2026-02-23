@@ -1,11 +1,11 @@
-# RVM site  and documentation
+# RVM site and documentation
 
 You can see the documentation live online at <https://rvm.io>.
 
 ## Quick corrections
 
 For small changes like single wording fixes it is enough to use GitHub builtin editor,
-navigate to https://github.com/rvm/rvm-site/tree/master/content, find the page to fix
+navigate to https://github.com/rvm/rvm-site/tree/master/docs, find the page to fix
 and press the **Edit** button, try to give meaningful description so it is easier to
 understand why this change is needed.
 
@@ -16,34 +16,31 @@ forking the repository and cloning the fork.
 
 ### Requirements
 
-This site requires a few gems that can be found in `Gemfile`, including:
+- [Node.js](https://nodejs.org/) >= 18
 
-- [MIME::Types](https://github.com/halostatue/mime-types#readme)
-- [Compass](http://compass-style.org/)
-- [Nanoc](https://nanoc.ws/)
-- [Rack](https://rack.github.io/)
-- [Haml](http://haml.info/) ([Sass](http://sass-lang.com/) is bundled with this Gem)
+### Install
 
-To install requirements run
+    npm install
 
-    bundle install
+### Run
 
-### Run 
+Start the development server:
 
-If you would like to view the changes locally as you hack, use nanoc-guard:
+    npm start
 
-    # in window/tab 1
-    guard
-    # in window/tab 2
-    nanoc view
-    
-And then open http://localhost:3000
+Then open http://localhost:3000
 
-It's required to reload page after changing code.
+### Build
 
-Validating site links integrity with Nanoc:
+Build the static site for production:
 
-    rake test
+    npm run build
+
+### Serve
+
+Serve the production build locally:
+
+    npm run serve
 
 ## Thanks
 

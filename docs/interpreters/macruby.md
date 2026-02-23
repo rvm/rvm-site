@@ -1,0 +1,82 @@
+---
+title: MacRuby
+---
+
+# MacRuby
+
+MacRuby is a ruby interpreter built on top of Apple's NS Framework.
+It allows developers to create fully-native OSX applications that take advantage of Ruby!
+
+Please note that much of the content below was taken from
+[the README.rdoc on github](https://github.com/MacRuby/MacRuby/blob/master/README.rdoc)
+
+## Latest Release
+
+Installing the latest official release known to RVM is the same procedure
+as for other interpreters.
+
+```bash
+$ rvm install macruby
+```
+
+## Head (aka 'master')
+
+Here's how you can install the latest macruby release from its github repository:
+
+```bash
+$ rvm install macruby-head
+```
+
+MacRuby is a Ruby implementation based on Mac OS X technologies, such as the
+Objective-C runtime and garbage collector, the CoreFoundation framework and
+the LLVM compiler infrastructure.
+
+The goal of MacRuby is to enable the creation of full-fledged Mac OS X
+applications which do not sacrifice performance in order to enjoy the benefits
+of using Ruby.
+
+MacRuby is copyrighted free software by Apple Inc and covered by the terms of
+the Ruby license. Please refer to
+[the COPYING file](https://github.com/MacRuby/MacRuby/blob/master/COPYING)
+for more information.
+
+[MacRuby](https://github.com/MacRuby/MacRuby)
+
+### Requirements
+
+- An Intel machine. PowerPC machines are no longer supported, but may still
+  work. An Intel 64-bit machine (Intel Core Duo 2 or later) is recommended.
+
+- Mac OS X 10.6 or later.
+
+- LLVM ToT, compiled for both i386 and x86_64.
+
+### Compiling LLVM
+
+LLVM is a moving target, and breaks periodically. We recommend you install
+revision 106781.
+Make sure you specify the correct C and C++ compilers with
+environment variables.
+
+```bash
+$ svn co -r 106781 https://llvm.org/svn/llvm-project/llvm/trunk llvm-trunk
+$ cd llvm-trunk
+$ env UNIVERSAL=1 UNIVERSAL_ARCH="i386 x86_64" CC=/usr/bin/gcc CXX=/usr/bin/g++ ./configure --enable-bindings=none --enable-optimized --with-llvmgccdir=/tmp
+$ env UNIVERSAL=1 UNIVERSAL_ARCH="i386 x86_64" CC=/usr/bin/gcc CXX=/usr/bin/g++ make
+$ sudo env UNIVERSAL=1 UNIVERSAL_ARCH="i386 x86_64" CC=/usr/bin/gcc CXX=/usr/bin/g++ make install
+```
+
+Compiling LLVM can take quite a while. If you have a machine with
+multiple cores, which is quite likely, you can speed up the process
+by using all/more cores. However, doing so may make your machine
+unresponsive during compilation. To use multiple cores, pass the `-j N'
+option, where `N' stands for the number of cores you want to use. So for a
+Core Duo, the command would look like:
+
+```bash
+$ env UNIVERSAL=1 UNIVERSAL_ARCH="i386 x86_64" CC=/usr/bin/gcc CXX=/usr/bin/g++ make -j2
+```
+
+# Community Resources
+
+- The project website contains more documentation, such as tutorials and guides. It can be found at [https://github.com/MacRuby/MacRuby](https://github.com/MacRuby/MacRuby)

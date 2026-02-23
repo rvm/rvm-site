@@ -1,0 +1,123 @@
+---
+title: RVM bash Completion
+---
+
+# Bash Completion
+
+To use RVM bash completion, you can source the file:
+
+```
+[[ -r $rvm_path/scripts/completion ]] && . $rvm_path/scripts/completion
+```
+
+To enable completion for all new shells put the above sourcing line just below the sourcing line for RVM in your profile (.bashrc/.bash_profile/.zshenv/whatever).
+
+### Usage
+
+rvm use
+
+```
+$ rvm use [tab][tab]
+1.9.3            2.0.0            default          ruby-2.0.0-p481  system
+1.9.3-p484       2.0.0-p481       ruby-1.9.3-p484  ruby-2.1.1
+```
+
+rvm gemset use
+
+```
+$ rvm gemset use [tab][tab]
+global        testing
+```
+
+### To do
+
+- flag completion
+- 'rvm install' completion
+- 'rvm gemset' completion
+- 'rvm pkg' completion
+
+# ZSH Completion
+
+To use ZSH completion for RVM, you can follow these steps:
+
+```
+mkdir -p $HOME/.zsh/Completion
+cp $rvm/scripts/zsh/Completion/_rvm $HOME/.zsh/Completion
+echo 'fpath=(~/.zsh/Completion $fpath)' >> $HOME/.zshrc
+```
+
+### Usage
+
+commands and rubies
+
+```
+$ rvm [tab]
+alias            -- Lets you set shortcut strings for convenience with 'rvm use'.
+autolibs         -- Controls settings for automatically installing dependencies.
+cleanup          -- Lets you remove stale source folders / archives and other
+config-get       -- display values for RbConfig::CONFIG variables.
+cron             -- Manages setup for using ruby in cron tasks.
+current          -- print the *current* ruby version and the name of any gemset
+debug            -- show info plus additional information for common issues
+disk-usage       -- Tells you how much disk space rvm install is using.
+do               -- runs an arbitrary command against specified and/or all rubies
+docs             -- Tools to make installing ri and rdoc documentation easier.
+export           -- Temporarily set an environment variable in the current shell.
+fetch            -- Performs an archive / src fetch only of the selected ruby.
+fix-permissions  -- Repairs broken permissions (e.g. by sudo or chef)
+gemdir           -- display the path to the current gem directory (GEM_HOME).
+gemset           -- gemsets: https://rvm.io/gemsets/
+get              -- {head,stable} upgrades rvm to latest head or stable version.
+group            -- Tools for managing groups in multiuser installations.
+implode          -- (seppuku) removes the rvm installation completely.
+info             -- show the *current* environment information for current ruby
+install          -- install one or many ruby versions
+list             -- show currently installed rubies, interactive output.
+migrate          -- Lets you migrate all gemsets from one ruby to another.
+mount            -- Install rubies from external locations.
+notes            -- Display notes, with operating system specifics.
+osx-ssl-certs    -- Helps update certificates for OpenSSL installed by rvm on OSX.
+patchset         -- Tools related to managing ruby patchsets.
+pkg              -- Install a dependency package {readline,iconv,zlib,openssl}
+reinstall        -- reinstall ruby and runs gem pristine on all gems,
+reload           -- reload rvm source itself (useful after changing rvm source)
+remove           -- uninstall one or many ruby versions and remove their sources
+repair           -- Lets you repair parts of your environment e.g. wrappers, env
+requirements     -- Installs additional OS specific dependencies/requirements for
+reset            -- remove current and stored default & system settings.
+rubygems         -- Switches the installed version of rubygems for the current ruby.
+rvmrc            -- Tools related to managing rvmrc trust and loading.
+snapshot         -- Lets you backup / restore an rvm installation in a lightweight
+tools            -- Provides general information about the ruby environment,
+unexport         -- Undo changes made to the environment by 'rvm export'.
+uninstall        -- uninstall one or many ruby versions, leaves their sources
+upgrade          -- Lets you upgrade from one version of a ruby to another, including
+use              -- setup current shell to use a specific ruby version
+user             -- Tools for managing RVM mixed mode in multiuser installations.
+version          -- show the rvm version installed in rvm_path
+wrapper          -- generates a set of wrapper executables for a given ruby with the
+ruby-1.9.3-p484  ruby-2.0.0-p481  ruby-2.1.1
+```
+
+rvm gemset use
+
+```
+$ rvm gemset use [tab]
+global        testing
+```
+
+rvm install
+
+```
+$ rvm install [tab]
+goruby             macruby-0.10       opal               ruby-1.8.7-p374    ruby-2.1.2
+ironruby-1.1.3     macruby-0.11       rbx-2.0.0          ruby-1.9.1-p431    ruby-head
+ironruby-head      macruby-0.12       rbx-2.1.1          ruby-1.9.2-p320    tcs
+jamesgolick        macruby-head       rbx-2.2.6          ruby-1.9.3-p547    topaz
+jruby-1.6.8        macruby-nightly    rbx-head           ruby-2.0.0-p451
+jruby-1.7.12       maglev-1.0.0       ree-1.8.6          ruby-2.0.0-p481
+jruby-head         maglev-head        ree-1.8.7-2012.02  ruby-2.1-head
+kiji               mruby-head         ruby-1.8.6-p420    ruby-2.1.1
+```
+
+# Community Resources

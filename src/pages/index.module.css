@@ -1,0 +1,46 @@
+.heroBanner {
+  padding: 4rem 0;
+  text-align: center;
+  position: relative;
+  overflow: hidden;
+}
+
+.heroLogo {
+  width: 120px;
+  height: auto;
+  margin-bottom: 1rem;
+}
+
+.heroDescription {
+  font-size: 1.2rem;
+  max-width: 600px;
+  margin: 1rem auto;
+  opacity: 0.9;
+}
+
+.buttons {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-top: 1.5rem;
+}
+
+.quickInstall {
+  padding: 3rem 0;
+  background: var(--ifm-background-surface-color);
+}
+
+.features {
+  padding: 3rem 0;
+}
+
+.featureCard {
+  padding: 1.5rem;
+  text-align: center;
+}
+
+.community {
+  padding: 3rem 0;
+  text-align: center;
+  background: var(--ifm-background-surface-color);
+}
