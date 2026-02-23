@@ -1,60 +1,47 @@
 ---
-title: "'rvm list' - List default/installed/all RVM rubies"
+title: "Listing RVM Installed Rubies"
 ---
 
+# Listing RVM installed rubies.
 
-.breadcrumbs
-  %a{ :href => "/" }
-    Documentation
-  &nbsp;>&nbsp;
-  %a{ :href => "/rubies/" }
-    Rubies
-  &nbsp;>&nbsp;
-  %a{ :href => "/rubies/list/" }
-    List
+There are a few different ways to list RVM installed rubies.
 
-%h1
-  Listing RVM installed rubies.
-%p
-  There are a few different ways to list RVM installed rubies.
-%p
-  You can view the commands available by typing
-%pre.code
-  :preserve
-    rvm list
-%p
-  To list all installed rubies
-%pre.code
-  :preserve
-    rvm list rubies
+You can view the commands available by typing
 
-%p
-  To list the default ruby
-%pre.code
-  :preserve
-    rvm list default
+```
+rvm list
+```
 
-%p
-  To list the default ruby string only
-%pre.code
-  :preserve
-    rvm list default string
+To list all installed rubies
 
-%p
-  To list all installed rubies, in their ruby string representation only
-%pre.code
-  :preserve
-    rvm list strings
+```
+rvm list rubies
+```
 
-%p
-  To list all *known* RVM installable Rubies
-%pre.code
-  :preserve
-    rvm list known
-%p
-  NOTE: Even though this is all *known* rubies, RVM can install many more rubies not listed :)
+To list the default ruby
 
-%p
-  Looking for knowing where you are at? See
-  %a{:href => "/workflow/prompt/"} rvm-prompt
+```
+rvm list default
+```
 
+To list the default ruby string only
+
+```
+rvm list default string
+```
+
+To list all installed rubies, in their ruby string representation only
+
+```
+rvm list strings
+```
+
+To list all *known* RVM installable Rubies
+
+```
+rvm list known
+```
+
+NOTE: Even though this is all *known* rubies, RVM can install many more rubies not listed :)
+
+Looking for knowing where you are at? See [rvm-prompt](/workflow/prompt/)

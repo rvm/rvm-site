@@ -2,146 +2,100 @@
 title: "RVM with Capistrano"
 ---
 
-= breadcrumbs "Integration", "Capistrano"
+# Using RVM with Capistrano
 
-%h1#capistrano
-  Using RVM with Capistrano
-
-%h2 Benefits of integration
+## Benefits of integration
 
 Integrating RVM with Capistrano provides the normal benefits of RVM when
 operating in the context of Capistrano deployment tasks.  These include:
 
-%ul(style="list-style: lower-latin")
+a. Ensuring all Capistrano tasks use the correct
+   Ruby and gems (including gemset support).
 
-  %li
-    Ensuring all Capistrano tasks use the correct
-    Ruby and gems (including gemset support).
+b. Automatic [installation of RVM](/rvm/install/) and Ruby via Capistrano. Only possible when using rvm-capistrano gem, explained as option 1
+   [below](#gem).
 
-  %li
-    Automatic
-    %a(href="/rvm/install/") installation of RVM
-    and Ruby via Capistrano.  Only possible when using rvm-capistrano gem, explained as option 1
-    %a(href="#gem") below.
-   
-  %li
-    %a(href="/gemsets/")
-    Manage gemsets via Capistrano, allowing you to install or update project gems as part of your deployment.
+c. [Manage gemsets](/gemsets/basics) via Capistrano, allowing you to install or update project gems as part of your deployment.
 
-%h2 Integration choices
+## Integration choices
 
-%p
-  There are four choices, listed below from newest to oldest.  The first is
-  preferred because it reduces configuration and does not contain hardcoded
-  paths.
-  
-%ul(style="list-style: decimal")
+There are four choices, listed below from newest to oldest.  The first is
+preferred because it reduces configuration and does not contain hardcoded
+paths.
 
-  %li
-    With RVM >= 1.11.3, use the 
-    %a(href="#gem") rvm-capistrano gem.
+1. With RVM >= 1.11.3, use the [rvm-capistrano gem](#gem).
 
-  %li
-    With older RVM but still >= 1.0.1, use the built-in capistrano
-    %a(href="#native-plugin") plugin
-    (it is <em>not</em> a gem).
+2. With older RVM but still >= 1.0.1, use the built-in capistrano [plugin](#native-plugin) (it is *not* a gem).
 
-  %li
-    Use the capistrano
-    %code.code :default_environment
-    %a(href="#environment")setting.
+3. Use the capistrano `:default_environment` [setting](#environment).
 
-  %li
-    Use the sshd
-    %code.code PermitUserEnvironment
-    option to permit configuration via the
-    %code.code $HOME/.ssh/environment
-    file.  <em>Unfortunately this is not yet documented.</em>
+4. Use the sshd `PermitUserEnvironment` option to permit configuration via the `$HOME/.ssh/environment` file. *Unfortunately this is not yet documented.*
 
-%h2#gem Use the rvm-capistrano gem
+## Use the rvm-capistrano gem
 
-%p
-  Please refer to the 
-  %a(href="https://github.com/rvm/rvm-capistrano") gem.
-  Note that in this configuration RVM <strong>will not</strong>
-  be automatically loaded as a shell function, although the executable will be available 
-  in the
-  %code.code PATH.
-  For the differences between the situations, please see
-  %a(href="/workflow/scripting/") scripting.
+Please refer to the [gem](https://github.com/rvm/rvm-capistrano).
+Note that in this configuration RVM **will not**
+be automatically loaded as a shell function, although the executable will be available
+in the `PATH`. For the differences between the situations, please see
+[scripting](/workflow/scripting/).
 
-%h2#native-plugin Use the built-in capistrano plugin (outdated)
+## Use the built-in capistrano plugin (outdated)
 
-%p
-  RVM >= 1.0.1 includes a built-in plugin (<em>not</em> a gem) for capistrano
-  support.  This configuration is nearly identical to the
-  %a(href="#gem") gem
-  approach above, except that an extra line is required to add RVM's lib
-  directory to the load path so that the plugin can be found:
+RVM >= 1.0.1 includes a built-in plugin (*not* a gem) for capistrano
+support.  This configuration is nearly identical to the
+[gem](#gem)
+approach above, except that an extra line is required to add RVM's lib
+directory to the load path so that the plugin can be found:
 
-%pre.code
-  :preserve
-    # Choose a Ruby explicitly, or read from an environment variable.
-    set :rvm_ruby_string, 'ree@rails3'
-    # set :rvm_ruby_string, ENV['GEM_HOME'].gsub(/.*\//,'') 
+```ruby
+# Choose a Ruby explicitly, or read from an environment variable.
+set :rvm_ruby_string, 'ree@rails3'
+# set :rvm_ruby_string, ENV['GEM_HOME'].gsub(/.*\//,'')
 
-    # Add RVM's lib directory to the load path.
-    $:.unshift(File.expand_path('./lib', ENV['rvm_path']))
+# Add RVM's lib directory to the load path.
+$:.unshift(File.expand_path('./lib', ENV['rvm_path']))
 
-    # Load RVM's capistrano plugin.
-    require 'rvm/capistrano'
+# Load RVM's capistrano plugin.
+require 'rvm/capistrano'
+```
 
-%p
-  Please note, by default the plugin uses a <em>system</em> installation of
-  RVM, which is the exact opposite of the gem's default installation mode.  To
-  instead set it to use a per-user (non-root) install, add the following to
-  either your
-  %code.code Capfile
-  or
-  %code.code deploy.rb
-  \:
+Please note, by default the plugin uses a *system* installation of
+RVM, which is the exact opposite of the gem's default installation mode.  To
+instead set it to use a per-user (non-root) install, add the following to
+either your `Capfile` or `deploy.rb`:
 
-%pre.code
-  :preserve
-    set :rvm_type, :user  # Literal ":user"
+```ruby
+set :rvm_type, :user  # Literal ":user"
+```
 
-%h2#environment Use the Capistrano :default_environment setting (hardcore)
+## Use the Capistrano :default_environment setting (hardcore)
 
-%p
-  For this option, add the following line in your
-  %code.code deploy.rb
-  file, adjusting to your particular rvm ruby of course:
-%pre.code
-  :preserve
-    set :default_environment, {
-      'PATH' => "/path/to/.rvm/gems/ree/1.8.7/bin:/path/to/.rvm/bin:/path/to/.rvm/ree-1.8.7-2009.10/bin:$PATH",
-      'RUBY_VERSION' => 'ruby 1.8.7',
-      'GEM_HOME'     => '/path/to/.rvm/gems/ree-1.8.7-2010.01',
-      'GEM_PATH'     => '/path/to/.rvm/gems/ree-1.8.7-2010.01',
-      'BUNDLE_PATH'  => '/path/to/.rvm/gems/ree-1.8.7-2010.01'  # If you are using bundler.
-    }
+For this option, add the following line in your `deploy.rb` file, adjusting to your particular rvm ruby of course:
 
-%p
-  To get the accurate locations have a look inside
-  %code.code ~/.rvm/config/default
+```ruby
+set :default_environment, {
+  'PATH' => "/path/to/.rvm/gems/ree/1.8.7/bin:/path/to/.rvm/bin:/path/to/.rvm/ree-1.8.7-2009.10/bin:$PATH",
+  'RUBY_VERSION' => 'ruby 1.8.7',
+  'GEM_HOME'     => '/path/to/.rvm/gems/ree-1.8.7-2010.01',
+  'GEM_PATH'     => '/path/to/.rvm/gems/ree-1.8.7-2010.01',
+  'BUNDLE_PATH'  => '/path/to/.rvm/gems/ree-1.8.7-2010.01'  # If you are using bundler.
+}
+```
 
-%p
-  To configure Capistrano to automatically trust project
-  %code.code .rvmrc
-  files on deployment, add the following to your
-  %code.code config/deploy.rb
-  \:
-  %pre.code
-    :preserve
-      namespace :rvm do
-        task :trust_rvmrc do
-          run "rvm rvmrc trust \#{release_path}"
-        end
-      end
-%p
-  And then use Capistrano's hooks capabilities, by adding an
-  %code.code after
-  hook to launch it.
-  %pre.code
-    :preserve
-      after "deploy", "rvm:trust_rvmrc"
+To get the accurate locations have a look inside `~/.rvm/config/default`
+
+To configure Capistrano to automatically trust project `.rvmrc` files on deployment, add the following to your `config/deploy.rb`:
+
+```ruby
+namespace :rvm do
+  task :trust_rvmrc do
+    run "rvm rvmrc trust #{release_path}"
+  end
+end
+```
+
+And then use Capistrano's hooks capabilities, by adding an `after` hook to launch it.
+
+```ruby
+after "deploy", "rvm:trust_rvmrc"
+```

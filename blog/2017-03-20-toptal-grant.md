@@ -1,19 +1,16 @@
 ---
 title: Toptal Grant
-created_at: 2017-03-20 12:39:00 -0700
-kind: article
-author: pkuczynski
-author_full: Piotr Kuczynski
-tags:
-  - sponsorship
-  - funding
+date: 2017-03-20
+authors: [pkuczynski]
+tags: [sponsorship, funding]
+slug: toptal-grant
 ---
 
 RVM received a grant from Toptal!
 
 We are happy to announce that we received a financial grant from [Toptal](https://www.toptal.com/#get-effective-engineers-today), which would sponsor our work on RVM for the next 6 months.
 
-<!-- more -->
+<!-- truncate -->
 
 [Toptal](https://www.toptal.com/#get-effective-engineers-today) is an exclusive network of the top software developers, designers, and finance experts in the world.
 Top companies rely on Toptal agile talent for their most important projects.

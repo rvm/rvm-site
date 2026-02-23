@@ -1,65 +1,54 @@
 ---
-title: "'rvm gemset use' - Using gemsets"
+title: "Using gemsets"
 ---
 
-.breadcrumbs
-  %a{ :href => "/" }
-    Documentation
-  &nbsp;>&nbsp;
-  %a{ :href => "/gemsets/" }
-    Gemsets
-  &nbsp;>&nbsp;
-  %a{ :href => "/gemsets/using/" }
-    Using Gemsets
-  %hr
+Before you can use a gemset, you must first create it.
 
-%p
-  Before you can use a gemset, you must first create it.
-%pre.code
-  :preserve
-    $ rvm 2.1.1
-    $ rvm gemset create teddy
+```
+$ rvm 2.1.1
+$ rvm gemset create teddy
+```
 
-%p
-  To use a gemset
-%pre.code
-  :preserve
-    $ rvm gemset use teddy
+To use a gemset
 
-%p
-  To stop using the custom gemset (and switch to the default one) use one of the following:
-%pre.code
-  :preserve
-    $ rvm gemset use default # OR:
-    $ rvm use @default
+```
+$ rvm gemset use teddy
+```
 
-%p
-  You can switch to a gemset as you start to use a ruby, by appending @gemsetname to the end of the ruby selector string:
-%pre.code
-  :preserve
-    $ rvm use 2.1.1@teddy
+To stop using the custom gemset (and switch to the default one) use one of the following:
 
-%p
-  You can also specify a *default* gemset for a given ruby interpreter, by doing:
-%pre.code
-  :preserve
-    $ rvm use 2.1.1@teddy --default
+```
+$ rvm gemset use default # OR:
+$ rvm use @default
+```
 
-%p
-  To use a named gemset with an RVM 'do' action, append it to the ruby selector string using a '@'
-%pre.code
-  :preserve
-    rvm 2.1.1@teddy,ree@teddy,jruby@teddy do rake test
+You can switch to a gemset as you start to use a ruby, by appending @gemsetname to the end of the ruby selector string:
 
-%p
-  If you are aware of where you are at, and wish to fix the gemset, you can do:
-%pre.code
-  :preserve
-    rvm gemset use teddy
-    rvm 2.1.1,ree,jruby do rake --sticky test
+```
+$ rvm use 2.1.1@teddy
+```
 
-%p
-  If you would like to create gemsets automatically when used, export this flag in your ~/.rvmrc file:
-%pre.code
-  :preserve
-    rvm_gemset_create_on_use_flag=1
+You can also specify a *default* gemset for a given ruby interpreter, by doing:
+
+```
+$ rvm use 2.1.1@teddy --default
+```
+
+To use a named gemset with an RVM 'do' action, append it to the ruby selector string using a '@'
+
+```
+rvm 2.1.1@teddy,ree@teddy,jruby@teddy do rake test
+```
+
+If you are aware of where you are at, and wish to fix the gemset, you can do:
+
+```
+rvm gemset use teddy
+rvm 2.1.1,ree,jruby do rake --sticky test
+```
+
+If you would like to create gemsets automatically when used, export this flag in your ~/.rvmrc file:
+
+```
+rvm_gemset_create_on_use_flag=1
+```

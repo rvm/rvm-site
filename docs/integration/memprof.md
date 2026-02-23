@@ -1,57 +1,52 @@
 ---
-title: "RVM memprof integration"
+title: RVM memprof integration
 ---
 
-= breadcrumbs "Integration", "MemProf"
+# MemProf
 
-%h1
-  MemProf
-%p
-  MemProf should *just work* with MRI/REE 1.8.X Rubies (only those for now).
-%pre.code
-  :preserve
-    $ rvm 1.8.7@projecta
-    $ gem install memprof
-%p
-  Next in the application be sure to require memprof/signal:
+MemProf should *just work* with MRI/REE 1.8.X Rubies (only those for now).
 
-%pre.code
-  :preserve
-    require `gem which memprof/signal`.strip
-%p
-  Be sure the require happens *before* anything else in your applications code.
+```bash
+$ rvm 1.8.7@projecta
+$ gem install memprof
+```
 
-%p
-  Now Profile your application from the command line.
+Next in the application be sure to require memprof/signal:
 
-  $ memprof --pid [pid] --name [name] --key [api_key]
-%p
-  Where
-  %ul
-    %li [api_key] is your memprof.com api key.
-    %li [pid]  Is the running pid of your application.
-    %li [name] Is the name you wish to assign to the memprof dump.
-%br
-%br
-%br
-%br
+```ruby
+require `gem which memprof/signal`.strip
+```
 
-%h1
-  Sadism at it's finest...
-%p
-  If you are named Joe D. or Aman G. and are insane enough to actually play around in the Ruby VM itself...
-%p
-  If you'd like to play around in Ruby's guts using C or Assembler... First remove an existing MRI install:
-%pre.code
-  :preserve
-    $ rvm remove 1.8.7
-%p
-  Next install the ruby with debug symbols support.
-%pre.code
-  :preserve
-    $ export optflags="-O0 -ggdb3"; rvm install 1.8.7
+Be sure the require happens *before* anything else in your applications code.
 
-%p
-  By installing your rubies this way you can extract the maximum amount of *useful* information.
-%p
-  Good luck you sadistically awesome person you...
+Now Profile your application from the command line.
+
+```bash
+$ memprof --pid [pid] --name [name] --key [api_key]
+```
+
+Where
+
+- [api_key] is your memprof.com api key.
+- [pid] is the running pid of your application.
+- [name] is the name you wish to assign to the memprof dump.
+
+# Sadism at it's finest...
+
+If you are named Joe D. or Aman G. and are insane enough to actually play around in the Ruby VM itself...
+
+If you'd like to play around in Ruby's guts using C or Assembler... First remove an existing MRI install:
+
+```bash
+$ rvm remove 1.8.7
+```
+
+Next install the ruby with debug symbols support.
+
+```bash
+$ export optflags="-O0 -ggdb3"; rvm install 1.8.7
+```
+
+By installing your rubies this way you can extract the maximum amount of *useful* information.
+
+Good luck you sadistically awesome person you...

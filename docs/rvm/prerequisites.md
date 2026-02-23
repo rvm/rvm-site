@@ -1,57 +1,37 @@
 ---
-title: prerequisites
+title: Prerequisites
 ---
 
-.breadcrumbs
-  %a{ :href => "/" }
-    Documentation
-  &nbsp;>&nbsp;
-  %a{ :href => "/rvm/" }
-    RVM
-  &nbsp;>&nbsp;
-  %a{ :href => "/rvm/prerequisites/" }
-    Prerequisites
-  %hr
+# RVM Prerequisites
 
-%h1 RVM Prerequisites
+Most of the requirements below are met by standard Linux distributions.
 
-%p
-  Most of the requirements below are met by standard Linux distributions.
+---
 
-%hr.top
+RVM uses the following standard GNU tools (some of which are built-in functions to Bash):
 
-%p
-  RVM uses the following standard GNU tools (some of which are built-in functions to Bash):
+- bash (>= 3.2.25 for bash 3 or >= 4.2 otherwise)
+- awk
+- sed
+- grep
+- which
+- ls
+- cp
+- tar
+- curl
+- gunzip
+- bunzip2
 
-%ul.square
-  %li bash (>= 3.2.25 for bash 3 or >= 4.2 otherwise)
-  %li awk
-  %li sed
-  %li grep
-  %li which
-  %li ls
-  %li cp
-  %li tar
-  %li curl
-  %li gunzip
-  %li bunzip2
+**Please note that RVM requires Bash, not SH, as it makes use of multiple Bash-isms that the SH shell does not support.**
 
-%p
-  %strong
-    Please note that RVM requires Bash, not SH, as it makes use of multiple Bash-isms that the SH shell does not support.
+RVM also requires the following libraries for installing '-head' rubies. (e.g 'rvm install 1.9.3-head')
 
-%p
-  RVM also requires the following libraries for installing '-head' rubies. (e.g 'rvm install 1.9.3-head')
+- git (>= 1.7.6)
 
-%ul.square
-  %li git (>= 1.7.6)
+If you want to use RVM under Zsh, you will need a version between 4.3.5 and 4.3.12 or >= 5.0.0. Please note Zsh 4.3.15 is buggy! Be careful with it as it can break RVM; especially Multi-User installations.
 
-%p
-  If you want to use RVM under Zsh, you will need a version between 4.3.5 and 4.3.12 or >= 5.0.0. Please note Zsh 4.3.15 is buggy! Be careful with it as it can break RVM; especially Multi-User installations.
+NOTE: For a quick and dirty way to find out if you have these programs and where they are, copy and paste the following code into your shell. This works in both Zsh and Bash so you can copy and paste with no worries.
 
-%p
-  NOTE: For a quick and dirty way to find out if you have these programs and where they are, copy and paste the following code into your shell. This works in both Zsh and Bash so you can copy and paste with no worries.
-
-%pre.code
-  :preserve
-    for name in {bash,awk,sed,grep,ls,cp,tar,curl,gunzip,bunzip2,git,svn} ; do which $name ;  done
+```
+for name in {bash,awk,sed,grep,ls,cp,tar,curl,gunzip,bunzip2,git,svn} ; do which $name ;  done
+```

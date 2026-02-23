@@ -1,94 +1,83 @@
 ---
-title: RVM  Thanks
+title: "RVM Thanks"
 ---
 
-%a{ :name => "many-thanks" }
-%a{ :name => "thanks" }
+# Many Thanks
 
-%h1
-  Many Thanks
+### Thank you for being a guinea pig testing during the potentially "dangerous" first few releases,
 
-%h3
-  Thank you for being a guinea pig testing during the potentially "dangerous" first few releases,
+```
+Daniel Neighman (dneighman@gmail.com)
+irc: hassox      ; github: http://github.com/hassox
+projects: pancake, merb
+```
 
-%pre.code
-  :preserve
-    Daniel Neighman (dneighman@gmail.com)
-    irc: hassox      ; github: http://github.com/hassox
-    projects: pancake, merb
+```
+John Mettraux (jmettraux@openwfe.org)
+irc: jmettraux   ; github: http://github.com/jmettraux
+projects: ruote, rufus-tokyo
+```
 
-%pre.code
-  :preserve
-    John Mettraux (jmettraux@openwfe.org)
-    irc: jmettraux   ; github: http://github.com/jmettraux
-    projects: ruote, rufus-tokyo
+```
+Franco Lazzarino (flazzarino@gmail.com)
+irc: flazz       ; github: http://github.com/flazz
+```
 
-%pre.code
-  :preserve
-    Franco Lazzarino (flazzarino@gmail.com)
-    irc: flazz       ; github: http://github.com/flazz
-%h3
-  Thank you for a great write up and lots of testing during the early releases,
+### Thank you for a great write up and lots of testing during the early releases,
 
-%pre.code
-  :preserve
-    Peter Cooper (peter@petercooper.co.uk)
-    irc: petercooper ; github: http://github.com/peterc
-    projects: rubyinside
+```
+Peter Cooper (peter@petercooper.co.uk)
+irc: petercooper ; github: http://github.com/peterc
+projects: rubyinside
+```
 
-%h3
-  Thank you for helping with documentation efforts, and testing on Ubuntu,
+### Thank you for helping with documentation efforts, and testing on Ubuntu,
 
-%pre.code
-  :preserve
-    Anita Kuno (anteaya@anteaya.info)
-    irc: anteaya     ; github: http://github.com/anteaya
+```
+Anita Kuno (anteaya@anteaya.info)
+irc: anteaya     ; github: http://github.com/anteaya
+```
 
-%h3
-  Thank you for an Awesome Website Design,
+### Thank you for an Awesome Website Design,
 
-%pre.code
-  :preserve
-    Jim Lindley (jlindley@gmail.com)
-    irc: jlindley    ; github: http://github.com/jlindley
+```
+Jim Lindley (jlindley@gmail.com)
+irc: jlindley    ; github: http://github.com/jlindley
+```
 
-%h3
-  Thank you for many great patches and testing zsh and Gentoo,
+### Thank you for many great patches and testing zsh and Gentoo,
 
-%pre.code
-  :preserve
-    Pistos (rvm@pistos.otherinbox.com)
-    irc: Pistos      ; github: http://github.com/Pistos
-%h3
-  Thank you for an insane amount of testing and great suggestions,
+```
+Pistos (rvm@pistos.otherinbox.com)
+irc: Pistos      ; github: http://github.com/Pistos
+```
 
-%pre.code
-  :preserve
-    Simon Arnaud (mazwak@gmail.com)
-    irc: Maz           ; github: http://github.com/Mazwak
-%h3
-  Thank you for hanging out in the channel and helping people, thank you for lots of testing and helping look into new features,
+### Thank you for an insane amount of testing and great suggestions,
 
-%pre.code
-  :preserve
-    Robert Rouse (robert.e.rouse@gmail.com)
-    irc: Scyllinice  ; github: http://github.com/IronDigital
+```
+Simon Arnaud (mazwak@gmail.com)
+irc: Maz           ; github: http://github.com/Mazwak
+```
 
-%h3
-  Thank you for much testing and debugging, and especially for helping get the gemsets working smooth,
+### Thank you for hanging out in the channel and helping people, thank you for lots of testing and helping look into new features,
 
-%pre.code
-  :preserve
-    Thomas Kern (thk.kern@gmail.com)
-    irc: bosie       ; github: http://github.com/thomaskern
-    projects: AI4R
+```
+Robert Rouse (robert.e.rouse@gmail.com)
+irc: Scyllinice  ; github: http://github.com/IronDigital
+```
 
-%h3
-  Thank you for donating so many machines to aid us in Testing and Bug Hunts!
+### Thank you for much testing and debugging, and especially for helping get the gemsets working smooth,
 
-%pre.code
-  :preserve
-    Bruce-Grey Linux Users Group / STARS Project
-    Home page: http://www.bglug.ca
-    projects: STARS (Supplying Technology to At-Risk Students)
+```
+Thomas Kern (thk.kern@gmail.com)
+irc: bosie       ; github: http://github.com/thomaskern
+projects: AI4R
+```
 
+### Thank you for donating so many machines to aid us in Testing and Bug Hunts!
+
+```
+Bruce-Grey Linux Users Group / STARS Project
+Home page: http://www.bglug.ca
+projects: STARS (Supplying Technology to At-Risk Students)
+```

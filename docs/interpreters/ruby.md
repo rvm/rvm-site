@@ -2,41 +2,21 @@
 title: Ruby - aka MRI -- "Matz's Ruby Interpreter" (YARV)
 ---
 
-.breadcrumbs
-  %a{ :href => "/" }
-    Documentation
-  &nbsp;>&nbsp;
-  %a{ :href => "/interpreters/" }
-    Interpreters
-  &nbsp;>&nbsp;
-  %a{ :href => "/interpreters/ruby/" }
-    "ruby" aka MRI / YARV
-  %hr
+# Ruby ( MRI / YARV )
 
-%h1
-  Ruby ( MRI / YARV )
+Ruby, or '[MRI (Matz's Ruby Interpreter)](http://en.wikipedia.org/wiki/Ruby_MRI)' ruby, is a series of ruby interpreters.
+This is the original, canonical implementation of Ruby from which the standards
+(ruby-spec) are being extracted.
 
-%p
-  Ruby, or '
-  %a{:href => "http://en.wikipedia.org/wiki/Ruby_MRI", :target => "_blank"}
-    MRI (Matz's Ruby Interpreter)
-  ' ruby, is a series of ruby interpreters.
-  This is the original, canonical implementation of Ruby from which the standards
-  (ruby-spec) are being extracted.
+## Installing
 
-%h2
-  Installing
+Ruby is installed by specifying the version to install.
 
-%p
-  Ruby is installed by specifying the version to install.
-%pre.code
-  :preserve
-    $ rvm install 1.9.2    # Installs 1.9.2
-    $ rvm install 1.8.7    # Installs 1.8.7
+```bash
+$ rvm install 1.9.2    # Installs 1.9.2
+$ rvm install 1.8.7    # Installs 1.8.7
+```
 
-%h1
-  Community Resources
-%ul
-  %li
-    %a{:href => "http://www.ruby-lang.org", :target => "_blank"}
-      http://www.ruby-lang.org
+# Community Resources
+
+- [http://www.ruby-lang.org](http://www.ruby-lang.org)

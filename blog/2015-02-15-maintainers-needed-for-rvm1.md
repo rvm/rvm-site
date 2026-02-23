@@ -1,13 +1,9 @@
 ---
 title: Maintainers needed for RVM 1
-created_at: 2015-02-15 21:00:00 +0200
-kind: article
-author: mpapis
-author_full: Michal Papis
-tags:
-  - news
-  - rvm1
-  - rvm2
+date: 2015-02-15
+authors: [mpapis]
+tags: [news, rvm1, rvm2]
+slug: maintainers-needed-for-rvm1
 ---
 
 # Maintainers needed for RVM 1
@@ -18,7 +14,7 @@ This leads to multiple open source projects that will need help,
 I'm still doing minimal work on them, but it will not be enough to keep
 them running for longer time. So I need help in maintaining this projects.
 
-<!-- more -->
+<!-- truncate -->
 
 **I'm looking for people willing to help with handling tickets, building
 binaries, supporting the community, if you are interested please mail me

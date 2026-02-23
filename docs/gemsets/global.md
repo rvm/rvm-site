@@ -2,29 +2,14 @@
 title: "Global gemsets"
 ---
 
-.breadcrumbs
-  %a{ :href => "/" }
-    Documentation
-  &nbsp;>&nbsp;
-  %a{ :href => "/gemsets/" }
-    Gemsets
-  &nbsp;>&nbsp;
-  %a{ :href => "/gemsets/global/" }
-    Global
-  %hr
+## Interpreter global gemsets
 
-%a{ :name => "global" }
-%h2
-  Interpreter global gemsets
-%p
-  RVM provides (>= 0.1.8) a @global gemset
-  %em per ruby interpreter.
-%p
-  Gems you install to the @global gemset for a given ruby are available to all other gemsets you create in association with that ruby.
-%p
-  This is a good way to allow all of your projects to share the same installed gem for a specific ruby interpreter installation.
-%p
-  To install a gem in the global gemset
+RVM provides (>= 0.1.8) a @global gemset *per ruby interpreter.*
 
-%code
-  rvm @global do gem install ...
+Gems you install to the @global gemset for a given ruby are available to all other gemsets you create in association with that ruby.
+
+This is a good way to allow all of your projects to share the same installed gem for a specific ruby interpreter installation.
+
+To install a gem in the global gemset
+
+`rvm @global do gem install ...`

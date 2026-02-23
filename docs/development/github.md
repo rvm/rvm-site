@@ -1,24 +1,7 @@
 ---
-title: RVM on GitHub
+title: "RVM on GitHub"
 ---
 
-.breadcrumbs
-  %a{ :href => "/" }
-    Documentation
-  &nbsp;>&nbsp;
-  %a{ :href => "/development/" }
-    Development
-  &nbsp;>&nbsp;
-  %a{ :href => "/development/github/" }
-    GitHub
-  %hr
+## RVM Source Repository
 
-%h2 RVM Source Repository
-
-%p
-  RVM's source code repository is hosted and publicly visible on
-  %a{:href => "https://github.com/rvm/rvm"}
-    GitHub
-  \- The cloneable repository url is
-  %a{:href => "git://github.com/rvm/rvm.git"}
-    git://github.com/rvm/rvm.git
+RVM's source code repository is hosted and publicly visible on [GitHub](https://github.com/rvm/rvm) - The cloneable repository url is [git://github.com/rvm/rvm.git](git://github.com/rvm/rvm.git)

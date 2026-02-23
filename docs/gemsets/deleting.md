@@ -1,33 +1,23 @@
 ---
-title: "'rvm gemset delete' - Deleting gemsets"
+title: "Deleting gemsets"
 ---
 
-.breadcrumbs
-  %a{ :href => "/" }
-    Documentation
-  &nbsp;>&nbsp;
-  %a{ :href => "/gemsets/" }
-    Gemsets
-  &nbsp;>&nbsp;
-  %a{ :href => "/gemsets/deleting/" }
-    Deleting Gemsets
-  %hr
+When you delete a gemset, rvm will prompt you to confirm the deletion.
 
-%p
-  When you delete a gemset, rvm will prompt you to confirm the deletion.
-%pre.code
-  :preserve
-    $ rvm gemset use teddy
-    $ rvm gemset delete teddy
+```
+$ rvm gemset use teddy
+$ rvm gemset delete teddy
+```
 
-%p
-  To skip confirmation, pass the --force flag:
-%pre.code
-  :preserve
-    $ rvm gemset use teddy
-    $ rvm --force gemset delete teddy
-%p
-  By default, rvm deletes gemsets from the currently selected Ruby interpreter. To delete a gemset from a different interpreter, say 2.0.0, run your command this way:
-%pre.code
-  :preserve
-    $ rvm 2.0.0 do rvm gemset delete teddy
+To skip confirmation, pass the --force flag:
+
+```
+$ rvm gemset use teddy
+$ rvm --force gemset delete teddy
+```
+
+By default, rvm deletes gemsets from the currently selected Ruby interpreter. To delete a gemset from a different interpreter, say 2.0.0, run your command this way:
+
+```
+$ rvm 2.0.0 do rvm gemset delete teddy
+```

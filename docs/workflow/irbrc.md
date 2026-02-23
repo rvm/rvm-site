@@ -2,33 +2,16 @@
 title: IRBRC
 ---
 
-.breadcrumbs
-  %a{ :href => "/" }
-    Documentation
-  &nbsp;>&nbsp;
-  %a{ :href => "/workflow/" }
-    Workflow
-  &nbsp;>&nbsp;
-  %a{ :href => "/workflow/irbrc/" }
-    IRBRC
-  %hr
+# IRBRC
 
-%h1
-  IRBRC
+RVM customizes the irb prompt to display the current ruby. You can extend and/or override the prompt setting (see IRB's documentation) in your ~/.irbrc.
 
-%p
-  RVM customizes the irb prompt to display the current ruby.
-  You can extend and/or override the prompt setting (see IRB's documentation) in your ~/.irbrc.
-%p
-  For example, to switch back to all  Ruby's default behavior add the following line to your ~/.irbrc file:
-%pre.code
-  :preserve
-    IRB.conf[:PROMPT_MODE] = :DEFAULT
-%h1
-  Community Resources
-%ul
-  %li
-    You can read all about IRB at
-    %a{:href => "http://ruby-doc.org/docs/ProgrammingRuby/html/irb.html"}
-      ruby-doc.org
+For example, to switch back to all Ruby's default behavior add the following line to your ~/.irbrc file:
 
+```
+IRB.conf[:PROMPT_MODE] = :DEFAULT
+```
+
+# Community Resources
+
+- You can read all about IRB at [ruby-doc.org](http://ruby-doc.org/docs/ProgrammingRuby/html/irb.html)

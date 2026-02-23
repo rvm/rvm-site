@@ -5,7 +5,7 @@ title: RVM Basics
 The Basics of RVM
 =================
 
-Wondering why you should [use RVM?](/rvm/) For a start, not only does RVM make installing multiple ruby interpreters / runtimes easy and consistent, it provides features such as gemsets that aren't typically supported out of the box on most ruby installs.
+Wondering why you should [use RVM?](/rvm/about) For a start, not only does RVM make installing multiple ruby interpreters / runtimes easy and consistent, it provides features such as gemsets that aren't typically supported out of the box on most ruby installs.
 
 RVM also lets you use different rubies in a manner that won't mess with your existing ruby install (unless you tell it to) as well as letting you run multiple different rubies in separate terminals concurrently!
 

@@ -1,50 +1,38 @@
 ---
-title: "Using vim with rvm"
+title: Using vim with rvm
 ---
 
-= breadcrumbs "Integration", "Vim"
+# Integrating rvm with vim
 
-%a{:name => "vim"}
-%h1 Integrating rvm with vim
+If you wish to add rvm information to your vim status line, check out
+[rvm.vim](https://github.com/tpope/vim-rvm).
 
-%p
-  If you wish to add rvm information to your vim status line, check out
-  %a{:href => "https://github.com/tpope/vim-rvm"} rvm.vim.
+## MacVim with rvm rubies.
 
+If you wish to use MacVim with a rvm ruby, you'll have to build
+MacVim from source after applying the patch located
+[here](http://gist.github.com/398996).
 
-%h2 MacVim with rvm rubies.
+Thanks to Michael Shapiro for providing this patch.
 
-%p
-  If you wish to use MacVim with a rvm ruby, you'll have to build
-  MacVim from source after applying the patch located
-  %a{:href => "http://gist.github.com/398996"} here.
+### MacVim, ZSH and rvm rubies.
 
-%p
-  Thanks to Michael Shapiro for providing this patch.
+If you are using ZSH you may find that MacVim is not loading your rvm configuration
+correctly. This may be because you are sourcing the rvm scripts in your .zshrc
+file.
 
-%h3 MacVim, ZSH and rvm rubies.
+MacVim does not source the .zshrc file, but will source the .zshenv file. To ensure
+that MacVim correctly loads rvm for its shell, and running ruby commands, source
+the rvm scripts from within .zshenv.
 
-%p
-  If you are using ZSH you may find that MacVim is not loading your rvm configuration
-  correctly. This may be because you are sourcing the rvm scripts in your .zshrc
-  file.
+Alternatively, you can add:
 
-  MacVim does not source the .zshrc file, but will source the .zshenv file. To ensure
-  that MacVim correctly loads rvm for its shell, and running ruby commands, source
-  the rvm scripts from withing .zshenv.
+```
+set shell=/bin/sh
+```
 
-  Alternatively, you can add:
+to your .vimrc, and ensure vim always runs from a shell, and ensure you source
+rvm from within your .profile file.
 
-%pre
-  %code
-    set shell=/bin/sh
-
-%p
-  to your .vimrc, and ensure vim always runs from a shell, and ensure you source
-  rvm from within your .profile file.
-
-%p
-  Thanks to
-  %a{:href => 'http://github.com/henrypoydar'} Henry Poydar
-  for finding this
-  %a{:href=> 'http://gabebw.wordpress.com/2010/08/02/rails-vim-rvm-and-a-curious-infuriating-bug/'} blog post
+Thanks to [Henry Poydar](http://github.com/henrypoydar) for finding this
+[blog post](http://gabebw.wordpress.com/2010/08/02/rails-vim-rvm-and-a-curious-infuriating-bug/)

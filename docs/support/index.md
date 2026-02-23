@@ -1,5 +1,5 @@
 ---
-title: "RVM Support"
+title: RVM Support
 ---
 
 ## Help & Support

@@ -2,115 +2,107 @@
 title: Culerity Integration with RVM
 ---
 
-= breadcrumbs "Integration", "Culerity"
+## Culerity Integration with RVM
 
-%h2= @item[:title]
+If you wish to use an rvm-based ruby and jruby with Culerity,
+please follow the steps below. Note that the first set of instructions
+currently rely on you using recent versions.
 
-%p
-  If you wish to use an rvm-based ruby and jruby with Culerity,
-  please follow the steps below. Note that the first set of instructions
-  currently rely on you using recent versions.
+## Setting up jruby
 
-%h2 Setting up jruby
+Before you can start, you need to install jruby and celerity. In a nutshell, you need to:
 
-%p
-  Before you can start, you need to install jruby and celerity. In a nutshell, you need to:
+1. Install jruby:
 
-%ol
-  %li Install jruby:
-  = sh_cmd "rvm install jruby"
+```bash
+$ rvm install jruby
+```
 
-  %li Create a celerity gemset and use it:
-  = sh_cmd "rvm use jruby@celerity --create"
+2. Create a celerity gemset and use it:
 
-  %li Install the celerity gem in this gemset:
-  = sh_cmd "gem install celerity culerity"
+```bash
+$ rvm use jruby@celerity --create
+```
 
-%p
-  Which this done, you should be able to confirm that you have celerity by doing:
+3. Install the celerity gem in this gemset:
 
-= sh_cmd "gem list | grep celerity"
+```bash
+$ gem install celerity culerity
+```
 
-%p
-  With this done, the next key step is to set up a wrapper for it. To do this, we run:
+Which this done, you should be able to confirm that you have celerity by doing:
 
-= sh_cmd "rvm wrapper jruby@celerity celerity jruby"
+```bash
+$ gem list | grep celerity
+```
 
-%p
-  You can set the path for culerity can now be set via environment variable in your .bash_profile or such:
+With this done, the next key step is to set up a wrapper for it. To do this, we run:
 
-= sh_cmd 'export JRUBY_INVOCATION="$(readlink "$(which celerity_jruby)")"'
+```bash
+$ rvm wrapper jruby@celerity celerity jruby
+```
 
-%p
-  Which should create the file ~/.rvm/bin/celerity_jruby, pointing to the correct ruby. You
-  can verify this by doing:
+You can set the path for culerity can now be set via environment variable in your .bash_profile or such:
 
-= sh_cmd "celerity_jruby -S gem list | grep celerity"
+```bash
+$ export JRUBY_INVOCATION="$(readlink "$(which celerity_jruby)")"
+```
 
-%p
-  Assuming this is correct, you can move on to the next step.
+Which should create the file ~/.rvm/bin/celerity_jruby, pointing to the correct ruby. You
+can verify this by doing:
 
-%h2 Configuring Culerity to use your jruby Celerity
+```bash
+$ celerity_jruby -S gem list | grep celerity
+```
 
-%p
-  Once you've generated the wrapper, your next task is to tell Culerity which
-  jruby to use.  If you are on a recent version, you add the following code
-  snippet to the project's features/support/env.rb file:
+Assuming this is correct, you can move on to the next step.
 
-%pre.code
-  :preserve
-    Culerity.jruby_invocation = File.expand_path("~/.rvm/bin/celerity_jruby")
+## Configuring Culerity to use your jruby Celerity
 
-%p
-  Replacing ~/.rvm/bin with whatever "echo $rvm_bin_path" shows on your terminal
-  if it fails
-  (Thanks to Matt Patterson for making this more clear on the Culerity's side).
+Once you've generated the wrapper, your next task is to tell Culerity which
+jruby to use. If you are on a recent version, you add the following code
+snippet to the project's features/support/env.rb file:
 
-%p
-  On older versions of Culerity, you need to manually specify hooks to toggle the env.
-  In order to do this, you need to first get the location of the jruby wrappers dir. To find
-  this, run the following in your Terminal and note the output:
+```ruby
+Culerity.jruby_invocation = File.expand_path("~/.rvm/bin/celerity_jruby")
+```
 
-= sh_cmd 'dirname "$(readlink "$(which celerity_jruby)")"'
+Replacing ~/.rvm/bin with whatever "echo $rvm_bin_path" shows on your terminal
+if it fails
+(Thanks to Matt Patterson for making this more clear on the Culerity's side).
 
-%p
-  Which should return something similar to "/Users/sutto/.rvm/wrappers/jruby-1.5.1@celerity"
-  as an example. Next, you need to create features/support/culerity-hooks.rb containing
-  the following code (with thanks to agibralter, mchung and ashleymoran):
+On older versions of Culerity, you need to manually specify hooks to toggle the env.
+In order to do this, you need to first get the location of the jruby wrappers dir. To find
+this, run the following in your Terminal and note the output:
 
-%pre.code
-  :preserve
-    # culerity-hooks.rb
-    Before("@culerity,@celerity,@javascript") do |scenario|
-      unless @original_path && @rvm_jruby_path
-        @original_path  = ENV['PATH']
-        @rvm_jruby_path = "/Users/sutto/.rvm/wrappers/jruby-1.5.1@celerity:#{@original_path}"
-      end
-      ENV['PATH'] = @rvm_jruby_path
-    end
+```bash
+$ dirname "$(readlink "$(which celerity_jruby)")"
+```
 
-    After("@culerity,@celerity,@javascript") do |scenario|
-      ENV["PATH"] = @original_path
-    end
+Which should return something similar to "/Users/sutto/.rvm/wrappers/jruby-1.5.1@celerity"
+as an example. Next, you need to create features/support/culerity-hooks.rb containing
+the following code (with thanks to agibralter, mchung and ashleymoran):
 
-%p
-  Ensuring you replace "/Users/sutto/.rvm/wrappers/jruby-1.5.1@celerity" with the value you noted
-  earlier.
+```ruby
+# culerity-hooks.rb
+Before("@culerity,@celerity,@javascript") do |scenario|
+  unless @original_path && @rvm_jruby_path
+    @original_path  = ENV['PATH']
+    @rvm_jruby_path = "/Users/sutto/.rvm/wrappers/jruby-1.5.1@celerity:#{@original_path}"
+  end
+  ENV['PATH'] = @rvm_jruby_path
+end
 
-%h1
-  Community Resources
-%ul
-  %li
-    This
-    %a{:href => "https://groups.google.com/forum/?fromgroups=#!topic/culerity-dev/RbNweba24UM"} Google Groups post
-    by Matt Patterson announcing his patches with improved support.
-  %li
-    These
-    %a{:href => "http://gist.github.com/353514"} awesome hooks
-    from above exhibit proper scripting usage of RVM info as intended, awesomely done agibralter.
-    %a{:href => "http://gist.github.com/404870"}
-      correction by ashleymoran
-    \-  Originally the preferred solution
-  %li
-    Original
-    %a{:href => "http://gist.github.com/268216"} gist by mchung
+After("@culerity,@celerity,@javascript") do |scenario|
+  ENV["PATH"] = @original_path
+end
+```
+
+Ensuring you replace "/Users/sutto/.rvm/wrappers/jruby-1.5.1@celerity" with the value you noted
+earlier.
+
+# Community Resources
+
+- This [Google Groups post](https://groups.google.com/forum/?fromgroups=#!topic/culerity-dev/RbNweba24UM) by Matt Patterson announcing his patches with improved support.
+- These [awesome hooks](http://gist.github.com/353514) from above exhibit proper scripting usage of RVM info as intended, awesomely done agibralter. [correction by ashleymoran](http://gist.github.com/404870) - Originally the preferred solution
+- Original [gist by mchung](http://gist.github.com/268216)

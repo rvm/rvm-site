@@ -2,22 +2,6 @@
 title: "RVM Mailing List"
 ---
 
-.breadcrumbs
-  %a{ :href => "/" }
-    Documentation
-  &nbsp;>&nbsp;
-  %a{ :href => "/development/" }
-    Development
-  &nbsp;>&nbsp;
-  %a{ :href => "/development/list/" }
-    Mailing List
-  %hr
+# Mailing List
 
-%a{ :name => "list" }
-%h1
-  Mailing List
-
-%p
-  The Mailing List is currently a
-  %a{:href => "http://groups.google.com/group/rubyversionmanager/"}
-    google group
+The Mailing List is currently a [google group](http://groups.google.com/group/rubyversionmanager/)

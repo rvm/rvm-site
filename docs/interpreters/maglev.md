@@ -1,37 +1,19 @@
 ---
-title: "MagLev"
+title: MagLev
 ---
 
-.breadcrumbs
-  %a{ :href => "/" }
-    Documentation
-  &nbsp;>&nbsp;
-  %a{ :href => "/interpreters/" }
-    Interpreters
-  &nbsp;>&nbsp;
-  %a{ :href => "/interpreters/maglev/" }
-    MagLev
-  %hr
+# MagLev
 
-%h1
-  MagLev
-%p
-  MagLev is a ruby interpreter built on top of the GemStone VM,
-  which is used in many massive-scale production deployments and mission-critical financial applications.
+MagLev is a ruby interpreter built on top of the GemStone VM,
+which is used in many massive-scale production deployments and mission-critical financial applications.
 
-%h2
-  Installing
+## Installing
 
-%pre.code
-  :preserve
-    $ rvm install maglev
+```bash
+$ rvm install maglev
+```
 
-%h1
-  Community Resources
-%ul
-  %li
-    %a{:href => "http://maglev.github.io/", :target => "_blank"}
-      http://maglev.gemstone.com/
-  %li
-    %a{:href => "https://github.com/MagLev/maglev/blob/master/docs/Maglev_c_extensions.md"}
-      C extension restrictions.
+# Community Resources
+
+- [http://maglev.gemstone.com/](http://maglev.github.io/)
+- [C extension restrictions.](https://github.com/MagLev/maglev/blob/master/docs/Maglev_c_extensions.md)

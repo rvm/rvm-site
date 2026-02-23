@@ -32,7 +32,7 @@ provided you have `export rvm_project_rvmrc=1` in your `$HOME/.rvmrc`.
 
 On top of this, you can also automatically make your deployments set up
 your application-specific environment even if you're using
-[passenger](/integration/passenger/).
+[passenger](/deployment/passenger).
 
 ### No. 3 - Use per-project gemsets.
 
@@ -61,6 +61,6 @@ with this via the 'rvm upgrade' command.
 
 ### No. 5 - Integrate RVM into your tools of choice.
 
-Lastly, make sure you read our [integration](/integration/) pages to
+Lastly, make sure you read our [integration](/integration/bundler) pages to
 find out how best to integrate RVM into your development and deployment
 ecosystem.

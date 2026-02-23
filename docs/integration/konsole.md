@@ -1,27 +1,25 @@
 ---
-title: "Konsole Integration with RVM"
+title: Konsole Integration with RVM
 ---
 
-= breadcrumbs "Integration", "konsole"
+# Integrating RVM with Konsole
 
-%a{:name => "konsole"}
-%h1 Integrating RVM with Konsole
- 
-%p
-  Before you install RVM you need to change the Command field in your profile settings. Go to
-  Settings >> Edit Current Profile and add a space and then --login to the end of /bin/bash.
-  It should go from this:
-  = sh_cmd "/bin/bash"
-  %br
-  %br
-  To this:
- 
-  = sh_cmd "/bin/bash --login"
+Before you install RVM you need to change the Command field in your profile settings. Go to
+Settings >> Edit Current Profile and add a space and then --login to the end of /bin/bash.
+It should go from this:
 
-%p
-  %img{:src => "/images/konsole-integration.jpg", :alt => "Gnome Screenshot"}
+```bash
+$ /bin/bash
+```
 
-%p
-  For more information on what this means, please read the explanation regarding
-  %a{:href=>"/support/faq/#shell_login"} Shell logins
-  especially if you are in doubt, or advised by other sites to not use it.
+To this:
+
+```bash
+$ /bin/bash --login
+```
+
+![Gnome Screenshot](/images/konsole-integration.jpg)
+
+For more information on what this means, please read the explanation regarding
+[Shell logins](/support/faq/#shell_login)
+especially if you are in doubt, or advised by other sites to not use it.

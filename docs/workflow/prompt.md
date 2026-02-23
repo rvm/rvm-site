@@ -2,92 +2,71 @@
 title: rvm-prompt
 ---
 
-.breadcrumbs
-  %a{ :href => "/" }
-    Documentation
-  &nbsp;>&nbsp;
-  %a{ :href => "/workflow/" }
-    Workflow
-  &nbsp;>&nbsp;
-  %a{ :href => "/workflow/prompt/" }
-    rvm-prompt
-  %hr
+# rvm-prompt
 
-%h1
-  rvm-prompt
-%p
-  To display the current ruby selection string in your prompt add this to your profile:
-%pre.code
-  :preserve
-    PS1="\$(~/.rvm/bin/rvm-prompt) $PS1"
+To display the current ruby selection string in your prompt add this to your profile:
 
-%p
-  By default rvm-prompt outputs the fully qualified ruby string necessary to select the particular ruby currently selected and nothing when system ruby is selected. You can change this default behavior and control the verbosity of rvm-prompt by combining the following parameters:
+```
+PS1="\$(~/.rvm/bin/rvm-prompt) $PS1"
+```
 
-%pre.code
-  :preserve
-    (i)nterpreter  - interpreter abreviation    (default)
-    (v)ersion      - version                    (default)
-    (p)atchlevel   - patch level                (default)
-    (g)emset       - current gemset             (default)
-    (r)evision     - revison
-    (a)rchitecture - architecture
-    (u)nicode      - single unicode character representation of interpreter
-    (s)ystem       - echo "system" when using system ruby
+By default rvm-prompt outputs the fully qualified ruby string necessary to select the particular ruby currently selected and nothing when system ruby is selected. You can change this default behavior and control the verbosity of rvm-prompt by combining the following parameters:
 
-%p
-  Below are some examples of running rvm-prompt with various arguments on different rubies.
+```
+(i)nterpreter  - interpreter abreviation    (default)
+(v)ersion      - version                    (default)
+(p)atchlevel   - patch level                (default)
+(g)emset       - current gemset             (default)
+(r)evision     - revison
+(a)rchitecture - architecture
+(u)nicode      - single unicode character representation of interpreter
+(s)ystem       - echo "system" when using system ruby
+```
 
-%pre.code
-  :preserve
-    $ rvm 1.9.1 ; rvm-prompt i v p g # default
+Below are some examples of running rvm-prompt with various arguments on different rubies.
 
-      ruby-1.9.1-p243
+```
+$ rvm 1.9.1 ; rvm-prompt i v p g # default
 
-    $ rvm 1.9.1@rails ; rvm-prompt i v p g # default
+  ruby-1.9.1-p243
 
-      ruby-1.9.1-p243@rails
+$ rvm 1.9.1@rails ; rvm-prompt i v p g # default
 
-    $ rvm ree-1.8.7 ; rvm-prompt i v
+  ruby-1.9.1-p243@rails
 
-      ree-1.8.7
+$ rvm ree-1.8.7 ; rvm-prompt i v
 
-    $ rvm jruby ; rvm-prompt v i
+  ree-1.8.7
 
-      1.5.1-jruby
+$ rvm jruby ; rvm-prompt v i
 
-    $ rvm jruby ; rvm-prompt u
+  1.5.1-jruby
 
-      ☯
+$ rvm jruby ; rvm-prompt u
 
-    $ rvm system ; rvm-prompt
+  ☯
+
+$ rvm system ; rvm-prompt
 
 
 
-    $ rvm system ; rvm-prompt s i v p
+$ rvm system ; rvm-prompt s i v p
 
-      system
+  system
+```
 
-%h1 ps1_functions
+# ps1_functions
 
-Recently there has been a pair programming session that turned out a useful bit
-of prompt setting code. It now resides in contrib/ so you can require it in your
-profiles as follows after sourcing RVM itself.
+Recently there has been a pair programming session that turned out a useful bit of prompt setting code. It now resides in contrib/ so you can require it in your profiles as follows after sourcing RVM itself.
 
-%pre.code
-  :preserve
-    source "$rvm_path/contrib/ps1_functions"
+```
+source "$rvm_path/contrib/ps1_functions"
+```
 
 Immediately after that you can customize your prompt by adding the following line
-%pre.code
-  :preserve
-    ps1_set
 
-There is an article and screen cast associated with this in the community
-resources section.
+```
+ps1_set
+```
 
--#%h1 Community Resources
--#%ul
--#  %li
--#    %a{:href => "http://vimeo.com/21538711"}
--#      ps1_functions creation ScreenCast
+There is an article and screen cast associated with this in the community resources section.

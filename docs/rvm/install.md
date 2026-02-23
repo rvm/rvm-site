@@ -237,7 +237,7 @@ avoid RVM messing around with your umask, you can comment the umask line
 in `/etc/rvmrc`.
 
 This mode should also works with passenger, please follow
-[passenger](/integration/passenger/) instructions.
+[passenger](/deployment/passenger) instructions.
   .
 
 ### 3. Reload shell configuration &amp; test

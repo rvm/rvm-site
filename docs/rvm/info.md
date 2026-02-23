@@ -1,80 +1,61 @@
 ---
-title: 'rvm info - information about rvm environments'
+title: rvm info - information about rvm environments
 ---
 
-.breadcrumbs
-  %a{ :href => "/" }
-    Documentation
-  &nbsp;>&nbsp;
-  %a{ :href => "/rvm/" }
-    RVM
-  &nbsp;>&nbsp;
-  %a{ :href => "/rvm/info/" }
-    Info
-  %hr
+# RVM Info
 
-%h1
-  RVM Info
+### Usage
 
-%h3
-  Usage
+```
+$ rvm info [ruby_string[,ruby_string[,...] [section,[section[,...]
+```
 
-%pre.code
-  :preserve
-    $ rvm info [ruby_string[,ruby_string[,...] [section,[section[,...]
+where sections are one of:
 
-%p
-  where sections are one of:
+```
+system rvm ruby homes binaries environment debug
+```
 
-%pre.code
-  :preserve
-    system rvm ruby homes binaries environment debug
+Both ruby strings and sections are optional arguments.
 
-%p
-  Both ruby strings and sections are optional arguments.
+By default, with no parameters, rvm info will output all sections except debug.
 
-%p
-  By default, with no parameters, rvm info will output all sections except debug.
+### Debug
 
-%h3
-  Debug
-%p
-  To display system rvm debug information:
+To display system rvm debug information:
 
-%pre.code
-  :preserve
-    $ rvm debug
+```
+$ rvm debug
+```
 
-%p
-  which will display all sections including debug for the current or specified interpreters.
+which will display all sections including debug for the current or specified interpreters.
 
-%h3
-  Example:
+### Example:
 
-%pre.code
-  :preserve
-    $ rvm info 2.1.1,1.9.3 homes,binaries
+```
+$ rvm info 2.1.1,1.9.3 homes,binaries
 
-    ruby-2.1.1:
+ruby-2.1.1:
 
-      homes:
-        gem:          "/Users/rys/.rvm/gems/ruby-2.1.1"
-        ruby:         "/Users/rys/.rvm/rubies/ruby-2.1.1"
+  homes:
+    gem:          "/Users/rys/.rvm/gems/ruby-2.1.1"
+    ruby:         "/Users/rys/.rvm/rubies/ruby-2.1.1"
 
-      binaries:
-        ruby:         "/Users/rys/.rvm/rubies/ruby-2.1.1/bin/ruby"
-        irb:          "/Users/rys/.rvm/rubies/ruby-2.1.1/bin/irb"
-        gem:          "/Users/rys/.rvm/rubies/ruby-2.1.1/bin/gem"
-        rake:         "/Users/rys/.rvm/gems/ruby-2.1.1/bin/rake"
+  binaries:
+    ruby:         "/Users/rys/.rvm/rubies/ruby-2.1.1/bin/ruby"
+    irb:          "/Users/rys/.rvm/rubies/ruby-2.1.1/bin/irb"
+    gem:          "/Users/rys/.rvm/rubies/ruby-2.1.1/bin/gem"
+    rake:         "/Users/rys/.rvm/gems/ruby-2.1.1/bin/rake"
 
-    ruby-2.1.1:
+ruby-2.1.1:
 
-      homes:
-        gem:          "/Users/rys/.rvm/gems/ruby-2.1.1"
-        ruby:         "/Users/rys/.rvm/rubies/ruby-2.1.1"
+  homes:
+    gem:          "/Users/rys/.rvm/gems/ruby-2.1.1"
+    ruby:         "/Users/rys/.rvm/rubies/ruby-2.1.1"
 
-      binaries:
-        ruby:         "/Users/rys/.rvm/rubies/ruby-2.1.1/bin/ruby"
-        irb:          "/Users/rys/.rvm/rubies/ruby-2.1.1/bin/irb"
-        gem:          "/Users/rys/.rvm/rubies/ruby-2.1.1/bin/gem"
-        rake:         "/Users/rys/.rvm/gems/ruby-2.1.1/bin/rake"
+  binaries:
+    ruby:         "/Users/rys/.rvm/rubies/ruby-2.1.1/bin/ruby"
+    irb:          "/Users/rys/.rvm/rubies/ruby-2.1.1/bin/irb"
+    gem:          "/Users/rys/.rvm/rubies/ruby-2.1.1/bin/gem"
+    rake:         "/Users/rys/.rvm/gems/ruby-2.1.1/bin/rake"
+```

@@ -1,114 +1,82 @@
 ---
-title: "MacRuby"
+title: MacRuby
 ---
 
-.breadcrumbs
-  %a{ :href => "/" }
-    Documentation
-  &nbsp;>&nbsp;
-  %a{ :href => "/interpreters/" }
-    Interpreters
-  &nbsp;>&nbsp;
-  %a{ :href => "/interpreters/macruby/" }
-    MacRuby
-  %hr
+# MacRuby
 
-%h1
-  MacRuby
-%p
-  MacRuby is a ruby interpreter built on top of Apple's NS Framework.
-  It allows developers to create fully-native OSX applications that take advantage of Ruby!
-%p
-  Please note that much of the content below was taken from
-  %a{:href => "https://github.com/MacRuby/MacRuby/blob/master/README.rdoc"}
-    the README.rdoc on github
+MacRuby is a ruby interpreter built on top of Apple's NS Framework.
+It allows developers to create fully-native OSX applications that take advantage of Ruby!
 
-%h2
-  Latest Release
-%p
-  Installing the latest official release known to RVM is the same procedure
-  as for other interpreters.
+Please note that much of the content below was taken from
+[the README.rdoc on github](https://github.com/MacRuby/MacRuby/blob/master/README.rdoc)
 
-%pre.code
-  :preserve
-    $ rvm install macruby
+## Latest Release
 
-%h2
-  Head (aka 'master')
-%p
-  Here's how you can install the latest macruby release from its github repository:
+Installing the latest official release known to RVM is the same procedure
+as for other interpreters.
 
-%pre.code
-  :preserve
-    $ rvm install macruby-head
+```bash
+$ rvm install macruby
+```
 
-%p
-  MacRuby is a Ruby implementation based on Mac OS X technologies, such as the
-  Objective-C runtime and garbage collector, the CoreFoundation framework and
-  the LLVM compiler infrastructure.
-%p
-  The goal of MacRuby is to enable the creation of full-fledged Mac OS X
-  applications which do not sacrifice performance in order to enjoy the benefits
-  of using Ruby.
+## Head (aka 'master')
 
-%p
-  MacRuby is copyrighted free software by Apple Inc and covered by the terms of
-  the Ruby license. Please refer to
-  %a{:href => "https://github.com/MacRuby/MacRuby/blob/master/COPYING", :target => "_blank"}
-    the COPYING file
-  for more information.
+Here's how you can install the latest macruby release from its github repository:
 
-%p
-  %a{:href => "https://github.com/MacRuby/MacRuby", :target => "_blank"}
-    MacRuby
+```bash
+$ rvm install macruby-head
+```
 
-%h3 Requirements
+MacRuby is a Ruby implementation based on Mac OS X technologies, such as the
+Objective-C runtime and garbage collector, the CoreFoundation framework and
+the LLVM compiler infrastructure.
 
-%ul
-  %li
-    An Intel machine. PowerPC machines are no longer supported, but may still
-    work. An Intel 64-bit machine (Intel Core Duo 2 or later) is recommended.
+The goal of MacRuby is to enable the creation of full-fledged Mac OS X
+applications which do not sacrifice performance in order to enjoy the benefits
+of using Ruby.
 
-  %li
-    Mac OS X 10.6 or later.
+MacRuby is copyrighted free software by Apple Inc and covered by the terms of
+the Ruby license. Please refer to
+[the COPYING file](https://github.com/MacRuby/MacRuby/blob/master/COPYING)
+for more information.
 
-  %li
-    LLVM ToT, compiled for both i386 and x86_64.
+[MacRuby](https://github.com/MacRuby/MacRuby)
 
-%h3 Compiling LLVM
+### Requirements
 
-%p
-  LLVM is a moving target, and breaks periodically. We recommend you install
-  revision 106781.
-  / still valid version recommendation?
-  Make sure you specify the correct C and C++ compilers with
-  environment variables.
+- An Intel machine. PowerPC machines are no longer supported, but may still
+  work. An Intel 64-bit machine (Intel Core Duo 2 or later) is recommended.
 
-%pre.code
-  :preserve
-    $ svn co -r 106781 https://llvm.org/svn/llvm-project/llvm/trunk llvm-trunk
-    $ cd llvm-trunk
-    $ env UNIVERSAL=1 UNIVERSAL_ARCH="i386 x86_64" CC=/usr/bin/gcc CXX=/usr/bin/g++ ./configure --enable-bindings=none --enable-optimized --with-llvmgccdir=/tmp
-    $ env UNIVERSAL=1 UNIVERSAL_ARCH="i386 x86_64" CC=/usr/bin/gcc CXX=/usr/bin/g++ make
-    $ sudo env UNIVERSAL=1 UNIVERSAL_ARCH="i386 x86_64" CC=/usr/bin/gcc CXX=/usr/bin/g++ make install
+- Mac OS X 10.6 or later.
 
-%p
-  Compiling LLVM can take quite a while. If you have a machine with
-  multiple cores, which is quite likely, you can speed up the process
-  by using all/more cores. However, doing so may make your machine
-  unresponsive during compilation. To use multiple cores, pass the `-j N'
-  option, where `N' stands for the number of cores you want to use. So for a
-  Core Duo, the command would look like:
+- LLVM ToT, compiled for both i386 and x86_64.
 
-%pre.code
-  :preserve
-    $ env UNIVERSAL=1 UNIVERSAL_ARCH="i386 x86_64" CC=/usr/bin/gcc CXX=/usr/bin/g++ make -j2
+### Compiling LLVM
 
-%h1
-  Community Resources
-%ul
-  %li
-    The project website contains more documentation, such as tutorials and guides. It
-    can be found at
-    %a{:href => "https://github.com/MacRuby/MacRuby", :target => "_blank"}
-      https://github.com/MacRuby/MacRuby
+LLVM is a moving target, and breaks periodically. We recommend you install
+revision 106781.
+Make sure you specify the correct C and C++ compilers with
+environment variables.
+
+```bash
+$ svn co -r 106781 https://llvm.org/svn/llvm-project/llvm/trunk llvm-trunk
+$ cd llvm-trunk
+$ env UNIVERSAL=1 UNIVERSAL_ARCH="i386 x86_64" CC=/usr/bin/gcc CXX=/usr/bin/g++ ./configure --enable-bindings=none --enable-optimized --with-llvmgccdir=/tmp
+$ env UNIVERSAL=1 UNIVERSAL_ARCH="i386 x86_64" CC=/usr/bin/gcc CXX=/usr/bin/g++ make
+$ sudo env UNIVERSAL=1 UNIVERSAL_ARCH="i386 x86_64" CC=/usr/bin/gcc CXX=/usr/bin/g++ make install
+```
+
+Compiling LLVM can take quite a while. If you have a machine with
+multiple cores, which is quite likely, you can speed up the process
+by using all/more cores. However, doing so may make your machine
+unresponsive during compilation. To use multiple cores, pass the `-j N'
+option, where `N' stands for the number of cores you want to use. So for a
+Core Duo, the command would look like:
+
+```bash
+$ env UNIVERSAL=1 UNIVERSAL_ARCH="i386 x86_64" CC=/usr/bin/gcc CXX=/usr/bin/g++ make -j2
+```
+
+# Community Resources
+
+- The project website contains more documentation, such as tutorials and guides. It can be found at [https://github.com/MacRuby/MacRuby](https://github.com/MacRuby/MacRuby)

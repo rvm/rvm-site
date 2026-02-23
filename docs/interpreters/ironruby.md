@@ -1,38 +1,20 @@
 ---
-title: "IronRuby"
+title: IronRuby
 ---
 
-.breadcrumbs
-  %a{ :href => "/" }
-    Documentation
-  &nbsp;>&nbsp;
-  %a{ :href => "/interpreters/" }
-    Interpreters
-  &nbsp;>&nbsp;
-  %a{ :href => "/interpreters/ironruby/" }
-    IronRuby
-  %hr
+# IronRuby
 
+IronRuby is a ruby interpreter built on top of the .NET CLR.
+It also runs on top of the Mono framework (open source CLR).
 
-%h1
-  IronRuby
-%p
-  IronRuby is a ruby interpreter built on top of the .NET CLR.
-  It also runs on top of the Mono framework (open source CLR).
+## Installing
 
-%h2
-  Installing
+```bash
+$ rvm install ironruby
+```
 
-%pre.code
-  :preserve
-    $ rvm install ironruby
+Please note that this requires that you first install the Mono framework properly.
 
-%p
-  Please note that this requires that you first install the Mono framework properly.
+# Community Resources
 
-%h1
-  Community Resources
-%ul
-  %li
-    %a{:href => "http://www.ironruby.net/", :target => "_blank"}
-      http://www.ironruby.net/
+- [http://www.ironruby.net/](http://www.ironruby.net/)

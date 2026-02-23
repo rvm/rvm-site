@@ -2,34 +2,19 @@
 title: "Ignoring gemsets"
 ---
 
-.breadcrumbs
-  %a{ :href => "/" }
-    Documentation
-  &nbsp;>&nbsp;
-  %a{ :href => "/gemsets/" }
-    Gemsets
-  &nbsp;>&nbsp;
-  %a{ :href => "/gemsets/ignoring/" }
-    Ignoring Gemsets
-  %hr
+# Ignoring
 
+If you do not want to use gemsets and want to ignore them you can use
+command line flag `--ignore-gemsets`:
 
-%h1 Ignoring
+```
+rvm use 1.9.3@my_project --ignore-gemsets
+```
 
-%p
-  If you do not want to use gemsets and want to ignore them you can use
-  command line flag `--ignore-gemsets`:
+it will ignore @my_project and @global, only default gemset will be set.
 
-%pre.code
-  :preserve
-    rvm use 1.9.3@my_project --ignore-gemsets
+It can be done persistent with:
 
-%p
-  it will ignore @my_project and @global, only default gemset will be set.
-
-%p
-  It can be done persistent with:
-
-%pre.code
-  :preserve
-    echo "export rvm_ignore_gemsets_flag=1" >> ~/.rvmrc
+```
+echo "export rvm_ignore_gemsets_flag=1" >> ~/.rvmrc
+```

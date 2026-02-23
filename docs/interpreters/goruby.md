@@ -2,28 +2,12 @@
 title: goruby
 ---
 
-.breadcrumbs
-  %a{ :href => "/" }
-    Documentation
-  &nbsp;>&nbsp;
-  %a{ :href => "/interpreters/" }
-    Interpreters
-  &nbsp;>&nbsp;
-  %a{ :href => "/interpreters/goruby/" }
-    goruby
-  %hr
+# goruby
 
-%h1
-  goruby
+## Installing
 
-%h2
-  Installing
+```bash
+$ rvm install goruby
+```
 
-%pre.code
-  :preserve
-    $ rvm install goruby
-
-%h1
-  Community Resources
-%ul
-  %li
+# Community Resources

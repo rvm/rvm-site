@@ -1,103 +1,82 @@
 ---
-title: "ZSH Integration with RVM."
+title: ZSH Integration with RVM.
 ---
 
-= breadcrumbs "Integration", "Zsh"
+# Zsh
 
-%h1
-  Zsh
-%p
-  RVM requires :
-  %ul
-    %li
-      The use of globs that can possible be empty (no matches).
-      If you experience glob problems try setting 'setopt nullglob' in your zsh profiles.
-    %li
-      Shell regex support via the operator =~.  =~ appeared first in 4.3.5,(it was added in
-      %a{:href => "http://www.zsh.org/mla/workers/2007/msg00296.html"}
-        zsh-workers-23375.
-      )
+RVM requires:
 
-%p
-  How can I tell if my version of zsh supports =~ ?
+- The use of globs that can possible be empty (no matches). If you experience glob problems try setting 'setopt nullglob' in your zsh profiles.
+- Shell regex support via the operator =~. =~ appeared first in 4.3.5, (it was added in [zsh-workers-23375](http://www.zsh.org/mla/workers/2007/msg00296.html).)
 
-%pre.code
-  :preserve
-    $ foo=baaaar; [[ $foo =~ ba*r ]] && echo "Your shell supports the =~ regex operator." || echo "Your shell does not support the =~ regex operator."
-    Your shell supports the =~ regex operator.
-    $ zsh --version
-    zsh 4.3.5
+How can I tell if my version of zsh supports =~ ?
 
-%pre.code
-  :preserve
-    $ foo=baaaar; [[ $foo =~ ba*r ]] && echo "Your shell supports the =~ regex operator." || echo "I like sheep, they are soft and fluffy..."
-    zsh: condition expected: =~
-    $ zsh --version
-    zsh 4.3.4
+```bash
+$ foo=baaaar; [[ $foo =~ ba*r ]] && echo "Your shell supports the =~ regex operator." || echo "Your shell does not support the =~ regex operator."
+Your shell supports the =~ regex operator.
+$ zsh --version
+zsh 4.3.5
+```
 
-%p
-  How can I upgrade my zsh version?
+```bash
+$ foo=baaaar; [[ $foo =~ ba*r ]] && echo "Your shell supports the =~ regex operator." || echo "I like sheep, they are soft and fluffy..."
+zsh: condition expected: =~
+$ zsh --version
+zsh 4.3.4
+```
 
-%pre.code
-  :preserve
-    version="4.3.10" ; mkdir -p ~/.src && cd ~/.src && \curl -O -L --create-dirs -C - http://downloads.sourceforge.net/project/zsh/zsh-dev/$version/zsh-$version.tar.bz2?use_mirror=voxel && tar jxf zsh-$version.tar.bz2* && cd zsh-$version && ./configure --prefix=/ && make && sudo make install
+How can I upgrade my zsh version?
 
-%p
-  If you're using zsh (possibly with oh-my-zsh) and your prompt displays the current directory as "~rvm_rvmrc_cwd",
-  the fix to add the following to your shell file before sourcing rvm:
+```bash
+version="4.3.10" ; mkdir -p ~/.src && cd ~/.src && \curl -O -L --create-dirs -C - http://downloads.sourceforge.net/project/zsh/zsh-dev/$version/zsh-$version.tar.bz2?use_mirror=voxel && tar jxf zsh-$version.tar.bz2* && cd zsh-$version && ./configure --prefix=/ && make && sudo make install
+```
 
-%pre.code
-  :preserve
-    unsetopt auto_name_dirs
+If you're using zsh (possibly with oh-my-zsh) and your prompt displays the current directory as "~rvm_rvmrc_cwd",
+the fix to add the following to your shell file before sourcing rvm:
 
-%p
-  If you are using oh-my-zsh and you see something like this error:
-%pre.code
-  :preserve
-    pwd:4: too many arguments
-%p
-  This is caused by an alias and due to the sh style sourcing of a script using the '.' operator instead of 'source'. The alias looks like this:
-%pre.code
-  :preserve
-    # .oh-my-zsh/lib/aliases.zsh
-    alias .='pwd'
-%p
-  To avoid this either remove/comment the alias and/or escape the '.' to bypass the alias like so:
-%pre.code
-  :preserve
-    \. /file/being/sourced
-%p
-  The latest RVM HEAD properly escapes the sourcing '.' so this should no longer be an issue. Update (rvm get head) if you see this issue related to RVM scripts.
+```bash
+unsetopt auto_name_dirs
+```
 
-%a{ :name => "zsh-iterm" }
-%h2
-  zsh + iTerm
+If you are using oh-my-zsh and you see something like this error:
 
-%p
-  Open iTerm Preferences
-  %strong
-    ⌘,
-%p
-  Navigate to preferences
-%p
-  If there is no profile for ZSH, create one.
-%p
-  Set Command: to
-  %strong
-    Login shell
-%p
-  Reload iTerm
+```
+pwd:4: too many arguments
+```
 
-%p
-  If you are still getting
-  %strong
-    rvm is not a function
-  errors on iTerm, try:
-%pre.code
-  rvm get stable --auto-dotfiles
+This is caused by an alias and due to the sh style sourcing of a script using the '.' operator instead of 'source'. The alias looks like this:
 
-%h2
-  zsh + oh my zsh
+```bash
+# .oh-my-zsh/lib/aliases.zsh
+alias .='pwd'
+```
 
-%p
-  If you want to use oh my zsh be sure not to use the bundler package. If rvm should take care of everything this would do for you anyways.
+To avoid this either remove/comment the alias and/or escape the '.' to bypass the alias like so:
+
+```bash
+\. /file/being/sourced
+```
+
+The latest RVM HEAD properly escapes the sourcing '.' so this should no longer be an issue. Update (rvm get head) if you see this issue related to RVM scripts.
+
+## zsh + iTerm
+
+Open iTerm Preferences **Command+,**
+
+Navigate to preferences
+
+If there is no profile for ZSH, create one.
+
+Set Command: to **Login shell**
+
+Reload iTerm
+
+If you are still getting **rvm is not a function** errors on iTerm, try:
+
+```bash
+rvm get stable --auto-dotfiles
+```
+
+## zsh + oh my zsh
+
+If you want to use oh my zsh be sure not to use the bundler package. If rvm should take care of everything this would do for you anyways.

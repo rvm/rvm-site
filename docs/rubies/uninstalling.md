@@ -1,27 +1,14 @@
 ---
-title: "'rvm uninstall' - Uninstalling RVM installed Rubies"
+title: "Uninstalling Rubies"
 ---
 
-.breadcrumbs
-  %a{ :href => "/" }
-    Documentation
-  &nbsp;>&nbsp;
-  %a{ :href => "/rubies/" }
-    Rubies
-  &nbsp;>&nbsp;
-  %a{ :href => "/rubies/uninstalling/" }
-    Uninstalling
-  %hr
+# Uninstalling Rubies
 
-%h1
-  Uninstalling Rubies
+To remove an RVM installed ruby do:
 
-%p
-  To remove an RVM installed ruby do:
-%pre.code
-  :preserve
-    $ rvm uninstall 1.8.6
-    Removing /Users/wayne/.rvm/rubies/ruby-1.8.6-p399...
+```
+$ rvm uninstall 1.8.6
+Removing /Users/wayne/.rvm/rubies/ruby-1.8.6-p399...
+```
 
-%p
-  Uninstalling a ruby removes only the install and leaves the source.
+Uninstalling a ruby removes only the install and leaves the source.

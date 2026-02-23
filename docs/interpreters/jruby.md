@@ -1,71 +1,54 @@
 ---
-title: "JRuby"
+title: JRuby
 ---
 
-.breadcrumbs
-  %a{ :href => "/" }
-    Documentation
-  &nbsp;>&nbsp;
-  %a{ :href => "/interpreters/" }
-    Interpreters
-  &nbsp;>&nbsp;
-  %a{ :href => "/interpreters/jruby/" }
-    JRuby
-  %hr
+# JRuby
 
-%h1
-  JRuby
-%p
-  JRuby is a ruby interpreter that gives the best of the JVM -- as battle-tested in the field for many years -- together with the awesomeness that is Ruby syntax.
+JRuby is a ruby interpreter that gives the best of the JVM -- as battle-tested in the field for many years -- together with the awesomeness that is Ruby syntax.
 
-%h2
-  Installing
+## Installing
 
-%pre.code
-  :preserve
-    $ rvm install jruby
+```bash
+$ rvm install jruby
+```
 
-%h2
-  Choosing the Ruby API
-%p
-  Currently, as of this writing, JRuby loads the Ruby 1.8 API and runs as 1.8.7
-  version. As of JRuby version  1.7 the default will become 1.9.
-%p
-  If you need to run JRuby with the 1.9 Ruby API, you can do so in RVM
-  using after_use hooks. You must record the JRUBY configuration
-%pre.code
-  :preserve
-    export JRUBY_OPTS="--1.9"
-%p
-  Be sure to add this to your jruby environment file(s).
-%p
-  For your console environment, I recommend detecting JRuby in an after_use
-  %a{:href => "/workflow/hooks/"}
-    hook
-  and adding the export.
-%p
-  So for example, your after_use hook file might look something like this:
-%pre.code
-  :preserve
-    case "$GEM_HOME" in
-      *jruby*)
-        JRUBY_OPTS="--1.9" ; export JRUBY_OPTS
-      ;;
-    esac
+## Choosing the Ruby API
 
-%h2
-  Choosing the Ruby API on Install
-%p
-  You can choose which JRuby API to use by default on install or even
-  reinstall it with the desired option:
-%pre.code
-  :preserve
-    rvm install jruby --1.9 # OR
-    rvm install jruby --1.8
+Currently, as of this writing, JRuby loads the Ruby 1.8 API and runs as 1.8.7
+version. As of JRuby version 1.7 the default will become 1.9.
 
-%h1
-  Community Resources
-%ul
-  %li
-    %a{:href => "https://www.jruby.org", :target => "_blank"}
-      https://www.jruby.org
+If you need to run JRuby with the 1.9 Ruby API, you can do so in RVM
+using after_use hooks. You must record the JRUBY configuration
+
+```bash
+export JRUBY_OPTS="--1.9"
+```
+
+Be sure to add this to your jruby environment file(s).
+
+For your console environment, I recommend detecting JRuby in an after_use
+[hook](/workflow/hooks/) and adding the export.
+
+So for example, your after_use hook file might look something like this:
+
+```bash
+case "$GEM_HOME" in
+  *jruby*)
+    JRUBY_OPTS="--1.9" ; export JRUBY_OPTS
+  ;;
+esac
+```
+
+## Choosing the Ruby API on Install
+
+You can choose which JRuby API to use by default on install or even
+reinstall it with the desired option:
+
+```bash
+rvm install jruby --1.9 # OR
+rvm install jruby --1.8
+```
+
+# Community Resources
+
+- [https://www.jruby.org](https://www.jruby.org)

@@ -1,18 +1,15 @@
 ---
 title: rvm1-ansible needs a new maintainer
-created_at: 2016-03-30 05:00:00 +0200
-kind: article
-author: nickjj
-author_full: Nick Janetakis
-tags:
-  - news
-  - rvm1-ansible
+date: 2016-03-30
+authors: [nickjj]
+tags: [news, rvm1-ansible]
+slug: rvm1-ansible-needs-a-new-maintainer
 ---
 
 [rvm1-ansible](https://github.com/rvm/rvm1-ansible) could use a little love, is
 anyone up for maintaining it?
 
-<!-- more -->
+<!-- truncate -->
 
 I've been maintaining this library for a few years but lately it's been neglected.
 

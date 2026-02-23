@@ -4,74 +4,49 @@ This file provides guidance to Claude Code (claude.ai/code) when working with co
 
 ## Project Overview
 
-This is the documentation site for [RVM (Ruby Version Manager)](https://rvm.io), built with **Nanoc 3.8.0** (static site generator). Content is written in Markdown and HAML, compiled to static HTML, and output to `public/`.
+This is the documentation site for [RVM (Ruby Version Manager)](https://rvm.io), built with **Docusaurus 3** (TypeScript/React). Content is written in Markdown, compiled to static HTML, and output to `build/`.
 
 ## Common Commands
 
 ```bash
 # Install dependencies
-bundle install
+npm install
 
-# Local development (two terminals)
-guard          # Terminal 1: watches files and recompiles on change
-nanoc view     # Terminal 2: serves site at http://localhost:3000
+# Local development
+npm start        # Starts dev server at http://localhost:3000
 
 # Build site
-rake compile   # Compiles to public/
+npm run build    # Compiles to build/
 
-# Run all checks (compile + stale links + internal links + SSL cert check)
-rake test
-
-# Individual checks
-rake check_stale           # Find stale output files
-rake check_internal_links  # Validate internal links
-rake check_ssl             # Verify rvm.io SSL certificate expiry
+# Serve production build locally
+npm run serve    # Serves build/ at http://localhost:3000
 ```
 
-Requires Ruby 3.4.5 (see `.ruby-version`). Uses RVM gemset `rvm-site`.
+Requires Node.js >= 18.
 
 ## Git Conventions
 
-Use [Conventional Commits](https://www.conventionalcommits.org/) for commit messages (e.g. `docs:`, `fix:`, `chore:`, `feat:`).
+- Use [Conventional Commits](https://www.conventionalcommits.org/) for commit messages **and PR titles** (e.g. `docs:`, `fix:`, `chore:`, `feat:`).
+- When moving or renaming files, always use `git mv` to preserve file history. Apply content changes in a separate commit from the move.
 
 ## Architecture
 
-### Build Pipeline (Nanoc)
+### Docusaurus Configuration
 
-The `Rules` file defines compilation and routing:
-- **Markdown** (`.md`): processed through `rdiscount` → `auto_ids` → `pre_code` filters, then wrapped in `default` layout
-- **HAML** (`.haml`): processed through `haml` filter, then wrapped in `default` layout
-- **Blog posts** (`content/blog/YYYY-MM-DD-slug.md`): use `blog` layout, routed to `/blog/YYYY/MM/slug/`
-- **SCSS** (`content/assets/css/`): compiled via Compass/Sass, partials (prefixed `_`) are excluded from output
-- **Static assets**: images and JS copied as-is
+- `docusaurus.config.ts` — main site configuration (URL, navbar, footer, plugins, Algolia search)
+- `sidebars.ts` — sidebar navigation structure matching the doc categories
+- `src/pages/index.tsx` — custom homepage
+- `src/css/custom.css` — theme color overrides (Ruby red)
 
-### Custom Filters (`lib/code_filter.rb`)
+### Content Structure
 
-- `PreCodeFilter` (`:pre_code`): transforms `<pre><code>` blocks into styled `<pre class="code">` elements
-- `AutoIdsFilter` (`:auto_ids`): auto-generates anchor links for h1/h2/h3 headings
+- `docs/` — documentation pages organized by category (rvm, rubies, gemsets, workflow, integration, deployment, etc.)
+- `blog/` — blog posts named `YYYY-MM-DD-slug.md` with front matter (`title`, `date`, `authors`, `tags`, `slug`)
+- `blog/authors.yml` — blog author definitions
+- `static/` — static assets (images, favicon, GPG keys, robots.txt)
 
-### Auto-Generated Pages (`lib/auto.rb`)
+### Key Settings
 
-During preprocessing, `AutoHelper` scans all items for `tags` and `author` metadata, then generates tag/author listing pages and Atom feeds from templates in `layouts/templates/`.
-
-### Key Directories
-
-- `content/` — all site content (markdown docs, blog posts, assets)
-- `content/blog/` — blog posts, named `YYYY-MM-DD-slug.md` with YAML front matter (`title`, `author`, `author_full`, `tags`, `created_at`)
-- `layouts/` — HAML templates; `default.haml` is the main layout, `blog.haml` for posts
-- `layouts/shared/` — partials (header, footer, navigation menus)
-- `layouts/templates/` — ERB templates for auto-generated tag/author pages and feeds
-- `lib/` — Ruby helpers and custom Nanoc filters
-- `lib/tasks/` — Rake tasks loaded by `Rakefile`
-- `public/` — compiled output (gitignored)
-
-### Content Front Matter
-
-Documentation pages use YAML front matter. Blog posts require: `title`, `author`, `author_full`, `tags` (array), `created_at` (date string).
-
-### Helpers (`lib/`)
-
-- `blog.rb` — blog listing, sorting, tag/author filtering
-- `code_helper.rb` — code block rendering and menu generation
-- `breadcrumbs_helper.rb` — breadcrumb navigation
-- `helpers.rb` — standard Nanoc3 helper includes
+- Docs are served at root (`routeBasePath: '/'`) to match the original URL structure
+- Markdown format is set to `md` (not MDX) via `markdown: { format: 'md' }` to avoid JSX parsing issues with HTML content
+- Algolia DocSearch is configured for site search

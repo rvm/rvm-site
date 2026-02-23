@@ -68,7 +68,7 @@ The default interpreter is 'ruby'. The default versions for each ruby interprete
 
 * Ruby Gems for all installed ruby interpreters and versions are stored completely separate.
 * Gems are located in ~/.rvm/gems/$ruby_string.
-* Gems can be additionally separated using [Gem Sets](/gemsets/).
+* Gems can be additionally separated using [Gem Sets](/gemsets/basics).
 * A gem directory using gemsets is of the form:  ~/.rvm/gems/$ruby_string@gemset_name
 
 ##Where is everything installed to ?

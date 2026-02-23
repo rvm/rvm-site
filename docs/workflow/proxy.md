@@ -2,61 +2,49 @@
 title: Installing rubies behind a proxy.
 ---
 
-.breadcrumbs
-  %a{ :href => "/" }
-    Documentation
-  &nbsp;>&nbsp;
-  %a{ :href => "/workflow/" }
-    Workflow
-  &nbsp;>&nbsp;
-  %a{ :href => "/workflow/rvmrc/" }
-    proxy
-  %hr
+# Installing RVM behind a proxy
 
-%h1
-  Installing RVM behind a proxy
-%h2
-  Export your shell environment for http proxy use
-%p
-  export http_proxy="http://hostname:port" or save it to your shell profile. (i.e. ~/.bash_rc)
-%pre.code
-  export http_proxy="http://example.proxy_name.com:80"
-%p
-  For multi-user installs, use sudo -E to preserve the proxy settings in your environment:
-%pre.code
-  curl -sSL https://get.rvm.io | sudo -E bash -s stable
+## Export your shell environment for http proxy use
 
-%h2
-  Setting git to use a proxy
-%p
-  Set your git tool to use the environment proxy inside you ~/.gitconfig
-%pre.code
-  :preserve
-    [http]
-      proxy = %http_proxy%
+export http_proxy=`"http://hostname:port"` or save it to your shell profile. (i.e. ~/.bash_rc)
 
-%h1
-  Using RVM behind a proxy
-%p
-  There are a few ways to use RVM from behind a proxy.
+```
+export http_proxy="http://example.proxy_name.com:80"
+```
 
-%h2
-  \--proxy
-%p
-  You can pass the proxy sever to use directly to RVM:
-%pre.code
-  :preserve
-    rvm install X --proxy $domain_or_ip:$port
-%h2
-  Using CURL
-%p
-  Set the proxy inside your ~/.curlrc:
-%pre.code
-  :preserve
-    proxy = example.proxy_name.com:80
+For multi-user installs, use sudo -E to preserve the proxy settings in your environment:
 
+```
+curl -sSL https://get.rvm.io | sudo -E bash -s stable
+```
 
-%h1
-  Community Resources
-%ul
-  %li
+## Setting git to use a proxy
+
+Set your git tool to use the environment proxy inside you ~/.gitconfig
+
+```
+[http]
+  proxy = %http_proxy%
+```
+
+# Using RVM behind a proxy
+
+There are a few ways to use RVM from behind a proxy.
+
+## --proxy
+
+You can pass the proxy sever to use directly to RVM:
+
+```
+rvm install X --proxy $domain_or_ip:$port
+```
+
+## Using CURL
+
+Set the proxy inside your ~/.curlrc:
+
+```
+proxy = example.proxy_name.com:80
+```
+
+# Community Resources
