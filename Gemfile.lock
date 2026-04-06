@@ -120,7 +120,7 @@ GEM
     rb-inotify (0.11.1)
       ffi (~> 1.0)
     rbtree (0.4.6)
-    rdiscount (2.2.7.3)
+    rdiscount (2.2.7.4)
     reline (0.6.2)
       io-console (~> 0.5)
     sass (3.7.4)
