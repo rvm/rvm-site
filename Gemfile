@@ -1,22 +1,20 @@
 source "https://rubygems.org"
 
-gem "chunky_png"
-gem "compass"
-gem "adsf"
-gem "pry"
-gem "cri"
-gem "fssm"
-gem "haml"
-gem "rack"
-gem "sass"
-gem "typhoeus"
-gem "nokogiri"
-gem "rdiscount"
-gem "mime-types"
-gem "builder"
-gem "nanoc", "~> 3.8.0"
+gem "nanoc", "~> 4.14"
+gem "haml", "~> 6.3"
+gem "rdiscount", "~> 2.2"
+gem "nokogiri", "~> 1.18"
+gem "builder", "~> 3.3"
+gem "adsf", "~> 1.5"
+gem "webrick", "~> 1.9"
 
 group :development, :test do
   gem "rake"
-  gem "guard-nanoc"
+  gem "adsf-live"
+  gem "pry"
+end
+
+# Nanoc loads gems in this group as plugins (adds the `nanoc live` command).
+group :nanoc do
+  gem "nanoc-live"
 end

@@ -1,0 +1,13 @@
+string_pattern_type: legacy
+output_dir: public
+base_url: https://rvm.io
+
+data_sources:
+  - type: filesystem
+    identifier_type: legacy
+    items_root: /
+    layouts_root: /
+
+checks:
+  internal_links:
+    exclude: []

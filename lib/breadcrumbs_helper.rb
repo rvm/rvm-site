@@ -1,7 +1,7 @@
 module BreadcrumbsHelper
 
   def breadcrumbs(*names)
-    path = @item.identifier
+    path = @item.identifier.to_s
     names.unshift "Documentation"
     parts = path.split("/")
     html = []
@@ -16,5 +16,5 @@ module BreadcrumbsHelper
   end
 
 end
-include Nanoc3::Helpers::LinkTo
-include BreadcrumbsHelper
+use_helper Nanoc::Helpers::LinkTo
+use_helper BreadcrumbsHelper

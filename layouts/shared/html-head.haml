@@ -1,10 +1,14 @@
 %head
+  %meta{ charset: "utf-8" }
+  %meta{ name: "viewport", content: "width=device-width, initial-scale=1" }
   %title
-    RVM: Ruby Version Manager -
-    = @item[:title]
-  %link{ :href => "/css/screen.css", :rel => "stylesheet", :type => "text/css", :media => "screen" }
-  %link{ :href => "https://cdn.jsdelivr.net/npm/docsearch.js@2/dist/cdn/docsearch.min.css", :rel => "stylesheet", :type => "text/css" }
-  %link{ :href => "/css/algolia-docsearch.css", :rel => "stylesheet", :type => "text/css" }
-  %meta{ :content => "text/html; charset=UTF-8", "http-equiv" => "Content-Type" }
-  %meta{ :name => "google-site-verification", :content => "w2V78a6cwiHD5Gm8yvlTP21xZ1YgVguDdC0JGDEA2d0" }
+    = [@item[:title], "RVM: Ruby Version Manager"].compact.uniq.join(" | ")
+  %meta{ name: "description", content: @item[:description] || "RVM is a command-line tool which allows you to easily install, manage, and work with multiple ruby environments from interpreters to sets of gems." }
+  %meta{ name: "google-site-verification", content: "w2V78a6cwiHD5Gm8yvlTP21xZ1YgVguDdC0JGDEA2d0" }
+  %link{ rel: "icon", href: "/favicon.ico" }
+  %link{ rel: "preconnect", href: "https://fonts.googleapis.com" }
+  %link{ rel: "preconnect", href: "https://fonts.gstatic.com", crossorigin: "" }
+  %link{ rel: "stylesheet", href: "https://fonts.googleapis.com/css2?family=Familjen+Grotesk:wght@500;600&family=IBM+Plex+Sans:wght@400;500;600&family=JetBrains+Mono:wght@400;500&display=swap" }
+  %link{ rel: "stylesheet", href: "https://cdn.jsdelivr.net/npm/docsearch.js@2/dist/cdn/docsearch.min.css" }
+  %link{ rel: "stylesheet", href: "/css/screen.css" }
   = add_feed_link

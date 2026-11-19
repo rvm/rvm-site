@@ -13,19 +13,19 @@ module CodeHelper
   def items_for(path, options)
     @items.select { |item|
       (! item[:menu_ignore] || options[:show_ignored] )  &&
-      Regexp.new("^#{path}.+").match(item.path || item.identifier)
+      Regexp.new("^#{path}.+").match(item.path || item.identifier.to_s)
     }.sort_by{ |item|
-      (item.path || item.identifier)
+      (item.path || item.identifier.to_s)
     }
   end
 
   def link_in_menu(item)
     if
-      item.attributes[:menu_title]
+      item[:menu_title]
     then
-      name = item.attributes[:menu_title]
+      name = item[:menu_title]
     else
-      name = (item.path || item.identifier).split("/").last
+      name = (item.path || item.identifier.to_s).split("/").last
       name = name.gsub(/-/, " ").gsub(/\w+/) { |w| w.capitalize }
     end
     link_to(name, item)
@@ -47,5 +47,5 @@ module CodeHelper
 
 end
 
-include Nanoc3::Helpers::HTMLEscape
-include CodeHelper
+use_helper Nanoc::Helpers::HTMLEscape
+use_helper CodeHelper

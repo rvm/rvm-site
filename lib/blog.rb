@@ -1,4 +1,4 @@
-class RvmIssuesFilter < Nanoc3::Filter
+class RvmIssuesFilter < Nanoc::Filter
   identifier :rvm_issues
   type :text
   def run(content, params={})
@@ -19,7 +19,7 @@ module BlogHelper
     options_with = Array(options[:with])
     link_name = []
     link_name << get_pretty_date(post) if options_with.include?(:date)
-    link_name << post.attributes[:title]
+    link_name << post[:title]
     link_to("#{link_name.join(" - ")}", post)
   end
 
@@ -41,14 +41,19 @@ module BlogHelper
   end
 
   def get_tag_links(post)
-    "tags: #{post[:tags].map { |tag| get_tag_link(tag) }.join(", ")}"
+    "Tagged #{post[:tags].map { |tag| get_tag_link(tag) }.join(", ")}"
   end
 
   def get_post_meta(post)
     meta = []
-    meta << "Posted at #{get_pretty_date(post)}" if post[:created_at]
-    meta << "by #{get_author_link(post)}" if post[:author]
-    meta << get_tag_links(post) if post[:tags] && !post[:tags].empty?
+    posted = []
+    if post[:created_at]
+      time = attribute_to_time(post[:created_at])
+      posted << %(Posted <time datetime="#{time.strftime('%F')}">#{get_pretty_date(post)}</time>)
+    end
+    posted << "by #{get_author_link(post)}" if post[:author]
+    meta << "<span>#{posted.join(' ')}</span>" unless posted.empty?
+    meta << %(<span class="post__tags">#{get_tag_links(post)}</span>) if post[:tags] && !post[:tags].empty?
     meta.join(" ")
   end
 
@@ -66,11 +71,11 @@ module BlogHelper
   end
 
   def add_feed_link
-    file1 = File.exist?("#{Dir.pwd}/content#{@item.identifier}feed.haml")
-    file2 = File.exist?("#{Dir.pwd}/content#{@item.identifier.sub(/\/$/,"_")}feed.haml")
+    file1 = File.exist?("#{Dir.pwd}/content#{@item.identifier.to_s}feed.haml")
+    file2 = File.exist?("#{Dir.pwd}/content#{@item.identifier.to_s.sub(/\/$/,"_")}feed.haml")
     "<link href=\"#{feed_url}feed.xml\" rel=\"alternate\" title=\"#{@item.identifier} atom feed\" type=\"application/atom+xml\">" if file1 || file2
   end
 
 end
 
-include BlogHelper
+use_helper BlogHelper
