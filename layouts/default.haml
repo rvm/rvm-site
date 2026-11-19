@@ -1,21 +1,13 @@
-!!!
-%html
-
-  =render "shared/html-head"
-
+!!! 5
+%html{ lang: "en" }
+  = render "/shared/html-head/"
   %body
-
-    #heaven
-
-    #container
-
-      =render "shared/header"
-
-      #content
-        %a{ :id => "top" }
-        =yield
-        %a{ :id => "bottom" }
-
-      =render "shared/doc_menu"
-
-    =render "shared/footer"
+    = render "/shared/header/"
+    .container.docs
+      - if @item.path.to_s.start_with?("/blog/")
+        = render "/shared/blog_menu/"
+      - else
+        = render "/shared/doc_menu/"
+      %main#main.docs__main.prose
+        = yield
+    = render "/shared/footer/"

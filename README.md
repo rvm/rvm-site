@@ -1,4 +1,4 @@
-# RVM site  and documentation
+# RVM site and documentation
 
 You can see the documentation live online at <https://rvm.io>.
 
@@ -16,34 +16,32 @@ forking the repository and cloning the fork.
 
 ### Requirements
 
-This site requires a few gems that can be found in `Gemfile`, including:
-
-- [MIME::Types](https://github.com/halostatue/mime-types#readme)
-- [Compass](http://compass-style.org/)
-- [Nanoc](https://nanoc.ws/)
-- [Rack](https://rack.github.io/)
-- [Haml](http://haml.info/) ([Sass](http://sass-lang.com/) is bundled with this Gem)
+- Ruby (see `.ruby-version`)
+- [Nanoc 4](https://nanoc.app/) and the other gems in `Gemfile`
 
 To install requirements run
 
     bundle install
 
-### Run 
+### Run
 
-If you would like to view the changes locally as you hack, use nanoc-guard:
+Compile on every change and serve the site with live reload:
 
-    # in window/tab 1
-    guard
-    # in window/tab 2
-    nanoc view
-    
+    bundle exec nanoc live
+
 And then open http://localhost:3000
-
-It's required to reload page after changing code.
 
 Validating site links integrity with Nanoc:
 
-    rake test
+    bundle exec rake test
+
+## Styles
+
+The stylesheet is plain CSS, no preprocessor:
+
+- `content/assets/css/tokens.css` holds every colour, font and spacing value
+- `content/assets/css/base.css` holds the element defaults
+- `content/assets/css/screen.css` holds the layout and components
 
 ## Thanks
 

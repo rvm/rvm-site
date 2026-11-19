@@ -1,93 +1,54 @@
+require 'erb'
 require 'pathname'
 
+# Generates tag and author listing pages (plus their Atom feeds) for every tag
+# and author found in the content. Pages are written to content/ once and are
+# then tracked in git like any other page; existing files are never touched.
 class AutoHelper
-  attr_reader :root, :site, :tags, :authors
+  attr_reader :root, :items, :layouts, :tags, :authors
 
-  def initialize(root, site)
+  def initialize(root, items, layouts)
     @root = Pathname(root)
-    @site = site
+    @items = items
+    @layouts = layouts
     @tags = []
     @authors = {}
   end
 
-  def parse_tags(item)
-    item.attributes[:tags].each { |tag| @tags << tag unless @tags.include?(tag) }
-  end
-
-  def parse_author(item)
-    authors[item.attributes[:author]] = item.attributes[:author_full]
-  end
-
-  def parse_site
-    site.items.each do |item|
-      parse_tags  (item) if item.attributes[:tags]
-      parse_author(item) if item.attributes[:author]
-    end
-  end
-
-  def write_file(file, content)
-    file.open('w') { |file| file.write(content) }
-  end
-
-  def render_layout(layout_name, mapping = {})
-    layout = @site.layouts.find { |l| l.identifier == layout_name.cleaned_identifier }
-    filter = Nanoc::Filter.named('erb').new(mapping)
-    filter.run(layout.raw_content)
-  end
-
-  def create_tag_page(tag_page, tag)
-    write_file(tag_page, render_layout("templates/tag_page", tag: tag))
-  end
-
-  def create_tag_feed(feed_page, tag)
-    write_file(feed_page, render_layout("templates/feed", type: 'tag', filter: tag))
-  end
-
-  def ensure_tag_page(tags_dir, tag)
-    tag_page  = tags_dir + "#{tag}.haml"
-    feed_page = tags_dir + "#{tag}_feed.haml"
-
-    create_tag_page(tag_page, tag)  unless tag_page.exist?
-    create_tag_feed(feed_page, tag) unless feed_page.exist?
-  end
-
-  def ensure_tag_pages
-    tags_dir  = root + 'content' + 'tags'
-    tags_dir.mkpath
-
-    tags.each do |tag|
-      ensure_tag_page(tags_dir, tag)
-    end
-  end
-
-  def create_author_page(author_page, author, author_full)
-    write_file(author_page, render_layout("templates/author_page", author: author, author_full: author_full))
-  end
-
-  def create_author_feed(feed_page,   author, author_full)
-    write_file(feed_page, render_layout("templates/feed", type: 'author', filter: author))
-  end
-
-  def ensure_author_page(authors_dir, author, author_full)
-    author_page = authors_dir + "#{author}.haml"
-    feed_page   = authors_dir + "#{author}_feed.haml"
-
-    create_author_page(author_page, author, author_full) unless author_page.exist?
-    create_author_feed(feed_page,   author, author_full) unless feed_page.exist?
-  end
-
-  def ensure_author_pages
-    authors_dir  = root + 'content' + 'authors'
-    authors_dir.mkpath
-
-    authors.each_pair do |author, author_full|
-      ensure_author_page(authors_dir, author, author_full)
-    end
-  end
-
   def auto
-    parse_site
-    ensure_tag_pages
-    ensure_author_pages
+    parse_items
+    ensure_pages('tags', tags.map { |tag| [tag, { tag: tag }] }, 'tag_page', 'tag')
+    ensure_pages(
+      'authors',
+      authors.map { |author, full| [author, { author: author, author_full: full }] },
+      'author_page',
+      'author'
+    )
+  end
+
+  private
+
+  def parse_items
+    items.each do |item|
+      Array(item[:tags]).each { |tag| @tags << tag unless @tags.include?(tag) }
+      @authors[item[:author]] = item[:author_full] if item[:author]
+    end
+  end
+
+  def ensure_pages(dir_name, entries, page_template, feed_type)
+    dir = root + 'content' + dir_name
+    dir.mkpath
+
+    entries.each do |name, vars|
+      page = dir + "#{name}.haml"
+      feed = dir + "#{name}_feed.haml"
+      page.write(render_template(page_template, vars)) unless page.exist?
+      feed.write(render_template('feed', type: feed_type, filter: name)) unless feed.exist?
+    end
+  end
+
+  def render_template(name, vars)
+    layout = layouts["/templates/#{name}/"]
+    ERB.new(layout.raw_content).result_with_hash(vars)
   end
 end

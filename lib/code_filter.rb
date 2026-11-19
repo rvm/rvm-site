@@ -1,6 +1,6 @@
-require 'nanoc3'
 
-class PreCodeFilter < Nanoc3::Filter
+
+class PreCodeFilter < Nanoc::Filter
   identifier :pre_code
   type :text
   def run(content, params={})
@@ -11,7 +11,7 @@ class PreCodeFilter < Nanoc3::Filter
   end
 end
 
-class AutoIdsFilter < Nanoc3::Filter
+class AutoIdsFilter < Nanoc::Filter
   identifier :auto_ids
   type :text
   def run(content, params={})
